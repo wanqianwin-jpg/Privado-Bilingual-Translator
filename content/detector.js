@@ -16,7 +16,7 @@ const AD_KEYWORDS = [
 const MIN_TEXT_LENGTH = 20
 
 function hasBlacklistedAncestor(el) {
-  let node = el.parentElement
+  let node = el
   while (node) {
     if (ANCESTOR_BLACKLIST.has(node.tagName)) return true
     const role = node.getAttribute('role')
@@ -29,8 +29,8 @@ function hasBlacklistedAncestor(el) {
 function hasAdSignal(el) {
   let node = el
   while (node) {
-    const cls = (node.className || '').toLowerCase()
-    const id = (node.id || '').toLowerCase()
+    const cls = (typeof node.className === 'string' ? node.className : '').toLowerCase()
+    const id = (typeof node.id === 'string' ? node.id : '').toLowerCase()
     if (AD_KEYWORDS.some(kw => cls.includes(kw) || id.includes(kw))) return true
     node = node.parentElement
   }
@@ -47,9 +47,8 @@ function shouldTranslate(el) {
 }
 
 function getTranslatableElements(root = document.body) {
-  const candidates = root.querySelectorAll(
-    'p, h1, h2, h3, h4, h5, h6, blockquote, figcaption, li, td, th'
-  )
+  const selector = Array.from(TARGET_TAGS).map(t => t.toLowerCase()).join(', ')
+  const candidates = root.querySelectorAll(selector)
   return Array.from(candidates).filter(shouldTranslate)
 }
 
