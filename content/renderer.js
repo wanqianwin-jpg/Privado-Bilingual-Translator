@@ -16,6 +16,7 @@ function removeTranslation(el) {
 }
 
 function setDisplayMode(mode) {
+  if (!MODES.includes(mode)) return
   MODES.forEach(m => document.body.classList.remove(`bt-mode-${m}`))
   document.body.classList.add(`bt-mode-${mode}`)
 }
