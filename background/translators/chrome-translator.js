@@ -1,7 +1,11 @@
 async function isAvailable(fromLang, toLang) {
   if (typeof translation === 'undefined') return false
-  const result = await translation.canTranslate({ sourceLanguage: fromLang, targetLanguage: toLang })
-  return result === 'readily' || result === 'after-download'
+  try {
+    const result = await translation.canTranslate({ sourceLanguage: fromLang, targetLanguage: toLang })
+    return result === 'readily'  // 'after-download' falls back to Google
+  } catch {
+    return false
+  }
 }
 
 async function translate(texts, fromLang, toLang) {
@@ -12,6 +16,6 @@ async function translate(texts, fromLang, toLang) {
   return Promise.all(texts.map(text => translator.translate(text)))
 }
 
-if (typeof module !== 'undefined') {
-  module.exports = { isAvailable, translate }
-}
+const ChromeTranslator = { isAvailable, translate }
+if (typeof self !== 'undefined' && typeof module === 'undefined') self.ChromeTranslator = ChromeTranslator
+if (typeof module !== 'undefined') module.exports = ChromeTranslator

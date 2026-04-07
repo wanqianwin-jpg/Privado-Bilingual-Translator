@@ -1,21 +1,24 @@
 async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
-  // API Key user path — completely separate, no Chrome Translator API
   if (userApiConfig?.key && userApiConfig?.provider) {
-    const { translate } = require('./user-api-translator.js')
-    return translate(texts, fromLang, toLang, userApiConfig)
+    const userApi = (typeof UserApiTranslator !== 'undefined')
+      ? UserApiTranslator
+      : require('./user-api-translator.js')
+    return userApi.translate(texts, fromLang, toLang, userApiConfig)
   }
 
-  // Free user path
-  const chromeTranslator = require('./chrome-translator.js')
-  if (await chromeTranslator.isAvailable(fromLang, toLang)) {
-    return chromeTranslator.translate(texts, fromLang, toLang)
+  const chromeApi = (typeof ChromeTranslator !== 'undefined')
+    ? ChromeTranslator
+    : require('./chrome-translator.js')
+  if (await chromeApi.isAvailable(fromLang, toLang)) {
+    return chromeApi.translate(texts, fromLang, toLang)
   }
 
-  // Fallback
-  const googleTranslator = require('./google-translator.js')
-  return googleTranslator.translate(texts, fromLang, toLang)
+  const googleApi = (typeof GoogleTranslator !== 'undefined')
+    ? GoogleTranslator
+    : require('./google-translator.js')
+  return googleApi.translate(texts, fromLang, toLang)
 }
 
-if (typeof module !== 'undefined') {
-  module.exports = { translateTexts }
-}
+const TranslateIndex = { translateTexts }
+if (typeof self !== 'undefined' && typeof module === 'undefined') self.translateTexts = translateTexts
+if (typeof module !== 'undefined') module.exports = TranslateIndex

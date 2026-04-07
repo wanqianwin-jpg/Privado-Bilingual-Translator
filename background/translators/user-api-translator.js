@@ -7,8 +7,19 @@ async function translate(texts, fromLang, toLang, { provider, key }) {
   }
 }
 
+function parseJsonResponse(raw) {
+  // Strip markdown code blocks if present
+  const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
+  const parsed = JSON.parse(cleaned)
+  if (!Array.isArray(parsed)) throw new Error('Expected JSON array from translation API')
+  return parsed
+}
+
 async function translateDeepL(texts, fromLang, toLang, key) {
-  const res = await fetch('https://api-free.deepl.com/v2/translate', {
+  const endpoint = key.endsWith(':fx')
+    ? 'https://api-free.deepl.com/v2/translate'
+    : 'https://api.deepl.com/v2/translate'
+  const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Authorization': `DeepL-Auth-Key ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -36,7 +47,9 @@ async function translateOpenAI(texts, fromLang, toLang, key) {
   })
   if (!res.ok) throw new Error(`OpenAI error: ${res.status}`)
   const json = await res.json()
-  return JSON.parse(json.choices[0].message.content)
+  const parsed = parseJsonResponse(json.choices[0].message.content)
+  if (parsed.length !== texts.length) throw new Error(`Translation count mismatch: expected ${texts.length}, got ${parsed.length}`)
+  return parsed
 }
 
 async function translateGemini(texts, fromLang, toLang, key) {
@@ -50,9 +63,11 @@ async function translateGemini(texts, fromLang, toLang, key) {
   })
   if (!res.ok) throw new Error(`Gemini error: ${res.status}`)
   const json = await res.json()
-  return JSON.parse(json.candidates[0].content.parts[0].text)
+  const parsed = parseJsonResponse(json.candidates[0].content.parts[0].text)
+  if (parsed.length !== texts.length) throw new Error(`Translation count mismatch: expected ${texts.length}, got ${parsed.length}`)
+  return parsed
 }
 
-if (typeof module !== 'undefined') {
-  module.exports = { translate }
-}
+const UserApiTranslator = { translate }
+if (typeof self !== 'undefined' && typeof module === 'undefined') self.UserApiTranslator = UserApiTranslator
+if (typeof module !== 'undefined') module.exports = UserApiTranslator
