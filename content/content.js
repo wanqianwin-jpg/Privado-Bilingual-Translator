@@ -11,14 +11,26 @@
   elements.forEach(el => translateElement(el, targetLang))
 
   // Single-page apps: observe DOM additions
-  const observer = new MutationObserver(() => {
-    const fresh = getTranslatableElements().filter(el => !el.dataset.btTranslated)
-    fresh.forEach(el => translateElement(el, targetLang))
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes) {
+        if (node.nodeType !== Node.ELEMENT_NODE) continue
+        // Check the node itself
+        if (!node.dataset.btTranslated && shouldTranslate(node)) {
+          translateElement(node, targetLang)
+        }
+        // Check descendants
+        const descendants = getTranslatableElements(node)
+        descendants.filter(el => !el.dataset.btTranslated)
+                 .forEach(el => translateElement(el, targetLang))
+      }
+    }
   })
   observer.observe(document.body, { childList: true, subtree: true })
 })()
 
 function translateElement(el, targetLang) {
+  el.dataset.btTranslated = 'pending'
   const text = el.textContent.trim()
   const id = Math.random().toString(36).slice(2)
 
@@ -56,7 +68,7 @@ function showApiErrorToast() {
   btnFree.textContent = '切换免费模式'
   btnFree.style.cssText = 'background:#4285f4;color:#fff;border:none;border-radius:3px;padding:3px 8px;cursor:pointer'
   btnFree.addEventListener('click', async () => {
-    await chrome.storage.local.set({ userApiConfig: {} })
+    await chrome.storage.local.set({ userApiConfig: null })
     location.reload()
   })
 
