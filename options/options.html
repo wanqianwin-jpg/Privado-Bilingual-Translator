@@ -1,1 +1,50 @@
-<!-- options.html - options page placeholder -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>翻译插件设置</title>
+  <style>
+    body { max-width: 480px; margin: 40px auto; font-family: system-ui; font-size: 14px; color: #222; }
+    h2 { font-size: 18px; margin-bottom: 20px; }
+    .section { margin-bottom: 24px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px; }
+    .section h3 { margin: 0 0 12px; font-size: 14px; color: #555; }
+    label { display: block; margin-bottom: 4px; font-weight: 500; }
+    select, input[type="password"] {
+      width: 100%; padding: 7px 10px; box-sizing: border-box;
+      border: 1px solid #ccc; border-radius: 4px; font-size: 13px; margin-bottom: 12px;
+    }
+    .hint { font-size: 11px; color: #888; margin: -8px 0 12px; }
+    .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    button { padding: 8px 20px; background: #4285f4; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
+    .status { margin-top: 10px; font-size: 12px; color: #0a7d0a; min-height: 16px; }
+  </style>
+</head>
+<body>
+  <h2>翻译插件设置</h2>
+
+  <div class="section">
+    <h3>翻译源</h3>
+    <label for="api-provider">API 提供商</label>
+    <select id="api-provider">
+      <option value="">免费模式（Chrome Translator API + Google）</option>
+      <option value="deepl">DeepL（推荐，质量高）</option>
+      <option value="openai">OpenAI（GPT-4o mini）</option>
+      <option value="gemini">Google Gemini</option>
+    </select>
+
+    <label for="api-key">API Key</label>
+    <input type="password" id="api-key" placeholder="粘贴你的 API Key" />
+    <p class="hint">仅存储在本地浏览器，不会上传到任何服务器。</p>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="enable-cache">
+      <label for="enable-cache" style="margin:0;font-weight:normal">启用翻译缓存（加速/省钱，可能复用历史结果）</label>
+    </div>
+  </div>
+
+  <button id="save">保存</button>
+  <div class="status" id="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
