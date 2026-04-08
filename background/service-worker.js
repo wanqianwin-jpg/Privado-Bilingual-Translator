@@ -1,4 +1,4 @@
-importScripts('batch-queue.js', 'cache.js', 'translators/chrome-translator.js',
+importScripts('batch-queue.js', 'cache.js',
   'translators/google-translator.js', 'translators/user-api-translator.js',
   'translators/index.js')
 

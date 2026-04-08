@@ -1,4 +1,5 @@
 async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
+  // API Key user path
   if (userApiConfig?.key && userApiConfig?.provider) {
     const userApi = (typeof UserApiTranslator !== 'undefined')
       ? UserApiTranslator
@@ -6,13 +7,7 @@ async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
     return userApi.translate(texts, fromLang, toLang, userApiConfig)
   }
 
-  const chromeApi = (typeof ChromeTranslator !== 'undefined')
-    ? ChromeTranslator
-    : require('./chrome-translator.js')
-  if (await chromeApi.isAvailable(fromLang, toLang)) {
-    return chromeApi.translate(texts, fromLang, toLang)
-  }
-
+  // Free user fallback — Google only (Chrome API handled in content script)
   const googleApi = (typeof GoogleTranslator !== 'undefined')
     ? GoogleTranslator
     : require('./google-translator.js')

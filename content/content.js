@@ -29,11 +29,24 @@
   observer.observe(document.body, { childList: true, subtree: true })
 })()
 
-function translateElement(el, targetLang) {
+async function translateElement(el, targetLang) {
   el.dataset.btTranslated = 'pending'
   const text = el.textContent.trim()
-  const id = Math.random().toString(36).slice(2)
 
+  // Try Chrome Translator API first (local, no network)
+  try {
+    if (await chromeTranslatorAvailable('auto', targetLang)) {
+      const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)
+      injectTranslation(el, translation)
+      addRetranslateButton(el, (target) => translateElement(target, targetLang))
+      return
+    }
+  } catch {
+    // Chrome API failed — fall through to service worker
+  }
+
+  // Fall back to service worker (Google / user API key)
+  const id = Math.random().toString(36).slice(2)
   chrome.runtime.sendMessage(
     { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
     (response) => {
