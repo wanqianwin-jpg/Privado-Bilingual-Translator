@@ -80,7 +80,9 @@ async function translateElement(el, targetLang, apiEnabled = false) {
         console.log('[Content] Received response:', response, 'lastError:', chrome.runtime.lastError)
         if (chrome.runtime.lastError) return
         if (response?.ok) {
+          console.log('[Content] About to inject translation into:', el, 'textContent:', el.textContent.substring(0, 50))
           injectTranslation(el, response.translation)
+          console.log('[Content] Translation injected, el.innerHTML:', el.innerHTML.substring(0, 200))
           addRetranslateButton(el, (target) => translateElement(target, targetLang, apiEnabled))
         } else if (response?.isApiKeyError) {
           showApiErrorToast()

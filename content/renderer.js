@@ -1,6 +1,7 @@
 const MODES = ['bilingual', 'translation-only', 'original-only']
 
 function injectTranslation(el, translatedText) {
+  console.log('[Renderer] injectTranslation called, el:', el, 'translatedText:', translatedText)
   removeTranslation(el)
 
   // Wrap all existing child nodes in .bt-original span
@@ -18,6 +19,7 @@ function injectTranslation(el, translatedText) {
   el.appendChild(transSpan)
 
   el.dataset.btTranslated = 'true'
+  console.log('[Renderer] injectTranslation done, el.innerHTML:', el.innerHTML.substring(0, 200))
 }
 
 function removeTranslation(el) {
