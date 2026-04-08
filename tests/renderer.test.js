@@ -1,4 +1,4 @@
-const { injectTranslation, removeTranslation, setDisplayMode } = require('../content/renderer.js')
+const { injectTranslation, removeTranslation, setDisplayMode, injectStyles, addRetranslateButton } = require('../content/renderer.js')
 
 describe('injectTranslation', () => {
   beforeEach(() => {
@@ -60,5 +60,70 @@ describe('setDisplayMode', () => {
     setDisplayMode('translation-only')
     expect(document.body.classList.contains('bt-mode-bilingual')).toBe(false)
     expect(document.body.classList.contains('bt-mode-translation-only')).toBe(true)
+  })
+
+  test('无效 mode 不添加任何 class', () => {
+    document.body.className = ''
+    setDisplayMode('invalid-mode')
+    expect(document.body.className).toBe('')
+  })
+})
+
+describe('addRetranslateButton', () => {
+  let el
+
+  beforeEach(() => {
+    document.body.textContent = ''
+    el = document.createElement('p')
+    el.textContent = 'Some text'
+    document.body.appendChild(el)
+  })
+
+  test('添加重翻按钮到元素', () => {
+    addRetranslateButton(el, () => {})
+    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
+    expect(btn).not.toBeUndefined()
+  })
+
+  test('点击按钮调用 onRetranslate 并传入元素', () => {
+    const onRetranslate = jest.fn()
+    addRetranslateButton(el, onRetranslate)
+    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
+    btn.click()
+    expect(onRetranslate).toHaveBeenCalledWith(el)
+  })
+
+  test('重复调用不添加重复按钮', () => {
+    addRetranslateButton(el, () => {})
+    addRetranslateButton(el, () => {})
+    const btns = Array.from(el.children).filter(c => c.classList.contains('bt-retranslate'))
+    expect(btns.length).toBe(1)
+  })
+})
+
+describe('removeTranslation with retranslate button', () => {
+  test('移除重翻按钮', () => {
+    document.body.textContent = ''
+    const el = document.createElement('p')
+    el.textContent = 'Hello'
+    document.body.appendChild(el)
+    injectTranslation(el, '你好')
+    addRetranslateButton(el, () => {})
+    removeTranslation(el)
+    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
+    expect(btn).toBeUndefined()
+  })
+})
+
+describe('injectStyles', () => {
+  test('多次调用只创建一个 style 元素', () => {
+    // Remove any existing bt-styles element first
+    const existing = document.getElementById('bt-styles')
+    if (existing) existing.remove()
+
+    injectStyles()
+    injectStyles()
+    const styleElements = document.querySelectorAll('#bt-styles')
+    expect(styleElements.length).toBe(1)
   })
 })

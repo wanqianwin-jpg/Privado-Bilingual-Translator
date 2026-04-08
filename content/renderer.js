@@ -22,7 +22,7 @@ function injectTranslation(el, translatedText) {
 
 function removeTranslation(el) {
   // Unwrap original content
-  const originalSpan = el.querySelector('.bt-original')
+  const originalSpan = Array.from(el.children).find(c => c.classList.contains('bt-original'))
   if (originalSpan) {
     while (originalSpan.firstChild) {
       el.insertBefore(originalSpan.firstChild, originalSpan)
@@ -30,10 +30,10 @@ function removeTranslation(el) {
     originalSpan.remove()
   }
 
-  const transSpan = el.querySelector('.bt-translation')
+  const transSpan = Array.from(el.children).find(c => c.classList.contains('bt-translation'))
   if (transSpan) transSpan.remove()
 
-  const retranslateBtn = el.querySelector('.bt-retranslate')
+  const retranslateBtn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
   if (retranslateBtn) retranslateBtn.remove()
 
   delete el.dataset.btTranslated
@@ -86,7 +86,7 @@ function addRetranslateButton(el, onRetranslate) {
   btn.textContent = '重翻'
   btn.addEventListener('click', (e) => {
     e.stopPropagation()
-    onRetranslate(el)
+    if (typeof onRetranslate === 'function') onRetranslate(el)
   })
   el.appendChild(btn)
 }
