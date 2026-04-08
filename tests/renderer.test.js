@@ -12,6 +12,10 @@ describe('injectTranslation', () => {
   test('在段落下方注入译文', () => {
     const el = document.getElementById('para')
     injectTranslation(el, '你好世界')
+    // Original content is now in .bt-original
+    const originalSpan = el.querySelector('.bt-original')
+    expect(originalSpan).not.toBeNull()
+    // Translation is still .bt-translation
     const injected = el.querySelector('.bt-translation')
     expect(injected).not.toBeNull()
     expect(injected.textContent).toBe('你好世界')
@@ -24,13 +28,19 @@ describe('injectTranslation', () => {
     const all = el.querySelectorAll('.bt-translation')
     expect(all.length).toBe(1)
     expect(all[0].textContent).toBe('第二次')
+    // Should also have exactly one .bt-original
+    expect(el.querySelectorAll('.bt-original').length).toBe(1)
   })
 
-  test('removeTranslation 移除注入的译文', () => {
+  test('removeTranslation 移除注入的译文并还原原文', () => {
     const el = document.getElementById('para')
+    const originalText = el.textContent
     injectTranslation(el, '你好')
     removeTranslation(el)
     expect(el.querySelector('.bt-translation')).toBeNull()
+    expect(el.querySelector('.bt-original')).toBeNull()
+    // Original text content should be restored
+    expect(el.textContent).toBe(originalText)
   })
 })
 

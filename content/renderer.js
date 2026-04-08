@@ -2,16 +2,40 @@ const MODES = ['bilingual', 'translation-only', 'original-only']
 
 function injectTranslation(el, translatedText) {
   removeTranslation(el)
-  const span = document.createElement('span')
-  span.className = 'bt-translation'
-  span.textContent = translatedText  // textContent only — no XSS risk
-  el.appendChild(span)
+
+  // Wrap all existing child nodes in .bt-original span
+  const originalSpan = document.createElement('span')
+  originalSpan.className = 'bt-original'
+  while (el.firstChild) {
+    originalSpan.appendChild(el.firstChild)
+  }
+  el.appendChild(originalSpan)
+
+  // Append translation
+  const transSpan = document.createElement('span')
+  transSpan.className = 'bt-translation'
+  transSpan.textContent = translatedText  // textContent only — no XSS risk
+  el.appendChild(transSpan)
+
   el.dataset.btTranslated = 'true'
 }
 
 function removeTranslation(el) {
-  const existing = el.querySelector('.bt-translation')
-  if (existing) existing.remove()
+  // Unwrap original content
+  const originalSpan = el.querySelector('.bt-original')
+  if (originalSpan) {
+    while (originalSpan.firstChild) {
+      el.insertBefore(originalSpan.firstChild, originalSpan)
+    }
+    originalSpan.remove()
+  }
+
+  const transSpan = el.querySelector('.bt-translation')
+  if (transSpan) transSpan.remove()
+
+  const retranslateBtn = el.querySelector('.bt-retranslate')
+  if (retranslateBtn) retranslateBtn.remove()
+
   delete el.dataset.btTranslated
 }
 
@@ -49,11 +73,7 @@ function injectStyles() {
     }
     [data-bt-translated]:hover .bt-retranslate { display: block; }
     [data-bt-translated] { position: relative; }
-    .bt-mode-translation-only [data-bt-translated] > :not(.bt-translation):not(.bt-retranslate) {
-      visibility: hidden;
-      height: 0;
-      overflow: hidden;
-    }
+    .bt-mode-translation-only .bt-original { display: none; }
     .bt-mode-original-only .bt-translation { display: none; }
   `
   document.head.appendChild(style)
