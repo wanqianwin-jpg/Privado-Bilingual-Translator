@@ -4,6 +4,7 @@ let lastText = ''
 let debounceTimer = null
 let transLine = null
 let currentObserver = null
+let currentInterval = null
 
 async function init() {
   const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
@@ -16,13 +17,18 @@ function waitForPlayer(targetLang) {
     currentObserver.disconnect()
     currentObserver = null
   }
+  if (currentInterval) {
+    clearInterval(currentInterval)
+    currentInterval = null
+  }
   transLine = null
   lastText = ''
 
-  const interval = setInterval(() => {
+  currentInterval = setInterval(() => {
     const container = document.querySelector('.ytp-caption-window-container')
     if (!container) return
-    clearInterval(interval)
+    clearInterval(currentInterval)
+    currentInterval = null
 
     const observer = new MutationObserver(() => {
       const captionEls = document.querySelectorAll('.ytp-caption-segment')
