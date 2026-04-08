@@ -72,18 +72,22 @@ async function translateElement(el, targetLang, apiEnabled = false) {
 
   // API Key path OR Chrome API unavailable: use service worker
   const id = Math.random().toString(36).slice(2)
-  chrome.runtime.sendMessage(
-    { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
-    (response) => {
-      if (chrome.runtime.lastError) return
-      if (response?.ok) {
-        injectTranslation(el, response.translation)
-        addRetranslateButton(el, (target) => translateElement(target, targetLang, apiEnabled))
-      } else if (response?.isApiKeyError) {
-        showApiErrorToast()
+  try {
+    chrome.runtime.sendMessage(
+      { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
+      (response) => {
+        if (chrome.runtime.lastError) return
+        if (response?.ok) {
+          injectTranslation(el, response.translation)
+          addRetranslateButton(el, (target) => translateElement(target, targetLang, apiEnabled))
+        } else if (response?.isApiKeyError) {
+          showApiErrorToast()
+        }
       }
-    }
-  )
+    )
+  } catch {
+    // Extension context invalidated (e.g. after reload) — silently ignore
+  }
 }
 
 let toastShown = false
