@@ -3,12 +3,12 @@ let paused = false
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === 'BT_GET_STATUS') {
     sendResponse({ paused })
-    return true
+    return
   }
   if (message.type === 'BT_TOGGLE_PAUSE') {
     paused = !paused
     sendResponse({ paused })
-    return true
+    return
   }
 })
 

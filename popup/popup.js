@@ -6,8 +6,9 @@ function renderToggleButton(wrap, paused, tab) {
   btn.textContent = paused ? '翻译本页' : '停止翻译'
   btn.className = 'bt-toggle ' + (paused ? 'bt-start' : 'bt-stop')
   btn.addEventListener('click', () => {
+    btn.disabled = true
     chrome.tabs.sendMessage(tab.id, { type: 'BT_TOGGLE_PAUSE' }, (res) => {
-      if (chrome.runtime.lastError) return
+      if (chrome.runtime.lastError) { btn.disabled = false; return }
       renderToggleButton(wrap, res.paused, tab)
     })
   })
@@ -22,8 +23,15 @@ async function init() {
   // Render pause/resume toggle (per-tab, session only)
   const toggleWrap = document.getElementById('toggle-wrap')
   chrome.tabs.sendMessage(tab.id, { type: 'BT_GET_STATUS' }, (res) => {
-    const paused = chrome.runtime.lastError ? false : (res?.paused ?? false)
-    renderToggleButton(toggleWrap, paused, tab)
+    if (chrome.runtime.lastError || !res) {
+      const label = document.createElement('div')
+      label.className = 'bt-toggle bt-unavailable'
+      label.textContent = '此页面不支持翻译'
+      label.style.cssText = 'color:#999;font-size:13px;text-align:center;padding:10px 0;'
+      toggleWrap.appendChild(label)
+      return
+    }
+    renderToggleButton(toggleWrap, res.paused, tab)
   })
 
   document.getElementById('site').textContent = host
