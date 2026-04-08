@@ -72,10 +72,12 @@ async function translateElement(el, targetLang, apiEnabled = false) {
 
   // API Key path OR Chrome API unavailable: use service worker
   const id = Math.random().toString(36).slice(2)
+  console.log('[Content] Sending TRANSLATE message:', { id, text, fromLang: 'auto', toLang: targetLang })
   try {
     chrome.runtime.sendMessage(
       { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
       (response) => {
+        console.log('[Content] Received response:', response, 'lastError:', chrome.runtime.lastError)
         if (chrome.runtime.lastError) return
         if (response?.ok) {
           injectTranslation(el, response.translation)

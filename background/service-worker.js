@@ -60,18 +60,27 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   if (msg.type !== 'TRANSLATE') return false
 
+  console.log('[SW] Received TRANSLATE message:', msg)
+
   chrome.storage.local.get(['apiEnabled'], ({ apiEnabled = false }) => {
+    console.log('[SW] apiEnabled:', apiEnabled)
     const { text, fromLang, toLang } = msg
     const queue = getQueue(fromLang, toLang)
     queue.add({
       id: msg.id,
       text,
-      onResult: (translation) => sendResponse({ ok: true, translation }),
-      onError: (err) => sendResponse({
-        ok: false,
-        error: err.message,
-        isApiKeyError: !!apiEnabled
-      })
+      onResult: (translation) => {
+        console.log('[SW] Translation result for', text, ':', translation)
+        sendResponse({ ok: true, translation })
+      },
+      onError: (err) => {
+        console.error('[SW] Translation error for', text, ':', err)
+        sendResponse({
+          ok: false,
+          error: err.message,
+          isApiKeyError: !!apiEnabled
+        })
+      }
     })
   })
 

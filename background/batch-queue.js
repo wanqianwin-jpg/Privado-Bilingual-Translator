@@ -7,11 +7,15 @@ function createBatchQueue(translateFn, { intervalMs = 300, maxCount = 8, maxChar
     const batch = pending.splice(0)
     const texts = batch.map(item => item.text)
 
+    console.log('[Queue] Flushing batch:', batch.length, 'items, texts:', texts)
+
     translateFn(texts).then(results => {
+      console.log('[Queue] Translation results:', results)
       batch.forEach((item, i) => {
         if (item.onResult) item.onResult(results[i])
       })
     }).catch(err => {
+      console.error('[Queue] Translation error:', err)
       batch.forEach(item => {
         if (item.onError) item.onError(err)
       })
