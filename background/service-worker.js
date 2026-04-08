@@ -9,8 +9,10 @@ function getQueue(fromLang, toLang) {
   if (!queues.has(key)) {
     const queue = createBatchQueue(
       async (texts) => {
-        const { userApiConfig = null, enableCache = false } = await chrome.storage.local.get(['userApiConfig', 'enableCache'])
-        const source = userApiConfig?.provider || 'free'
+        const { apiEnabled = false, apiProvider = '', apiKey = '', enableCache = false } = await chrome.storage.local.get(['apiEnabled', 'apiProvider', 'apiKey', 'enableCache'])
+        const userApiConfig = apiEnabled && apiKey ? { provider: apiProvider, key: apiKey } : null
+        const source = apiProvider || 'free'
+        const useCache = !apiEnabled || enableCache
 
         // Check cache for each text (always for free users, opt-in for API key users)
         const results = []
@@ -18,7 +20,7 @@ function getQueue(fromLang, toLang) {
         const uncachedTexts = []
 
         for (let i = 0; i < texts.length; i++) {
-          const cached = (enableCache || !userApiConfig?.key)
+          const cached = useCache
             ? await btGetCache(source, texts[i], fromLang, toLang)
             : null
           if (cached !== null) {
@@ -35,7 +37,7 @@ function getQueue(fromLang, toLang) {
             const i = uncachedIndexes[j]
             results[i] = translated[j]
             // Write to cache (always for free users, opt-in for API key users)
-            if (enableCache || !userApiConfig?.key) {
+            if (useCache) {
               btSetCache(source, texts[i], fromLang, toLang, translated[j])
             }
           }
@@ -58,7 +60,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   if (msg.type !== 'TRANSLATE') return false
 
-  chrome.storage.local.get(['userApiConfig'], ({ userApiConfig }) => {
+  chrome.storage.local.get(['apiEnabled'], ({ apiEnabled = false }) => {
     const { text, fromLang, toLang } = msg
     const queue = getQueue(fromLang, toLang)
     queue.add({
@@ -68,7 +70,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       onError: (err) => sendResponse({
         ok: false,
         error: err.message,
-        isApiKeyError: !!(userApiConfig?.key)
+        isApiKeyError: !!apiEnabled
       })
     })
   })
