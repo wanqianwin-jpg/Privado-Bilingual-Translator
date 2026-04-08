@@ -3,30 +3,46 @@
 let lastText = ''
 let debounceTimer = null
 let transLine = null
+let currentObserver = null
 
 async function init() {
   const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
   waitForPlayer(targetLang)
+  window.addEventListener('yt-navigate-finish', () => waitForPlayer(targetLang))
 }
 
 function waitForPlayer(targetLang) {
+  if (currentObserver) {
+    currentObserver.disconnect()
+    currentObserver = null
+  }
+  transLine = null
+  lastText = ''
+
   const interval = setInterval(() => {
     const container = document.querySelector('.ytp-caption-window-container')
     if (!container) return
     clearInterval(interval)
 
     const observer = new MutationObserver(() => {
-      const captionEl = document.querySelector('.ytp-caption-segment')
-      if (!captionEl) return
-
-      const text = captionEl.textContent.trim()
-      if (!text || text === lastText) return
+      const captionEls = document.querySelectorAll('.ytp-caption-segment')
+      if (!captionEls.length) {
+        if (transLine) transLine.textContent = ''
+        return
+      }
+      const text = Array.from(captionEls).map(el => el.textContent.trim()).filter(Boolean).join(' ')
+      if (!text) {
+        if (transLine) transLine.textContent = ''
+        return
+      }
+      if (text === lastText) return
       lastText = text
 
       clearTimeout(debounceTimer)
       debounceTimer = setTimeout(() => translateCaption(text, targetLang, container), 200)
     })
 
+    currentObserver = observer
     observer.observe(container, { childList: true, subtree: true, characterData: true })
   }, 500)
 }
