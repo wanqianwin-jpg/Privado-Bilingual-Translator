@@ -1,5 +1,5 @@
 importScripts('batch-queue.js', 'cache.js',
-  'translators/google-translator.js', 'translators/bing-translator.js',
+  'translators/google-translator.js',
   'translators/user-api-translator.js', 'translators/index.js')
 
 const queues = new Map()

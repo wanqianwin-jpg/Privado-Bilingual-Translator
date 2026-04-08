@@ -7,19 +7,12 @@ async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
     return userApi.translate(texts, fromLang, toLang, userApiConfig)
   }
 
-  // Free path: Google → Bing fallback (Chrome API handled in content script)
+  // Free path: Google (Chrome API handled in content script)
   const googleApi = (typeof GoogleTranslator !== 'undefined')
     ? GoogleTranslator
     : require('./google-translator.js')
-  const bingApi = (typeof BingTranslator !== 'undefined')
-    ? BingTranslator
-    : require('./bing-translator.js')
 
-  try {
-    return await googleApi.translate(texts, fromLang, toLang)
-  } catch (googleErr) {
-    return await bingApi.translate(texts, fromLang, toLang)
-  }
+  return await googleApi.translate(texts, fromLang, toLang)
 }
 
 const TranslateIndex = { translateTexts }
