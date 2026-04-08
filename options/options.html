@@ -13,8 +13,19 @@
       width: 100%; padding: 7px 10px; box-sizing: border-box;
       border: 1px solid #ccc; border-radius: 4px; font-size: 13px; margin-bottom: 12px;
     }
+    select:disabled, input[type="password"]:disabled {
+      background: #f5f5f5; color: #aaa; cursor: not-allowed;
+    }
     .hint { font-size: 11px; color: #888; margin: -8px 0 12px; }
+    .hint-free { font-size: 11px; color: #888; margin: 8px 0 0; }
     .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .toggle-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px; padding: 10px 12px;
+      background: #f0f6ff; border: 1px solid #c0d8ff; border-radius: 6px;
+    }
+    .toggle-row input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
+    .toggle-row label { margin: 0; font-weight: 600; font-size: 13px; cursor: pointer; }
     button { padding: 8px 20px; background: #4285f4; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
     .status { margin-top: 10px; font-size: 12px; color: #0a7d0a; min-height: 16px; }
   </style>
@@ -24,9 +35,15 @@
 
   <div class="section">
     <h3>翻译源</h3>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="api-enabled">
+      <label for="api-enabled">使用 API Key 翻译（付费，按量计费）</label>
+    </div>
+
     <label for="api-provider">API 提供商</label>
     <select id="api-provider">
-      <option value="">免费模式（Chrome Translator API + Google）</option>
+      <option value="">— 请选择 —</option>
       <option value="deepl">DeepL（推荐，质量高）</option>
       <option value="openai">OpenAI（GPT-4o mini）</option>
       <option value="gemini">Google Gemini</option>
@@ -38,8 +55,10 @@
 
     <div class="checkbox-row">
       <input type="checkbox" id="enable-cache">
-      <label for="enable-cache" style="margin:0;font-weight:normal">启用翻译缓存（加速/省钱，可能复用历史结果）</label>
+      <label for="enable-cache" style="margin:0;font-weight:normal">启用翻译缓存（省钱，可能复用历史结果）</label>
     </div>
+
+    <p class="hint-free">关闭时使用免费模式（Chrome 本地翻译 + Google）</p>
   </div>
 
   <button id="save">保存</button>
