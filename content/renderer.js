@@ -96,6 +96,13 @@ function injectStyles() {
     [data-bt-translated]:hover .bt-retranslate { display: block; }
     [data-bt-translated] { position: relative; }
     .bt-mode-translation-only .bt-original { display: none; }
+    .bt-mode-translation-only .bt-translation {
+      border-left: none;
+      padding-left: 0;
+      color: inherit;
+      font-size: inherit;
+      margin-top: 0;
+    }
     .bt-mode-original-only .bt-translation { display: none; }
   `
   document.head.appendChild(style)
