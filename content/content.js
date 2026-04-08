@@ -1,3 +1,15 @@
+// Debug: check which functions are available
+console.log('[Content] Available functions check:')
+console.log('[Content] injectStyles:', typeof injectStyles)
+console.log('[Content] setDisplayMode:', typeof setDisplayMode)
+console.log('[Content] getTranslatableElements:', typeof getTranslatableElements)
+console.log('[Content] shouldTranslate:', typeof shouldTranslate)
+console.log('[Content] injectTranslation:', typeof injectTranslation)
+console.log('[Content] addRetranslateButton:', typeof addRetranslateButton)
+console.log('[Content] chromeTranslatorAvailable:', typeof chromeTranslatorAvailable)
+console.log('[Content] chromeTranslatorTranslate:', typeof chromeTranslatorTranslate)
+console.log('[Content] chromeTranslatorStatus:', typeof chromeTranslatorStatus)
+
 let paused = false
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
