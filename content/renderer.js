@@ -57,6 +57,28 @@ function injectStyles() {
       margin-top: 4px;
       border-left: 3px solid #4285f4;
       padding-left: 8px;
+      animation: bt-fadein 0.3s ease-in;
+    }
+    @keyframes bt-fadein {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    [data-bt-translated="pending"]::after {
+      content: '';
+      display: block;
+      height: 14px;
+      margin-top: 6px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #e8e8e8 25%, #f5f5f5 50%, #e8e8e8 75%);
+      background-size: 200% 100%;
+      animation: bt-shimmer 1.5s infinite;
+      border-left: 3px solid #d0d0d0;
+      padding-left: 8px;
+      box-sizing: border-box;
+    }
+    @keyframes bt-shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
     .bt-retranslate {
       display: none;

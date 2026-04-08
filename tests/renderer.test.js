@@ -126,4 +126,20 @@ describe('injectStyles', () => {
     const styleElements = document.querySelectorAll('#bt-styles')
     expect(styleElements.length).toBe(1)
   })
+
+  test('CSS 包含 bt-shimmer 动画关键帧', () => {
+    const existing = document.getElementById('bt-styles')
+    if (existing) existing.remove()
+    injectStyles()
+    const css = document.getElementById('bt-styles').textContent
+    expect(css).toContain('bt-shimmer')
+  })
+
+  test('CSS 包含 bt-fadein 动画关键帧', () => {
+    const existing = document.getElementById('bt-styles')
+    if (existing) existing.remove()
+    injectStyles()
+    const css = document.getElementById('bt-styles').textContent
+    expect(css).toContain('bt-fadein')
+  })
 })
