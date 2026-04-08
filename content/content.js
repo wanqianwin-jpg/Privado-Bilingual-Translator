@@ -1,4 +1,18 @@
-(async function () {
+let paused = false
+
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (message.type === 'BT_GET_STATUS') {
+    sendResponse({ paused })
+    return true
+  }
+  if (message.type === 'BT_TOGGLE_PAUSE') {
+    paused = !paused
+    sendResponse({ paused })
+    return true
+  }
+})
+
+;(async function () {
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' }
     = await chrome.storage.local.get(['siteSettings', 'displayMode', 'targetLang'])
 
@@ -12,6 +26,7 @@
 
   // Single-page apps: observe DOM additions
   const observer = new MutationObserver((mutations) => {
+    if (paused) return
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
@@ -30,6 +45,7 @@
 })()
 
 async function translateElement(el, targetLang) {
+  if (paused) return
   el.dataset.btTranslated = 'pending'
   const text = el.textContent.trim()
 
