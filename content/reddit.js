@@ -3,7 +3,7 @@
 window.BT_IS_REDDIT = true
 
 let targetLang = 'zh'
-let apiEnabled = false
+let translateMode = 'machine'
 
 // ── Post title translation ────────────────────────────────────────────────────
 // Reads from post-title attribute — works before shadow DOM hydrates and is
@@ -70,7 +70,7 @@ async function translateRedditEl(el) {
   const text = el.textContent.trim() || el.shadowRoot?.textContent?.trim() || ''
   if (!text) { delete el.dataset.btTranslated; return }
 
-  if (!apiEnabled) {
+  if (translateMode === 'privacy') {
     try {
       if (typeof chromeTranslatorAvailable !== 'undefined' && await chromeTranslatorAvailable('auto', targetLang)) {
         const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)
@@ -146,10 +146,10 @@ function initPageTranslation() {
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 
-chrome.storage.local.get(['siteSettings', 'targetLang', 'apiEnabled'], (data) => {
-  const { siteSettings = {}, targetLang: lang = 'zh', apiEnabled: api = false } = data
+chrome.storage.local.get(['siteSettings', 'targetLang', 'translateMode', 'apiEnabled'], (data) => {
+  const { siteSettings = {}, targetLang: lang = 'zh' } = data
   if (siteSettings[location.hostname] === 'never') return
   targetLang = lang
-  apiEnabled = api
+  translateMode = data.translateMode || (data.apiEnabled ? 'api' : 'machine')
   initPageTranslation()
 })

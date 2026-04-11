@@ -1,4 +1,4 @@
-function createFloatBall({ apiMode, onTranslate, initialMode = 'bilingual' }) {
+function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' }) {
   const POS_KEY = 'bt-ball-pos'
   const MODES = ['bilingual', 'translation-only', 'original-only']
   const MODE_LABELS = { bilingual: '双', 'translation-only': '译', 'original-only': '原' }
@@ -47,7 +47,7 @@ function createFloatBall({ apiMode, onTranslate, initialMode = 'bilingual' }) {
   ball.style.right = (saved?.right ?? 20) + 'px'
   ball.style.bottom = (saved?.bottom ?? 80) + 'px'
 
-  let state = apiMode ? 'idle' : 'translating'
+  let state = manualMode ? 'idle' : 'translating'
   let currentMode = initialMode
   let pointerMoved = false
   let dragStart = null

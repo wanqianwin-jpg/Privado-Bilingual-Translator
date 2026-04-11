@@ -5,8 +5,14 @@ importScripts('batch-queue.js', 'cache.js',
 const queues = new Map()
 
 // In-memory config cache — avoids storage.local.get on every batch cycle
-let config = { apiEnabled: false, apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
-chrome.storage.local.get(Object.keys(config), (stored) => { Object.assign(config, stored) })
+let config = { translateMode: 'machine', apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
+chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
+  Object.assign(config, stored)
+  // Migration: old apiEnabled boolean → translateMode enum
+  if (!stored.translateMode && stored.apiEnabled !== undefined) {
+    config.translateMode = stored.apiEnabled ? 'api' : 'machine'
+  }
+})
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return
   for (const [key, { newValue }] of Object.entries(changes)) {
@@ -19,16 +25,16 @@ chrome.storage.onChanged.addListener((changes, area) => {
 function getQueue(fromLang, toLang) {
   const key = `${fromLang}-${toLang}`
   if (!queues.has(key)) {
-    const isApi = config.apiEnabled && config.apiKey
+    const isApi = config.translateMode === 'api' && config.apiKey
     const queueParams = isApi
       ? { intervalMs: 800, maxCount: 25, maxChars: 15000 }
       : { intervalMs: 300, maxCount: 8,  maxChars: 8000  }
     const queue = createBatchQueue(
       async (texts) => {
-        const { apiEnabled, apiProvider, apiKey, apiModel, apiBaseUrl, enableCache } = config
-        const userApiConfig = apiEnabled && apiKey ? { provider: apiProvider, key: apiKey, model: apiModel, baseUrl: apiBaseUrl } : null
+        const { translateMode, apiProvider, apiKey, apiModel, apiBaseUrl, enableCache } = config
+        const userApiConfig = translateMode === 'api' && apiKey ? { provider: apiProvider, key: apiKey, model: apiModel, baseUrl: apiBaseUrl } : null
         const source = apiProvider || 'free'
-        const useCache = !apiEnabled || enableCache
+        const useCache = translateMode !== 'api' || enableCache
 
         // Check cache for each text (always for free users, opt-in for API key users)
         const results = []
@@ -84,7 +90,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     id: msg.id,
     text,
     onResult: (translation) => sendResponse({ ok: true, translation }),
-    onError: (err) => sendResponse({ ok: false, error: err.message, isApiKeyError: !!config.apiEnabled })
+    onError: (err) => sendResponse({ ok: false, error: err.message, isApiKeyError: config.translateMode === 'api' })
   })
 
   return true // async sendResponse

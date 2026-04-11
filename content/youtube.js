@@ -11,7 +11,7 @@ let overlayEl = null
 let paperEl = null
 let playerBtn = null
 let targetLang = 'zh'
-let apiEnabled = false
+let translateMode = 'machine'
 let timeUpdateBound = false
 let videoEl = null
 
@@ -23,9 +23,9 @@ let ytMode = 'bilingual'
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 async function init() {
-  const data = await chrome.storage.local.get(['targetLang', 'apiEnabled'])
+  const data = await chrome.storage.local.get(['targetLang', 'translateMode', 'apiEnabled'])
   targetLang = data.targetLang || 'zh'
-  apiEnabled = !!data.apiEnabled
+  translateMode = data.translateMode || (data.apiEnabled ? 'api' : 'machine')
 
   window.addEventListener('message', onMainWorldMessage)
   window.addEventListener('yt-navigate-finish', onNavigate)
@@ -287,8 +287,8 @@ async function translateYtEl(el) {
   const text = el.textContent.trim() || el.shadowRoot?.textContent?.trim() || ''
   if (!text) { delete el.dataset.btTranslated; return }
 
-  // Chrome Translator API first (local, free) — skip in API mode
-  if (!apiEnabled) {
+  // Chrome Translator API — only in privacy mode
+  if (translateMode === 'privacy') {
     try {
       if (typeof chromeTranslatorAvailable !== 'undefined' && await chromeTranslatorAvailable('auto', targetLang)) {
         const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)

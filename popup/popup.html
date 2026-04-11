@@ -3,43 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    body { width: 220px; padding: 12px; font-family: system-ui; font-size: 13px; margin: 0; color: #222; }
-    h3 { margin: 0 0 12px; font-size: 14px; font-weight: 600; }
-    .row { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
-    select { font-size: 12px; padding: 3px 6px; border: 1px solid #ccc; border-radius: 3px; }
+    body { width: 240px; padding: 12px; font-family: system-ui; font-size: 13px; margin: 0; color: #222; }
+    h3 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
     .site { color: #888; font-size: 11px; margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     hr { border: none; border-top: 1px solid #eee; margin: 10px 0; }
-    a { font-size: 11px; color: #4285f4; text-decoration: none; display: block; margin-top: 8px; }
+    .row { display: flex; justify-content: space-between; align-items: center; margin: 8px 0; }
+    select { font-size: 12px; padding: 3px 6px; border: 1px solid #ccc; border-radius: 3px; }
 
-    /* API toggle row */
-    .api-row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
-    .api-label { font-size: 12px; color: #555; flex-shrink: 0; }
+    /* 三选一分段控件 */
+    .mode-tabs { display: flex; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-bottom: 10px; }
+    .mode-tab { flex: 1; text-align: center; padding: 6px 2px; font-size: 11px; cursor: pointer; color: #555; background: #fff; border: none; transition: background 0.15s, color 0.15s; line-height: 1.2; }
+    .mode-tab:not(:last-child) { border-right: 1px solid #ddd; }
+    .mode-tab.active { background: #4285f4; color: #fff; font-weight: 600; }
+
+    /* 隐私翻译检测面板 */
+    #privacy-panel { margin-bottom: 8px; }
+    .detect-row { display: flex; align-items: center; gap: 8px; }
+    #detect-btn { font-size: 11px; padding: 3px 8px; border: 1px solid #4285f4; color: #4285f4; background: #fff; border-radius: 3px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+    #detect-btn:hover { background: #e8f0fe; }
+    #detect-status { font-size: 11px; color: #888; flex: 1; min-width: 0; }
+
+    /* API Key 面板 */
+    #api-panel { margin-bottom: 8px; }
+    #api-panel a { font-size: 11px; color: #4285f4; text-decoration: none; }
+
+    /* Toggle */
     .switch { position: relative; display: inline-block; width: 34px; height: 20px; flex-shrink: 0; }
     .switch input { opacity: 0; width: 0; height: 0; }
-    .slider-track {
-      position: absolute; inset: 0; background: #ccc; border-radius: 20px; cursor: pointer;
-      transition: background 0.2s;
-    }
-    .slider-track::before {
-      content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px;
-      background: #fff; border-radius: 50%; transition: transform 0.2s;
-    }
+    .slider-track { position: absolute; inset: 0; background: #ccc; border-radius: 20px; cursor: pointer; transition: background 0.2s; }
+    .slider-track::before { content: ''; position: absolute; width: 14px; height: 14px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; }
     .switch input:checked + .slider-track { background: #4285f4; }
     .switch input:checked + .slider-track::before { transform: translateX(14px); }
-    #api-model-display { font-size: 11px; color: #4285f4; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   </style>
 </head>
 <body>
   <h3>双语翻译</h3>
   <div class="site" id="site"></div>
 
-  <div class="api-row">
-    <span class="api-label">付费 API</span>
-    <label class="switch">
-      <input type="checkbox" id="api-toggle">
-      <span class="slider-track"></span>
-    </label>
-    <span id="api-model-display"></span>
+  <div class="mode-tabs">
+    <button class="mode-tab" data-mode="machine">机翻</button>
+    <button class="mode-tab" data-mode="privacy">隐私翻译</button>
+    <button class="mode-tab" data-mode="api">API Key</button>
+  </div>
+
+  <div id="privacy-panel" style="display:none">
+    <div class="detect-row">
+      <button id="detect-btn">检测可用性</button>
+      <span id="detect-status">点击检测本地翻译引擎</span>
+    </div>
+  </div>
+
+  <div id="api-panel" style="display:none">
+    <a id="options-link" href="#">设置 API Key →</a>
   </div>
 
   <hr>
@@ -79,7 +94,6 @@
     </select>
   </div>
 
-  <a id="options-link" href="#">设置 API Key →</a>
   <script src="popup.js"></script>
 </body>
 </html>
