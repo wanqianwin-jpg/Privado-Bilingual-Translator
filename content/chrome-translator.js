@@ -56,6 +56,6 @@ async function snapFocusTranslate(text, toLang) {
   })
   if (!res.ok) throw new Error(`SnapFocus error: ${res.status}`)
   const json = await res.json()
-  if (!json.translation) throw new Error('SnapFocus: empty response')
-  return json.translation
+  if (!json.translated) throw new Error('SnapFocus: empty response')
+  return json.translated
 }
