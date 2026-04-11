@@ -38,7 +38,12 @@ function createBatchQueue(translateFn, { intervalMs = 300, maxCount = 8, maxChar
     scheduleFlush()
   }
 
-  return { add, flush }
+  function destroy() {
+    if (timer) { clearTimeout(timer); timer = null }
+    pending = []
+  }
+
+  return { add, flush, destroy }
 }
 
 if (typeof module !== 'undefined') {

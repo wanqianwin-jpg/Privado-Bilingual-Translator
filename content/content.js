@@ -1,29 +1,3 @@
-// Debug: check which functions are available
-console.log('[Content] Available functions check:')
-console.log('[Content] injectStyles:', typeof injectStyles)
-console.log('[Content] setDisplayMode:', typeof setDisplayMode)
-console.log('[Content] getTranslatableElements:', typeof getTranslatableElements)
-console.log('[Content] shouldTranslate:', typeof shouldTranslate)
-console.log('[Content] injectTranslation:', typeof injectTranslation)
-console.log('[Content] addRetranslateButton:', typeof addRetranslateButton)
-console.log('[Content] chromeTranslatorAvailable:', typeof chromeTranslatorAvailable)
-console.log('[Content] chromeTranslatorTranslate:', typeof chromeTranslatorTranslate)
-console.log('[Content] chromeTranslatorStatus:', typeof chromeTranslatorStatus)
-
-let paused = false
-
-chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-  if (message.type === 'BT_GET_STATUS') {
-    sendResponse({ paused })
-    return
-  }
-  if (message.type === 'BT_TOGGLE_PAUSE') {
-    paused = !paused
-    sendResponse({ paused })
-    return
-  }
-})
-
 ;(async function () {
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh', apiEnabled = false }
     = await chrome.storage.local.get(['siteSettings', 'displayMode', 'targetLang', 'apiEnabled'])
@@ -33,30 +7,91 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   injectStyles()
   setDisplayMode(displayMode)
 
-  // Check Chrome Translator status once for user feedback (free path only)
+  let translationStarted = false
+
+  async function startTranslation() {
+    if (translationStarted) return
+    translationStarted = true
+    ball.setState('translating')
+
+    // LLM path: higher min-length (skip short phrases), viewport-first order
+    const minLength = apiEnabled ? 60 : undefined
+    let elements = getTranslatableElements(document.body, { minLength })
+    if (apiEnabled) elements = sortByViewport(elements)
+
+    let pending = elements.length
+
+    if (pending === 0) {
+      ball.setState('done')
+      return
+    }
+
+    for (const el of elements) {
+      translateElement(el, targetLang, apiEnabled).finally(() => {
+        pending--
+        if (pending === 0) ball.setState('done')
+      })
+    }
+  }
+
+  const ball = createFloatBall({
+    apiMode: apiEnabled,
+    onTranslate: startTranslation,
+    initialMode: displayMode
+  })
+
+  // On YouTube, page translation is handled by youtube.js with site-specific logic.
+  // Expose the ball so youtube.js can drive its state.
+  if (window.BT_IS_YOUTUBE || window.BT_IS_REDDIT) {
+    window.btBall = ball
+    return
+  }
+
   if (!apiEnabled) {
     chromeTranslatorStatus('auto', targetLang).then(status => {
       if (status === 'downloading') showChromeApiToast()
     })
+    startTranslation()
   }
 
-  const elements = getTranslatableElements()
-  elements.forEach(el => translateElement(el, targetLang, apiEnabled))
+  // IntersectionObserver: translate elements when they enter the viewport.
+  // Handles custom elements (e.g. Reddit's shreddit-post) whose shadow DOM
+  // isn't ready yet when MutationObserver fires — by the time they're visible, they're fully rendered.
+  const io = new IntersectionObserver((entries) => {
+    if (!translationStarted) return
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue
+      const node = entry.target
+      io.unobserve(node)
+      if (node.dataset.btTranslated) continue
+      if (shouldTranslate(node)) {
+        translateElement(node, targetLang, apiEnabled)
+      } else {
+        // Container may have been a custom element — try walking its subtree now
+        getTranslatableElements(node)
+          .filter(el => !el.dataset.btTranslated)
+          .forEach(el => translateElement(el, targetLang, apiEnabled))
+      }
+    }
+  }, { rootMargin: '200px 0px' })  // pre-load 200px before entering viewport
 
-  // Single-page apps: observe DOM additions
   const observer = new MutationObserver((mutations) => {
-    if (paused) return
+    if (!translationStarted) return
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
-        // Check the node itself
+        if (node.dataset.btSiblingFor) continue  // skip our own injected translation divs
+        // For known-good elements, translate immediately
         if (!node.dataset.btTranslated && shouldTranslate(node)) {
           translateElement(node, targetLang, apiEnabled)
+          continue
         }
-        // Check descendants
-        const descendants = getTranslatableElements(node)
-        descendants.filter(el => !el.dataset.btTranslated)
-                 .forEach(el => translateElement(el, targetLang, apiEnabled))
+        // For everything else (including custom elements with shadow DOM),
+        // hand off to IntersectionObserver to wait until rendered.
+        // Skip tags that can never have translatable text to keep the IO list lean.
+        if (SKIP_TAGS.has(node.tagName)) continue
+        if (!node.textContent?.trim() && !node.shadowRoot) continue
+        io.observe(node)
       }
     }
   })
@@ -64,46 +99,39 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 })()
 
 async function translateElement(el, targetLang, apiEnabled = false) {
-  if (paused) return
+  if (el.dataset.btTranslated) return
   el.dataset.btTranslated = 'pending'
   const text = el.textContent.trim()
 
-  // Free path: try Chrome Translator API first (local, no network)
   if (!apiEnabled) {
     try {
       if (await chromeTranslatorAvailable('auto', targetLang)) {
         const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)
         injectTranslation(el, translation)
-        addRetranslateButton(el, (target) => translateElement(target, targetLang, apiEnabled))
         return
       }
-    } catch {
-      // Chrome API failed — fall through to service worker
-    }
+    } catch {}
   }
 
-  // API Key path OR Chrome API unavailable: use service worker
-  const id = Math.random().toString(36).slice(2)
-  console.log('[Content] Sending TRANSLATE message:', { id, text, fromLang: 'auto', toLang: targetLang })
-  try {
-    chrome.runtime.sendMessage(
-      { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
-      (response) => {
-        console.log('[Content] Received response:', response, 'lastError:', chrome.runtime.lastError)
-        if (chrome.runtime.lastError) return
-        if (response?.ok) {
-          console.log('[Content] About to inject translation into:', el, 'textContent:', el.textContent.substring(0, 50))
-          injectTranslation(el, response.translation)
-          console.log('[Content] Translation injected, el.innerHTML:', el.innerHTML.substring(0, 200))
-          addRetranslateButton(el, (target) => translateElement(target, targetLang, apiEnabled))
-        } else if (response?.isApiKeyError) {
-          showApiErrorToast()
+  return new Promise((resolve) => {
+    const id = Math.random().toString(36).slice(2)
+    try {
+      chrome.runtime.sendMessage(
+        { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
+        (response) => {
+          if (chrome.runtime.lastError) { resolve(); return }
+          if (response?.ok) {
+            injectTranslation(el, response.translation)
+          } else if (response?.isApiKeyError) {
+            showApiErrorToast()
+          }
+          resolve()
         }
-      }
-    )
-  } catch {
-    // Extension context invalidated (e.g. after reload) — silently ignore
-  }
+      )
+    } catch {
+      resolve()
+    }
+  })
 }
 
 let toastShown = false
@@ -162,4 +190,14 @@ function showChromeApiToast() {
   document.body.appendChild(toast)
 
   setTimeout(() => { toast.remove(); chromeApiToastShown = false }, 5000)
+}
+
+function sortByViewport(els) {
+  function dist(el) {
+    const r = el.getBoundingClientRect()
+    if (r.bottom < 0) return -r.bottom           // above viewport
+    if (r.top > window.innerHeight) return r.top  // below viewport
+    return 0                                       // in viewport
+  }
+  return [...els].sort((a, b) => dist(a) - dist(b))
 }

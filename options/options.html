@@ -9,16 +9,15 @@
     .section { margin-bottom: 24px; padding: 16px; border: 1px solid #e0e0e0; border-radius: 8px; }
     .section h3 { margin: 0 0 12px; font-size: 14px; color: #555; }
     label { display: block; margin-bottom: 4px; font-weight: 500; }
-    select, input[type="password"] {
+    select, input[type="password"], input[type="text"] {
       width: 100%; padding: 7px 10px; box-sizing: border-box;
       border: 1px solid #ccc; border-radius: 4px; font-size: 13px; margin-bottom: 12px;
     }
-    select:disabled, input[type="password"]:disabled {
+    select:disabled, input:disabled {
       background: #f5f5f5; color: #aaa; cursor: not-allowed;
     }
     .hint { font-size: 11px; color: #888; margin: -8px 0 12px; }
-    .hint-free { font-size: 11px; color: #888; margin: 8px 0 0; }
-    .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
     .toggle-row {
       display: flex; align-items: center; gap: 10px;
       margin-bottom: 16px; padding: 10px 12px;
@@ -28,40 +27,49 @@
     .toggle-row label { margin: 0; font-weight: 600; font-size: 13px; cursor: pointer; }
     button { padding: 8px 20px; background: #4285f4; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; }
     .status { margin-top: 10px; font-size: 12px; color: #0a7d0a; min-height: 16px; }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
   <h2>翻译插件设置</h2>
 
-  <div class="section">
-    <h3>翻译源</h3>
+  <div class="section" id="api-section">
+    <h3>API 配置</h3>
 
-    <div class="toggle-row">
-      <input type="checkbox" id="api-enabled">
-      <label for="api-enabled">使用 API Key 翻译（付费，按量计费）</label>
-    </div>
-
-    <label for="api-provider">API 提供商</label>
+    <label for="api-provider">提供商</label>
     <select id="api-provider">
       <option value="">— 请选择 —</option>
-      <option value="deepl">DeepL（推荐，质量高）</option>
-      <option value="openai">OpenAI（GPT-4o mini）</option>
+      <option value="deepl">DeepL</option>
+      <option value="openai">OpenAI (GPT)</option>
       <option value="gemini">Google Gemini</option>
+      <option value="custom">自定义（OpenAI 兼容）</option>
     </select>
 
     <label for="api-key">API Key</label>
     <input type="password" id="api-key" placeholder="粘贴你的 API Key" />
     <p class="hint">仅存储在本地浏览器，不会上传到任何服务器。</p>
 
-    <div class="checkbox-row">
-      <input type="checkbox" id="enable-cache">
-      <label for="enable-cache" style="margin:0;font-weight:normal">启用翻译缓存（省钱，可能复用历史结果）</label>
+    <div id="model-row" class="hidden">
+      <label for="api-model">模型</label>
+      <input type="text" id="api-model" list="model-suggestions" placeholder="选择或输入模型名称" />
+      <datalist id="model-suggestions"></datalist>
     </div>
 
-    <p class="hint-free">关闭时使用免费模式（Chrome 本地翻译 + Google）</p>
+    <div id="baseurl-row" class="hidden">
+      <label for="api-base-url">接入点（Base URL）</label>
+      <input type="text" id="api-base-url" />
+    </div>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="enable-cache">
+      <label for="enable-cache" style="margin:0;font-weight:normal">启用本地缓存（结果仅存于本地设备，节省 API 额度）</label>
+    </div>
   </div>
 
-  <button id="save">保存</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button id="save">保存</button>
+    <button id="test" style="background:#555">测试连接</button>
+  </div>
   <div class="status" id="status"></div>
 
   <script src="options.js"></script>

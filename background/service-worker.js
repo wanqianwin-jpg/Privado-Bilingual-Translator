@@ -4,13 +4,29 @@ importScripts('batch-queue.js', 'cache.js',
 
 const queues = new Map()
 
+// In-memory config cache — avoids storage.local.get on every batch cycle
+let config = { apiEnabled: false, apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
+chrome.storage.local.get(Object.keys(config), (stored) => { Object.assign(config, stored) })
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area !== 'local') return
+  for (const [key, { newValue }] of Object.entries(changes)) {
+    if (key in config) config[key] = newValue
+  }
+  queues.forEach(q => q.destroy())  // cancel pending timers before clearing
+  queues.clear()                     // recreate queues with fresh params on next request
+})
+
 function getQueue(fromLang, toLang) {
   const key = `${fromLang}-${toLang}`
   if (!queues.has(key)) {
+    const isApi = config.apiEnabled && config.apiKey
+    const queueParams = isApi
+      ? { intervalMs: 800, maxCount: 25, maxChars: 15000 }
+      : { intervalMs: 300, maxCount: 8,  maxChars: 8000  }
     const queue = createBatchQueue(
       async (texts) => {
-        const { apiEnabled = false, apiProvider = '', apiKey = '', enableCache = false } = await chrome.storage.local.get(['apiEnabled', 'apiProvider', 'apiKey', 'enableCache'])
-        const userApiConfig = apiEnabled && apiKey ? { provider: apiProvider, key: apiKey } : null
+        const { apiEnabled, apiProvider, apiKey, apiModel, apiBaseUrl, enableCache } = config
+        const userApiConfig = apiEnabled && apiKey ? { provider: apiProvider, key: apiKey, model: apiModel, baseUrl: apiBaseUrl } : null
         const source = apiProvider || 'free'
         const useCache = !apiEnabled || enableCache
 
@@ -45,7 +61,7 @@ function getQueue(fromLang, toLang) {
 
         return results
       },
-      { intervalMs: 300, maxCount: 8, maxChars: 8000 }
+      queueParams
     )
     queues.set(key, queue)
   }
@@ -62,26 +78,13 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   console.log('[SW] Received TRANSLATE message:', msg)
 
-  chrome.storage.local.get(['apiEnabled'], ({ apiEnabled = false }) => {
-    console.log('[SW] apiEnabled:', apiEnabled)
-    const { text, fromLang, toLang } = msg
-    const queue = getQueue(fromLang, toLang)
-    queue.add({
-      id: msg.id,
-      text,
-      onResult: (translation) => {
-        console.log('[SW] Translation result for', text, ':', translation)
-        sendResponse({ ok: true, translation })
-      },
-      onError: (err) => {
-        console.error('[SW] Translation error for', text, ':', err)
-        sendResponse({
-          ok: false,
-          error: err.message,
-          isApiKeyError: !!apiEnabled
-        })
-      }
-    })
+  const { text, fromLang, toLang } = msg
+  const queue = getQueue(fromLang, toLang)
+  queue.add({
+    id: msg.id,
+    text,
+    onResult: (translation) => sendResponse({ ok: true, translation }),
+    onError: (err) => sendResponse({ ok: false, error: err.message, isApiKeyError: !!config.apiEnabled })
   })
 
   return true // async sendResponse
