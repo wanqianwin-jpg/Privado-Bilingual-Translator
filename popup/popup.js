@@ -149,10 +149,13 @@ async function detectChrome(targetLang) {
   if (!('Translator' in self)) { setStatus(el, 'err', '不支持'); return }
   try {
     const r = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
-    if (r === 'available')   setStatus(el, 'ok',   '可用')
-    else if (r === 'downloading') setStatus(el, 'warn', '下载中')
-    else                     setStatus(el, 'err',  '不可用')
-  } catch { setStatus(el, 'err', '检测失败') }
+    if (r === 'downloading') { setStatus(el, 'warn', '下载中'); return }
+    if (r !== 'available')   { setStatus(el, 'err',  '不可用'); return }
+    // availability() 在 popup 上下文不可靠，做一次真实翻译验证
+    const t = await Translator.create({ sourceLanguage: 'en', targetLanguage: targetLang })
+    const result = await t.translate('hello')
+    result ? setStatus(el, 'ok', '可用') : setStatus(el, 'err', '不可用')
+  } catch { setStatus(el, 'err', '不可用') }
 }
 
 async function detectAppleNpu() {
