@@ -16,12 +16,17 @@
     .mode-tab:not(:last-child) { border-right: 1px solid #ddd; }
     .mode-tab.active { background: #4285f4; color: #fff; font-weight: 600; }
 
-    /* 隐私翻译检测面板 */
-    #privacy-panel { margin-bottom: 8px; }
-    .detect-row { display: flex; align-items: center; gap: 8px; }
-    #detect-btn { font-size: 11px; padding: 3px 8px; border: 1px solid #4285f4; color: #4285f4; background: #fff; border-radius: 3px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
-    #detect-btn:hover { background: #e8f0fe; }
-    #detect-status { font-size: 11px; color: #888; flex: 1; min-width: 0; }
+    /* 隐私翻译子选项面板 */
+    #privacy-panel { margin-bottom: 8px; border: 1px solid #eee; border-radius: 5px; overflow: hidden; }
+    .privacy-option { display: flex; align-items: center; gap: 8px; padding: 7px 10px; cursor: pointer; }
+    .privacy-option:not(:last-child) { border-bottom: 1px solid #eee; }
+    .privacy-option:hover { background: #f8f8f8; }
+    .privacy-option input[type="radio"] { margin: 0; flex-shrink: 0; accent-color: #4285f4; }
+    .privacy-option-label { font-size: 12px; flex: 1; }
+    .privacy-status { font-size: 10px; color: #bbb; white-space: nowrap; }
+    .privacy-status.ok { color: #0a7d0a; }
+    .privacy-status.warn { color: #f09d00; }
+    .privacy-status.err { color: #c00; }
 
     /* API Key 面板 */
     #api-panel { margin-bottom: 8px; }
@@ -42,15 +47,21 @@
 
   <div class="mode-tabs">
     <button class="mode-tab" data-mode="machine">机翻</button>
-    <button class="mode-tab" data-mode="privacy">隐私翻译</button>
+    <button class="mode-tab" data-mode-group="privacy">隐私翻译</button>
     <button class="mode-tab" data-mode="api">API Key</button>
   </div>
 
   <div id="privacy-panel" style="display:none">
-    <div class="detect-row">
-      <button id="detect-btn">检测可用性</button>
-      <span id="detect-status">点击检测本地翻译引擎</span>
-    </div>
+    <label class="privacy-option">
+      <input type="radio" name="privacy-engine" value="chrome-local">
+      <span class="privacy-option-label">Chrome 本地模型</span>
+      <span class="privacy-status" id="status-chrome">未检测</span>
+    </label>
+    <label class="privacy-option">
+      <input type="radio" name="privacy-engine" value="apple-npu">
+      <span class="privacy-option-label">Apple NPU</span>
+      <span class="privacy-status" id="status-apple">未检测</span>
+    </label>
   </div>
 
   <div id="api-panel" style="display:none">

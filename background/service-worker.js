@@ -8,8 +8,9 @@ const queues = new Map()
 let config = { translateMode: 'machine', apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
 chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
   Object.assign(config, stored)
-  // Migration: old apiEnabled boolean → translateMode enum
-  if (!stored.translateMode && stored.apiEnabled !== undefined) {
+  // Migration: old apiEnabled / 'privacy' → translateMode
+  if (stored.translateMode === 'privacy') config.translateMode = 'chrome-local'
+  else if (!stored.translateMode && stored.apiEnabled !== undefined) {
     config.translateMode = stored.apiEnabled ? 'api' : 'machine'
   }
 })

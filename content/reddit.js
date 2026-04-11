@@ -70,7 +70,7 @@ async function translateRedditEl(el) {
   const text = el.textContent.trim() || el.shadowRoot?.textContent?.trim() || ''
   if (!text) { delete el.dataset.btTranslated; return }
 
-  if (translateMode === 'privacy') {
+  if (translateMode === 'chrome-local') {
     try {
       if (typeof chromeTranslatorAvailable !== 'undefined' && await chromeTranslatorAvailable('auto', targetLang)) {
         const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)
@@ -150,6 +150,7 @@ chrome.storage.local.get(['siteSettings', 'targetLang', 'translateMode', 'apiEna
   const { siteSettings = {}, targetLang: lang = 'zh' } = data
   if (siteSettings[location.hostname] === 'never') return
   targetLang = lang
-  translateMode = data.translateMode || (data.apiEnabled ? 'api' : 'machine')
+  const raw = data.translateMode === 'privacy' ? 'chrome-local' : data.translateMode
+  translateMode = raw || (data.apiEnabled ? 'api' : 'machine')
   initPageTranslation()
 })

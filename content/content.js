@@ -4,8 +4,9 @@
   ])
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
 
-  // Migration: old apiEnabled → translateMode
-  const translateMode = stored.translateMode || (stored.apiEnabled ? 'api' : 'machine')
+  // Migration: old apiEnabled / 'privacy' → translateMode
+  let translateMode = stored.translateMode === 'privacy' ? 'chrome-local' : stored.translateMode
+  if (!translateMode) translateMode = stored.apiEnabled ? 'api' : 'machine'
 
   if (siteSettings[location.hostname] === 'never') return
 
@@ -19,8 +20,8 @@
     translationStarted = true
     ball.setState('translating')
 
-    // Privacy mode: check engine availability once upfront
-    if (translateMode === 'privacy') {
+    // chrome-local: check Chrome Translator API availability upfront
+    if (translateMode === 'chrome-local') {
       const status = await chromeTranslatorStatus('auto', targetLang)
       if (status === 'unavailable') {
         showPrivacyUnavailableToast()
@@ -31,9 +32,21 @@
       if (status === 'downloading') showChromeApiToast()
     }
 
+    // apple-npu: ping SnapFocus upfront
+    if (translateMode === 'apple-npu') {
+      const alive = await snapFocusPing()
+      if (!alive) {
+        showPrivacyUnavailableToast()
+        ball.setState('idle')
+        translationStarted = false
+        return
+      }
+    }
+
     const minLength = translateMode === 'api' ? 60 : undefined
     let elements = getTranslatableElements(document.body, { minLength })
     if (translateMode === 'api') elements = sortByViewport(elements)
+
 
     let pending = elements.length
     if (pending === 0) { ball.setState('done'); return }
@@ -59,7 +72,7 @@
     return
   }
 
-  // machine and privacy auto-start; api waits for user click
+  // machine / chrome-local / apple-npu auto-start; api waits for user click
   if (translateMode !== 'api') {
     startTranslation()
   }
@@ -106,8 +119,8 @@ async function translateElement(el, targetLang, translateMode) {
   el.dataset.btTranslated = 'pending'
   const text = el.textContent.trim()
 
-  // Privacy mode: Chrome Translator API
-  if (translateMode === 'privacy') {
+  // chrome-local: Chrome Translator API (Gemini Nano)
+  if (translateMode === 'chrome-local') {
     try {
       if (await chromeTranslatorAvailable('auto', targetLang)) {
         const [translation] = await chromeTranslatorTranslate([text], 'auto', targetLang)
@@ -115,8 +128,18 @@ async function translateElement(el, targetLang, translateMode) {
         return
       }
     } catch {}
-    // Chrome API unavailable for this element (model not ready yet) — silent SW fallback
-    // Page-level unavailability is already caught in startTranslation
+    // Model not ready for this element — silent SW fallback
+    // Page-level unavailability already caught in startTranslation
+  }
+
+  // apple-npu: SnapFocus local HTTP
+  if (translateMode === 'apple-npu') {
+    try {
+      const translation = await snapFocusTranslate(text, targetLang)
+      injectTranslation(el, translation)
+      return
+    } catch {}
+    // SnapFocus unavailable for this element — silent SW fallback
   }
 
   // machine and api modes, plus privacy fallback
