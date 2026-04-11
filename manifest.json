@@ -3,7 +3,7 @@
   "name": "Bilingual Translate",
   "version": "0.1.0",
   "description": "Clean bilingual translation. No ads translation, no bloat.",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background/service-worker.js"

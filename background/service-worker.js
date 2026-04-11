@@ -19,9 +19,92 @@ chrome.storage.onChanged.addListener((changes, area) => {
   for (const [key, { newValue }] of Object.entries(changes)) {
     if (key in config) config[key] = newValue
   }
-  queues.forEach(q => q.destroy())  // cancel pending timers before clearing
-  queues.clear()                     // recreate queues with fresh params on next request
+  queues.forEach(q => q.destroy())
+  queues.clear()
 })
+
+// ── Context menus (SnapFocus image OCR) ──────────────────────────────────────
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({ id: 'ocr-only',      title: 'SnapFocus：识别图片文字', contexts: ['image'] })
+  chrome.contextMenus.create({ id: 'ocr-translate', title: 'SnapFocus：识别并翻译',   contexts: ['image'] })
+})
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+  if (!info.srcUrl || !tab?.id) return
+  if (info.menuItemId !== 'ocr-only' && info.menuItemId !== 'ocr-translate') return
+
+  const needTranslate = info.menuItemId === 'ocr-translate'
+
+  // 1. Ping SnapFocus
+  try {
+    const ping = await fetch('http://localhost:57312/ping', { signal: AbortSignal.timeout(1500) })
+    if (!ping.ok) throw new Error()
+  } catch {
+    chrome.tabs.sendMessage(tab.id, { type: 'OCR_ERROR', error: 'snapfocus_offline' }).catch(() => {})
+    return
+  }
+
+  // 2. Fetch image → base64 data URI
+  let dataUri
+  try {
+    dataUri = await fetchImageAsDataUri(info.srcUrl)
+  } catch {
+    chrome.tabs.sendMessage(tab.id, { type: 'OCR_ERROR', error: 'fetch_failed' }).catch(() => {})
+    return
+  }
+
+  // 3. OCR
+  let full
+  try {
+    const res = await fetch('http://localhost:57312/ocr', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: dataUri }),
+      signal: AbortSignal.timeout(12000)
+    })
+    const json = await res.json()
+    full = (json.full || '').trim()
+  } catch {
+    chrome.tabs.sendMessage(tab.id, { type: 'OCR_ERROR', error: 'ocr_failed' }).catch(() => {})
+    return
+  }
+
+  if (!full) {
+    chrome.tabs.sendMessage(tab.id, { type: 'OCR_ERROR', error: 'no_text' }).catch(() => {})
+    return
+  }
+
+  // 4. Translate (optional)
+  let translation = null
+  if (needTranslate) {
+    try {
+      const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+      const { translateMode, apiProvider, apiKey, apiModel, apiBaseUrl } = config
+      const userApiConfig = translateMode === 'api' && apiKey
+        ? { provider: apiProvider, key: apiKey, model: apiModel, baseUrl: apiBaseUrl }
+        : null
+      ;[translation] = await translateTexts([full], 'auto', targetLang, userApiConfig)
+    } catch {}
+  }
+
+  chrome.tabs.sendMessage(tab.id, { type: 'OCR_RESULT', srcUrl: info.srcUrl, full, translation }).catch(() => {})
+})
+
+async function fetchImageAsDataUri(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(15000) })
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  const mimeType = res.headers.get('content-type')?.split(';')[0] || 'image/png'
+  const uint8 = new Uint8Array(await res.arrayBuffer())
+  let binary = ''
+  const chunk = 8192
+  for (let i = 0; i < uint8.length; i += chunk) {
+    binary += String.fromCharCode(...uint8.subarray(i, i + chunk))
+  }
+  return `data:${mimeType};base64,${btoa(binary)}`
+}
+
+// ── Page translation queue ────────────────────────────────────────────────────
 
 function getQueue(fromLang, toLang) {
   const key = `${fromLang}-${toLang}`
@@ -37,15 +120,12 @@ function getQueue(fromLang, toLang) {
         const source = apiProvider || 'free'
         const useCache = translateMode !== 'api' || enableCache
 
-        // Check cache for each text (always for free users, opt-in for API key users)
         const results = []
         const uncachedIndexes = []
         const uncachedTexts = []
 
         for (let i = 0; i < texts.length; i++) {
-          const cached = useCache
-            ? await btGetCache(source, texts[i], fromLang, toLang)
-            : null
+          const cached = useCache ? await btGetCache(source, texts[i], fromLang, toLang) : null
           if (cached !== null) {
             results[i] = cached
           } else {
@@ -59,10 +139,7 @@ function getQueue(fromLang, toLang) {
           for (let j = 0; j < uncachedIndexes.length; j++) {
             const i = uncachedIndexes[j]
             results[i] = translated[j]
-            // Write to cache (always for free users, opt-in for API key users)
-            if (useCache) {
-              btSetCache(source, texts[i], fromLang, toLang, translated[j])
-            }
+            if (useCache) btSetCache(source, texts[i], fromLang, toLang, translated[j])
           }
         }
 
@@ -83,8 +160,6 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
   if (msg.type !== 'TRANSLATE') return false
 
-  console.log('[SW] Received TRANSLATE message:', msg)
-
   const { text, fromLang, toLang } = msg
   const queue = getQueue(fromLang, toLang)
   queue.add({
@@ -94,5 +169,5 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     onError: (err) => sendResponse({ ok: false, error: err.message, isApiKeyError: config.translateMode === 'api' })
   })
 
-  return true // async sendResponse
+  return true
 })
