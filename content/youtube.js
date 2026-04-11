@@ -93,6 +93,8 @@ async function loadSubtitles(url, videoId) {
 
     if (!subtitles.length) return
 
+    showYtStartingHint()
+
     // Pre-translate the first 90 seconds
     preTranslate(0, 90000)
     attachTimeUpdate()
@@ -366,6 +368,33 @@ function initPageTranslation() {
     }
   })
   mo.observe(document.body, { childList: true, subtree: true })
+}
+
+function showYtStartingHint() {
+  if (ytMode === 'off') return
+  document.getElementById('bt-yt-hint')?.remove()
+
+  const hint = document.createElement('div')
+  hint.id = 'bt-yt-hint'
+  hint.style.cssText = [
+    'position:fixed', 'bottom:88px', 'left:50%', 'transform:translateX(-50%)',
+    'z-index:2147483647', 'background:rgba(0,0,0,0.72)', 'color:#fff',
+    'padding:7px 18px', 'border-radius:999px',
+    'font-size:13px', 'font-family:system-ui', 'letter-spacing:0.01em',
+    'pointer-events:none', 'white-space:nowrap',
+    'opacity:0', 'transition:opacity 0.25s'
+  ].join(';')
+  hint.textContent = '正在准备双语字幕...'
+  document.body.appendChild(hint)
+
+  // Fade in
+  requestAnimationFrame(() => { hint.style.opacity = '1' })
+
+  // Fade out and remove
+  setTimeout(() => {
+    hint.style.opacity = '0'
+    setTimeout(() => hint.remove(), 280)
+  }, 2800)
 }
 
 init()
