@@ -10,71 +10,89 @@ async function init() {
   ])
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
 
-  // Migration: privacy → chrome-local, old apiEnabled → translateMode
-  let translateMode = stored.translateMode === 'privacy' ? 'chrome-local' : stored.translateMode
-  if (!translateMode) translateMode = stored.apiEnabled ? 'api' : 'machine'
+  // Migration: 'privacy' → 'chrome-local', old apiEnabled → translateMode
+  let savedMode = stored.translateMode === 'privacy' ? 'chrome-local' : stored.translateMode
+  if (!savedMode) savedMode = stored.apiEnabled ? 'api' : 'machine'
+
+  let pendingMode = savedMode  // what's visually selected, not yet applied
+
+  // ── 静态元素引用 ──────────────────────────────────────────────────────────────
+
+  const modeItems   = document.querySelectorAll('.mode-item')
+  const privacySub  = document.getElementById('privacy-sub')
+  const subOptions  = document.querySelectorAll('.sub-option')
+  const applyBtn    = document.getElementById('apply-btn')
+  const apiLink     = document.getElementById('api-link')
+  const siteLabel   = document.getElementById('site-label')
+
+  // ── 网站名称 ──────────────────────────────────────────────────────────────────
 
   document.getElementById('site').textContent = host
+  siteLabel.textContent = host ? `翻译 ${host}` : '翻译此网站'
 
-  // ── 三选一模式 ────────────────────────────────────────────────────────────────
-
-  const modeBtns = document.querySelectorAll('.mode-tab')
-  const privacyPanel = document.getElementById('privacy-panel')
-  const apiPanel = document.getElementById('api-panel')
+  // ── 渲染模式选中状态 ──────────────────────────────────────────────────────────
 
   function renderMode(mode) {
     const isPrivacy = PRIVACY_MODES.has(mode)
-    modeBtns.forEach(btn => {
-      const btnMode = btn.dataset.mode || btn.dataset.modeGroup
-      btn.classList.toggle('active', btnMode === mode || (btnMode === 'privacy' && isPrivacy))
+    const groupMode = isPrivacy ? 'privacy' : mode
+
+    modeItems.forEach(btn => {
+      const bm = btn.dataset.mode || btn.dataset.modeGroup
+      btn.classList.toggle('selected', bm === groupMode)
     })
-    privacyPanel.style.display = isPrivacy ? '' : 'none'
-    apiPanel.style.display = mode === 'api' ? '' : 'none'
+
+    privacySub.classList.toggle('open', isPrivacy)
 
     if (isPrivacy) {
-      const radio = privacyPanel.querySelector(`input[value="${mode}"]`)
-      if (radio) radio.checked = true
+      subOptions.forEach(opt => {
+        opt.classList.toggle('selected', opt.dataset.sub === mode)
+      })
       runDetection(targetLang)
     }
+
+    apiLink.classList.toggle('visible', mode === 'api')
+
+    // 应用按钮：只在有待定变更时出现
+    applyBtn.classList.toggle('visible', mode !== savedMode)
   }
 
-  renderMode(translateMode)
+  renderMode(pendingMode)
 
-  // 机翻 / API Key 按钮
-  modeBtns.forEach(btn => {
-    if (!btn.dataset.mode) return  // privacy group button handled separately
-    btn.addEventListener('click', async () => {
-      translateMode = btn.dataset.mode
-      renderMode(translateMode)
-      await chrome.storage.local.set({ translateMode })
-      chrome.tabs.reload(chromeTab.id)
-      window.close()
+  // ── 模式卡片点击 ──────────────────────────────────────────────────────────────
+
+  modeItems.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const clicked = btn.dataset.mode || btn.dataset.modeGroup
+      if (clicked === 'privacy') {
+        // 展开隐私子选项，默认选 chrome-local（或保持已有选择）
+        pendingMode = PRIVACY_MODES.has(pendingMode) ? pendingMode : 'chrome-local'
+      } else {
+        pendingMode = clicked
+      }
+      renderMode(pendingMode)
     })
   })
 
-  // 隐私翻译 tab 按钮 — 展开面板，默认选 chrome-local
-  document.querySelector('[data-mode-group="privacy"]').addEventListener('click', async () => {
-    if (!PRIVACY_MODES.has(translateMode)) {
-      translateMode = 'chrome-local'
-      await chrome.storage.local.set({ translateMode })
-      chrome.tabs.reload(chromeTab.id)
-    }
-    renderMode(translateMode)
-  })
+  // ── 隐私子引擎选择 ────────────────────────────────────────────────────────────
 
-  // 隐私子引擎单选
-  privacyPanel.querySelectorAll('input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', async () => {
-      translateMode = radio.value
-      await chrome.storage.local.set({ translateMode })
-      chrome.tabs.reload(chromeTab.id)
-      window.close()
+  subOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      pendingMode = opt.dataset.sub
+      renderMode(pendingMode)
     })
   })
 
-  // ── API Key 设置入口 ───────────────────────────────────────────────────────────
+  // ── 应用按钮：保存并刷新 ──────────────────────────────────────────────────────
 
-  document.getElementById('options-link').addEventListener('click', (e) => {
+  applyBtn.addEventListener('click', async () => {
+    await chrome.storage.local.set({ translateMode: pendingMode })
+    chrome.tabs.reload(chromeTab.id)
+    window.close()
+  })
+
+  // ── API Key 链接 ──────────────────────────────────────────────────────────────
+
+  apiLink.addEventListener('click', e => {
     e.preventDefault()
     chrome.runtime.openOptionsPage()
   })
@@ -96,7 +114,7 @@ async function init() {
 
   const langSel = document.getElementById('target-lang')
   langSel.value = targetLang
-  langSel.addEventListener('change', async (e) => {
+  langSel.addEventListener('change', async e => {
     await chrome.storage.local.set({ targetLang: e.target.value })
     chrome.tabs.reload(chromeTab.id)
   })
@@ -105,56 +123,49 @@ async function init() {
 
   const modeSel = document.getElementById('display-mode')
   modeSel.value = displayMode
-  modeSel.addEventListener('change', async (e) => {
+  modeSel.addEventListener('change', async e => {
     const mode = e.target.value
     await chrome.storage.local.set({ displayMode: mode })
     chrome.scripting.executeScript({
       target: { tabId: chromeTab.id },
-      func: (m) => setDisplayMode(m),
+      func: m => setDisplayMode(m),
       args: [mode]
     })
   })
 }
 
-// ── 隐私引擎检测（面板打开时自动跑） ─────────────────────────────────────────
+// ── 隐私引擎检测 ──────────────────────────────────────────────────────────────
 
+let detectionRan = false
 async function runDetection(targetLang) {
+  if (detectionRan) return
+  detectionRan = true
   detectChrome(targetLang)
   detectAppleNpu()
 }
 
 async function detectChrome(targetLang) {
   const el = document.getElementById('status-chrome')
-  if (!('Translator' in self)) {
-    setStatus(el, 'err', '不支持')
-    return
-  }
+  if (!('Translator' in self)) { setStatus(el, 'err', '不支持'); return }
   try {
-    const result = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
-    if (result === 'available') setStatus(el, 'ok', '可用')
-    else if (result === 'downloading') setStatus(el, 'warn', '下载中')
-    else setStatus(el, 'err', '不可用')
-  } catch {
-    setStatus(el, 'err', '检测失败')
-  }
+    const r = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
+    if (r === 'available')   setStatus(el, 'ok',   '可用')
+    else if (r === 'downloading') setStatus(el, 'warn', '下载中')
+    else                     setStatus(el, 'err',  '不可用')
+  } catch { setStatus(el, 'err', '检测失败') }
 }
 
 async function detectAppleNpu() {
   const el = document.getElementById('status-apple')
   try {
-    const res = await fetch('http://localhost:57312/ping', {
-      signal: AbortSignal.timeout(1500)
-    })
-    if (res.ok) setStatus(el, 'ok', '已连接')
-    else setStatus(el, 'err', '未运行')
-  } catch {
-    setStatus(el, 'err', '未运行')
-  }
+    const res = await fetch('http://localhost:57312/ping', { signal: AbortSignal.timeout(1500) })
+    res.ok ? setStatus(el, 'ok', '已连接') : setStatus(el, 'err', '未运行')
+  } catch { setStatus(el, 'err', '未运行') }
 }
 
 function setStatus(el, type, text) {
   el.textContent = text
-  el.className = 'privacy-status' + (type !== 'normal' ? ' ' + type : '')
+  el.className = `sub-status${type !== 'normal' ? ' ' + type : ''}`
 }
 
 init()
