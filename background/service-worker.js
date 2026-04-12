@@ -26,8 +26,8 @@ chrome.storage.onChanged.addListener((changes, area) => {
 // ── Context menus (SnapFocus image OCR) ──────────────────────────────────────
 
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({ id: 'ocr-only',      title: 'SnapFocus：识别图片文字', contexts: ['image'] })
-  chrome.contextMenus.create({ id: 'ocr-translate', title: 'SnapFocus：识别并翻译',   contexts: ['image'] })
+  chrome.contextMenus.create({ id: 'ocr-only',      title: chrome.i18n.getMessage('ctxOcrOnly'),      contexts: ['image'] })
+  chrome.contextMenus.create({ id: 'ocr-translate', title: chrome.i18n.getMessage('ctxOcrTranslate'), contexts: ['image'] })
 })
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {

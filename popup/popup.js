@@ -1,6 +1,15 @@
 const PRIVACY_MODES = new Set(['chrome-local', 'apple-npu'])
 
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const msg = chrome.i18n.getMessage(el.dataset.i18n)
+    if (msg) el.textContent = msg
+  })
+}
+
 async function init() {
+  applyI18n()
+
   const [chromeTab] = await chrome.tabs.query({ active: true, currentWindow: true })
   let host = ''
   try { host = new URL(chromeTab.url).hostname } catch {}
@@ -28,7 +37,9 @@ async function init() {
   // ── 网站名称 ──────────────────────────────────────────────────────────────────
 
   document.getElementById('site').textContent = host
-  siteLabel.textContent = host ? `翻译 ${host}` : '翻译此网站'
+  siteLabel.textContent = host
+    ? chrome.i18n.getMessage('translateSite', [host])
+    : chrome.i18n.getMessage('translateSiteDefault')
 
   // ── 渲染模式选中状态 ──────────────────────────────────────────────────────────
 
@@ -144,26 +155,28 @@ async function runDetection(targetLang) {
   detectAppleNpu()
 }
 
+const i18n = key => chrome.i18n.getMessage(key)
+
 async function detectChrome(targetLang) {
   const el = document.getElementById('status-chrome')
-  if (!('Translator' in self)) { setStatus(el, 'err', '不支持'); return }
+  if (!('Translator' in self)) { setStatus(el, 'err', i18n('statusNotSupported')); return }
   try {
     const r = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
-    if (r === 'downloading') { setStatus(el, 'warn', '下载中'); return }
-    if (r !== 'available')   { setStatus(el, 'err',  '不可用'); return }
+    if (r === 'downloading') { setStatus(el, 'warn', i18n('statusDownloading')); return }
+    if (r !== 'available')   { setStatus(el, 'err',  i18n('statusUnavailable')); return }
     // availability() 在 popup 上下文不可靠，做一次真实翻译验证
     const t = await Translator.create({ sourceLanguage: 'en', targetLanguage: targetLang })
     const result = await t.translate('hello')
-    result ? setStatus(el, 'ok', '可用') : setStatus(el, 'err', '不可用')
-  } catch { setStatus(el, 'err', '不可用') }
+    result ? setStatus(el, 'ok', i18n('statusAvailable')) : setStatus(el, 'err', i18n('statusUnavailable'))
+  } catch { setStatus(el, 'err', i18n('statusUnavailable')) }
 }
 
 async function detectAppleNpu() {
   const el = document.getElementById('status-apple')
   try {
     const res = await fetch('http://localhost:57312/ping', { signal: AbortSignal.timeout(1500) })
-    res.ok ? setStatus(el, 'ok', '已连接') : setStatus(el, 'err', '未运行')
-  } catch { setStatus(el, 'err', '未运行') }
+    res.ok ? setStatus(el, 'ok', i18n('statusConnected')) : setStatus(el, 'err', i18n('statusNotRunning'))
+  } catch { setStatus(el, 'err', i18n('statusNotRunning')) }
 }
 
 function setStatus(el, type, text) {

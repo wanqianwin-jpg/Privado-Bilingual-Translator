@@ -52,9 +52,9 @@ const translator = await translation.createTranslator({ sourceLanguage, targetLa
 const result = await translator.translate(text);
 ```
 
-- 支持平台：macOS 13+、Win10/11、Linux（Chrome 128+），**Safari 不支持**
+- 支持平台：macOS 13+、Win10/11、Linux（Chrome 138+），**Safari 不支持**
+- Chrome 138 正式 GA，默认开启，无需用户配置任何 flags
 - 轻量 NMT 模型，按语言对按需下载（数百 MB 量级），之后完全离线
-- 仍处于 experimental 阶段，非稳定 GA
 - 模型下载中时弹出 toast 提示用户等待
 
 ### Service Worker 批处理

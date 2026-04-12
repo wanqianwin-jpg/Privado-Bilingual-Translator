@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>翻译插件设置</title>
+  <title>Privado Settings</title>
   <style>
     body { max-width: 480px; margin: 40px auto; font-family: system-ui; font-size: 14px; color: #222; }
     h2 { font-size: 18px; margin-bottom: 20px; }
@@ -31,44 +31,44 @@
   </style>
 </head>
 <body>
-  <h2>翻译插件设置</h2>
+  <h2 data-i18n="optionsTitle">Privado Settings</h2>
 
   <div class="section" id="api-section">
-    <h3>API 配置</h3>
+    <h3 data-i18n="optionsApiConfig">API Configuration</h3>
 
-    <label for="api-provider">提供商</label>
+    <label for="api-provider" data-i18n="optionsProvider">Provider</label>
     <select id="api-provider">
-      <option value="">— 请选择 —</option>
+      <option value="" data-i18n="optionsProviderPlaceholder">— Select —</option>
       <option value="deepl">DeepL</option>
       <option value="openai">OpenAI (GPT)</option>
       <option value="gemini">Google Gemini</option>
-      <option value="custom">自定义（OpenAI 兼容）</option>
+      <option value="custom" data-i18n="optionsProviderCustom">Custom (OpenAI-compatible)</option>
     </select>
 
-    <label for="api-key">API Key</label>
-    <input type="password" id="api-key" placeholder="粘贴你的 API Key" />
-    <p class="hint">仅存储在本地浏览器，不会上传到任何服务器。</p>
+    <label for="api-key" data-i18n="optionsApiKeyLabel">API Key</label>
+    <input type="password" id="api-key" data-i18n-placeholder="optionsApiKeyPlaceholder" placeholder="Paste your API Key" />
+    <p class="hint" data-i18n="optionsApiKeyHint">Stored locally only. Never sent to any server.</p>
 
     <div id="model-row" class="hidden">
-      <label for="api-model">模型</label>
-      <input type="text" id="api-model" list="model-suggestions" placeholder="选择或输入模型名称" />
+      <label for="api-model" data-i18n="optionsModel">Model</label>
+      <input type="text" id="api-model" list="model-suggestions" data-i18n-placeholder="optionsModelPlaceholder" placeholder="Choose or enter model name" />
       <datalist id="model-suggestions"></datalist>
     </div>
 
     <div id="baseurl-row" class="hidden">
-      <label for="api-base-url">接入点（Base URL）</label>
+      <label for="api-base-url" data-i18n="optionsBaseUrl">Endpoint (Base URL)</label>
       <input type="text" id="api-base-url" />
     </div>
 
     <div class="checkbox-row">
       <input type="checkbox" id="enable-cache">
-      <label for="enable-cache" style="margin:0;font-weight:normal">启用本地缓存（结果仅存于本地设备，节省 API 额度）</label>
+      <label for="enable-cache" style="margin:0;font-weight:normal" data-i18n="optionsCacheLabel">Enable local cache (results stay on device, saves API quota)</label>
     </div>
   </div>
 
   <div style="display:flex;gap:8px;align-items:center">
-    <button id="save">保存</button>
-    <button id="test" style="background:#555">测试连接</button>
+    <button id="save" data-i18n="optionsSave">Save</button>
+    <button id="test" style="background:#555" data-i18n="optionsTest">Test Connection</button>
   </div>
   <div class="status" id="status"></div>
 

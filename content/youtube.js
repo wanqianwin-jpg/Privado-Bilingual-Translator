@@ -338,10 +338,24 @@ function scanYtComments(root = document) {
   })
 }
 
+// Titles inside #movie_player and role="complementary" are blocked by the generic walker.
+// Handle them directly: .ytp-title-text is the ONLY visible title in Shorts; .ytp-ce-video-title
+// are end-card recommendation titles.
+function scanYtPlayerTitles() {
+  document.querySelectorAll('.ytp-title-text, .ytp-ce-video-title').forEach(el => {
+    if (el.dataset.btTranslated) return
+    const text = el.textContent.trim()
+    if (text.length < 20) return
+    if (isMostlyCJK(text)) return
+    translateYtElTracked(el)
+  })
+}
+
 function scanYtPage() {
   const root = document.querySelector('ytd-page-manager') || document.body
   getTranslatableElements(root).forEach(translateYtElTracked)
   scanYtComments()
+  scanYtPlayerTitles()
 }
 
 function initPageTranslation() {
@@ -351,6 +365,7 @@ function initPageTranslation() {
 
   // MO: translate newly added content immediately.
   const mo = new MutationObserver((mutations) => {
+    let needsPlayerScan = false
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
@@ -364,8 +379,17 @@ function initPageTranslation() {
           })
         }
         getTranslatableElements(node).forEach(translateYtElTracked)
+        // Flag player title re-scan when player-related nodes are added (e.g. Shorts navigation)
+        if (!needsPlayerScan && (
+          node.classList?.contains('ytp-title-text') ||
+          node.classList?.contains('ytp-ce-video-title') ||
+          node.querySelector?.('.ytp-title-text, .ytp-ce-video-title')
+        )) {
+          needsPlayerScan = true
+        }
       }
     }
+    if (needsPlayerScan) scanYtPlayerTitles()
   })
   mo.observe(document.body, { childList: true, subtree: true })
 }
@@ -384,7 +408,7 @@ function showYtStartingHint() {
     'pointer-events:none', 'white-space:nowrap',
     'opacity:0', 'transition:opacity 0.25s'
   ].join(';')
-  hint.textContent = '正在准备双语字幕...'
+  hint.textContent = chrome.i18n.getMessage('ytStartingHint')
   document.body.appendChild(hint)
 
   // Fade in
@@ -397,5 +421,8 @@ function showYtStartingHint() {
   }, 2800)
 }
 
-init()
-initPageTranslation()
+chrome.storage.local.get('siteSettings', ({ siteSettings = {} }) => {
+  if (siteSettings[location.hostname] === 'never') return
+  init()
+  initPageTranslation()
+})

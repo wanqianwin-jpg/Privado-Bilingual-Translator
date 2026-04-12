@@ -125,6 +125,10 @@ function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LE
 
     if (node.nodeType === Node.TEXT_NODE) {
       if (!node.textContent.trim()) return
+      // If the text's inline parent (e.g. <a slot="title">) is already marked as translated,
+      // skip immediately — findBlockContainer would walk past it to an unmarked ancestor,
+      // causing a duplicate injection into the wrong shadow DOM slot.
+      if (node.parentElement?.closest('[data-bt-translated]')) return
       const container = findBlockContainer(node.parentElement)
       if (!container || seen.has(container)) return
       seen.add(container)

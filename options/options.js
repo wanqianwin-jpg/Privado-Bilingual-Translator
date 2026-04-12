@@ -6,6 +6,21 @@ const MODEL_PRESETS = {
 const DEFAULT_MODELS = { openai: 'gpt-4o-mini', gemini: 'gemini-2.0-flash' }
 const DEFAULT_BASE_URLS = { openai: 'https://api.openai.com/v1' }
 
+const i18n = key => chrome.i18n.getMessage(key)
+
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const msg = i18n(el.dataset.i18n)
+    if (msg) el.textContent = msg
+  })
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const msg = i18n(el.dataset.i18nPlaceholder)
+    if (msg) el.placeholder = msg
+  })
+  const title = i18n('optionsTitle')
+  if (title) document.title = title
+}
+
 function updateProviderFields(provider, savedModel, savedBaseUrl) {
   const modelRow = document.getElementById('model-row')
   const baseurlRow = document.getElementById('baseurl-row')
@@ -38,6 +53,8 @@ function updateProviderFields(provider, savedModel, savedBaseUrl) {
 }
 
 async function init() {
+  applyI18n()
+
   const { apiProvider = '', apiKey = '', apiModel = '', apiBaseUrl = '', enableCache = true }
     = await chrome.storage.local.get(['apiProvider', 'apiKey', 'apiModel', 'apiBaseUrl', 'enableCache'])
 
@@ -60,7 +77,7 @@ async function init() {
 
     await chrome.storage.local.set({ apiProvider: provider, apiKey: key, apiModel: model, apiBaseUrl: baseUrl, enableCache: cache })
 
-    showStatus('已保存', '#0a7d0a')
+    showStatus(i18n('statusSaved'), '#0a7d0a')
   })
 
   document.getElementById('test').addEventListener('click', async () => {
@@ -69,14 +86,14 @@ async function init() {
     const model = document.getElementById('api-model').value.trim()
     const baseUrl = document.getElementById('api-base-url').value.trim()
 
-    if (!provider || !key) { showStatus('请先填写提供商和 API Key', '#c00'); return }
+    if (!provider || !key) { showStatus(i18n('statusFillFirst'), '#c00'); return }
 
-    showStatus('测试中…', '#888')
+    showStatus(i18n('statusTesting'), '#888')
     try {
       const result = await testApiCall(provider, key, model, baseUrl)
-      showStatus(`✓ 连接成功：${result}`, '#0a7d0a')
+      showStatus(i18n('statusConnectedResult', [result]), '#0a7d0a')
     } catch (e) {
-      showStatus(`✗ 失败：${e.message}`, '#c00')
+      showStatus(i18n('statusFailed', [e.message]), '#c00')
     }
   })
 }
@@ -129,7 +146,7 @@ async function testApiCall(provider, key, model, baseUrl) {
     const json = await res.json()
     return json.candidates[0].content.parts[0].text.trim()
   }
-  throw new Error('未知提供商')
+  throw new Error(i18n('errUnknownProvider'))
 }
 
 init()

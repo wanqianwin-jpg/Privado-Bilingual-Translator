@@ -176,6 +176,8 @@ function sortByViewport(els) {
 
 // ── Toasts ────────────────────────────────────────────────────────────────────
 
+const i18n = (key, subs) => chrome.i18n.getMessage(key, subs)
+
 let apiErrorToastShown = false
 function showApiErrorToast() {
   if (apiErrorToastShown) return
@@ -183,13 +185,13 @@ function showApiErrorToast() {
 
   const toast = makeToast()
   const msg = document.createElement('span')
-  msg.textContent = '⚠ API Key 请求失败'
+  msg.textContent = i18n('toastApiKeyError')
 
-  const btnFree = makeBtn('切换机翻', '#4285f4', async () => {
+  const btnFree = makeBtn(i18n('btnSwitchMachine'), '#4285f4', async () => {
     await chrome.storage.local.set({ translateMode: 'machine' })
     location.reload()
   })
-  const btnOptions = makeBtn('检查设置', null, () => chrome.runtime.sendMessage({ type: 'OPEN_OPTIONS' }))
+  const btnOptions = makeBtn(i18n('btnCheckSettings'), null, () => chrome.runtime.sendMessage({ type: 'OPEN_OPTIONS' }))
 
   toast.append(msg, btnFree, btnOptions)
   document.body.appendChild(toast)
@@ -203,13 +205,13 @@ function showPrivacyUnavailableToast() {
 
   const toast = makeToast()
   const msg = document.createElement('span')
-  msg.textContent = '⚠ 隐私翻译暂不可用'
+  msg.textContent = i18n('toastPrivacyUnavailable')
 
-  const btnMachine = makeBtn('切换机翻', '#4285f4', async () => {
+  const btnMachine = makeBtn(i18n('btnSwitchMachine'), '#4285f4', async () => {
     await chrome.storage.local.set({ translateMode: 'machine' })
     location.reload()
   })
-  const btnApi = makeBtn('用 API Key', null, () => chrome.runtime.openOptionsPage())
+  const btnApi = makeBtn(i18n('btnUseApiKey'), null, () => chrome.runtime.openOptionsPage())
 
   toast.append(msg, btnMachine, btnApi)
   document.body.appendChild(toast)
@@ -223,7 +225,7 @@ function showChromeApiToast() {
 
   const toast = makeToast()
   const msg = document.createElement('span')
-  msg.textContent = '⏳ Gemini Nano 模型下载中，完成后可离线翻译'
+  msg.textContent = i18n('toastChromeDownloading')
   toast.appendChild(msg)
   document.body.appendChild(toast)
   setTimeout(() => { toast.remove(); chromeApiToastShown = false }, 5000)
@@ -294,7 +296,7 @@ function showOcrOverlay(srcUrl, text, translation) {
   header.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:10px'
   const title = document.createElement('span')
   title.style.cssText = 'font-size:11px;color:#888;font-weight:600;letter-spacing:0.03em'
-  title.textContent = 'OCR · SnapFocus'
+  title.textContent = i18n('ocrHeader')
   const closeBtn = document.createElement('button')
   closeBtn.textContent = '✕'
   closeBtn.style.cssText = 'background:none;border:none;color:#666;cursor:pointer;font-size:12px;padding:0;line-height:1'
@@ -329,31 +331,32 @@ function showOcrOverlay(srcUrl, text, translation) {
     btn.style.cssText = 'background:#333;color:#ddd;border:none;border-radius:5px;padding:5px 10px;font-size:11px;cursor:pointer;flex:1'
     btn.addEventListener('click', async () => {
       await navigator.clipboard.writeText(content)
-      btn.textContent = '已复制 ✓'
+      btn.textContent = i18n('btnCopied')
       setTimeout(() => { btn.textContent = label }, 1500)
     })
     return btn
   }
 
-  btnRow.appendChild(makeCopyBtn('复制原文', text))
-  if (translation) btnRow.appendChild(makeCopyBtn('复制译文', translation))
+  btnRow.appendChild(makeCopyBtn(i18n('btnCopyOriginal'), text))
+  if (translation) btnRow.appendChild(makeCopyBtn(i18n('btnCopyTranslation'), translation))
   overlay.appendChild(btnRow)
 
   document.body.appendChild(overlay)
   setTimeout(() => overlay.remove(), 30000)
 }
 
-const OCR_ERRORS = {
-  snapfocus_offline: '请先启动 SnapFocus',
-  fetch_failed:      '图片加载失败',
-  ocr_failed:        'OCR 识别失败',
-  no_text:           '未识别到文字'
+const OCR_ERROR_KEYS = {
+  snapfocus_offline: 'ocrErrOffline',
+  fetch_failed:      'ocrErrFetchFailed',
+  ocr_failed:        'ocrErrOcrFailed',
+  no_text:           'ocrErrNoText'
 }
 
 function showOcrErrorToast(error) {
   const toast = makeToast()
   const msg = document.createElement('span')
-  msg.textContent = '⚠ ' + (OCR_ERRORS[error] || 'OCR 出错')
+  const key = OCR_ERROR_KEYS[error]
+  msg.textContent = '⚠ ' + (key ? i18n(key) : i18n('toastOcrError').replace('⚠ ', ''))
   toast.appendChild(msg)
   document.body.appendChild(toast)
   setTimeout(() => toast.remove(), 4000)

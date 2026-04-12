@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <style>
@@ -55,7 +55,7 @@
   </style>
 </head>
 <body>
-  <h3>双语翻译</h3>
+  <h3 data-i18n="popupTitle">Privado</h3>
   <div class="site" id="site"></div>
 
   <!-- 模式选择 -->
@@ -63,8 +63,8 @@
     <button class="mode-item" data-mode="machine">
       <span class="mode-dot"></span>
       <span class="mode-text">
-        <span class="mode-name">机翻</span>
-        <span class="mode-desc">免费 · 云端</span>
+        <span class="mode-name" data-i18n="modeMachine">Machine</span>
+        <span class="mode-desc" data-i18n="modeMachineDesc">Free · Cloud</span>
       </span>
     </button>
 
@@ -72,20 +72,20 @@
       <button class="mode-item" data-mode-group="privacy">
         <span class="mode-dot"></span>
         <span class="mode-text">
-          <span class="mode-name">隐私翻译</span>
-          <span class="mode-desc">本地 · 离线</span>
+          <span class="mode-name" data-i18n="modePrivacy">Private</span>
+          <span class="mode-desc" data-i18n="modePrivacyDesc">Local · Offline</span>
         </span>
       </button>
       <div class="privacy-sub" id="privacy-sub">
         <div class="sub-option" data-sub="chrome-local">
           <span class="sub-dot"></span>
-          <span class="sub-label">Chrome 本地模型</span>
-          <span class="sub-status" id="status-chrome">检测中</span>
+          <span class="sub-label" data-i18n="subLabelChrome">Chrome Local Model</span>
+          <span class="sub-status" id="status-chrome" data-i18n="statusDetecting">Detecting</span>
         </div>
         <div class="sub-option" data-sub="apple-npu">
           <span class="sub-dot"></span>
-          <span class="sub-label">Apple NPU</span>
-          <span class="sub-status" id="status-apple">检测中</span>
+          <span class="sub-label" data-i18n="subLabelApple">Apple NPU</span>
+          <span class="sub-status" id="status-apple" data-i18n="statusDetecting">Detecting</span>
         </div>
       </div>
     </div>
@@ -94,18 +94,18 @@
       <span class="mode-dot"></span>
       <span class="mode-text">
         <span class="mode-name">API Key</span>
-        <span class="mode-desc">自定义模型</span>
+        <span class="mode-desc" data-i18n="modeApiDesc">Custom model</span>
       </span>
     </button>
   </div>
 
-  <button id="apply-btn">应用并刷新页面</button>
-  <a id="api-link" href="#">设置 API Key →</a>
+  <button id="apply-btn" data-i18n="applyBtn">Apply &amp; Reload</button>
+  <a id="api-link" href="#" data-i18n="apiLink">Set up API Key →</a>
 
   <hr>
 
   <div class="row">
-    <span id="site-label">翻译此网站</span>
+    <span id="site-label" data-i18n="translateSiteDefault">Translate this site</span>
     <label class="switch">
       <input type="checkbox" id="site-toggle">
       <span class="slider-track"></span>
@@ -113,7 +113,7 @@
   </div>
 
   <div class="row">
-    <span>翻译为</span>
+    <span data-i18n="targetLangLabel">Translate to</span>
     <select id="target-lang">
       <option value="zh">中文（简体）</option>
       <option value="zh-TW">中文（繁體）</option>
@@ -131,11 +131,11 @@
   </div>
 
   <div class="row">
-    <span>显示</span>
+    <span data-i18n="displayLabel">Display</span>
     <select id="display-mode">
-      <option value="bilingual">双语</option>
-      <option value="translation-only">仅译文</option>
-      <option value="original-only">仅原文</option>
+      <option value="bilingual"        data-i18n="displayBilingual">Bilingual</option>
+      <option value="translation-only" data-i18n="displayTransOnly">Translation only</option>
+      <option value="original-only"    data-i18n="displayOrigOnly">Original only</option>
     </select>
   </div>
 

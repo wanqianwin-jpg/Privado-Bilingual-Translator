@@ -6,8 +6,10 @@ let targetLang = 'zh'
 let translateMode = 'machine'
 
 // ── Post title translation ────────────────────────────────────────────────────
-// Reads from post-title attribute — works before shadow DOM hydrates and is
-// unaffected by the transparent position:absolute overlay covering the card.
+// Injects translation INSIDE [slot="title"] (child injection) so it renders in the
+// card body where the title lives. The generic walker must NOT also translate the
+// shadow DOM title element (which renders in the header meta row — the blue link),
+// so scanPage() filters out shreddit-post shadow DOM elements entirely.
 
 async function translateRedditPost(post) {
   if (post.dataset.btReddit) return
@@ -19,23 +21,26 @@ async function translateRedditPost(post) {
   const titleEl = post.querySelector('[slot="title"]')
   if (titleEl) titleEl.dataset.btTranslated = 'pending'
 
-  // Inject INSIDE titleEl (not as a new slot="title" sibling).
-  // A child of titleEl inherits color from titleEl via light DOM — and titleEl already
-  // has the correct shadow DOM composed color (white on dark cards, dark on light).
-  // A new top-level slot="title" element would inherit from shreddit-post instead,
-  // missing the shadow DOM context entirely. That's why color:inherit kept failing.
   const div = document.createElement('div')
   div.dataset.btSiblingFor = 'true'
   div.style.cssText = [
-    'display:block', 'color:inherit', 'font-weight:normal', 'opacity:0.8',
+    'color:inherit', 'font-weight:normal', 'opacity:0.8',
     'font-size:0.9em', 'line-height:1.5',
     'writing-mode:horizontal-tb', 'white-space:normal', 'overflow-wrap:break-word'
   ].join(';')
   div.textContent = '…'
+
   if (titleEl) {
-    titleEl.appendChild(div)
+    // Inject as a SEPARATE slot="title" element appended to the post host — NOT inside titleEl.
+    // This makes the two elements siblings in the shadow slot, so CSS can independently
+    // show/hide each:
+    //   translation-only  → titleEl[data-bt-translated="true"] display:none, this div visible
+    //   original-only     → this div[data-bt-sibling-for]       display:none, titleEl visible
+    // If we used titleEl.appendChild(div), hiding titleEl would also hide the child div.
+    div.slot = 'title'
+    post.appendChild(div)
   } else {
-    post.after(div)  // fallback when no title element exists
+    post.after(div)
   }
 
   try {
@@ -48,12 +53,10 @@ async function translateRedditPost(post) {
         }
       )
     })
-
     div.textContent = translation
-
-    // 'handled' instead of 'true': CSS translation-only rule targets [data-bt-translated="true"],
-    // so the original card title stays visible. Generic walker still sees the attribute and skips it.
-    if (titleEl) titleEl.dataset.btTranslated = 'handled'
+    // Use 'true' (not 'handled') so the CSS rule [data-bt-translated="true"] can hide
+    // the original title in translation-only mode.
+    if (titleEl) titleEl.dataset.btTranslated = 'true'
     post.dataset.btReddit = 'done'
   } catch {
     div.remove()
@@ -116,10 +119,40 @@ function scanPosts() {
   })
 }
 
+// Directly scan post body paragraphs (individual post page).
+// The generic walker may miss these because rtjson-content divs have structural block children
+// (blockquote, etc.) at the wrapper level, causing hasBlockChildren to skip the container.
+// Targeting [property="schema:articleBody"] paragraphs is more reliable.
+function scanPostBody() {
+  document.querySelectorAll('[property="schema:articleBody"] p, [property="schema:articleBody"] li').forEach(el => {
+    if (el.dataset.btTranslated) return
+    const text = el.textContent.trim()
+    if (text.length < 20) return
+    if (typeof isMostlyCJK === 'function' && isMostlyCJK(text)) return
+    translateRedditElTracked(el)
+  })
+}
+
 function scanPage() {
   scanPosts()
+  scanPostBody()
   const root = document.querySelector('shreddit-app') || document.body
-  getTranslatableElements(root).forEach(translateRedditElTracked)
+  // Filters:
+  // 1. Skip faceplate-screen-reader-content — visually-hidden a11y element; sibling injection
+  //    lands inside the card header <a>, producing blue text in the meta row.
+  // 2. Skip shreddit-post itself — would create a stray div after </shreddit-post>.
+  // 3. Skip shadow DOM elements inside shreddit-post (title/media rendered in shadow root).
+  // 4. Skip light-DOM elements that are inside a [slot] subtree of shreddit-post —
+  //    these are slotted UI elements (slot="title", slot="media-*", etc.) whose translation
+  //    would create stray divs or cause images to disappear in translation-only mode.
+  //    Post body <p> elements have no [slot] ancestor, so they still get translated.
+  getTranslatableElements(root)
+    .filter(el => el.tagName !== 'FACEPLATE-SCREEN-READER-CONTENT' &&
+                  !el.closest('faceplate-screen-reader-content') &&
+                  el.tagName !== 'SHREDDIT-POST' &&
+                  el.getRootNode()?.host?.tagName !== 'SHREDDIT-POST' &&
+                  !(el.closest('shreddit-post') && el.closest('[slot]')))
+    .forEach(translateRedditElTracked)
 }
 
 function initPageTranslation() {
@@ -137,7 +170,21 @@ function initPageTranslation() {
         node.querySelectorAll?.('shreddit-post[post-title]').forEach(post => {
           if (!post.dataset.btReddit) translateRedditPost(post)
         })
-        getTranslatableElements(node).forEach(translateRedditElTracked)
+        // Post body paragraphs added dynamically (e.g. navigating to a post page)
+        node.querySelectorAll?.('[property="schema:articleBody"] p, [property="schema:articleBody"] li').forEach(el => {
+          if (el.dataset.btTranslated) return
+          const text = el.textContent.trim()
+          if (text.length < 20 || (typeof isMostlyCJK === 'function' && isMostlyCJK(text))) return
+          translateRedditElTracked(el)
+        })
+        // Same filters as scanPage
+        getTranslatableElements(node)
+          .filter(el => el.tagName !== 'FACEPLATE-SCREEN-READER-CONTENT' &&
+                        !el.closest('faceplate-screen-reader-content') &&
+                        el.tagName !== 'SHREDDIT-POST' &&
+                        el.getRootNode()?.host?.tagName !== 'SHREDDIT-POST' &&
+                        !(el.closest('shreddit-post') && el.closest('[slot]')))
+          .forEach(translateRedditElTracked)
       }
     }
   })
