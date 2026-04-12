@@ -1,4 +1,4 @@
-const PRIVACY_MODES = new Set(['chrome-local', 'apple-npu'])
+const PRIVACY_MODES = new Set(['chrome-local'])
 
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -152,7 +152,6 @@ async function runDetection(targetLang) {
   if (detectionRan) return
   detectionRan = true
   detectChrome(targetLang)
-  detectAppleNpu()
 }
 
 const i18n = key => chrome.i18n.getMessage(key)
@@ -171,13 +170,6 @@ async function detectChrome(targetLang) {
   } catch { setStatus(el, 'err', i18n('statusUnavailable')) }
 }
 
-async function detectAppleNpu() {
-  const el = document.getElementById('status-apple')
-  try {
-    const res = await fetch('http://localhost:57312/ping', { signal: AbortSignal.timeout(1500) })
-    res.ok ? setStatus(el, 'ok', i18n('statusConnected')) : setStatus(el, 'err', i18n('statusNotRunning'))
-  } catch { setStatus(el, 'err', i18n('statusNotRunning')) }
-}
 
 function setStatus(el, type, text) {
   el.textContent = text

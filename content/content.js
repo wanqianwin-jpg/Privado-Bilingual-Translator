@@ -32,17 +32,6 @@
       if (status === 'downloading') showChromeApiToast()
     }
 
-    // apple-npu: ping SnapFocus upfront
-    if (translateMode === 'apple-npu') {
-      const alive = await snapFocusPing()
-      if (!alive) {
-        showPrivacyUnavailableToast()
-        ball.setState('idle')
-        translationStarted = false
-        return
-      }
-    }
-
     const minLength = translateMode === 'api' ? 60 : undefined
     let elements = getTranslatableElements(document.body, { minLength })
     if (translateMode === 'api') elements = sortByViewport(elements)
@@ -72,7 +61,7 @@
     return
   }
 
-  // machine / chrome-local / apple-npu auto-start; api waits for user click
+  // machine / chrome-local auto-start; api waits for user click
   if (translateMode !== 'api') {
     startTranslation()
   }
@@ -132,17 +121,7 @@ async function translateElement(el, targetLang, translateMode) {
     // Page-level unavailability already caught in startTranslation
   }
 
-  // apple-npu: SnapFocus local HTTP
-  if (translateMode === 'apple-npu') {
-    try {
-      const translation = await snapFocusTranslate(text, targetLang)
-      injectTranslation(el, translation)
-      return
-    } catch {}
-    // SnapFocus unavailable for this element — silent SW fallback
-  }
-
-  // machine and api modes, plus privacy fallback
+  // machine and api modes, plus chrome-local fallback
   return new Promise((resolve) => {
     const id = Math.random().toString(36).slice(2)
     try {
@@ -252,112 +231,3 @@ function makeBtn(label, bgColor, onClick) {
   return btn
 }
 
-// ── OCR overlay (triggered by context menu via SW) ────────────────────────────
-
-chrome.runtime.onMessage.addListener((msg) => {
-  if (msg.type === 'OCR_RESULT') showOcrOverlay(msg.srcUrl, msg.full, msg.translation)
-  if (msg.type === 'OCR_ERROR')  showOcrErrorToast(msg.error)
-})
-
-function showOcrOverlay(srcUrl, text, translation) {
-  document.getElementById('bt-ocr-overlay')?.remove()
-
-  // Find the target image to anchor the overlay
-  let anchor = null
-  for (const img of document.querySelectorAll('img')) {
-    if (img.src === srcUrl || img.currentSrc === srcUrl) { anchor = img; break }
-  }
-
-  const overlay = document.createElement('div')
-  overlay.id = 'bt-ocr-overlay'
-  overlay.style.cssText = [
-    'position:fixed', 'z-index:2147483647',
-    'background:#1e1e1e', 'color:#f0f0f0',
-    'border-radius:10px', 'padding:14px 16px',
-    'font-size:13px', 'font-family:system-ui',
-    'max-width:340px', 'min-width:180px',
-    'box-shadow:0 6px 24px rgba(0,0,0,0.45)',
-    'line-height:1.6'
-  ].join(';')
-
-  // Position: below the image if found, else center screen
-  if (anchor) {
-    const r = anchor.getBoundingClientRect()
-    overlay.style.top  = Math.min(r.bottom + 10, window.innerHeight - 220) + 'px'
-    overlay.style.left = Math.max(10, Math.min(r.left, window.innerWidth - 360)) + 'px'
-  } else {
-    overlay.style.top = '50%'
-    overlay.style.left = '50%'
-    overlay.style.transform = 'translate(-50%, -50%)'
-  }
-
-  // Header
-  const header = document.createElement('div')
-  header.style.cssText = 'display:flex;justify-content:space-between;align-items:center;margin-bottom:10px'
-  const title = document.createElement('span')
-  title.style.cssText = 'font-size:11px;color:#888;font-weight:600;letter-spacing:0.03em'
-  title.textContent = i18n('ocrHeader')
-  const closeBtn = document.createElement('button')
-  closeBtn.textContent = '✕'
-  closeBtn.style.cssText = 'background:none;border:none;color:#666;cursor:pointer;font-size:12px;padding:0;line-height:1'
-  closeBtn.addEventListener('click', () => overlay.remove())
-  header.append(title, closeBtn)
-  overlay.appendChild(header)
-
-  // OCR text
-  const textEl = document.createElement('div')
-  textEl.textContent = text
-  textEl.style.cssText = 'white-space:pre-wrap;word-break:break-word'
-  overlay.appendChild(textEl)
-
-  // Translation
-  if (translation) {
-    const divider = document.createElement('div')
-    divider.style.cssText = 'border-top:1px solid #333;margin:10px 0'
-    overlay.appendChild(divider)
-    const transEl = document.createElement('div')
-    transEl.textContent = translation
-    transEl.style.cssText = 'color:#aaa;white-space:pre-wrap;word-break:break-word'
-    overlay.appendChild(transEl)
-  }
-
-  // Copy buttons
-  const btnRow = document.createElement('div')
-  btnRow.style.cssText = 'display:flex;gap:8px;margin-top:12px'
-
-  function makeCopyBtn(label, content) {
-    const btn = document.createElement('button')
-    btn.textContent = label
-    btn.style.cssText = 'background:#333;color:#ddd;border:none;border-radius:5px;padding:5px 10px;font-size:11px;cursor:pointer;flex:1'
-    btn.addEventListener('click', async () => {
-      await navigator.clipboard.writeText(content)
-      btn.textContent = i18n('btnCopied')
-      setTimeout(() => { btn.textContent = label }, 1500)
-    })
-    return btn
-  }
-
-  btnRow.appendChild(makeCopyBtn(i18n('btnCopyOriginal'), text))
-  if (translation) btnRow.appendChild(makeCopyBtn(i18n('btnCopyTranslation'), translation))
-  overlay.appendChild(btnRow)
-
-  document.body.appendChild(overlay)
-  setTimeout(() => overlay.remove(), 30000)
-}
-
-const OCR_ERROR_KEYS = {
-  snapfocus_offline: 'ocrErrOffline',
-  fetch_failed:      'ocrErrFetchFailed',
-  ocr_failed:        'ocrErrOcrFailed',
-  no_text:           'ocrErrNoText'
-}
-
-function showOcrErrorToast(error) {
-  const toast = makeToast()
-  const msg = document.createElement('span')
-  const key = OCR_ERROR_KEYS[error]
-  msg.textContent = '⚠ ' + (key ? i18n(key) : i18n('toastOcrError').replace('⚠ ', ''))
-  toast.appendChild(msg)
-  document.body.appendChild(toast)
-  setTimeout(() => toast.remove(), 4000)
-}
