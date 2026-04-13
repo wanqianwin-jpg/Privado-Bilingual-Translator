@@ -1,6 +1,6 @@
 {
-  "extName":        { "message": "Privado" },
-  "extDescription": { "message": "Bilingual translation. Private, clean, no bloat." },
+  "extName":        { "message": "Privado — Bilingual Translator" },
+  "extDescription": { "message": "Bilingual side-by-side translation. Private, clean, no bloat." },
 
   "popupTitle":       { "message": "Privado" },
   "modeMachine":      { "message": "Machine" },
