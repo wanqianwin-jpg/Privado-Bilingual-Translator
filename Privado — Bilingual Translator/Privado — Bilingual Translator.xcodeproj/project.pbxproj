@@ -1,0 +1,1096 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B520B15B2F8E8D26001CE84B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B15A2F8E8D26001CE84B /* AppDelegate.swift */; };
+		B520B15D2F8E8D26001CE84B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B15C2F8E8D26001CE84B /* SceneDelegate.swift */; };
+		B520B1602F8E8D26001CE84B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B520B15E2F8E8D26001CE84B /* LaunchScreen.storyboard */; };
+		B520B1632F8E8D26001CE84B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B520B1612F8E8D26001CE84B /* Main.storyboard */; };
+		B520B16C2F8E8D26001CE84B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B16B2F8E8D26001CE84B /* AppDelegate.swift */; };
+		B520B16F2F8E8D26001CE84B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B520B16D2F8E8D26001CE84B /* Main.storyboard */; };
+		B520B1762F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B520B1752F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B520B1802F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B520B17F2F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B520B1852F8E8D26001CE84B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = B520B14A2F8E8D25001CE84B /* Main.html */; };
+		B520B1862F8E8D26001CE84B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = B520B14A2F8E8D25001CE84B /* Main.html */; };
+		B520B1872F8E8D26001CE84B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B520B14C2F8E8D25001CE84B /* Icon.png */; };
+		B520B1882F8E8D26001CE84B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B520B14C2F8E8D25001CE84B /* Icon.png */; };
+		B520B1892F8E8D26001CE84B /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = B520B14D2F8E8D25001CE84B /* Style.css */; };
+		B520B18A2F8E8D26001CE84B /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = B520B14D2F8E8D25001CE84B /* Style.css */; };
+		B520B18B2F8E8D26001CE84B /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = B520B14E2F8E8D25001CE84B /* Script.js */; };
+		B520B18C2F8E8D26001CE84B /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = B520B14E2F8E8D25001CE84B /* Script.js */; };
+		B520B18D2F8E8D26001CE84B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B14F2F8E8D25001CE84B /* ViewController.swift */; };
+		B520B18E2F8E8D26001CE84B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B14F2F8E8D25001CE84B /* ViewController.swift */; };
+		B520B18F2F8E8D26001CE84B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B520B1502F8E8D26001CE84B /* Assets.xcassets */; };
+		B520B1902F8E8D26001CE84B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B520B1502F8E8D26001CE84B /* Assets.xcassets */; };
+		B520B1912F8E8D26001CE84B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B1522F8E8D26001CE84B /* SafariWebExtensionHandler.swift */; };
+		B520B1922F8E8D26001CE84B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520B1522F8E8D26001CE84B /* SafariWebExtensionHandler.swift */; };
+		B520B1B62F8E8D26001CE84B /* background in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A42F8E8D26001CE84B /* background */; };
+		B520B1B72F8E8D26001CE84B /* options in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A52F8E8D26001CE84B /* options */; };
+		B520B1B92F8E8D26001CE84B /* popup in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A72F8E8D26001CE84B /* popup */; };
+		B520B1BE2F8E8D26001CE84B /* content in Resources */ = {isa = PBXBuildFile; fileRef = B520B1AC2F8E8D26001CE84B /* content */; };
+		B520B1C22F8E8D26001CE84B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B02F8E8D26001CE84B /* icons */; };
+		B520B1C42F8E8D26001CE84B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B22F8E8D26001CE84B /* manifest.json */; };
+		B520B1C52F8E8D26001CE84B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B32F8E8D26001CE84B /* _locales */; };
+		B520B1C82F8E8D26001CE84B /* background in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A42F8E8D26001CE84B /* background */; };
+		B520B1C92F8E8D26001CE84B /* options in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A52F8E8D26001CE84B /* options */; };
+		B520B1CB2F8E8D26001CE84B /* popup in Resources */ = {isa = PBXBuildFile; fileRef = B520B1A72F8E8D26001CE84B /* popup */; };
+		B520B1D02F8E8D26001CE84B /* content in Resources */ = {isa = PBXBuildFile; fileRef = B520B1AC2F8E8D26001CE84B /* content */; };
+		B520B1D42F8E8D26001CE84B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B02F8E8D26001CE84B /* icons */; };
+		B520B1D62F8E8D26001CE84B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B22F8E8D26001CE84B /* manifest.json */; };
+		B520B1D72F8E8D26001CE84B /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = B520B1B32F8E8D26001CE84B /* _locales */; };
+		B53938142F8EA16300B2EC61 /* Translation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53938132F8EA16300B2EC61 /* Translation.framework */; };
+		B53938162F8EA17E00B2EC61 /* Translation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53938152F8EA17E00B2EC61 /* Translation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B520B1772F8E8D26001CE84B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B520B1442F8E8D25001CE84B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B520B1742F8E8D26001CE84B;
+			remoteInfo = "Privado — Bilingual Translator Extension (iOS)";
+		};
+		B520B1812F8E8D26001CE84B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B520B1442F8E8D25001CE84B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B520B17E2F8E8D26001CE84B;
+			remoteInfo = "Privado — Bilingual Translator Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B520B1982F8E8D26001CE84B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B520B1762F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B19F2F8E8D26001CE84B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B520B1802F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B520B14B2F8E8D25001CE84B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		B520B14C2F8E8D25001CE84B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B520B14D2F8E8D25001CE84B /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		B520B14E2F8E8D25001CE84B /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		B520B14F2F8E8D25001CE84B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B520B1502F8E8D26001CE84B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B520B1522F8E8D26001CE84B /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		B520B1572F8E8D26001CE84B /* Privado — Bilingual Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Privado — Bilingual Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B520B15A2F8E8D26001CE84B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B520B15C2F8E8D26001CE84B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B520B15F2F8E8D26001CE84B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B520B1622F8E8D26001CE84B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B520B1642F8E8D26001CE84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B520B1692F8E8D26001CE84B /* Privado — Bilingual Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Privado — Bilingual Translator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B520B16B2F8E8D26001CE84B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B520B16E2F8E8D26001CE84B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B520B1702F8E8D26001CE84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B520B1752F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Privado — Bilingual Translator Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B520B17A2F8E8D26001CE84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B520B17F2F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Privado — Bilingual Translator Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B520B1842F8E8D26001CE84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B520B1A42F8E8D26001CE84B /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; name = background; path = "../../翻译插件/background"; sourceTree = "<group>"; };
+		B520B1A52F8E8D26001CE84B /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = "../../翻译插件/options"; sourceTree = "<group>"; };
+		B520B1A62F8E8D26001CE84B /* privado-bilingual-translator.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; name = "privado-bilingual-translator.zip"; path = "../../翻译插件/privado-bilingual-translator.zip"; sourceTree = "<group>"; };
+		B520B1A72F8E8D26001CE84B /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = "../../翻译插件/popup"; sourceTree = "<group>"; };
+		B520B1A82F8E8D26001CE84B /* screenshot */ = {isa = PBXFileReference; lastKnownFileType = folder; name = screenshot; path = "../../翻译插件/screenshot"; sourceTree = "<group>"; };
+		B520B1A92F8E8D26001CE84B /* store-assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "store-assets"; path = "../../翻译插件/store-assets"; sourceTree = "<group>"; };
+		B520B1AA2F8E8D26001CE84B /* node_modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = node_modules; path = "../../翻译插件/node_modules"; sourceTree = "<group>"; };
+		B520B1AB2F8E8D26001CE84B /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tests; path = "../../翻译插件/tests"; sourceTree = "<group>"; };
+		B520B1AC2F8E8D26001CE84B /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = "../../翻译插件/content"; sourceTree = "<group>"; };
+		B520B1AD2F8E8D26001CE84B /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = docs; path = "../../翻译插件/docs"; sourceTree = "<group>"; };
+		B520B1AE2F8E8D26001CE84B /* package-lock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "package-lock.json"; path = "../../翻译插件/package-lock.json"; sourceTree = "<group>"; };
+		B520B1AF2F8E8D26001CE84B /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = package.json; path = "../../翻译插件/package.json"; sourceTree = "<group>"; };
+		B520B1B02F8E8D26001CE84B /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../翻译插件/icons"; sourceTree = "<group>"; };
+		B520B1B12F8E8D26001CE84B /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = "../../翻译插件/scripts"; sourceTree = "<group>"; };
+		B520B1B22F8E8D26001CE84B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../翻译插件/manifest.json"; sourceTree = "<group>"; };
+		B520B1B32F8E8D26001CE84B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = "../../翻译插件/_locales"; sourceTree = "<group>"; };
+		B520B1B42F8E8D26001CE84B /* CLAUDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CLAUDE.md; path = "../../翻译插件/CLAUDE.md"; sourceTree = "<group>"; };
+		B520B1B52F8E8D26001CE84B /* privacy.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = privacy.html; path = "../../翻译插件/privacy.html"; sourceTree = "<group>"; };
+		B53938112F8EA0C500B2EC61 /* Privado — Bilingual Translator Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Privado — Bilingual Translator Extension (iOS).entitlements"; sourceTree = "<group>"; };
+		B53938132F8EA16300B2EC61 /* Translation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Translation.framework; path = System/Library/Frameworks/Translation.framework; sourceTree = SDKROOT; };
+		B53938152F8EA17E00B2EC61 /* Translation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Translation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.4.sdk/System/Library/Frameworks/Translation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B520B1542F8E8D26001CE84B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1662F8E8D26001CE84B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1722F8E8D26001CE84B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53938162F8EA17E00B2EC61 /* Translation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B17C2F8E8D26001CE84B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B53938142F8EA16300B2EC61 /* Translation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B520B1432F8E8D25001CE84B = {
+			isa = PBXGroup;
+			children = (
+				B53938112F8EA0C500B2EC61 /* Privado — Bilingual Translator Extension (iOS).entitlements */,
+				B520B1482F8E8D25001CE84B /* Shared (App) */,
+				B520B1512F8E8D26001CE84B /* Shared (Extension) */,
+				B520B1592F8E8D26001CE84B /* iOS (App) */,
+				B520B16A2F8E8D26001CE84B /* macOS (App) */,
+				B520B1792F8E8D26001CE84B /* iOS (Extension) */,
+				B520B1832F8E8D26001CE84B /* macOS (Extension) */,
+				B53938122F8EA16300B2EC61 /* Frameworks */,
+				B520B1582F8E8D26001CE84B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B520B1482F8E8D25001CE84B /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B14F2F8E8D25001CE84B /* ViewController.swift */,
+				B520B1502F8E8D26001CE84B /* Assets.xcassets */,
+				B520B1492F8E8D25001CE84B /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		B520B1492F8E8D25001CE84B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B520B14A2F8E8D25001CE84B /* Main.html */,
+				B520B14C2F8E8D25001CE84B /* Icon.png */,
+				B520B14D2F8E8D25001CE84B /* Style.css */,
+				B520B14E2F8E8D25001CE84B /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B520B1512F8E8D26001CE84B /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B1A32F8E8D26001CE84B /* Resources */,
+				B520B1522F8E8D26001CE84B /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		B520B1582F8E8D26001CE84B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B520B1572F8E8D26001CE84B /* Privado — Bilingual Translator.app */,
+				B520B1692F8E8D26001CE84B /* Privado — Bilingual Translator.app */,
+				B520B1752F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */,
+				B520B17F2F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B520B1592F8E8D26001CE84B /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B15A2F8E8D26001CE84B /* AppDelegate.swift */,
+				B520B15C2F8E8D26001CE84B /* SceneDelegate.swift */,
+				B520B15E2F8E8D26001CE84B /* LaunchScreen.storyboard */,
+				B520B1612F8E8D26001CE84B /* Main.storyboard */,
+				B520B1642F8E8D26001CE84B /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		B520B16A2F8E8D26001CE84B /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B16B2F8E8D26001CE84B /* AppDelegate.swift */,
+				B520B16D2F8E8D26001CE84B /* Main.storyboard */,
+				B520B1702F8E8D26001CE84B /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		B520B1792F8E8D26001CE84B /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B17A2F8E8D26001CE84B /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		B520B1832F8E8D26001CE84B /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B520B1842F8E8D26001CE84B /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		B520B1A32F8E8D26001CE84B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B520B1A42F8E8D26001CE84B /* background */,
+				B520B1A52F8E8D26001CE84B /* options */,
+				B520B1A62F8E8D26001CE84B /* privado-bilingual-translator.zip */,
+				B520B1A72F8E8D26001CE84B /* popup */,
+				B520B1A82F8E8D26001CE84B /* screenshot */,
+				B520B1A92F8E8D26001CE84B /* store-assets */,
+				B520B1AA2F8E8D26001CE84B /* node_modules */,
+				B520B1AB2F8E8D26001CE84B /* tests */,
+				B520B1AC2F8E8D26001CE84B /* content */,
+				B520B1AD2F8E8D26001CE84B /* docs */,
+				B520B1AE2F8E8D26001CE84B /* package-lock.json */,
+				B520B1AF2F8E8D26001CE84B /* package.json */,
+				B520B1B02F8E8D26001CE84B /* icons */,
+				B520B1B12F8E8D26001CE84B /* scripts */,
+				B520B1B22F8E8D26001CE84B /* manifest.json */,
+				B520B1B32F8E8D26001CE84B /* _locales */,
+				B520B1B42F8E8D26001CE84B /* CLAUDE.md */,
+				B520B1B52F8E8D26001CE84B /* privacy.html */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+		B53938122F8EA16300B2EC61 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B53938152F8EA17E00B2EC61 /* Translation.framework */,
+				B53938132F8EA16300B2EC61 /* Translation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B520B1562F8E8D26001CE84B /* Privado — Bilingual Translator (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B520B1992F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator (iOS)" */;
+			buildPhases = (
+				B520B1532F8E8D26001CE84B /* Sources */,
+				B520B1542F8E8D26001CE84B /* Frameworks */,
+				B520B1552F8E8D26001CE84B /* Resources */,
+				B520B1982F8E8D26001CE84B /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B520B1782F8E8D26001CE84B /* PBXTargetDependency */,
+			);
+			name = "Privado — Bilingual Translator (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Privado — Bilingual Translator (iOS)";
+			productReference = B520B1572F8E8D26001CE84B /* Privado — Bilingual Translator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B520B1682F8E8D26001CE84B /* Privado — Bilingual Translator (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B520B1A02F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator (macOS)" */;
+			buildPhases = (
+				B520B1652F8E8D26001CE84B /* Sources */,
+				B520B1662F8E8D26001CE84B /* Frameworks */,
+				B520B1672F8E8D26001CE84B /* Resources */,
+				B520B19F2F8E8D26001CE84B /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B520B1822F8E8D26001CE84B /* PBXTargetDependency */,
+			);
+			name = "Privado — Bilingual Translator (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Privado — Bilingual Translator (macOS)";
+			productReference = B520B1692F8E8D26001CE84B /* Privado — Bilingual Translator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B520B1742F8E8D26001CE84B /* Privado — Bilingual Translator Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B520B1952F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator Extension (iOS)" */;
+			buildPhases = (
+				B520B1712F8E8D26001CE84B /* Sources */,
+				B520B1722F8E8D26001CE84B /* Frameworks */,
+				B520B1732F8E8D26001CE84B /* Resources */,
+				B5AAAA012F8E8D26001CE84B /* Rename manifest */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Privado — Bilingual Translator Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Privado — Bilingual Translator Extension (iOS)";
+			productReference = B520B1752F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B520B17E2F8E8D26001CE84B /* Privado — Bilingual Translator Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B520B19C2F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator Extension (macOS)" */;
+			buildPhases = (
+				B520B17B2F8E8D26001CE84B /* Sources */,
+				B520B17C2F8E8D26001CE84B /* Frameworks */,
+				B520B17D2F8E8D26001CE84B /* Resources */,
+				B5AAAA022F8F000000000002 /* Rename manifest */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Privado — Bilingual Translator Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Privado — Bilingual Translator Extension (macOS)";
+			productReference = B520B17F2F8E8D26001CE84B /* Privado — Bilingual Translator Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B520B1442F8E8D25001CE84B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					B520B1562F8E8D26001CE84B = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					B520B1682F8E8D26001CE84B = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					B520B1742F8E8D26001CE84B = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					B520B17E2F8E8D26001CE84B = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = B520B1472F8E8D25001CE84B /* Build configuration list for PBXProject "Privado — Bilingual Translator" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B520B1432F8E8D25001CE84B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B520B1582F8E8D26001CE84B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B520B1562F8E8D26001CE84B /* Privado — Bilingual Translator (iOS) */,
+				B520B1682F8E8D26001CE84B /* Privado — Bilingual Translator (macOS) */,
+				B520B1742F8E8D26001CE84B /* Privado — Bilingual Translator Extension (iOS) */,
+				B520B17E2F8E8D26001CE84B /* Privado — Bilingual Translator Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B520B1552F8E8D26001CE84B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1872F8E8D26001CE84B /* Icon.png in Resources */,
+				B520B1602F8E8D26001CE84B /* LaunchScreen.storyboard in Resources */,
+				B520B1852F8E8D26001CE84B /* Main.html in Resources */,
+				B520B18B2F8E8D26001CE84B /* Script.js in Resources */,
+				B520B18F2F8E8D26001CE84B /* Assets.xcassets in Resources */,
+				B520B1632F8E8D26001CE84B /* Main.storyboard in Resources */,
+				B520B1892F8E8D26001CE84B /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1672F8E8D26001CE84B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1882F8E8D26001CE84B /* Icon.png in Resources */,
+				B520B18A2F8E8D26001CE84B /* Style.css in Resources */,
+				B520B16F2F8E8D26001CE84B /* Main.storyboard in Resources */,
+				B520B18C2F8E8D26001CE84B /* Script.js in Resources */,
+				B520B1902F8E8D26001CE84B /* Assets.xcassets in Resources */,
+				B520B1862F8E8D26001CE84B /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1732F8E8D26001CE84B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1CB2F8E8D26001CE84B /* popup in Resources */,
+				B520B1D62F8E8D26001CE84B /* manifest.json in Resources */,
+				B520B1D02F8E8D26001CE84B /* content in Resources */,
+				B520B1D72F8E8D26001CE84B /* _locales in Resources */,
+				B520B1C82F8E8D26001CE84B /* background in Resources */,
+				B520B1C92F8E8D26001CE84B /* options in Resources */,
+				B520B1D42F8E8D26001CE84B /* icons in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B17D2F8E8D26001CE84B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1B92F8E8D26001CE84B /* popup in Resources */,
+				B520B1C42F8E8D26001CE84B /* manifest.json in Resources */,
+				B520B1BE2F8E8D26001CE84B /* content in Resources */,
+				B520B1C52F8E8D26001CE84B /* _locales in Resources */,
+				B520B1B62F8E8D26001CE84B /* background in Resources */,
+				B520B1B72F8E8D26001CE84B /* options in Resources */,
+				B520B1C22F8E8D26001CE84B /* icons in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B5AAAA012F8F000000000001 /* Rename manifest */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Rename manifest";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${SRCROOT}/../翻译插件/manifest.safari.json\" \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/manifest.json\"\n";
+		};
+		B5AAAA022F8F000000000002 /* Rename manifest */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Rename manifest";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp \"${SRCROOT}/../翻译插件/manifest.safari.json\" \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/manifest.json\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B520B1532F8E8D26001CE84B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B18D2F8E8D26001CE84B /* ViewController.swift in Sources */,
+				B520B15B2F8E8D26001CE84B /* AppDelegate.swift in Sources */,
+				B520B15D2F8E8D26001CE84B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1652F8E8D26001CE84B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B18E2F8E8D26001CE84B /* ViewController.swift in Sources */,
+				B520B16C2F8E8D26001CE84B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B1712F8E8D26001CE84B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1912F8E8D26001CE84B /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B520B17B2F8E8D26001CE84B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B520B1922F8E8D26001CE84B /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B520B1782F8E8D26001CE84B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B520B1742F8E8D26001CE84B /* Privado — Bilingual Translator Extension (iOS) */;
+			targetProxy = B520B1772F8E8D26001CE84B /* PBXContainerItemProxy */;
+		};
+		B520B1822F8E8D26001CE84B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B520B17E2F8E8D26001CE84B /* Privado — Bilingual Translator Extension (macOS) */;
+			targetProxy = B520B1812F8E8D26001CE84B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B520B14A2F8E8D25001CE84B /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B520B14B2F8E8D25001CE84B /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		B520B15E2F8E8D26001CE84B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B520B15F2F8E8D26001CE84B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B520B1612F8E8D26001CE84B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B520B1622F8E8D26001CE84B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B520B16D2F8E8D26001CE84B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B520B16E2F8E8D26001CE84B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B520B1932F8E8D26001CE84B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B520B1942F8E8D26001CE84B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		B520B1962F8E8D26001CE84B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Privado — Bilingual Translator Extension (iOS).entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B520B1972F8E8D26001CE84B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Privado — Bilingual Translator Extension (iOS).entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B520B19A2F8E8D26001CE84B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_NAME = "Privado — Bilingual Translator";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B520B19B2F8E8D26001CE84B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_NAME = "Privado — Bilingual Translator";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B520B19D2F8E8D26001CE84B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B520B19E2F8E8D26001CE84B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B520B1A12F8E8D26001CE84B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_NAME = "Privado — Bilingual Translator";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B520B1A22F8E8D26001CE84B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4RB3R4Z46C;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Privado — Bilingual Translator";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_NAME = "Privado — Bilingual Translator";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B520B1472F8E8D25001CE84B /* Build configuration list for PBXProject "Privado — Bilingual Translator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B520B1932F8E8D26001CE84B /* Debug */,
+				B520B1942F8E8D26001CE84B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B520B1952F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B520B1962F8E8D26001CE84B /* Debug */,
+				B520B1972F8E8D26001CE84B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B520B1992F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B520B19A2F8E8D26001CE84B /* Debug */,
+				B520B19B2F8E8D26001CE84B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B520B19C2F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B520B19D2F8E8D26001CE84B /* Debug */,
+				B520B19E2F8E8D26001CE84B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B520B1A02F8E8D26001CE84B /* Build configuration list for PBXNativeTarget "Privado — Bilingual Translator (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B520B1A12F8E8D26001CE84B /* Debug */,
+				B520B1A22F8E8D26001CE84B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B520B1442F8E8D25001CE84B /* Project object */;
+}

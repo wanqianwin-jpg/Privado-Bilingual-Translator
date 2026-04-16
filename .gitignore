@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Xcode build artifacts
+Privado\ —\ Bilingual\ Translator/Privado\ —\ Bilingual\ Translator.xcodeproj/xcuserdata/
+Privado\ —\ Bilingual\ Translator/**/*.xcodeproj/xcuserdata/
+DerivedData/
+
+# Xcode local settings (keep xcshareddata for shared schemes)
+*.xcuserstate
+
+# Node
+翻译插件/node_modules/
+翻译插件/package-lock.json
+
+# Build output
+翻译插件/*.zip
+翻译插件/web-ext-artifacts/
+
+# Claude worktrees (临时工作区，不入库)
+翻译插件/.claude/
+
+# Editor
+.vscode/
+*.swp
