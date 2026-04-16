@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Privado Settings</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      font-family: -apple-system, system-ui;
+      font-size: 14px;
+      background: #f2f2f7;
+      color: #1d1d1f;
+    }
+
+    h2 {
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .card-header {
+      padding: 10px 16px 8px;
+      font-size: 12px; font-weight: 600;
+      color: #6e6e73;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 0.5px solid rgba(60,60,67,.15);
+    }
+
+    /* ── Form rows ── */
+    .form-row {
+      padding: 12px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .form-row:not(:last-child) { border-bottom: 0.5px solid rgba(60,60,67,.12); }
+
+    label {
+      font-size: 13px; font-weight: 500; color: #3c3c43;
+    }
+
+    select, input[type="password"], input[type="text"] {
+      width: 100%; padding: 8px 10px;
+      font-size: 14px; font-family: inherit;
+      border: 0.5px solid rgba(60,60,67,.25);
+      border-radius: 8px;
+      background: rgba(118,118,128,.08);
+      color: inherit;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    select:focus, input:focus {
+      border-color: #007aff;
+      box-shadow: 0 0 0 3px rgba(0,122,255,.15);
+    }
+    select:disabled, input:disabled {
+      opacity: 0.4; cursor: not-allowed;
+    }
+
+    .hint {
+      font-size: 11px; color: #6e6e73;
+      line-height: 1.4;
+    }
+
+    /* ── Cache toggle row ── */
+    .toggle-row {
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .toggle-row input[type="checkbox"] {
+      width: 16px; height: 16px; cursor: pointer;
+      accent-color: #007aff;
+    }
+    .toggle-row label {
+      font-size: 13px; font-weight: 400; color: #1d1d1f;
+      cursor: pointer;
+    }
+
+    /* ── Buttons ── */
+    .btn-row {
+      display: flex; gap: 10px; align-items: center;
+      margin-top: 4px;
+    }
+
+    button {
+      padding: 9px 20px;
+      font-size: 14px; font-weight: 500; font-family: inherit;
+      border: none; border-radius: 8px;
+      cursor: pointer; transition: opacity 0.1s;
+    }
+    button:active { opacity: 0.8; }
+
+    #save { background: #007aff; color: #fff; }
+    #test { background: rgba(118,118,128,.18); color: #1d1d1f; }
+
+    .status {
+      font-size: 12px; color: #34c759;
+      min-height: 18px; margin-top: 8px;
+    }
+    .status.error { color: #ff3b30; }
+
+    .hidden { display: none !important; }
+
+    /* ── Dark mode ── */
+    @media (prefers-color-scheme: dark) {
+      body { background: #1c1c1e; color: #f5f5f7; }
+      .card { background: #2c2c2e; }
+      .card-header { color: #98989d; border-bottom-color: rgba(255,255,255,.1); }
+      .form-row:not(:last-child) { border-bottom-color: rgba(255,255,255,.1); }
+      label { color: #aeaeb2; }
+      select, input[type="password"], input[type="text"] {
+        background: rgba(255,255,255,.08);
+        border-color: rgba(255,255,255,.15);
+      }
+      select:focus, input:focus {
+        border-color: #0a84ff;
+        box-shadow: 0 0 0 3px rgba(10,132,255,.2);
+      }
+      .hint { color: #98989d; }
+      .toggle-row label { color: #f5f5f7; }
+      .toggle-row input[type="checkbox"] { accent-color: #0a84ff; }
+      #save { background: #0a84ff; }
+      #test { background: rgba(255,255,255,.12); color: #f5f5f7; }
+    }
+  </style>
+</head>
+<body>
+  <h2 data-i18n="optionsTitle">Privado Settings</h2>
+
+  <div class="card" id="api-section">
+    <div class="card-header" data-i18n="optionsApiConfig">API Configuration</div>
+
+    <div class="form-row">
+      <label for="api-provider" data-i18n="optionsProvider">Provider</label>
+      <select id="api-provider">
+        <option value="" data-i18n="optionsProviderPlaceholder">— Select —</option>
+        <option value="deepl">DeepL</option>
+        <option value="openai">OpenAI (GPT)</option>
+        <option value="gemini">Google Gemini</option>
+        <option value="custom" data-i18n="optionsProviderCustom">Custom (OpenAI-compatible)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="api-key" data-i18n="optionsApiKeyLabel">API Key</label>
+      <input type="password" id="api-key"
+             data-i18n-placeholder="optionsApiKeyPlaceholder"
+             placeholder="Paste your API Key" />
+      <span class="hint" data-i18n="optionsApiKeyHint">Stored locally only. Never sent to any server.</span>
+    </div>
+
+    <div id="model-row" class="form-row hidden">
+      <label for="api-model" data-i18n="optionsModel">Model</label>
+      <input type="text" id="api-model" list="model-suggestions"
+             data-i18n-placeholder="optionsModelPlaceholder"
+             placeholder="Choose or enter model name" />
+      <datalist id="model-suggestions"></datalist>
+    </div>
+
+    <div id="baseurl-row" class="form-row hidden">
+      <label for="api-base-url" data-i18n="optionsBaseUrl">Endpoint (Base URL)</label>
+      <input type="text" id="api-base-url" />
+    </div>
+
+    <div class="toggle-row">
+      <input type="checkbox" id="enable-cache">
+      <label for="enable-cache" data-i18n="optionsCacheLabel">Enable local cache (results stay on device, saves API quota)</label>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button id="save" data-i18n="optionsSave">Save</button>
+    <button id="test" data-i18n="optionsTest">Test Connection</button>
+  </div>
+  <div class="status" id="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
