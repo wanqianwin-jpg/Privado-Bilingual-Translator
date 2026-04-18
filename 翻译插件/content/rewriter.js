@@ -36,10 +36,12 @@
       if (isEditable && active.isConnected) {
         setEditableText(active, result)
         showRestoreBar(active, text)
+      } else if (providedText) {
+        showRewriteToast(result, 8000)
       }
     } catch (e) {
       toast.remove()
-      showRewriteToast('⚠ ' + (e.message || 'Rewrite failed'), 4000)
+      showRewriteToast('⚠ ' + (e.message || i18n('rewriteFailed')), 4000)
     } finally {
       session?.destroy()
     }

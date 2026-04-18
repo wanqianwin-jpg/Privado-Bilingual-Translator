@@ -76,5 +76,6 @@
   "rewriteWorking":      { "message": "Rewriting…" },
   "rewriteRestoreLabel": { "message": "Original:" },
   "rewriteRestoreBtn":   { "message": "Restore" },
-  "rewriteUnavailable":  { "message": "⚠ AI rewriter not available on this device" }
+  "rewriteUnavailable":  { "message": "⚠ AI rewriter not available on this device" },
+  "rewriteFailed":       { "message": "Rewrite failed" }
 }

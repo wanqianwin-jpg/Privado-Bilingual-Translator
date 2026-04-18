@@ -76,5 +76,6 @@
   "rewriteWorking":      { "message": "改寫中…" },
   "rewriteRestoreLabel": { "message": "原文：" },
   "rewriteRestoreBtn":   { "message": "還原" },
-  "rewriteUnavailable":  { "message": "⚠ 此裝置不支援 AI 改寫" }
+  "rewriteUnavailable":  { "message": "⚠ 此裝置不支援 AI 改寫" },
+  "rewriteFailed":       { "message": "改寫失敗" }
 }

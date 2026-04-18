@@ -76,5 +76,6 @@
   "rewriteWorking":      { "message": "Riscrittura…" },
   "rewriteRestoreLabel": { "message": "Originale:" },
   "rewriteRestoreBtn":   { "message": "Ripristina" },
-  "rewriteUnavailable":  { "message": "⚠ Riscrittore IA non disponibile su questo dispositivo" }
+  "rewriteUnavailable":  { "message": "⚠ Riscrittore IA non disponibile su questo dispositivo" },
+  "rewriteFailed":       { "message": "Riscrittura fallita" }
 }

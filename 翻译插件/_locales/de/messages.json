@@ -76,5 +76,6 @@
   "rewriteWorking":      { "message": "Umschreiben…" },
   "rewriteRestoreLabel": { "message": "Original:" },
   "rewriteRestoreBtn":   { "message": "Wiederherstellen" },
-  "rewriteUnavailable":  { "message": "⚠ KI-Umschreiber auf diesem Gerät nicht verfügbar" }
+  "rewriteUnavailable":  { "message": "⚠ KI-Umschreiber auf diesem Gerät nicht verfügbar" },
+  "rewriteFailed":       { "message": "Umschreiben fehlgeschlagen" }
 }
