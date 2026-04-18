@@ -70,5 +70,11 @@
   "ocrErrOcrFailed":    { "message": "OCR-Erkennung fehlgeschlagen" },
   "ocrErrNoText":       { "message": "Kein Text erkannt" },
 
-  "ytStartingHint": { "message": "Bereite zweisprachige Untertitel vor…" }
+  "ytStartingHint": { "message": "Bereite zweisprachige Untertitel vor…" },
+
+  "ctxRewriteSelection": { "message": "Mit KI umschreiben" },
+  "rewriteWorking":      { "message": "Umschreiben…" },
+  "rewriteRestoreLabel": { "message": "Original:" },
+  "rewriteRestoreBtn":   { "message": "Wiederherstellen" },
+  "rewriteUnavailable":  { "message": "⚠ KI-Umschreiber auf diesem Gerät nicht verfügbar" }
 }

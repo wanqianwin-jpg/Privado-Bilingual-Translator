@@ -70,5 +70,11 @@
   "ocrErrOcrFailed":    { "message": "OCR 识别失败" },
   "ocrErrNoText":       { "message": "未识别到文字" },
 
-  "ytStartingHint": { "message": "正在准备双语字幕..." }
+  "ytStartingHint": { "message": "正在准备双语字幕..." },
+
+  "ctxRewriteSelection": { "message": "AI 改写" },
+  "rewriteWorking":      { "message": "改写中…" },
+  "rewriteRestoreLabel": { "message": "原文：" },
+  "rewriteRestoreBtn":   { "message": "还原" },
+  "rewriteUnavailable":  { "message": "⚠ 此设备不支持 AI 改写" }
 }

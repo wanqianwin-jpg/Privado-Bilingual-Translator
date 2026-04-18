@@ -70,5 +70,11 @@
   "ocrErrOcrFailed":    { "message": "Échec de la reconnaissance OCR" },
   "ocrErrNoText":       { "message": "Aucun texte détecté" },
 
-  "ytStartingHint": { "message": "Préparation des sous-titres bilingues…" }
+  "ytStartingHint": { "message": "Préparation des sous-titres bilingues…" },
+
+  "ctxRewriteSelection": { "message": "Réécrire avec l'IA" },
+  "rewriteWorking":      { "message": "Réécriture…" },
+  "rewriteRestoreLabel": { "message": "Original :" },
+  "rewriteRestoreBtn":   { "message": "Restaurer" },
+  "rewriteUnavailable":  { "message": "⚠ Réécrivain IA non disponible sur cet appareil" }
 }

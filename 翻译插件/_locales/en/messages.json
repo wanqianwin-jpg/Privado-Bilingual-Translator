@@ -70,5 +70,11 @@
   "ocrErrOcrFailed":    { "message": "OCR recognition failed" },
   "ocrErrNoText":       { "message": "No text detected" },
 
-  "ytStartingHint": { "message": "Preparing bilingual subtitles…" }
+  "ytStartingHint": { "message": "Preparing bilingual subtitles…" },
+
+  "ctxRewriteSelection": { "message": "Rewrite with AI" },
+  "rewriteWorking":      { "message": "Rewriting…" },
+  "rewriteRestoreLabel": { "message": "Original:" },
+  "rewriteRestoreBtn":   { "message": "Restore" },
+  "rewriteUnavailable":  { "message": "⚠ AI rewriter not available on this device" }
 }
