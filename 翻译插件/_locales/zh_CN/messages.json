@@ -77,5 +77,10 @@
   "rewriteRestoreLabel": { "message": "原文：" },
   "rewriteRestoreBtn":   { "message": "还原" },
   "rewriteUnavailable":  { "message": "⚠ 此设备不支持 AI 改写" },
-  "rewriteFailed":       { "message": "改写失败" }
+  "rewriteFailed":       { "message": "改写失败" },
+
+  "optionsShortcuts":       { "message": "键盘快捷键" },
+  "optionsShortcutRewrite": { "message": "AI 改写" },
+  "optionsShortcutNotSet":  { "message": "未设置" },
+  "optionsShortcutCustomize": { "message": "自定义 →" }
 }

@@ -77,5 +77,10 @@
   "rewriteRestoreLabel": { "message": "Originale:" },
   "rewriteRestoreBtn":   { "message": "Ripristina" },
   "rewriteUnavailable":  { "message": "⚠ Riscrittore IA non disponibile su questo dispositivo" },
-  "rewriteFailed":       { "message": "Riscrittura fallita" }
+  "rewriteFailed":       { "message": "Riscrittura fallita" },
+
+  "optionsShortcuts":       { "message": "Scorciatoie da tastiera" },
+  "optionsShortcutRewrite": { "message": "Riscrivi con IA" },
+  "optionsShortcutNotSet":  { "message": "Non impostato" },
+  "optionsShortcutCustomize": { "message": "Personalizza →" }
 }

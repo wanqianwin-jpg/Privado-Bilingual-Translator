@@ -77,5 +77,10 @@
   "rewriteRestoreLabel": { "message": "Original:" },
   "rewriteRestoreBtn":   { "message": "Restore" },
   "rewriteUnavailable":  { "message": "⚠ AI rewriter not available on this device" },
-  "rewriteFailed":       { "message": "Rewrite failed" }
+  "rewriteFailed":       { "message": "Rewrite failed" },
+
+  "optionsShortcuts":       { "message": "Keyboard Shortcuts" },
+  "optionsShortcutRewrite": { "message": "Rewrite with AI" },
+  "optionsShortcutNotSet":  { "message": "Not set" },
+  "optionsShortcutCustomize": { "message": "Customize →" }
 }

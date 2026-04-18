@@ -105,6 +105,28 @@
     #save { background: #007aff; color: #fff; }
     #test { background: rgba(118,118,128,.18); color: #1d1d1f; }
 
+    .shortcut-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .shortcut-label { font-size: 13px; color: #3c3c43; }
+    kbd {
+      font-size: 12px; font-family: -apple-system, system-ui;
+      background: rgba(118,118,128,.12);
+      border: 0.5px solid rgba(60,60,67,.25);
+      border-radius: 5px;
+      padding: 2px 8px;
+      color: #3c3c43;
+    }
+    #shortcut-customize { font-size: 13px; color: #007aff; text-decoration: none; }
+    #shortcut-customize:hover { text-decoration: underline; }
+    @media (prefers-color-scheme: dark) {
+      .shortcut-label { color: #aeaeb2; }
+      kbd { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.15); color: #f5f5f7; }
+      #shortcut-customize { color: #0a84ff; }
+    }
+
     .status {
       font-size: 12px; color: #34c759;
       min-height: 18px; margin-top: 8px;
@@ -185,6 +207,17 @@
     <button id="test" data-i18n="optionsTest">Test Connection</button>
   </div>
   <div class="status" id="status"></div>
+
+  <div class="card" id="shortcuts-section">
+    <div class="card-header" data-i18n="optionsShortcuts">Keyboard Shortcuts</div>
+    <div class="form-row shortcut-row">
+      <span class="shortcut-label" data-i18n="optionsShortcutRewrite">Rewrite with AI</span>
+      <kbd id="shortcut-rewrite"></kbd>
+    </div>
+    <div class="form-row">
+      <a id="shortcut-customize" href="#" data-i18n="optionsShortcutCustomize">Customize →</a>
+    </div>
+  </div>
 
   <script src="options.js"></script>
 </body>

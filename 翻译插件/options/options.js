@@ -55,6 +55,16 @@ function updateProviderFields(provider, savedModel, savedBaseUrl) {
 async function init() {
   applyI18n()
 
+  // Shortcuts section
+  const commands = await chrome.commands.getAll()
+  const rewriteCmd = commands.find(c => c.name === 'rewrite-selection')
+  document.getElementById('shortcut-rewrite').textContent = rewriteCmd?.shortcut || i18n('optionsShortcutNotSet')
+
+  document.getElementById('shortcut-customize').addEventListener('click', (e) => {
+    e.preventDefault()
+    chrome.tabs.create({ url: 'chrome://extensions/shortcuts' })
+  })
+
   const { apiProvider = '', apiKey = '', apiModel = '', apiBaseUrl = '', enableCache = true }
     = await chrome.storage.local.get(['apiProvider', 'apiKey', 'apiModel', 'apiBaseUrl', 'enableCache'])
 

@@ -77,5 +77,10 @@
   "rewriteRestoreLabel": { "message": "Original:" },
   "rewriteRestoreBtn":   { "message": "Wiederherstellen" },
   "rewriteUnavailable":  { "message": "⚠ KI-Umschreiber auf diesem Gerät nicht verfügbar" },
-  "rewriteFailed":       { "message": "Umschreiben fehlgeschlagen" }
+  "rewriteFailed":       { "message": "Umschreiben fehlgeschlagen" },
+
+  "optionsShortcuts":       { "message": "Tastaturkürzel" },
+  "optionsShortcutRewrite": { "message": "Mit KI umschreiben" },
+  "optionsShortcutNotSet":  { "message": "Nicht festgelegt" },
+  "optionsShortcutCustomize": { "message": "Anpassen →" }
 }

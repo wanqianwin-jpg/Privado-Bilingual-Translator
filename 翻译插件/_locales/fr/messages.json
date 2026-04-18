@@ -77,5 +77,10 @@
   "rewriteRestoreLabel": { "message": "Original :" },
   "rewriteRestoreBtn":   { "message": "Restaurer" },
   "rewriteUnavailable":  { "message": "⚠ Réécrivain IA non disponible sur cet appareil" },
-  "rewriteFailed":       { "message": "Échec de la réécriture" }
+  "rewriteFailed":       { "message": "Échec de la réécriture" },
+
+  "optionsShortcuts":       { "message": "Raccourcis clavier" },
+  "optionsShortcutRewrite": { "message": "Réécrire avec l'IA" },
+  "optionsShortcutNotSet":  { "message": "Non défini" },
+  "optionsShortcutCustomize": { "message": "Personnaliser →" }
 }
