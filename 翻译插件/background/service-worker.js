@@ -35,16 +35,32 @@ function registerContextMenus() {
   chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({ id: 'ocr-only',      title: chrome.i18n.getMessage('ctxOcrOnly'),      contexts: ['image'] })
     chrome.contextMenus.create({ id: 'ocr-translate', title: chrome.i18n.getMessage('ctxOcrTranslate'), contexts: ['image'] })
+    if (!IS_SAFARI) {
+      chrome.contextMenus.create({ id: 'rewrite-selection', title: chrome.i18n.getMessage('ctxRewriteSelection'), contexts: ['selection'] })
+    }
   })
 }
 
 // Only available in Safari (native messaging + Vision.framework)
+// Direct call sufficient — MV2 persistent background runs this on every load
+chrome.runtime.onInstalled.addListener(registerContextMenus)
+chrome.runtime.onStartup.addListener(registerContextMenus)
 if (IS_SAFARI) {
-  chrome.runtime.onInstalled.addListener(registerContextMenus)
   registerContextMenus()
 }
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+  if (info.menuItemId === 'rewrite-selection') {
+    if (!tab?.id) return
+    const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'REWRITE_SELECTION',
+      text: info.selectionText || null,
+      targetLang
+    }).catch(() => {})
+    return
+  }
+
   if (!info.srcUrl || !tab?.id) return
   if (info.menuItemId !== 'ocr-only' && info.menuItemId !== 'ocr-translate') return
 
@@ -213,4 +229,15 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   })
 
   return true
+})
+
+chrome.commands.onCommand.addListener(async (command, tab) => {
+  if (command !== 'rewrite-selection') return
+  if (!tab?.id) return
+  const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+  chrome.tabs.sendMessage(tab.id, {
+    type: 'REWRITE_SELECTION',
+    text: null,
+    targetLang
+  }).catch(() => {})
 })
