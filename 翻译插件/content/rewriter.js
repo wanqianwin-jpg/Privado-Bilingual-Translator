@@ -54,6 +54,8 @@
   function setEditableText(el, text) {
     if (el.isContentEditable) {
       el.innerText = text
+      el.dispatchEvent(new Event('input', { bubbles: true }))
+      el.dispatchEvent(new Event('change', { bubbles: true }))
     } else {
       const nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value')?.set
         || Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set
