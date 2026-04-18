@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background/service-worker.js"
@@ -13,12 +13,12 @@
     {
       "matches": ["<all_urls>"],
       "exclude_matches": ["*://www.youtube.com/*", "*://*.reddit.com/*"],
-      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/content.js"],
+      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/rewriter.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {
       "matches": ["*://*.reddit.com/*"],
-      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/reddit.js", "content/content.js"],
+      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/reddit.js", "content/rewriter.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "matches": ["*://www.youtube.com/*"],
-      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/youtube.js", "content/content.js"],
+      "js": ["content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/youtube.js", "content/rewriter.js", "content/content.js"],
       "run_at": "document_idle"
     }
   ],
@@ -37,6 +37,12 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
+  },
+  "commands": {
+    "rewrite-selection": {
+      "suggested_key": { "default": "Ctrl+Shift+R", "mac": "Command+Shift+R" },
+      "description": "Rewrite selected text with AI"
+    }
   },
   "action": {
     "default_popup": "popup/popup.html",
