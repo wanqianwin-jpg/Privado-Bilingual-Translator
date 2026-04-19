@@ -37,6 +37,7 @@ function registerContextMenus() {
     chrome.contextMenus.create({ id: 'ocr-translate', title: chrome.i18n.getMessage('ctxOcrTranslate'), contexts: ['image'] })
     if (!IS_SAFARI) {
       chrome.contextMenus.create({ id: 'rewrite-selection', title: chrome.i18n.getMessage('ctxRewriteSelection'), contexts: ['selection'] })
+      chrome.contextMenus.create({ id: 'read-aloud', title: chrome.i18n.getMessage('ctxReadAloud'), contexts: ['selection'] })
     }
   })
 }
@@ -57,6 +58,15 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       type: 'REWRITE_SELECTION',
       text: info.selectionText || null,
       targetLang
+    }).catch(() => {})
+    return
+  }
+
+  if (info.menuItemId === 'read-aloud') {
+    if (!tab?.id) return
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'READ_ALOUD',
+      text: info.selectionText || null
     }).catch(() => {})
     return
   }
@@ -232,12 +242,22 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 })
 
 chrome.commands.onCommand.addListener(async (command, tab) => {
-  if (command !== 'rewrite-selection') return
-  if (!tab?.id) return
-  const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
-  chrome.tabs.sendMessage(tab.id, {
-    type: 'REWRITE_SELECTION',
-    text: null,
-    targetLang
-  }).catch(() => {})
+  if (command === 'rewrite-selection') {
+    if (!tab?.id) return
+    const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'REWRITE_SELECTION',
+      text: null,
+      targetLang
+    }).catch(() => {})
+    return
+  }
+
+  if (command === 'read-aloud') {
+    if (!tab?.id) return
+    chrome.tabs.sendMessage(tab.id, {
+      type: 'READ_ALOUD',
+      text: null
+    }).catch(() => {})
+  }
 })
