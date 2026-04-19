@@ -59,6 +59,8 @@ async function init() {
   const commands = await chrome.commands.getAll()
   const rewriteCmd = commands.find(c => c.name === 'rewrite-selection')
   document.getElementById('shortcut-rewrite').textContent = rewriteCmd?.shortcut || i18n('optionsShortcutNotSet')
+  const readAloudCmd = commands.find(c => c.name === 'read-aloud')
+  document.getElementById('shortcut-read-aloud').textContent = readAloudCmd?.shortcut || i18n('optionsShortcutNotSet')
 
   document.getElementById('shortcut-customize').addEventListener('click', (e) => {
     e.preventDefault()
