@@ -30,7 +30,22 @@
     }
   }
 
+  const NEURAL  = ['Eddy','Flo','Grandma','Grandpa','Reed','Rocko','Sandy','Shelley']
+  const EXCLUDE = ['Bad News','Bahh','Bells','Boing','Bubbles','Cellos','Fred',
+                   'Good News','Jester','Organ','Superstar','Trinoids','Whisper','Zarvox']
+
+  function bestVoice(lang) {
+    if (!lang) return null
+    const base = lang.split('-')[0]
+    const candidates = window.speechSynthesis.getVoices().filter(v =>
+      v.lang.startsWith(base) && !EXCLUDE.some(x => v.name.startsWith(x))
+    )
+    return candidates.find(v => NEURAL.some(n => v.name.startsWith(n))) || candidates[0] || null
+  }
+
   function speak(utterance) {
+    const voice = bestVoice(utterance.lang)
+    if (voice) utterance.voice = voice
     showStopBar()
     utterance.onend = cleanup
     utterance.onerror = cleanup
