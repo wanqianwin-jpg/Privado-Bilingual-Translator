@@ -34,10 +34,18 @@
   const EXCLUDE = ['Bad News','Bahh','Bells','Boing','Bubbles','Cellos','Fred',
                    'Good News','Jester','Organ','Superstar','Trinoids','Whisper','Zarvox']
 
+  // Cache voices early — Chrome's getVoices() returns [] on first call (async load)
+  let cachedVoices = []
+  if (window.speechSynthesis) {
+    const load = () => { cachedVoices = window.speechSynthesis.getVoices() }
+    load()
+    window.speechSynthesis.addEventListener('voiceschanged', load)
+  }
+
   function bestVoice(lang) {
     if (!lang) return null
     const base = lang.split('-')[0]
-    const candidates = window.speechSynthesis.getVoices().filter(v =>
+    const candidates = cachedVoices.filter(v =>
       v.lang.startsWith(base) && !EXCLUDE.some(x => v.name.startsWith(x))
     )
     return candidates.find(v => NEURAL.some(n => v.name.startsWith(n))) || candidates[0] || null
