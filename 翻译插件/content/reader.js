@@ -38,7 +38,7 @@
   }
 
   function stopReading() {
-    window.speechSynthesis.cancel()
+    window.speechSynthesis?.cancel()
     cleanup()
   }
 
