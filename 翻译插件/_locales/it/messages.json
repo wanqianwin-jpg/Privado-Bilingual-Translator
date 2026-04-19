@@ -82,5 +82,11 @@
   "optionsShortcuts":       { "message": "Scorciatoie da tastiera" },
   "optionsShortcutRewrite": { "message": "Riscrivi con IA" },
   "optionsShortcutNotSet":  { "message": "Non impostato" },
-  "optionsShortcutCustomize": { "message": "Personalizza →" }
+  "optionsShortcutCustomize": { "message": "Personalizza →" },
+
+  "ctxReadAloud":             { "message": "Leggi ad alta voce" },
+  "readAloudStop":            { "message": "Ferma" },
+  "readAloudReading":         { "message": "Lettura…" },
+  "readAloudUnavailable":     { "message": "⚠ Sintesi vocale non disponibile" },
+  "optionsShortcutReadAloud": { "message": "Leggi ad alta voce" }
 }

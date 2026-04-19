@@ -82,5 +82,11 @@
   "optionsShortcuts":       { "message": "键盘快捷键" },
   "optionsShortcutRewrite": { "message": "AI 改写" },
   "optionsShortcutNotSet":  { "message": "未设置" },
-  "optionsShortcutCustomize": { "message": "自定义 →" }
+  "optionsShortcutCustomize": { "message": "自定义 →" },
+
+  "ctxReadAloud":             { "message": "朗读原文" },
+  "readAloudStop":            { "message": "停止" },
+  "readAloudReading":         { "message": "朗读中…" },
+  "readAloudUnavailable":     { "message": "⚠ 此设备不支持文字转语音" },
+  "optionsShortcutReadAloud": { "message": "朗读原文" }
 }

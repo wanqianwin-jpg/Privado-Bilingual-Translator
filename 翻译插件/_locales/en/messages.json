@@ -82,5 +82,11 @@
   "optionsShortcuts":       { "message": "Keyboard Shortcuts" },
   "optionsShortcutRewrite": { "message": "Rewrite with AI" },
   "optionsShortcutNotSet":  { "message": "Not set" },
-  "optionsShortcutCustomize": { "message": "Customize →" }
+  "optionsShortcutCustomize": { "message": "Customize →" },
+
+  "ctxReadAloud":             { "message": "Read Aloud" },
+  "readAloudStop":            { "message": "Stop" },
+  "readAloudReading":         { "message": "Reading…" },
+  "readAloudUnavailable":     { "message": "⚠ Text-to-speech not available" },
+  "optionsShortcutReadAloud": { "message": "Read Aloud" }
 }

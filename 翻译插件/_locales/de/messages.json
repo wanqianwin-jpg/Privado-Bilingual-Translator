@@ -82,5 +82,11 @@
   "optionsShortcuts":       { "message": "Tastaturkürzel" },
   "optionsShortcutRewrite": { "message": "Mit KI umschreiben" },
   "optionsShortcutNotSet":  { "message": "Nicht festgelegt" },
-  "optionsShortcutCustomize": { "message": "Anpassen →" }
+  "optionsShortcutCustomize": { "message": "Anpassen →" },
+
+  "ctxReadAloud":             { "message": "Vorlesen" },
+  "readAloudStop":            { "message": "Stoppen" },
+  "readAloudReading":         { "message": "Liest vor…" },
+  "readAloudUnavailable":     { "message": "⚠ Text-to-Speech nicht verfügbar" },
+  "optionsShortcutReadAloud": { "message": "Vorlesen" }
 }
