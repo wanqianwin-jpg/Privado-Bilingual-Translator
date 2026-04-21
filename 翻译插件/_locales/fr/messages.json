@@ -88,5 +88,11 @@
   "readAloudStop":            { "message": "Arrêter" },
   "readAloudReading":         { "message": "Lecture…" },
   "readAloudUnavailable":     { "message": "⚠ Synthèse vocale non disponible" },
-  "optionsShortcutReadAloud": { "message": "Lire à voix haute" }
+  "optionsShortcutReadAloud": { "message": "Lire à voix haute" },
+
+  "toastChromeUnavailable":     { "message": "⚠ IA locale Chrome non disponible. Nécessite Chrome 138+ et un matériel compatible." },
+  "toastChromeAfterDownload":   { "message": "Première utilisation : Chrome doit télécharger le modèle linguistique de Google (fourni par Google, ~centaines de Mo). Ensuite, la traduction fonctionne hors ligne sans envoyer de données." },
+  "btnDownloadModel":           { "message": "Télécharger maintenant" },
+  "btnCancel":                  { "message": "Annuler" },
+  "toastChromeDownloadProgress": { "message": "Téléchargement du modèle Google… $1%", "placeholders": { "1": { "content": "$1" } } }
 }

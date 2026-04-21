@@ -88,5 +88,11 @@
   "readAloudStop":            { "message": "Stop" },
   "readAloudReading":         { "message": "Reading…" },
   "readAloudUnavailable":     { "message": "⚠ Text-to-speech not available" },
-  "optionsShortcutReadAloud": { "message": "Read Aloud" }
+  "optionsShortcutReadAloud": { "message": "Read Aloud" },
+
+  "toastChromeUnavailable":     { "message": "⚠ Chrome Local AI unavailable. Requires Chrome 138+ and supported hardware." },
+  "toastChromeAfterDownload":   { "message": "First-time setup: Chrome needs to download Google's language model (provided by Google, ~hundreds of MB). After download, translation works fully offline with no data sent to servers." },
+  "btnDownloadModel":           { "message": "Download Now" },
+  "btnCancel":                  { "message": "Cancel" },
+  "toastChromeDownloadProgress": { "message": "Downloading Google language model… $1%", "placeholders": { "1": { "content": "$1" } } }
 }

@@ -88,5 +88,11 @@
   "readAloudStop":            { "message": "停止" },
   "readAloudReading":         { "message": "朗讀中…" },
   "readAloudUnavailable":     { "message": "⚠ 此裝置不支援文字轉語音" },
-  "optionsShortcutReadAloud": { "message": "朗讀原文" }
+  "optionsShortcutReadAloud": { "message": "朗讀原文" },
+
+  "toastChromeUnavailable":     { "message": "⚠ Chrome 本地 AI 不可用，需要 Chrome 138 以上版本及受支援的硬體。" },
+  "toastChromeAfterDownload":   { "message": "首次使用需下載 Google 語言模型（由 Google 提供，約數百 MB）。下載後翻譯完全離線運作，不向任何伺服器傳送資料。" },
+  "btnDownloadModel":           { "message": "立即下載" },
+  "btnCancel":                  { "message": "取消" },
+  "toastChromeDownloadProgress": { "message": "正在下載 Google 語言模型… $1%", "placeholders": { "1": { "content": "$1" } } }
 }

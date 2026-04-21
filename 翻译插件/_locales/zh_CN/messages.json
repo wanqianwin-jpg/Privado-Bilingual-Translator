@@ -88,5 +88,11 @@
   "readAloudStop":            { "message": "停止" },
   "readAloudReading":         { "message": "朗读中…" },
   "readAloudUnavailable":     { "message": "⚠ 此设备不支持文字转语音" },
-  "optionsShortcutReadAloud": { "message": "朗读原文" }
+  "optionsShortcutReadAloud": { "message": "朗读原文" },
+
+  "toastChromeUnavailable":     { "message": "⚠ Chrome 本地 AI 不可用，需要 Chrome 138 及以上版本和受支持的硬件。" },
+  "toastChromeAfterDownload":   { "message": "首次使用需要下载 Google 语言模型（由 Google 提供，约数百 MB）。下载后翻译完全离线运行，不向任何服务器发送数据。" },
+  "btnDownloadModel":           { "message": "立即下载" },
+  "btnCancel":                  { "message": "取消" },
+  "toastChromeDownloadProgress": { "message": "正在下载 Google 语言模型… $1%", "placeholders": { "1": { "content": "$1" } } }
 }

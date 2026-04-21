@@ -88,5 +88,11 @@
   "readAloudStop":            { "message": "Stoppen" },
   "readAloudReading":         { "message": "Liest vor…" },
   "readAloudUnavailable":     { "message": "⚠ Text-to-Speech nicht verfügbar" },
-  "optionsShortcutReadAloud": { "message": "Vorlesen" }
+  "optionsShortcutReadAloud": { "message": "Vorlesen" },
+
+  "toastChromeUnavailable":     { "message": "⚠ Chrome Local AI nicht verfügbar. Erfordert Chrome 138+ und unterstützte Hardware." },
+  "toastChromeAfterDownload":   { "message": "Ersteinrichtung: Chrome muss Googles Sprachmodell herunterladen (von Google bereitgestellt, ~Hunderte MB). Danach funktioniert die Übersetzung vollständig offline ohne Datenübertragung." },
+  "btnDownloadModel":           { "message": "Jetzt herunterladen" },
+  "btnCancel":                  { "message": "Abbrechen" },
+  "toastChromeDownloadProgress": { "message": "Google-Sprachmodell wird heruntergeladen… $1%", "placeholders": { "1": { "content": "$1" } } }
 }
