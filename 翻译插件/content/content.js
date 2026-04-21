@@ -59,6 +59,12 @@
     // apple-npu: check Safari ANE availability upfront
     if (translateMode === 'apple-npu') {
       const status = await safariTranslatorStatus('auto', targetLang)
+      if (status === 'needs-download') {
+        showAppleNeedsDownloadToast()
+        ball.setState('idle')
+        translationStarted = false
+        return
+      }
       if (status === 'unavailable') {
         showPrivacyUnavailableToast()
         ball.setState('idle')
@@ -253,6 +259,20 @@ function showChromeUnavailableToast() {
   toast.append(msg, btnMachine)
   document.body.appendChild(toast)
   setTimeout(() => toast.remove(), 12000)
+}
+
+function showAppleNeedsDownloadToast() {
+  const toast = makeToast()
+  toast.style.maxWidth = '380px'
+  const msg = document.createElement('span')
+  msg.textContent = i18n('toastAppleNeedsDownload')
+  const btnMachine = makeBtn(i18n('btnSwitchMachine'), '#4285f4', async () => {
+    await chrome.storage.local.set({ translateMode: 'machine' })
+    location.reload()
+  })
+  toast.append(msg, btnMachine)
+  document.body.appendChild(toast)
+  setTimeout(() => toast.remove(), 15000)
 }
 
 function showChromeDownloadConfirmToast(onConfirm, onCancel) {
