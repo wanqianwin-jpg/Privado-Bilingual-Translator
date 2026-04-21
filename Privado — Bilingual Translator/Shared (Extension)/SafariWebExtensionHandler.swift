@@ -103,12 +103,22 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     // MARK: - Translation Status
 
     private func handleStatus(fromLang: String, toLang: String) async -> [String: Any] {
-        guard #available(macOS 26.0, iOS 26.0, *) else {
+        guard #available(macOS 15.0, iOS 18.0, *) else {
             return ["status": "unavailable"]
         }
-        // Translation.framework is present on macOS 26+.
-        // Model download (if needed) happens transparently on first use.
-        return ["status": "available"]
+        let sourceLang = Locale.Language(identifier: normalizedLangCode(fromLang == "auto" ? "en" : fromLang))
+        let targetLang = Locale.Language(identifier: normalizedLangCode(toLang))
+        let availability = LanguageAvailability()
+        let status = await availability.status(from: sourceLang, to: targetLang)
+        switch status {
+        case .installed:
+            return ["status": "available"]
+        case .supported:
+            // Language pair supported but not yet downloaded — user must go to system settings
+            return ["status": "needs-download"]
+        default:
+            return ["status": "unavailable"]
+        }
     }
 
     // MARK: - Batch Translation
