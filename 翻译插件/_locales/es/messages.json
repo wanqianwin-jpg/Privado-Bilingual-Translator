@@ -94,5 +94,6 @@
   "toastChromeAfterDownload":   { "message": "Primera vez: Chrome necesita descargar el modelo de idioma de Google (proporcionado por Google, ~cientos de MB). Después, la traducción funciona sin conexión sin enviar datos a ningún servidor." },
   "btnDownloadModel":           { "message": "Descargar ahora" },
   "btnCancel":                  { "message": "Cancelar" },
-  "toastChromeDownloadProgress": { "message": "Descargando modelo de idioma de Google… $1%", "placeholders": { "1": { "content": "$1" } } }
+  "toastChromeDownloadProgress": { "message": "Descargando modelo de idioma de Google… $1%", "placeholders": { "1": { "content": "$1" } } },
+  "toastAppleNeedsDownload": { "message": "La traducción local de Apple requiere un paquete de idioma. Ve a Configuración → General → Idioma y región → Idiomas de traducción para descargarlo." }
 }

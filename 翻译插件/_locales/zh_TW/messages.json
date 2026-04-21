@@ -94,5 +94,6 @@
   "toastChromeAfterDownload":   { "message": "首次使用需下載 Google 語言模型（由 Google 提供，約數百 MB）。下載後翻譯完全離線運作，不向任何伺服器傳送資料。" },
   "btnDownloadModel":           { "message": "立即下載" },
   "btnCancel":                  { "message": "取消" },
-  "toastChromeDownloadProgress": { "message": "正在下載 Google 語言模型… $1%", "placeholders": { "1": { "content": "$1" } } }
+  "toastChromeDownloadProgress": { "message": "正在下載 Google 語言模型… $1%", "placeholders": { "1": { "content": "$1" } } },
+  "toastAppleNeedsDownload": { "message": "Apple 本地翻譯需要下載語言包。請前往：系統設定 → 一般 → 語言與地區 → 翻譯語言，下載對應語言。" }
 }

@@ -94,5 +94,6 @@
   "toastChromeAfterDownload":   { "message": "Première utilisation : Chrome doit télécharger le modèle linguistique de Google (fourni par Google, ~centaines de Mo). Ensuite, la traduction fonctionne hors ligne sans envoyer de données." },
   "btnDownloadModel":           { "message": "Télécharger maintenant" },
   "btnCancel":                  { "message": "Annuler" },
-  "toastChromeDownloadProgress": { "message": "Téléchargement du modèle Google… $1%", "placeholders": { "1": { "content": "$1" } } }
+  "toastChromeDownloadProgress": { "message": "Téléchargement du modèle Google… $1%", "placeholders": { "1": { "content": "$1" } } },
+  "toastAppleNeedsDownload": { "message": "La traduction locale Apple nécessite un pack de langue. Allez dans Réglages → Général → Langue et région → Langues de traduction pour le télécharger." }
 }

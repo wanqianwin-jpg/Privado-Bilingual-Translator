@@ -94,5 +94,6 @@
   "toastChromeAfterDownload":   { "message": "Ersteinrichtung: Chrome muss Googles Sprachmodell herunterladen (von Google bereitgestellt, ~Hunderte MB). Danach funktioniert die Übersetzung vollständig offline ohne Datenübertragung." },
   "btnDownloadModel":           { "message": "Jetzt herunterladen" },
   "btnCancel":                  { "message": "Abbrechen" },
-  "toastChromeDownloadProgress": { "message": "Google-Sprachmodell wird heruntergeladen… $1%", "placeholders": { "1": { "content": "$1" } } }
+  "toastChromeDownloadProgress": { "message": "Google-Sprachmodell wird heruntergeladen… $1%", "placeholders": { "1": { "content": "$1" } } },
+  "toastAppleNeedsDownload": { "message": "Die lokale Apple-Übersetzung benötigt ein Sprachpaket. Gehe zu Einstellungen → Allgemein → Sprache & Region → Übersetzungssprachen zum Herunterladen." }
 }
