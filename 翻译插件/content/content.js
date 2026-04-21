@@ -24,9 +24,33 @@
     if (translateMode === 'chrome-local') {
       const status = await chromeTranslatorStatus('auto', targetLang)
       if (status === 'unavailable') {
-        showPrivacyUnavailableToast()
+        showChromeUnavailableToast()
         ball.setState('idle')
         translationStarted = false
+        return
+      }
+      if (status === 'after-download') {
+        ball.setState('idle')
+        translationStarted = false
+        showChromeDownloadConfirmToast(async () => {
+          const progressToast = showChromeDownloadProgressToast()
+          try {
+            await chromeTranslatorDownload('auto', targetLang, (pct) => {
+              const span = progressToast.querySelector('[data-progress]')
+              if (span) span.textContent = i18n('toastChromeDownloadProgress', [String(pct)])
+            })
+            progressToast.remove()
+            startTranslation()
+          } catch {
+            progressToast.remove()
+            showChromeUnavailableToast()
+            ball.setState('idle')
+            translationStarted = false
+          }
+        }, () => {
+          ball.setState('idle')
+          translationStarted = false
+        })
         return
       }
       if (status === 'downloading') showChromeApiToast()
@@ -216,6 +240,41 @@ function showPrivacyUnavailableToast() {
   toast.append(msg, btnMachine, btnApi)
   document.body.appendChild(toast)
   setTimeout(() => { toast.remove(); privacyToastShown = false }, 10000)
+}
+
+function showChromeUnavailableToast() {
+  const toast = makeToast()
+  const msg = document.createElement('span')
+  msg.textContent = i18n('toastChromeUnavailable')
+  const btnMachine = makeBtn(i18n('btnSwitchMachine'), '#4285f4', async () => {
+    await chrome.storage.local.set({ translateMode: 'machine' })
+    location.reload()
+  })
+  toast.append(msg, btnMachine)
+  document.body.appendChild(toast)
+  setTimeout(() => toast.remove(), 12000)
+}
+
+function showChromeDownloadConfirmToast(onConfirm, onCancel) {
+  const toast = makeToast()
+  toast.style.maxWidth = '380px'
+  const msg = document.createElement('span')
+  msg.textContent = i18n('toastChromeAfterDownload')
+  const btnDownload = makeBtn(i18n('btnDownloadModel'), '#4285f4', () => { toast.remove(); onConfirm() })
+  const btnCancel = makeBtn(i18n('btnCancel'), null, () => { toast.remove(); onCancel() })
+  toast.append(msg, btnDownload, btnCancel)
+  document.body.appendChild(toast)
+  // No auto-dismiss — user must make a choice
+}
+
+function showChromeDownloadProgressToast() {
+  const toast = makeToast()
+  const span = document.createElement('span')
+  span.dataset.progress = '1'
+  span.textContent = i18n('toastChromeDownloadProgress', ['0'])
+  toast.appendChild(span)
+  document.body.appendChild(toast)
+  return toast
 }
 
 let chromeApiToastShown = false
