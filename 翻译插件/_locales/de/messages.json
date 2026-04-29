@@ -97,5 +97,7 @@
   "btnDownloadModel":           { "message": "Jetzt herunterladen" },
   "btnCancel":                  { "message": "Abbrechen" },
   "toastChromeDownloadProgress": { "message": "Google-Sprachmodell wird heruntergeladen… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "Die lokale Apple-Übersetzung benötigt ein Sprachpaket. Gehe zu Einstellungen → Allgemein → Sprache & Region → Übersetzungssprachen zum Herunterladen." }
+  "toastAppleNeedsDownload": { "message": "Die lokale Apple-Übersetzung benötigt ein Sprachpaket. Gehe zu Einstellungen → Allgemein → Sprache & Region → Übersetzungssprachen zum Herunterladen." },
+
+  "optionsFreeFallbackLabel": { "message": "Google-Gratis-Übersetzung erlauben (genutzt wenn lokale KI nicht verfügbar)" }
 }

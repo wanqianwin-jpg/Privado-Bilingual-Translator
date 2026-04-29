@@ -1,4 +1,4 @@
-async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
+async function translateTexts(texts, fromLang, toLang, userApiConfig = null, enableFreeFallback = true) {
   // API Key user path
   if (userApiConfig?.key && userApiConfig?.provider) {
     const userApi = (typeof UserApiTranslator !== 'undefined')
@@ -6,6 +6,9 @@ async function translateTexts(texts, fromLang, toLang, userApiConfig = null) {
       : require('./user-api-translator.js')
     return userApi.translate(texts, fromLang, toLang, userApiConfig)
   }
+
+  // Free fallback disabled: return empty strings so the caller produces no output
+  if (!enableFreeFallback) return texts.map(() => '')
 
   // Free path: Google (Chrome API handled in content script)
   const googleApi = (typeof GoogleTranslator !== 'undefined')

@@ -97,5 +97,7 @@
   "btnDownloadModel":           { "message": "立即下載" },
   "btnCancel":                  { "message": "取消" },
   "toastChromeDownloadProgress": { "message": "正在下載 Google 語言模型… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "Apple 本地翻譯需要下載語言包。請前往：系統設定 → 一般 → 語言與地區 → 翻譯語言，下載對應語言。" }
+  "toastAppleNeedsDownload": { "message": "Apple 本地翻譯需要下載語言包。請前往：系統設定 → 一般 → 語言與地區 → 翻譯語言，下載對應語言。" },
+
+  "optionsFreeFallbackLabel": { "message": "允許 Google 免費翻譯備援（本地 AI 不可用時使用）" }
 }

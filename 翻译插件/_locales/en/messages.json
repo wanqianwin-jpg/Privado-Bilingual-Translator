@@ -95,5 +95,7 @@
   "btnDownloadModel":           { "message": "Download Now" },
   "btnCancel":                  { "message": "Cancel" },
   "toastChromeDownloadProgress": { "message": "Downloading Google language model… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "Apple on-device translation requires a language pack. Go to Settings → General → Language & Region → Translation Languages to download it." }
+  "toastAppleNeedsDownload": { "message": "Apple on-device translation requires a language pack. Go to Settings → General → Language & Region → Translation Languages to download it." },
+
+  "optionsFreeFallbackLabel": { "message": "Allow Google free translation (used when local AI is unavailable)" }
 }

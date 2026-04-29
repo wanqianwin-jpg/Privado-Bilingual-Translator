@@ -12,7 +12,7 @@ const IS_SAFARI = navigator.userAgent.includes('Safari') && !navigator.userAgent
 const queues = new Map()
 
 // In-memory config cache — avoids storage.local.get on every batch cycle
-let config = { translateMode: 'machine', apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
+let config = { translateMode: 'machine', apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true, enableFreeFallback: true }
 chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
   Object.assign(config, stored)
   config.translateMode = resolveTranslateMode(stored)
@@ -137,7 +137,7 @@ function getQueue(fromLang, toLang) {
       : { intervalMs: 300, maxCount: 8,  maxChars: 8000 }
     const queue = createBatchQueue(
       async (texts) => {
-        const { translateMode, apiProvider, apiKey, apiModel, apiBaseUrl, enableCache } = config
+        const { translateMode, apiProvider, apiKey, apiModel, apiBaseUrl, enableCache, enableFreeFallback } = config
         const userApiConfig = translateMode === 'api' && apiKey ? { provider: apiProvider, key: apiKey, model: apiModel, baseUrl: apiBaseUrl } : null
         const source = apiProvider || 'free'
         const useCache = translateMode !== 'api' || enableCache
@@ -157,7 +157,7 @@ function getQueue(fromLang, toLang) {
         }
 
         if (uncachedTexts.length > 0) {
-          const translated = await translateTexts(uncachedTexts, fromLang, toLang, userApiConfig)
+          const translated = await translateTexts(uncachedTexts, fromLang, toLang, userApiConfig, enableFreeFallback !== false)
           for (let j = 0; j < uncachedIndexes.length; j++) {
             const i = uncachedIndexes[j]
             results[i] = translated[j]

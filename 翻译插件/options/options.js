@@ -72,12 +72,13 @@ async function init() {
     chrome.tabs.create({ url: chrome.runtime.getURL('privacy.html') })
   })
 
-  const { apiProvider = '', apiKey = '', apiModel = '', apiBaseUrl = '', enableCache = true }
-    = await chrome.storage.local.get(['apiProvider', 'apiKey', 'apiModel', 'apiBaseUrl', 'enableCache'])
+  const { apiProvider = '', apiKey = '', apiModel = '', apiBaseUrl = '', enableCache = true, enableFreeFallback = true }
+    = await chrome.storage.local.get(['apiProvider', 'apiKey', 'apiModel', 'apiBaseUrl', 'enableCache', 'enableFreeFallback'])
 
   document.getElementById('api-provider').value = apiProvider
   document.getElementById('api-key').value = apiKey
   document.getElementById('enable-cache').checked = enableCache
+  document.getElementById('enable-free-fallback').checked = enableFreeFallback
 
   updateProviderFields(apiProvider, apiModel, apiBaseUrl)
 
@@ -91,8 +92,9 @@ async function init() {
     const model = document.getElementById('api-model').value.trim()
     const baseUrl = document.getElementById('api-base-url').value.trim()
     const cache = document.getElementById('enable-cache').checked
+    const freeFallback = document.getElementById('enable-free-fallback').checked
 
-    await chrome.storage.local.set({ apiProvider: provider, apiKey: key, apiModel: model, apiBaseUrl: baseUrl, enableCache: cache })
+    await chrome.storage.local.set({ apiProvider: provider, apiKey: key, apiModel: model, apiBaseUrl: baseUrl, enableCache: cache, enableFreeFallback: freeFallback })
 
     showStatus(i18n('statusSaved'), '#0a7d0a')
   })

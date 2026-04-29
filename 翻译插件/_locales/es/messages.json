@@ -97,5 +97,7 @@
   "btnDownloadModel":           { "message": "Descargar ahora" },
   "btnCancel":                  { "message": "Cancelar" },
   "toastChromeDownloadProgress": { "message": "Descargando modelo de idioma de Google… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "La traducción local de Apple requiere un paquete de idioma. Ve a Configuración → General → Idioma y región → Idiomas de traducción para descargarlo." }
+  "toastAppleNeedsDownload": { "message": "La traducción local de Apple requiere un paquete de idioma. Ve a Configuración → General → Idioma y región → Idiomas de traducción para descargarlo." },
+
+  "optionsFreeFallbackLabel": { "message": "Permitir traducción gratuita de Google (cuando la IA local no está disponible)" }
 }

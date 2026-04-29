@@ -2,14 +2,6 @@
 
 记录于 2026-04-29 全项目检查。已处理项见底部 ✓ 列表，未处理项按优先级排列。
 
-## 🔵 安全/隐私（部分完成）
-
-### S1. `translate.googleapis.com` `client=gtx` 非官方端点 — 剩余
-**位置**：`background/translators/google-translator.js`
-
-privacy.html 已更新（披露 Google 可能记录请求日志）。仍未做：
-- options 里加"使用免费翻译"明确开关，默认走 chrome-local（Chrome）/apple-npu（Safari）
-
 ## 📦 仓库卫生（未做，需 git 操作）
 
 ### R1. `privado-bilingual-translator.zip` 进了仓库
@@ -61,5 +53,7 @@ git ls-files | grep -i 'ds_store$' | xargs -I{} git rm --cached "{}"
 19. **privacy.html 加 Google 日志披露** (S1-partial)：Machine mode 条目明确注明 "unofficial, no SLA" 及 Google 可能记录请求
 20. **YouTube/Reddit MO 防抖** (P7-extra)：`youtube.js` / `reddit.js` MO 改为 idle callback 队列（fallback 150ms），积累节点到 `_ytMoPending` / `_rdMoPending`，flush 时检查 `isConnected`；YouTube player/desc 标志按轮次累积
 21. **renderer.js 内联样式条件化** (Q4)：`injectTranslation` 中 `div.style.cssText` 改为仅在 `el.getRootNode() instanceof ShadowRoot` 时设置（`el.after` 路径），slotted child 路径（`el.appendChild`）无需内联因为 div 在 light DOM
+
+22. **Options 加"允许 Google 免费翻译"开关** (S1-remaining)：options.html About 卡片新增 `enable-free-fallback` checkbox（默认开），`translators/index.js` 增加 `enableFreeFallback` 参数，关闭时返回空字符串数组跳过 Google 调用。service-worker.js config 对象同步新增该 key，存读 storage.local。7 个 locale 均加 `optionsFreeFallbackLabel`
 
 **测试现状**：4 个 suite 全过，33 例全部 PASS。

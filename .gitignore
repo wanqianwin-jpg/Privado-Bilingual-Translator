@@ -12,7 +12,6 @@ DerivedData/
 
 # Node
 翻译插件/node_modules/
-翻译插件/package-lock.json
 
 # Build output
 翻译插件/*.zip
