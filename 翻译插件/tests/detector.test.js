@@ -57,4 +57,27 @@ describe('shouldTranslate', () => {
     btn.textContent = 'Click me to submit the form'
     expect(shouldTranslate(btn)).toBe(false)
   })
+
+  test('aside 内的 p 跳过（隐式 ARIA complementary）', () => {
+    document.body.textContent = ''
+    const aside = document.createElement('aside')
+    const p = document.createElement('p')
+    p.textContent = 'Sidebar content paragraph here, related links etc.'
+    aside.appendChild(p)
+    document.body.appendChild(aside)
+    expect(shouldTranslate(p)).toBe(false)
+  })
+
+  test('hasAdSignal 二次调用走缓存（同一元素返回相同结果）', () => {
+    document.body.textContent = ''
+    const ad = document.createElement('div')
+    ad.className = 'ad-banner'
+    const p = document.createElement('p')
+    p.textContent = 'Buy now, great deals available everywhere'
+    ad.appendChild(p)
+    document.body.appendChild(ad)
+    // First and second call should both reject (cache shouldn't flip)
+    expect(shouldTranslate(p)).toBe(false)
+    expect(shouldTranslate(p)).toBe(false)
+  })
 })

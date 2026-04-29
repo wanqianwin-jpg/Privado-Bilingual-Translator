@@ -17,13 +17,10 @@ async function init() {
   try { host = new URL(chromeTab.url).hostname } catch {}
 
   const stored = await chrome.storage.local.get([
-    'siteSettings', 'displayMode', 'targetLang', 'translateMode', 'apiEnabled'
+    'siteSettings', 'displayMode', 'targetLang', ...TRANSLATE_MODE_KEYS
   ])
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
-
-  // Migration: 'privacy' → 'chrome-local', old apiEnabled → translateMode
-  let savedMode = stored.translateMode === 'privacy' ? 'chrome-local' : stored.translateMode
-  if (!savedMode) savedMode = stored.apiEnabled ? 'api' : 'machine'
+  let savedMode = resolveTranslateMode(stored)
 
   // Sanitize: if saved mode is not available in this browser, fall back to machine
   const browserModes = IS_SAFARI

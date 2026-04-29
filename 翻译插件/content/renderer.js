@@ -8,14 +8,17 @@ function injectTranslation(el, translatedText) {
   removeTranslation(el)
   const div = document.createElement('div')
   div.dataset.btSiblingFor = 'true'
-  // Inline styles penetrate shadow DOM (document.head styles don't reach shadow roots)
-  div.style.cssText = 'opacity:0.85;font-size:max(0.9em,13px);margin-top:2px;line-height:1.5;color:inherit'
   div.textContent = translatedText
   // Slotted elements (slot="...") live inside a parent's shadow DOM — a sibling div won't be
   // projected into the same slot and will be invisible. Inject inside instead so it stays in context.
   if (el.hasAttribute('slot')) {
     el.appendChild(div)
   } else {
+    // Inline styles are only needed when the div lands inside a shadow root where
+    // document.head <style> rules don't reach.
+    if (el.getRootNode() instanceof ShadowRoot) {
+      div.style.cssText = 'opacity:0.85;font-size:max(0.9em,13px);margin-top:2px;line-height:1.5;color:inherit'
+    }
     el.after(div)
   }
   el.dataset.btTranslated = 'true'

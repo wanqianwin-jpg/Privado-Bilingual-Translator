@@ -23,10 +23,9 @@ let ytMode = 'bilingual'
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 async function init() {
-  const data = await chrome.storage.local.get(['targetLang', 'translateMode', 'apiEnabled'])
+  const data = await chrome.storage.local.get(['targetLang', ...TRANSLATE_MODE_KEYS])
   targetLang = data.targetLang || 'zh'
-  const raw = data.translateMode === 'privacy' ? 'chrome-local' : data.translateMode
-  translateMode = raw || (data.apiEnabled ? 'api' : 'machine')
+  translateMode = resolveTranslateMode(data)
 
   window.addEventListener('message', onMainWorldMessage)
   window.addEventListener('yt-navigate-finish', onNavigate)
@@ -123,7 +122,7 @@ function applyMode() {
     hideNativeCC()
     // re-render current subtitle with new mode
     const nowMs = videoEl ? videoEl.currentTime * 1000 : 0
-    const idx = subtitles.findIndex(s => nowMs >= s.start && nowMs <= s.end)
+    const idx = _findActiveSubIdx(nowMs)
     renderSubtitle(idx !== -1 ? subtitles[idx] : null)
   }
   updateBtnStyle()
@@ -131,9 +130,35 @@ function applyMode() {
 
 // ── Translation ───────────────────────────────────────────────────────────────
 
+// Subtitles are sorted by start time, so we can binary-search instead of scanning all of them
+// on every onTimeUpdate (which fires ~4Hz). For long videos with hundreds of subs this matters.
+function _findSubStartIdx(targetMs) {
+  // Returns smallest idx where subtitles[idx].start >= targetMs (or subtitles.length if none).
+  let lo = 0, hi = subtitles.length
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1
+    if (subtitles[mid].start < targetMs) lo = mid + 1
+    else hi = mid
+  }
+  return lo
+}
+
+function _findActiveSubIdx(nowMs) {
+  // Largest idx where subtitles[idx].start <= nowMs, then verify end >= nowMs.
+  let lo = 0, hi = subtitles.length - 1, found = -1
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1
+    if (subtitles[mid].start <= nowMs) { found = mid; lo = mid + 1 }
+    else hi = mid - 1
+  }
+  if (found === -1) return -1
+  return nowMs <= subtitles[found].end ? found : -1
+}
+
 function preTranslate(fromMs, toMs) {
-  for (const sub of subtitles) {
-    if (sub.start < fromMs || sub.start > toMs) continue
+  for (let i = _findSubStartIdx(fromMs); i < subtitles.length; i++) {
+    const sub = subtitles[i]
+    if (sub.start > toMs) break
     if (sub.translation !== null || sub.pending) continue
     translateSub(sub)
   }
@@ -165,7 +190,7 @@ let lastSubIdx = -1
 function onTimeUpdate() {
   if (ytMode === 'off') return
   const nowMs = videoEl.currentTime * 1000
-  const idx = subtitles.findIndex(s => nowMs >= s.start && nowMs <= s.end)
+  const idx = _findActiveSubIdx(nowMs)
 
   if (idx !== lastSubIdx) {
     lastSubIdx = idx
@@ -236,29 +261,41 @@ function updateBtnStyle() {
 
 // ── Player button ─────────────────────────────────────────────────────────────
 
-function waitForControls() {
-  const poll = setInterval(() => {
-    const rightControls = document.querySelector('.ytp-right-controls')
-    if (!rightControls) return
-    clearInterval(poll)
-    if (document.getElementById('bt-yt-btn')) return
+function _attachPlayerBtn(rightControls) {
+  if (document.getElementById('bt-yt-btn')) return
+  playerBtn = document.createElement('button')
+  playerBtn.id = 'bt-yt-btn'
+  playerBtn.style.cssText = [
+    'display:inline-flex', 'align-items:center', 'justify-content:center',
+    'height:28px', 'padding:0 10px', 'border-radius:14px', 'border:none',
+    'font-size:12px', 'font-weight:600', 'font-family:system-ui',
+    'color:#fff', 'cursor:pointer', 'white-space:nowrap',
+    'transition:opacity 0.15s', 'align-self:center', 'margin:0 4px'
+  ].join(';')
+  playerBtn.addEventListener('click', () => {
+    ytMode = YT_MODES[(YT_MODES.indexOf(ytMode) + 1) % YT_MODES.length]
+    applyMode()
+  })
+  updateBtnStyle()
+  rightControls.prepend(playerBtn)
+}
 
-    playerBtn = document.createElement('button')
-    playerBtn.id = 'bt-yt-btn'
-    playerBtn.style.cssText = [
-      'display:inline-flex', 'align-items:center', 'justify-content:center',
-      'height:28px', 'padding:0 10px', 'border-radius:14px', 'border:none',
-      'font-size:12px', 'font-weight:600', 'font-family:system-ui',
-      'color:#fff', 'cursor:pointer', 'white-space:nowrap',
-      'transition:opacity 0.15s', 'align-self:center', 'margin:0 4px'
-    ].join(';')
-    playerBtn.addEventListener('click', () => {
-      ytMode = YT_MODES[(YT_MODES.indexOf(ytMode) + 1) % YT_MODES.length]
-      applyMode()
-    })
-    updateBtnStyle()
-    rightControls.prepend(playerBtn)
-  }, 500)
+// Use a MutationObserver instead of setInterval so embeds and pages without a player
+// (e.g. /feed/* listing views) don't burn cycles polling forever.
+function waitForControls() {
+  const existing = document.querySelector('.ytp-right-controls')
+  if (existing) { _attachPlayerBtn(existing); return }
+
+  const mo = new MutationObserver(() => {
+    const rc = document.querySelector('.ytp-right-controls')
+    if (!rc) return
+    mo.disconnect()
+    _attachPlayerBtn(rc)
+  })
+  mo.observe(document.body, { childList: true, subtree: true })
+
+  // Safety net: stop watching after 30s on pages that genuinely have no player.
+  setTimeout(() => mo.disconnect(), 30000)
 }
 
 // ── YouTube page translation (comments, descriptions, titles) ─────────────────
@@ -305,7 +342,7 @@ async function translateYtEl(el) {
   return new Promise((resolve) => {
     try {
       chrome.runtime.sendMessage(
-        { type: 'TRANSLATE', id: 'ytp-' + Math.random().toString(36).slice(2), text, fromLang: 'auto', toLang: targetLang },
+        { type: 'TRANSLATE', id: 'ytp-' + crypto.randomUUID(), text, fromLang: 'auto', toLang: targetLang },
         (res) => {
           if (chrome.runtime.lastError) { delete el.dataset.btTranslated; resolve(); return }
           if (res?.ok) injectYtTranslation(el, res.translation)
@@ -338,6 +375,18 @@ function scanYtComments(root = document) {
   })
 }
 
+// Video description area — ytd-text-inline-expander is often blocked by hasAdSignal (ytd- prefix)
+// so we scan it directly like comments.
+function scanYtDescription(root = document) {
+  root.querySelectorAll('ytd-text-inline-expander, ytd-video-secondary-info-renderer').forEach(el => {
+    // Only translate if it has meaningful text content (not just links/buttons)
+    const text = el.textContent?.trim() || ''
+    if (text.length < 20) return
+    if (isMostlyCJK(text)) return
+    if (!el.dataset.btTranslated) translateYtElTracked(el)
+  })
+}
+
 // Titles inside #movie_player and role="complementary" are blocked by the generic walker.
 // Handle them directly: .ytp-title-text is the ONLY visible title in Shorts; .ytp-ce-video-title
 // are end-card recommendation titles.
@@ -355,7 +404,39 @@ function scanYtPage() {
   const root = document.querySelector('ytd-page-manager') || document.body
   getTranslatableElements(root).forEach(translateYtElTracked)
   scanYtComments()
+  scanYtDescription()
   scanYtPlayerTitles()
+}
+
+const _scheduleYtFlush = typeof requestIdleCallback === 'function'
+  ? (cb) => requestIdleCallback(cb, { timeout: 300 })
+  : (cb) => setTimeout(cb, 150)
+let _ytMoPending = []
+let _ytMoNeedsPlayer = false
+let _ytMoNeedsDesc = false
+let _ytMoScheduled = false
+
+function _flushYtMo() {
+  _ytMoScheduled = false
+  const nodes = _ytMoPending; _ytMoPending = []
+  const doPlayer = _ytMoNeedsPlayer; _ytMoNeedsPlayer = false
+  const doDesc = _ytMoNeedsDesc; _ytMoNeedsDesc = false
+  for (const node of nodes) {
+    if (!node.isConnected) continue
+    if (node.tagName === 'YTD-COMMENT-THREAD-RENDERER' || node.tagName === 'YTD-COMMENT-VIEW-MODEL') {
+      scanYtComments(node)
+    } else {
+      node.querySelectorAll?.('yt-attributed-string#content-text').forEach(el => {
+        if (!el.dataset.btTranslated) translateYtElTracked(el)
+      })
+    }
+    if (node.tagName === 'YTD-TEXT-INLINE-EXPANDER' || node.tagName === 'YTD-VIDEO-SECONDARY-INFO-RENDERER') {
+      scanYtDescription(node)
+    }
+    getTranslatableElements(node).forEach(translateYtElTracked)
+  }
+  if (doPlayer) scanYtPlayerTitles()
+  if (doDesc) scanYtDescription()
 }
 
 function initPageTranslation() {
@@ -363,33 +444,31 @@ function initPageTranslation() {
   setTimeout(scanYtPage, 800)
   setTimeout(scanYtPage, 2500)
 
-  // MO: translate newly added content immediately.
   const mo = new MutationObserver((mutations) => {
-    let needsPlayerScan = false
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
-        if (node.dataset.btSiblingFor) continue  // skip our own injected translation divs
-        // Direct comment scan for newly loaded comment threads
-        if (node.tagName === 'YTD-COMMENT-THREAD-RENDERER' || node.tagName === 'YTD-COMMENT-VIEW-MODEL') {
-          scanYtComments(node)
-        } else {
-          node.querySelectorAll?.('yt-attributed-string#content-text').forEach(el => {
-            if (!el.dataset.btTranslated) translateYtElTracked(el)
-          })
-        }
-        getTranslatableElements(node).forEach(translateYtElTracked)
-        // Flag player title re-scan when player-related nodes are added (e.g. Shorts navigation)
-        if (!needsPlayerScan && (
+        if (node.dataset.btSiblingFor) continue
+        _ytMoPending.push(node)
+        if (!_ytMoNeedsPlayer && (
           node.classList?.contains('ytp-title-text') ||
           node.classList?.contains('ytp-ce-video-title') ||
           node.querySelector?.('.ytp-title-text, .ytp-ce-video-title')
         )) {
-          needsPlayerScan = true
+          _ytMoNeedsPlayer = true
+        }
+        if (!_ytMoNeedsDesc && (
+          node.tagName === 'YTD-TEXT-INLINE-EXPANDER' ||
+          node.querySelector?.('ytd-text-inline-expander')
+        )) {
+          _ytMoNeedsDesc = true
         }
       }
     }
-    if (needsPlayerScan) scanYtPlayerTitles()
+    if (!_ytMoScheduled && _ytMoPending.length > 0) {
+      _ytMoScheduled = true
+      _scheduleYtFlush(_flushYtMo)
+    }
   })
   mo.observe(document.body, { childList: true, subtree: true })
 }

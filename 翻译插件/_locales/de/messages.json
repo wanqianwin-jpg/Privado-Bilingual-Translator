@@ -83,6 +83,8 @@
   "optionsShortcutRewrite": { "message": "Mit KI umschreiben" },
   "optionsShortcutNotSet":  { "message": "Nicht festgelegt" },
   "optionsShortcutCustomize": { "message": "Anpassen →" },
+  "optionsAbout": { "message": "Über" },
+  "optionsPrivacyPolicy": { "message": "Datenschutzerklärung" },
 
   "ctxReadAloud":             { "message": "Vorlesen" },
   "readAloudStop":            { "message": "Stoppen" },

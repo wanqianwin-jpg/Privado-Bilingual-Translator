@@ -1,7 +1,5 @@
 function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' }) {
   const POS_KEY = 'bt-ball-pos'
-  const MODES = ['bilingual', 'translation-only', 'original-only']
-  const MODE_LABELS = { bilingual: '双', 'translation-only': '译', 'original-only': '原' }
 
   // Inject styles
   if (!document.getElementById('bt-ball-styles')) {
@@ -49,21 +47,34 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
 
   let state = manualMode ? 'idle' : 'translating'
   let currentMode = initialMode
+  // Remember last non-hidden mode so we can restore it when un-hiding
+  let lastVisibleMode = (initialMode === 'original-only') ? 'bilingual' : initialMode
   let pointerMoved = false
   let dragStart = null
+
+  const hidden = () => currentMode === 'original-only'
 
   function render() {
     if (state === 'idle') {
       ball.textContent = '译'
       ball.title = '点击翻译本页'
+      ball.dataset.state = 'idle'
     } else if (state === 'translating') {
       ball.textContent = '···'
       ball.title = '翻译中...'
+      ball.dataset.state = 'translating'
     } else {
-      ball.textContent = MODE_LABELS[currentMode] || '双'
-      ball.title = '点击切换显示模式'
+      // done: toggle between showing and hiding translations
+      if (hidden()) {
+        ball.textContent = '译'
+        ball.title = '点击显示译文'
+        ball.dataset.state = 'idle'   // blue = hidden
+      } else {
+        ball.textContent = '双'
+        ball.title = '点击隐藏译文'
+        ball.dataset.state = 'done'   // green = showing
+      }
     }
-    ball.dataset.state = state
   }
 
   render()
@@ -109,8 +120,13 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
     if (state === 'idle') {
       onTranslate?.()
     } else if (state === 'done') {
-      const idx = MODES.indexOf(currentMode)
-      currentMode = MODES[(idx + 1) % MODES.length]
+      // Toggle: show translations ↔ hide translations (original-only)
+      if (hidden()) {
+        currentMode = lastVisibleMode
+      } else {
+        lastVisibleMode = currentMode
+        currentMode = 'original-only'
+      }
       setDisplayMode(currentMode)
       chrome.storage.local.set({ displayMode: currentMode })
       render()
@@ -121,7 +137,12 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
 
   return {
     setState(s) { state = s; render() },
-    setMode(m) { currentMode = m; if (state === 'done') render() }
+    // Called when popup changes display mode — keep ball in sync
+    setMode(m) {
+      currentMode = m
+      if (m !== 'original-only') lastVisibleMode = m
+      if (state === 'done') render()
+    }
   }
 }
 

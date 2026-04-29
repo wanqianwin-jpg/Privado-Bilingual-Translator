@@ -44,4 +44,23 @@ describe('BatchQueue', () => {
 
     expect(results['a']).toBe('你好世界')
   })
+
+  test('同批次内相同文本只发送一次但分发给所有请求方', async () => {
+    const mockTranslate = jest.fn().mockResolvedValue(['你好', '世界'])
+    const queue = createBatchQueue(mockTranslate, { intervalMs: 300, maxCount: 8, maxChars: 8000 })
+
+    const results = {}
+    queue.add({ id: 'a', text: 'Hello world repeated text', onResult: (t) => { results['a'] = t } })
+    queue.add({ id: 'b', text: 'Different sentence here',  onResult: (t) => { results['b'] = t } })
+    queue.add({ id: 'c', text: 'Hello world repeated text', onResult: (t) => { results['c'] = t } })
+
+    jest.advanceTimersByTime(300)
+    await Promise.resolve(); await Promise.resolve()
+
+    // Only 2 unique texts should reach translateFn
+    expect(mockTranslate).toHaveBeenCalledWith(['Hello world repeated text', 'Different sentence here'])
+    expect(results['a']).toBe('你好')
+    expect(results['c']).toBe('你好')
+    expect(results['b']).toBe('世界')
+  })
 })

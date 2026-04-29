@@ -1,7 +1,8 @@
 // importScripts is only available in service worker context;
 // in MV2 background.html these scripts are already loaded via <script> tags.
 if (typeof importScripts === 'function') {
-  importScripts('batch-queue.js', 'cache.js',
+  importScripts('../shared/config.js',
+    'batch-queue.js', 'cache.js',
     'translators/google-translator.js',
     'translators/user-api-translator.js', 'translators/index.js')
 }
@@ -14,19 +15,23 @@ const queues = new Map()
 let config = { translateMode: 'machine', apiProvider: '', apiKey: '', apiModel: '', apiBaseUrl: '', enableCache: true }
 chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
   Object.assign(config, stored)
-  // Migration: old apiEnabled / 'privacy' → translateMode
-  if (stored.translateMode === 'privacy') config.translateMode = 'chrome-local'
-  else if (!stored.translateMode && stored.apiEnabled !== undefined) {
-    config.translateMode = stored.apiEnabled ? 'api' : 'machine'
-  }
+  config.translateMode = resolveTranslateMode(stored)
 })
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return
+  let configChanged = false
   for (const [key, { newValue }] of Object.entries(changes)) {
-    if (key in config) config[key] = newValue
+    if (key in config) {
+      config[key] = newValue
+      configChanged = true
+    }
   }
-  queues.forEach(q => q.destroy())
-  queues.clear()
+  // Only flush queues when keys that affect translation behavior actually changed.
+  // Unrelated changes (displayMode, siteSettings, etc) shouldn't drop in-flight requests.
+  if (configChanged) {
+    queues.forEach(q => q.destroy())
+    queues.clear()
+  }
 })
 
 // ── Context menus (Apple NPU image OCR) ──────────────────────────────────────
@@ -112,14 +117,13 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 async function fetchImageAsDataUri(url) {
   const res = await fetch(url, { signal: AbortSignal.timeout(15000) })
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
-  const mimeType = res.headers.get('content-type')?.split(';')[0] || 'image/png'
-  const uint8 = new Uint8Array(await res.arrayBuffer())
-  let binary = ''
-  const chunk = 8192
-  for (let i = 0; i < uint8.length; i += chunk) {
-    binary += String.fromCharCode(...uint8.subarray(i, i + chunk))
-  }
-  return `data:${mimeType};base64,${btoa(binary)}`
+  const blob = await res.blob()
+  return await new Promise((resolve, reject) => {
+    const r = new FileReader()
+    r.onload = () => resolve(r.result)
+    r.onerror = () => reject(r.error || new Error('FileReader failed'))
+    r.readAsDataURL(blob)
+  })
 }
 
 // ── Page translation queue ────────────────────────────────────────────────────

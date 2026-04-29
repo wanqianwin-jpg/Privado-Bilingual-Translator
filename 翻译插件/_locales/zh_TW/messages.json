@@ -83,6 +83,8 @@
   "optionsShortcutRewrite": { "message": "AI 改寫" },
   "optionsShortcutNotSet":  { "message": "未設定" },
   "optionsShortcutCustomize": { "message": "自訂 →" },
+  "optionsAbout": { "message": "關於" },
+  "optionsPrivacyPolicy": { "message": "隱私政策" },
 
   "ctxReadAloud":             { "message": "朗讀原文" },
   "readAloudStop":            { "message": "停止" },

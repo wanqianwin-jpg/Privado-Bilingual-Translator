@@ -23,14 +23,14 @@ function isMostlyCJK(text) {
   return cjk / stripped.length > CJK_THRESHOLD
 }
 
-const ANCESTOR_BLACKLIST = new Set(['NAV', 'HEADER', 'FOOTER'])
-const ANCESTOR_ID_BLACKLIST = new Set(['movie_player'])
-const ANCESTOR_ROLE_BLACKLIST = new Set(['navigation', 'banner', 'complementary', 'form', 'search', 'alert', 'status', 'log'])
 const AD_KEYWORDS = ['ad-', 'ads', 'advert', 'sponsor', 'advertisement', 'promo', 'banner']
 const YT_UI_PREFIXES = ['ytp-', 'yt-icon', 'ytd-button', 'yt-button']
 
-// Pre-compiled selectors for closest() — built once, reused on every call
-const BLACKLIST_SELECTOR = 'nav, header, footer, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container'
+// Pre-compiled selectors for closest() — built once, reused on every call.
+// `aside` is included alongside `[role="complementary"]` because CSS selectors don't see
+// implicit ARIA roles (an <aside> without an explicit role attribute won't match the role
+// selector). Same pattern as `nav` / `[role="navigation"]`.
+const BLACKLIST_SELECTOR = 'nav, header, footer, aside, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container'
 const AD_ATTR_SELECTOR = AD_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
 
 // Never enter these — no translatable text inside
@@ -78,22 +78,37 @@ function hasBlacklistedAncestor(el) {
   return !!el.closest(BLACKLIST_SELECTOR)
 }
 
+// Pre-built selector for class-based YT prefix matching. CSS attribute selectors handle
+// "class starts with prefix" via [class^=...] (whole-attr) plus [class*=" prefix"] (any token
+// after a space) — much faster than walking classList in JS.
+const YT_CLASS_SELECTOR = YT_UI_PREFIXES
+  .flatMap(p => [`[class^="${p}"]`, `[class*=" ${p}"]`])
+  .join(',')
+
+const adCache = new WeakMap()
 function hasAdSignal(el) {
-  // Fast path: native closest() for class/id substring ad signals
-  if (el.closest(AD_ATTR_SELECTOR)) return true
-  // YT UI prefix needs per-token matching — use classList iterator, keep JS loop
-  let node = el
-  while (node) {
-    const tag = (node.tagName || '').toLowerCase()
-    if (YT_UI_PREFIXES.some(p => tag.startsWith(p))) return true
-    if (node.classList?.length) {
-      for (const cls of node.classList) {
-        if (YT_UI_PREFIXES.some(p => cls.startsWith(p))) return true
+  const cached = adCache.get(el)
+  if (cached !== undefined) return cached
+
+  let result = false
+  if (el.closest(AD_ATTR_SELECTOR)) result = true
+  else if (el.closest(YT_CLASS_SELECTOR)) result = true
+  else {
+    // Tag-name prefix can't be expressed in CSS selectors (no wildcard for element names),
+    // but custom-element tag names always contain a hyphen, which gives us a cheap pre-filter.
+    let node = el
+    while (node) {
+      const tag = node.tagName
+      if (tag && tag.includes('-')) {
+        const lower = tag.toLowerCase()
+        if (YT_UI_PREFIXES.some(p => lower.startsWith(p))) { result = true; break }
       }
+      node = node.parentElement
     }
-    node = node.parentElement
   }
-  return false
+
+  adCache.set(el, result)
+  return result
 }
 
 // Walk up past inline elements to find a meaningful block container

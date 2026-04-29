@@ -1,4 +1,4 @@
-const { injectTranslation, removeTranslation, setDisplayMode, injectStyles, addRetranslateButton } = require('../content/renderer.js')
+const { injectTranslation, removeTranslation, setDisplayMode, injectStyles } = require('../content/renderer.js')
 
 describe('injectTranslation', () => {
   beforeEach(() => {
@@ -9,38 +9,46 @@ describe('injectTranslation', () => {
     document.body.appendChild(p)
   })
 
-  test('在段落下方注入译文', () => {
+  test('在段落后面注入 sibling 译文 div', () => {
     const el = document.getElementById('para')
     injectTranslation(el, '你好世界')
-    // Original content is now in .bt-original
-    const originalSpan = el.querySelector('.bt-original')
-    expect(originalSpan).not.toBeNull()
-    // Translation is still .bt-translation
-    const injected = el.querySelector('.bt-translation')
-    expect(injected).not.toBeNull()
-    expect(injected.textContent).toBe('你好世界')
+    const sib = el.nextElementSibling
+    expect(sib).not.toBeNull()
+    expect(sib.dataset.btSiblingFor).toBe('true')
+    expect(sib.textContent).toBe('你好世界')
+    expect(el.dataset.btTranslated).toBe('true')
   })
 
   test('重复注入时替换而非追加', () => {
     const el = document.getElementById('para')
     injectTranslation(el, '第一次')
     injectTranslation(el, '第二次')
-    const all = el.querySelectorAll('.bt-translation')
-    expect(all.length).toBe(1)
-    expect(all[0].textContent).toBe('第二次')
-    // Should also have exactly one .bt-original
-    expect(el.querySelectorAll('.bt-original').length).toBe(1)
+    const sibs = document.querySelectorAll('[data-bt-sibling-for]')
+    expect(sibs.length).toBe(1)
+    expect(sibs[0].textContent).toBe('第二次')
   })
 
-  test('removeTranslation 移除注入的译文并还原原文', () => {
+  test('removeTranslation 移除 sibling 并清除标记', () => {
     const el = document.getElementById('para')
-    const originalText = el.textContent
     injectTranslation(el, '你好')
     removeTranslation(el)
-    expect(el.querySelector('.bt-translation')).toBeNull()
-    expect(el.querySelector('.bt-original')).toBeNull()
-    // Original text content should be restored
-    expect(el.textContent).toBe(originalText)
+    expect(document.querySelector('[data-bt-sibling-for]')).toBeNull()
+    expect(el.dataset.btTranslated).toBeUndefined()
+  })
+
+  test('slot 元素注入到内部而非 sibling', () => {
+    document.body.textContent = ''
+    const host = document.createElement('div')
+    const slotted = document.createElement('a')
+    slotted.setAttribute('slot', 'title')
+    slotted.textContent = 'Title text here'
+    host.appendChild(slotted)
+    document.body.appendChild(host)
+
+    injectTranslation(slotted, '标题译文')
+    // Slotted element gets translation appended as last child, not as a sibling
+    expect(slotted.lastElementChild?.dataset.btSiblingFor).toBe('true')
+    expect(slotted.nextElementSibling).toBeNull()
   })
 })
 
@@ -55,6 +63,11 @@ describe('setDisplayMode', () => {
     expect(document.body.classList.contains('bt-mode-translation-only')).toBe(true)
   })
 
+  test('original-only 模式设置正确 class', () => {
+    setDisplayMode('original-only')
+    expect(document.body.classList.contains('bt-mode-original-only')).toBe(true)
+  })
+
   test('切换模式时移除旧 class', () => {
     setDisplayMode('bilingual')
     setDisplayMode('translation-only')
@@ -62,84 +75,34 @@ describe('setDisplayMode', () => {
     expect(document.body.classList.contains('bt-mode-translation-only')).toBe(true)
   })
 
-  test('无效 mode 不添加任何 class', () => {
+  test('无效 mode 不修改 class', () => {
     document.body.className = ''
     setDisplayMode('invalid-mode')
     expect(document.body.className).toBe('')
   })
 })
 
-describe('addRetranslateButton', () => {
-  let el
-
-  beforeEach(() => {
-    document.body.textContent = ''
-    el = document.createElement('p')
-    el.textContent = 'Some text'
-    document.body.appendChild(el)
-  })
-
-  test('添加重翻按钮到元素', () => {
-    addRetranslateButton(el, () => {})
-    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
-    expect(btn).not.toBeUndefined()
-  })
-
-  test('点击按钮调用 onRetranslate 并传入元素', () => {
-    const onRetranslate = jest.fn()
-    addRetranslateButton(el, onRetranslate)
-    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
-    btn.click()
-    expect(onRetranslate).toHaveBeenCalledWith(el)
-  })
-
-  test('重复调用不添加重复按钮', () => {
-    addRetranslateButton(el, () => {})
-    addRetranslateButton(el, () => {})
-    const btns = Array.from(el.children).filter(c => c.classList.contains('bt-retranslate'))
-    expect(btns.length).toBe(1)
-  })
-})
-
-describe('removeTranslation with retranslate button', () => {
-  test('移除重翻按钮', () => {
-    document.body.textContent = ''
-    const el = document.createElement('p')
-    el.textContent = 'Hello'
-    document.body.appendChild(el)
-    injectTranslation(el, '你好')
-    addRetranslateButton(el, () => {})
-    removeTranslation(el)
-    const btn = Array.from(el.children).find(c => c.classList.contains('bt-retranslate'))
-    expect(btn).toBeUndefined()
-  })
-})
-
 describe('injectStyles', () => {
   test('多次调用只创建一个 style 元素', () => {
-    // Remove any existing bt-styles element first
-    const existing = document.getElementById('bt-styles')
-    if (existing) existing.remove()
-
+    document.getElementById('bt-styles')?.remove()
     injectStyles()
     injectStyles()
-    const styleElements = document.querySelectorAll('#bt-styles')
-    expect(styleElements.length).toBe(1)
+    expect(document.querySelectorAll('#bt-styles').length).toBe(1)
   })
 
-  test('CSS 包含 bt-shimmer 动画关键帧', () => {
-    const existing = document.getElementById('bt-styles')
-    if (existing) existing.remove()
+  test('CSS 包含 pending 蓝点动画 keyframes', () => {
+    document.getElementById('bt-styles')?.remove()
     injectStyles()
     const css = document.getElementById('bt-styles').textContent
-    expect(css).toContain('bt-shimmer')
+    expect(css).toContain('bt-dot')
+    expect(css).toContain('@keyframes')
   })
 
-  test('CSS 包含 bt-fadein 动画关键帧', () => {
-    const existing = document.getElementById('bt-styles')
-    if (existing) existing.remove()
+  test('CSS 包含三种显示模式规则', () => {
+    document.getElementById('bt-styles')?.remove()
     injectStyles()
     const css = document.getElementById('bt-styles').textContent
-    expect(css).toContain('bt-fadein')
+    expect(css).toContain('bt-mode-translation-only')
+    expect(css).toContain('bt-mode-original-only')
   })
 })

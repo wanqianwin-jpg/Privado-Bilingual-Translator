@@ -1,12 +1,9 @@
 ;(async function () {
   const stored = await chrome.storage.local.get([
-    'siteSettings', 'displayMode', 'targetLang', 'translateMode', 'apiEnabled'
+    'siteSettings', 'displayMode', 'targetLang', ...TRANSLATE_MODE_KEYS
   ])
   const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
-
-  // Migration: old apiEnabled / 'privacy' → translateMode
-  let translateMode = stored.translateMode === 'privacy' ? 'chrome-local' : stored.translateMode
-  if (!translateMode) translateMode = stored.apiEnabled ? 'api' : 'machine'
+  const translateMode = resolveTranslateMode(stored)
 
   if (siteSettings[location.hostname] === 'never') return
 
@@ -125,20 +122,44 @@
     }
   }, { rootMargin: '200px 0px' })
 
+  // SPA sites (Twitter, GitHub, etc.) fire mutations constantly. Process them in batches
+  // via requestIdleCallback (with a setTimeout fallback for unsupported browsers and the
+  // case where the page never goes idle), so each individual mutation doesn't drag layout.
+  let moPending = []
+  let moFlushScheduled = false
+  const scheduleMoFlush = (typeof requestIdleCallback === 'function')
+    ? (cb) => requestIdleCallback(cb, { timeout: 300 })
+    : (cb) => setTimeout(cb, 150)
+
+  function flushMo() {
+    moFlushScheduled = false
+    if (!translationStarted) { moPending.length = 0; return }
+    const nodes = moPending; moPending = []
+    for (const node of nodes) {
+      // Node may have been removed from DOM between mutation and flush
+      if (!node.isConnected) continue
+      if (node.dataset.btSiblingFor) continue
+      if (!node.dataset.btTranslated && shouldTranslate(node)) {
+        translateElement(node, targetLang, translateMode)
+        continue
+      }
+      if (SKIP_TAGS.has(node.tagName)) continue
+      if (!node.textContent?.trim() && !node.shadowRoot) continue
+      io.observe(node)
+    }
+  }
+
   const observer = new MutationObserver((mutations) => {
     if (!translationStarted) return
     for (const mutation of mutations) {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
-        if (node.dataset.btSiblingFor) continue
-        if (!node.dataset.btTranslated && shouldTranslate(node)) {
-          translateElement(node, targetLang, translateMode)
-          continue
-        }
-        if (SKIP_TAGS.has(node.tagName)) continue
-        if (!node.textContent?.trim() && !node.shadowRoot) continue
-        io.observe(node)
+        moPending.push(node)
       }
+    }
+    if (moPending.length && !moFlushScheduled) {
+      moFlushScheduled = true
+      scheduleMoFlush(flushMo)
     }
   })
   observer.observe(document.body, { childList: true, subtree: true })
@@ -174,21 +195,23 @@ async function translateElement(el, targetLang, translateMode) {
 
   // machine and api modes, plus chrome-local fallback
   return new Promise((resolve) => {
-    const id = Math.random().toString(36).slice(2)
     try {
       chrome.runtime.sendMessage(
-        { type: 'TRANSLATE', id, text, fromLang: 'auto', toLang: targetLang },
+        { type: 'TRANSLATE', id: crypto.randomUUID(), text, fromLang: 'auto', toLang: targetLang },
         (response) => {
-          if (chrome.runtime.lastError) { resolve(); return }
+          if (chrome.runtime.lastError) { delete el.dataset.btTranslated; resolve(); return }
           if (response?.ok) {
             injectTranslation(el, response.translation)
-          } else if (response?.isApiKeyError) {
-            showApiErrorToast()
+          } else {
+            // Clear pending so the spinner stops; show toast for API key errors
+            delete el.dataset.btTranslated
+            if (response?.isApiKeyError) showApiErrorToast()
           }
           resolve()
         }
       )
     } catch {
+      delete el.dataset.btTranslated
       resolve()
     }
   })

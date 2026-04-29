@@ -46,7 +46,7 @@ async function translateRedditPost(post) {
   try {
     const translation = await new Promise((resolve, reject) => {
       chrome.runtime.sendMessage(
-        { type: 'TRANSLATE', id: Math.random().toString(36).slice(2), text: titleText, fromLang: 'auto', toLang: targetLang },
+        { type: 'TRANSLATE', id: crypto.randomUUID(), text: titleText, fromLang: 'auto', toLang: targetLang },
         (res) => {
           if (chrome.runtime.lastError || !res?.ok) { reject(); return }
           resolve(res.translation)
@@ -86,7 +86,7 @@ async function translateRedditEl(el) {
   return new Promise((resolve) => {
     try {
       chrome.runtime.sendMessage(
-        { type: 'TRANSLATE', id: 'rdt-' + Math.random().toString(36).slice(2), text, fromLang: 'auto', toLang: targetLang },
+        { type: 'TRANSLATE', id: 'rdt-' + crypto.randomUUID(), text, fromLang: 'auto', toLang: targetLang },
         (res) => {
           if (chrome.runtime.lastError) { delete el.dataset.btTranslated; resolve(); return }
           if (res?.ok) injectTranslationSibling(el, res.translation)
@@ -133,26 +133,59 @@ function scanPostBody() {
   })
 }
 
+// Filters out elements where sibling-injection would land in the wrong place:
+// 1. faceplate-screen-reader-content — visually-hidden a11y element; sibling injection
+//    lands inside the card header <a>, producing blue text in the meta row.
+// 2. shreddit-post itself — would create a stray div after </shreddit-post>.
+// 3. Shadow DOM elements inside shreddit-post (title/media rendered in shadow root).
+// 4. Light-DOM elements inside a [slot] subtree of shreddit-post — slotted UI (slot="title",
+//    slot="media-*", etc.) whose translation creates stray divs or hides images.
+//    Post body <p> elements have no [slot] ancestor, so they still get translated.
+function shouldSkipRedditEl(el) {
+  if (el.tagName === 'FACEPLATE-SCREEN-READER-CONTENT') return true
+  if (el.closest('faceplate-screen-reader-content')) return true
+  if (el.tagName === 'SHREDDIT-POST') return true
+  if (el.getRootNode()?.host?.tagName === 'SHREDDIT-POST') return true
+  if (el.closest('shreddit-post') && el.closest('[slot]')) return true
+  return false
+}
+
 function scanPage() {
   scanPosts()
   scanPostBody()
   const root = document.querySelector('shreddit-app') || document.body
-  // Filters:
-  // 1. Skip faceplate-screen-reader-content — visually-hidden a11y element; sibling injection
-  //    lands inside the card header <a>, producing blue text in the meta row.
-  // 2. Skip shreddit-post itself — would create a stray div after </shreddit-post>.
-  // 3. Skip shadow DOM elements inside shreddit-post (title/media rendered in shadow root).
-  // 4. Skip light-DOM elements that are inside a [slot] subtree of shreddit-post —
-  //    these are slotted UI elements (slot="title", slot="media-*", etc.) whose translation
-  //    would create stray divs or cause images to disappear in translation-only mode.
-  //    Post body <p> elements have no [slot] ancestor, so they still get translated.
   getTranslatableElements(root)
-    .filter(el => el.tagName !== 'FACEPLATE-SCREEN-READER-CONTENT' &&
-                  !el.closest('faceplate-screen-reader-content') &&
-                  el.tagName !== 'SHREDDIT-POST' &&
-                  el.getRootNode()?.host?.tagName !== 'SHREDDIT-POST' &&
-                  !(el.closest('shreddit-post') && el.closest('[slot]')))
+    .filter(el => !shouldSkipRedditEl(el))
     .forEach(translateRedditElTracked)
+}
+
+const _scheduleRdFlush = typeof requestIdleCallback === 'function'
+  ? (cb) => requestIdleCallback(cb, { timeout: 300 })
+  : (cb) => setTimeout(cb, 150)
+let _rdMoPending = []
+let _rdMoScheduled = false
+
+function _flushRdMo() {
+  _rdMoScheduled = false
+  const nodes = _rdMoPending; _rdMoPending = []
+  for (const node of nodes) {
+    if (!node.isConnected) continue
+    if (node.matches?.('shreddit-post[post-title]') && !node.dataset.btReddit) {
+      translateRedditPost(node)
+    }
+    node.querySelectorAll?.('shreddit-post[post-title]').forEach(post => {
+      if (!post.dataset.btReddit) translateRedditPost(post)
+    })
+    node.querySelectorAll?.('[property="schema:articleBody"] p, [property="schema:articleBody"] li').forEach(el => {
+      if (el.dataset.btTranslated) return
+      const text = el.textContent.trim()
+      if (text.length < 20 || (typeof isMostlyCJK === 'function' && isMostlyCJK(text))) return
+      translateRedditElTracked(el)
+    })
+    getTranslatableElements(node)
+      .filter(el => !shouldSkipRedditEl(el))
+      .forEach(translateRedditElTracked)
+  }
 }
 
 function initPageTranslation() {
@@ -164,28 +197,12 @@ function initPageTranslation() {
       for (const node of mutation.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue
         if (node.dataset.btSiblingFor) continue
-        if (node.matches?.('shreddit-post[post-title]') && !node.dataset.btReddit) {
-          translateRedditPost(node)
-        }
-        node.querySelectorAll?.('shreddit-post[post-title]').forEach(post => {
-          if (!post.dataset.btReddit) translateRedditPost(post)
-        })
-        // Post body paragraphs added dynamically (e.g. navigating to a post page)
-        node.querySelectorAll?.('[property="schema:articleBody"] p, [property="schema:articleBody"] li').forEach(el => {
-          if (el.dataset.btTranslated) return
-          const text = el.textContent.trim()
-          if (text.length < 20 || (typeof isMostlyCJK === 'function' && isMostlyCJK(text))) return
-          translateRedditElTracked(el)
-        })
-        // Same filters as scanPage
-        getTranslatableElements(node)
-          .filter(el => el.tagName !== 'FACEPLATE-SCREEN-READER-CONTENT' &&
-                        !el.closest('faceplate-screen-reader-content') &&
-                        el.tagName !== 'SHREDDIT-POST' &&
-                        el.getRootNode()?.host?.tagName !== 'SHREDDIT-POST' &&
-                        !(el.closest('shreddit-post') && el.closest('[slot]')))
-          .forEach(translateRedditElTracked)
+        _rdMoPending.push(node)
       }
+    }
+    if (!_rdMoScheduled && _rdMoPending.length > 0) {
+      _rdMoScheduled = true
+      _scheduleRdFlush(_flushRdMo)
     }
   })
   mo.observe(document.body, { childList: true, subtree: true })
@@ -193,11 +210,10 @@ function initPageTranslation() {
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 
-chrome.storage.local.get(['siteSettings', 'targetLang', 'translateMode', 'apiEnabled'], (data) => {
+chrome.storage.local.get(['siteSettings', 'targetLang', ...TRANSLATE_MODE_KEYS], (data) => {
   const { siteSettings = {}, targetLang: lang = 'zh' } = data
   if (siteSettings[location.hostname] === 'never') return
   targetLang = lang
-  const raw = data.translateMode === 'privacy' ? 'chrome-local' : data.translateMode
-  translateMode = raw || (data.apiEnabled ? 'api' : 'machine')
+  translateMode = resolveTranslateMode(data)
   initPageTranslation()
 })

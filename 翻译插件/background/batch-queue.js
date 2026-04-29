@@ -5,17 +5,28 @@ function createBatchQueue(translateFn, { intervalMs = 300, maxCount = 8, maxChar
   function flush() {
     if (pending.length === 0) return
     const batch = pending.splice(0)
-    const texts = batch.map(item => item.text)
 
-    console.log('[Queue] Flushing batch:', batch.length, 'items, texts:', texts)
+    // Dedupe identical texts inside one batch — saves both API tokens (LLM mode pays per char)
+    // and request count. Translate each unique text once, then fan the result back to every
+    // item that asked for it.
+    const uniqTexts = []
+    const indexByText = new Map()
+    const itemTextIdx = []
+    for (const item of batch) {
+      let idx = indexByText.get(item.text)
+      if (idx === undefined) {
+        idx = uniqTexts.length
+        indexByText.set(item.text, idx)
+        uniqTexts.push(item.text)
+      }
+      itemTextIdx.push(idx)
+    }
 
-    translateFn(texts).then(results => {
-      console.log('[Queue] Translation results:', results)
+    translateFn(uniqTexts).then(results => {
       batch.forEach((item, i) => {
-        if (item.onResult) item.onResult(results[i])
+        if (item.onResult) item.onResult(results[itemTextIdx[i]])
       })
     }).catch(err => {
-      console.error('[Queue] Translation error:', err)
       batch.forEach(item => {
         if (item.onError) item.onError(err)
       })

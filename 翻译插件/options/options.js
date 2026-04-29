@@ -67,6 +67,11 @@ async function init() {
     chrome.tabs.create({ url: 'chrome://extensions/shortcuts' })
   })
 
+  document.getElementById('privacy-link').addEventListener('click', (e) => {
+    e.preventDefault()
+    chrome.tabs.create({ url: chrome.runtime.getURL('privacy.html') })
+  })
+
   const { apiProvider = '', apiKey = '', apiModel = '', apiBaseUrl = '', enableCache = true }
     = await chrome.storage.local.get(['apiProvider', 'apiKey', 'apiModel', 'apiBaseUrl', 'enableCache'])
 

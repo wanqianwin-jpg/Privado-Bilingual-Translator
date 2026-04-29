@@ -83,6 +83,8 @@
   "optionsShortcutRewrite": { "message": "Réécrire avec l'IA" },
   "optionsShortcutNotSet":  { "message": "Non défini" },
   "optionsShortcutCustomize": { "message": "Personnaliser →" },
+  "optionsAbout": { "message": "À propos" },
+  "optionsPrivacyPolicy": { "message": "Politique de confidentialité" },
 
   "ctxReadAloud":             { "message": "Lire à voix haute" },
   "readAloudStop":            { "message": "Arrêter" },
