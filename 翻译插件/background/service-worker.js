@@ -201,6 +201,39 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     return false
   }
 
+  // chrome-local: availability check — must run in SW (extension context), not content script
+  if (msg.type === 'CHROME_TRANSLATE_STATUS') {
+    if (!('Translator' in self)) { sendResponse({ status: 'no-api' }); return false }
+    const src = msg.fromLang === 'auto' ? 'en' : msg.fromLang
+    Translator.availability({ sourceLanguage: src, targetLanguage: msg.toLang })
+      .then(status => {
+        if (status === 'available')   { sendResponse({ status: 'available' }); return }
+        if (status === 'downloading') { sendResponse({ status: 'downloading' }); return }
+        if (status === 'after-download' || status === 'downloadable') { sendResponse({ status: 'after-download' }); return }
+        if (status === 'unavailable') { sendResponse({ status: 'unavailable' }); return }
+        // Unknown value: probe with create()
+        const ctrl = new AbortController()
+        return Translator.create({
+          sourceLanguage: src, targetLanguage: msg.toLang, signal: ctrl.signal,
+          monitor(m) { m.addEventListener('downloadprogress', () => ctrl.abort()) }
+        }).then(() => sendResponse({ status: 'available' }))
+          .catch(e => sendResponse({ status: e?.name === 'AbortError' ? 'after-download' : 'unavailable' }))
+      })
+      .catch(() => sendResponse({ status: 'unavailable' }))
+    return true
+  }
+
+  // chrome-local: translate texts — must run in SW (extension context), not content script
+  if (msg.type === 'CHROME_TRANSLATE') {
+    if (!('Translator' in self)) { sendResponse({ ok: false, error: 'no-api' }); return false }
+    const src = msg.fromLang === 'auto' ? 'en' : msg.fromLang
+    Translator.create({ sourceLanguage: src, targetLanguage: msg.toLang })
+      .then(t => Promise.all(msg.texts.map(text => t.translate(text))))
+      .then(translations => sendResponse({ ok: true, translations }))
+      .catch(e => sendResponse({ ok: false, error: e?.message }))
+    return true
+  }
+
   // apple-npu: status check → native app
   if (msg.type === 'NATIVE_TRANSLATE_STATUS') {
     sendNativeMsg({ type: 'TRANSLATE_STATUS', fromLang: msg.fromLang, toLang: msg.toLang })

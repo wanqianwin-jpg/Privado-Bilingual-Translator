@@ -10,7 +10,7 @@ async function translateTexts(texts, fromLang, toLang, userApiConfig = null, ena
   // Free fallback disabled: return empty strings so the caller produces no output
   if (!enableFreeFallback) return texts.map(() => '')
 
-  // Free path: Google (Chrome API handled in content script)
+  // Free path: Google (Chrome Translator API handled via CHROME_TRANSLATE message in service-worker.js)
   const googleApi = (typeof GoogleTranslator !== 'undefined')
     ? GoogleTranslator
     : require('./google-translator.js')
