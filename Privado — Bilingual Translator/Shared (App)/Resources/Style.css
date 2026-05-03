@@ -1,61 +1,235 @@
-* {
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-    cursor: default;
-}
-
 :root {
-    color-scheme: light dark;
-
-    --spacing: 20px;
+  --bg:           #f0eeeb;
+  --surface:      #ffffff;
+  --border:       rgba(0,0,0,0.07);
+  --shadow:       0 1px 2px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+  --text:         #1c1c1e;
+  --text-2:       #6e6e73;
+  --accent:       #E8650A;
+  --accent-soft:  rgba(232,101,10,0.10);
+  --green:        #32d74b;
+  --orange:       #ff9f0a;
+  --red:          #ff453a;
+  --gray:         #aeaeb2;
+  --radius:       14px;
+  --radius-sm:    10px;
 }
 
-html {
-    height: 100%;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #111111;
+    --surface:  #1c1c1e;
+    --border:   rgba(255,255,255,0.08);
+    --shadow:   0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+    --text:     #f5f5f7;
+    --text-2:   #98989d;
+    --accent-soft: rgba(232,101,10,0.15);
+  }
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-user-select: none; cursor: default; }
+
+html, body { height: 100%; }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
-    height: 100%;
-
-    font: -apple-system-short-body;
-    text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 20px 24px;
 }
 
-body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
-    display: none;
+/* ── Layout ── */
+
+.wrap {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: appear 0.35s ease forwards;
 }
 
-body.platform-ios .platform-mac {
-    display: none;
+@keyframes appear {
+  to { opacity: 1; transform: none; }
 }
 
-body.platform-mac .platform-ios {
-    display: none;
+/* ── Header ── */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 2px;
+  animation: appear 0.35s 0.05s ease both;
 }
 
-body.platform-ios .platform-mac {
-    display: none;
+.app-icon {
+  border-radius: 13px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
-body:not(.state-on, .state-off) :is(.state-on, .state-off) {
-    display: none;
+.app-name {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text);
 }
 
-body.state-on :is(.state-off, .state-unknown) {
-    display: none;
+.app-tagline {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 2px;
 }
 
-body.state-off :is(.state-on, .state-unknown) {
-    display: none;
+/* ── Cards ── */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-button {
-    font-size: 1em;
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 0.5px solid var(--border);
+  overflow: hidden;
+  animation: appear 0.35s ease both;
 }
+
+.cards .card:nth-child(1) { animation-delay: 0.10s; }
+.cards .card:nth-child(2) { animation-delay: 0.17s; }
+
+.card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 15px;
+}
+
+.card-row + .card-row,
+.card-row + .card-action,
+.card-hint:not(:empty) {
+  border-top: 0.5px solid var(--border);
+}
+
+.row-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.row-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-text {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+/* ── Status dot ── */
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray);
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+.dot[data-state="on"],
+.dot[data-state="available"]       { background: var(--green); }
+.dot[data-state="off"],
+.dot[data-state="unavailable"]     { background: var(--red); }
+.dot[data-state="warn"],
+.dot[data-state="needs-download"],
+.dot[data-state="needs-macos-26"]  { background: var(--orange); }
+.dot[data-state="unknown"],
+.dot[data-state="checking"]        { background: var(--gray); }
+
+.dot[data-state="checking"] {
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Card hint ── */
+
+.card-hint {
+  font-size: 12px;
+  color: var(--text-2);
+  padding: 10px 15px;
+  line-height: 1.5;
+}
+
+/* ── Buttons ── */
+
+.card-action {
+  padding: 10px 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.btn-primary:active,
+.btn-secondary:active { opacity: 0.75; }
+
+/* ── Footer ── */
+
+.app-footer {
+  text-align: center;
+  padding-top: 2px;
+  animation: appear 0.35s 0.25s ease both;
+}
+
+.app-footer a {
+  font-size: 12px;
+  color: var(--text-2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app-footer a:hover { color: var(--accent); }
+
+/* ── Platform visibility ── */
+
+body:not([data-platform]) .platform-mac,
+body:not([data-platform]) .platform-ios { display: none; }
+
+body[data-platform="mac"] .platform-ios { display: none; }
+body[data-platform="ios"] .platform-mac { display: none; }

@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <link rel="stylesheet" href="../Style.css">
-    <script src="../Script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../Style.css">
+  <script src="../Script.js" defer></script>
 </head>
 <body>
-    <img src="../Icon.png" width="128" height="128" alt="Privado — Bilingual Translator Icon">
-    <p class="platform-ios">You can turn on Privado — Bilingual Translator’s Safari extension in Settings.</p>
-    <p class="platform-mac state-unknown">You can turn on Privado — Bilingual Translator’s extension in Safari Extensions preferences.</p>
-    <p class="platform-mac state-on">Privado — Bilingual Translator’s extension is currently on. You can turn it off in Safari Extensions preferences.</p>
-    <p class="platform-mac state-off">Privado — Bilingual Translator’s extension is currently off. You can turn it on in Safari Extensions preferences.</p>
-    <button class="platform-mac open-preferences">Quit and Open Safari Extensions Preferences…</button>
+  <div class="wrap">
+
+    <header class="app-header">
+      <img src="../Icon.png" width="56" height="56" alt="Privado" class="app-icon">
+      <div class="app-meta">
+        <h1 class="app-name">Privado</h1>
+        <p class="app-tagline" data-str="tagline"></p>
+      </div>
+    </header>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-row">
+          <span class="row-label" data-str="extensionTitle"></span>
+          <span class="row-status">
+            <span class="dot" id="dot-ext" data-state="unknown"></span>
+            <span class="status-text" id="txt-ext"></span>
+          </span>
+        </div>
+        <div class="card-action platform-mac">
+          <button class="btn-primary" id="btn-prefs" data-str="openSettings"></button>
+        </div>
+        <p class="card-hint platform-ios" data-str="iosInstructions"></p>
+      </div>
+
+      <div class="card">
+        <div class="card-row">
+          <span class="row-label" data-str="translationTitle"></span>
+          <span class="row-status">
+            <span class="dot" id="dot-trans" data-state="checking"></span>
+            <span class="status-text" id="txt-trans" data-str="transChecking"></span>
+          </span>
+        </div>
+        <p class="card-hint" id="txt-trans-hint"></p>
+        <div class="card-action" id="action-trans" hidden>
+          <button class="btn-secondary" id="btn-lang"></button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="app-footer">
+      <a id="link-privacy" data-str="privacy"></a>
+    </footer>
+
+  </div>
 </body>
 </html>

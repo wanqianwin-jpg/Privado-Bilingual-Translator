@@ -103,8 +103,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     // MARK: - Translation Status
 
     private func handleStatus(fromLang: String, toLang: String) async -> [String: Any] {
-        guard #available(macOS 15.0, iOS 18.0, *) else {
-            return ["status": "unavailable"]
+        guard #available(macOS 26.0, iOS 26.0, *) else {
+            return ["status": "needs-macos-26"]
         }
         let sourceLang = Locale.Language(identifier: normalizedLangCode(fromLang == "auto" ? "en" : fromLang))
         let targetLang = Locale.Language(identifier: normalizedLangCode(toLang))

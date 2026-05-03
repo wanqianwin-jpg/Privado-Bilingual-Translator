@@ -20,6 +20,12 @@
     // chrome-local: check Chrome Translator API availability upfront
     if (translateMode === 'chrome-local') {
       const status = await chromeTranslatorStatus('auto', targetLang)
+      if (status === 'no-api') {
+        showChromeNoApiToast()
+        ball.setState('idle')
+        translationStarted = false
+        return
+      }
       if (status === 'unavailable') {
         showChromeUnavailableToast()
         ball.setState('idle')
@@ -271,17 +277,59 @@ function showPrivacyUnavailableToast() {
   setTimeout(() => { toast.remove(); privacyToastShown = false }, 10000)
 }
 
-function showChromeUnavailableToast() {
+let chromeUnavailableToastShown = false
+function showChromeNoApiToast() {
   const toast = makeToast()
   const msg = document.createElement('span')
-  msg.textContent = i18n('toastChromeUnavailable')
-  const btnMachine = makeBtn(i18n('btnSwitchMachine'), '#4285f4', async () => {
+  msg.textContent = i18n('toastChromeNoApi')
+  const btnMachine = makeBtn(i18n('btnSwitchOnline'), '#4285f4', async () => {
     await chrome.storage.local.set({ translateMode: 'machine' })
     location.reload()
   })
   toast.append(msg, btnMachine)
   document.body.appendChild(toast)
-  setTimeout(() => toast.remove(), 12000)
+  setTimeout(() => toast.remove(), 15000)
+}
+
+function showChromeUnavailableToast() {
+  if (chromeUnavailableToastShown) return
+  chromeUnavailableToastShown = true
+  const FLAG_URL = 'chrome://flags/#translation-api'
+  const toast = makeToast()
+  toast.style.maxWidth = '400px'
+
+  const msg = document.createElement('div')
+  msg.style.cssText = 'display:flex;flex-direction:column;gap:6px;flex:1'
+
+  const line1 = document.createElement('span')
+  line1.textContent = i18n('toastChromeUnavailable')
+
+  const steps = document.createElement('ol')
+  steps.style.cssText = 'margin:0;padding-left:18px;font-size:11px;color:#ccc;line-height:1.6'
+  i18n('toastChromeUnavailableSteps').split('\n').forEach(s => {
+    const li = document.createElement('li')
+    li.textContent = s
+    steps.appendChild(li)
+  })
+
+  msg.append(line1, steps)
+
+  const btnCopy = makeBtn(i18n('btnCopyFlagUrl'), '#555', async () => {
+    try {
+      await navigator.clipboard.writeText(FLAG_URL)
+      btnCopy.textContent = i18n('btnCopied')
+      setTimeout(() => { btnCopy.textContent = i18n('btnCopyFlagUrl') }, 2000)
+    } catch { btnCopy.textContent = FLAG_URL }
+  })
+
+  const btnOnline = makeBtn(i18n('btnSwitchOnline'), '#4285f4', async () => {
+    await chrome.storage.local.set({ translateMode: 'machine' })
+    location.reload()
+  })
+
+  toast.append(msg, btnCopy, btnOnline)
+  document.body.appendChild(toast)
+  setTimeout(() => { toast.remove(); chromeUnavailableToastShown = false }, 30000)
 }
 
 function showAppleNeedsDownloadToast() {

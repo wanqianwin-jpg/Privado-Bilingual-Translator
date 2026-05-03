@@ -23,6 +23,8 @@
 
   "statusNotSupported": { "message": "不支持" },
   "statusDownloading":  { "message": "下载中" },
+  "statusNeedsDownload":{ "message": "点击下载" },
+  "statusNeedsMacOS26": { "message": "需要 macOS 26" },
   "statusUnavailable":  { "message": "不可用" },
   "statusAvailable":    { "message": "可用" },
   "statusConnected":    { "message": "已连接" },
@@ -55,6 +57,7 @@
 
   "toastApiKeyError":       { "message": "⚠ API Key 请求失败" },
   "btnSwitchMachine":       { "message": "切换机翻" },
+  "btnSwitchOnline":        { "message": "切换在线翻译" },
   "btnCheckSettings":       { "message": "检查设置" },
   "toastPrivacyUnavailable":{ "message": "⚠ 隐私翻译暂不可用" },
   "btnUseApiKey":           { "message": "用 API Key" },
@@ -64,6 +67,7 @@
   "btnCopyOriginal":    { "message": "复制原文" },
   "btnCopyTranslation": { "message": "复制译文" },
   "btnCopied":          { "message": "已复制 ✓" },
+  "btnCopyFlagUrl":     { "message": "复制地址" },
   "toastOcrError":      { "message": "⚠ OCR 出错" },
   "ocrErrOffline":      { "message": "OCR 暂不可用" },
   "ocrErrFetchFailed":  { "message": "图片加载失败" },
@@ -92,7 +96,9 @@
   "readAloudUnavailable":     { "message": "⚠ 此设备不支持文字转语音" },
   "optionsShortcutReadAloud": { "message": "朗读原文" },
 
-  "toastChromeUnavailable":     { "message": "⚠ Chrome 本地 AI 不可用，需要 Chrome 138 及以上版本和受支持的硬件。" },
+  "toastChromeNoApi":           { "message": "⚠ Chrome 本地翻译需要 Chrome 138 及以上版本，请更新浏览器后重试。" },
+  "toastChromeUnavailable":     { "message": "⚠ Chrome 本地翻译不可用（Chrome 更新后可能自动关闭）" },
+  "toastChromeUnavailableSteps": { "message": "新标签输入 chrome://flags/#translation-api\n将 Translation API 改为 Enabled without language pack limit\n点击 Relaunch 重启 Chrome" },
   "toastChromeAfterDownload":   { "message": "首次使用需要下载 Google 语言模型（由 Google 提供，约数百 MB）。下载后翻译完全离线运行，不向任何服务器发送数据。" },
   "btnDownloadModel":           { "message": "立即下载" },
   "btnCancel":                  { "message": "取消" },

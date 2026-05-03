@@ -1,103 +1,305 @@
 {
-  "extName":        { "message": "Privado — Traducteur Bilingue" },
-  "extDescription": { "message": "Traduction côte à côte en deux langues. Privée, propre, sans blabla." },
-
-  "popupTitle":       { "message": "Privado — Traducteur Bilingue" },
-  "modeMachine":      { "message": "Machine" },
-  "modeMachineDesc":  { "message": "Gratuit · Cloud" },
-  "modePrivacy":      { "message": "Local" },
-  "modePrivacyDesc":  { "message": "Local · Hors ligne" },
-  "modeApiDesc":      { "message": "Modèle personnalisé" },
-  "subLabelChrome":   { "message": "Modèle local Chrome" },
-  "subLabelApple":    { "message": "On-Device (Apple)" },
-  "statusDetecting":  { "message": "Détection…" },
-  "applyBtn":         { "message": "Appliquer et recharger" },
-  "apiLink":          { "message": "Configurer la clé API →" },
-  "translateSite":    { "message": "Traduire $HOSTNAME$", "placeholders": { "hostname": { "content": "$1", "example": "example.com" } } },
-  "translateSiteDefault": { "message": "Traduire ce site" },
-  "targetLangLabel":  { "message": "Traduire vers" },
-  "displayLabel":     { "message": "Affichage" },
-  "displayBilingual": { "message": "Bilingue" },
-  "displayTransOnly": { "message": "Traduction seule" },
-  "displayOrigOnly":  { "message": "Original seul" },
-
-  "statusNotSupported": { "message": "Non supporté" },
-  "statusDownloading":  { "message": "Téléchargement…" },
-  "statusUnavailable":  { "message": "Non disponible" },
-  "statusAvailable":    { "message": "Disponible" },
-  "statusConnected":    { "message": "Connecté" },
-  "statusNotRunning":   { "message": "Non actif" },
-
-  "optionsTitle":               { "message": "Paramètres Privado" },
-  "optionsApiConfig":           { "message": "Configuration API" },
-  "optionsProvider":            { "message": "Fournisseur" },
-  "optionsProviderPlaceholder": { "message": "— Sélectionner —" },
-  "optionsProviderCustom":      { "message": "Personnalisé (compatible OpenAI)" },
-  "optionsApiKeyLabel":         { "message": "Clé API" },
-  "optionsApiKeyPlaceholder":   { "message": "Collez votre clé API" },
-  "optionsApiKeyHint":          { "message": "Stockée localement uniquement. Jamais envoyée à un serveur." },
-  "optionsModel":               { "message": "Modèle" },
-  "optionsModelPlaceholder":    { "message": "Choisir ou entrer le nom du modèle" },
-  "optionsBaseUrl":             { "message": "Endpoint (URL de base)" },
-  "optionsCacheLabel":          { "message": "Activer le cache local (résultats sur l'appareil, économise le quota API)" },
-  "optionsSave":                { "message": "Enregistrer" },
-  "optionsTest":                { "message": "Tester la connexion" },
-
-  "statusSaved":           { "message": "Enregistré" },
-  "statusTesting":         { "message": "Test en cours…" },
-  "statusFillFirst":       { "message": "Remplissez d'abord le fournisseur et la clé API" },
-  "statusConnectedResult": { "message": "✓ Connecté : $RESULT$", "placeholders": { "result": { "content": "$1" } } },
-  "statusFailed":          { "message": "✗ Erreur : $ERROR$",      "placeholders": { "error":  { "content": "$1" } } },
-  "errUnknownProvider":    { "message": "Fournisseur inconnu" },
-
-  "ctxOcrOnly":      { "message": "Reconnaître le texte dans l'image" },
-  "ctxOcrTranslate": { "message": "Reconnaître et traduire l'image" },
-
-  "toastApiKeyError":       { "message": "⚠ Erreur de demande de clé API" },
-  "btnSwitchMachine":       { "message": "Passer à Machine" },
-  "btnCheckSettings":       { "message": "Vérifier les paramètres" },
-  "toastPrivacyUnavailable":{ "message": "⚠ Traduction locale non disponible" },
-  "btnUseApiKey":           { "message": "Utiliser la clé API" },
-  "toastChromeDownloading": { "message": "⏳ Téléchargement Gemini Nano — traduction hors ligne bientôt" },
-
-  "ocrHeader":          { "message": "OCR image" },
-  "btnCopyOriginal":    { "message": "Copier original" },
-  "btnCopyTranslation": { "message": "Copier traduction" },
-  "btnCopied":          { "message": "Copié ✓" },
-  "toastOcrError":      { "message": "⚠ Erreur OCR" },
-  "ocrErrOffline":      { "message": "OCR non disponible" },
-  "ocrErrFetchFailed":  { "message": "Échec du chargement de l'image" },
-  "ocrErrOcrFailed":    { "message": "Échec de la reconnaissance OCR" },
-  "ocrErrNoText":       { "message": "Aucun texte détecté" },
-
-  "ytStartingHint": { "message": "Préparation des sous-titres bilingues…" },
-
-  "ctxRewriteSelection": { "message": "Réécrire avec l'IA" },
-  "rewriteWorking":      { "message": "Réécriture…" },
-  "rewriteRestoreLabel": { "message": "Original :" },
-  "rewriteRestoreBtn":   { "message": "Restaurer" },
-  "rewriteUnavailable":  { "message": "⚠ Réécrivain IA non disponible sur cet appareil" },
-  "rewriteFailed":       { "message": "Échec de la réécriture" },
-
-  "optionsShortcuts":       { "message": "Raccourcis clavier" },
-  "optionsShortcutRewrite": { "message": "Réécrire avec l'IA" },
-  "optionsShortcutNotSet":  { "message": "Non défini" },
-  "optionsShortcutCustomize": { "message": "Personnaliser →" },
-  "optionsAbout": { "message": "À propos" },
-  "optionsPrivacyPolicy": { "message": "Politique de confidentialité" },
-
-  "ctxReadAloud":             { "message": "Lire à voix haute" },
-  "readAloudStop":            { "message": "Arrêter" },
-  "readAloudReading":         { "message": "Lecture…" },
-  "readAloudUnavailable":     { "message": "⚠ Synthèse vocale non disponible" },
-  "optionsShortcutReadAloud": { "message": "Lire à voix haute" },
-
-  "toastChromeUnavailable":     { "message": "⚠ IA locale Chrome non disponible. Nécessite Chrome 138+ et un matériel compatible." },
-  "toastChromeAfterDownload":   { "message": "Première utilisation : Chrome doit télécharger le modèle linguistique de Google (fourni par Google, ~centaines de Mo). Ensuite, la traduction fonctionne hors ligne sans envoyer de données." },
-  "btnDownloadModel":           { "message": "Télécharger maintenant" },
-  "btnCancel":                  { "message": "Annuler" },
-  "toastChromeDownloadProgress": { "message": "Téléchargement du modèle Google… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "La traduction locale Apple nécessite un pack de langue. Allez dans Réglages → Général → Langue et région → Langues de traduction pour le télécharger." },
-
-  "optionsFreeFallbackLabel": { "message": "Autoriser la traduction gratuite Google (utilisée si l'IA locale est indisponible)" }
+  "extName": {
+    "message": "Privado — Traducteur Bilingue"
+  },
+  "extDescription": {
+    "message": "Traduction côte à côte en deux langues. Privée, propre, sans blabla."
+  },
+  "popupTitle": {
+    "message": "Privado — Traducteur Bilingue"
+  },
+  "modeMachine": {
+    "message": "Machine"
+  },
+  "modeMachineDesc": {
+    "message": "Gratuit · Cloud"
+  },
+  "modePrivacy": {
+    "message": "Local"
+  },
+  "modePrivacyDesc": {
+    "message": "Local · Hors ligne"
+  },
+  "modeApiDesc": {
+    "message": "Modèle personnalisé"
+  },
+  "subLabelChrome": {
+    "message": "Modèle local Chrome"
+  },
+  "subLabelApple": {
+    "message": "On-Device (Apple)"
+  },
+  "statusDetecting": {
+    "message": "Détection…"
+  },
+  "applyBtn": {
+    "message": "Appliquer et recharger"
+  },
+  "apiLink": {
+    "message": "Configurer la clé API →"
+  },
+  "translateSite": {
+    "message": "Traduire $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "translateSiteDefault": {
+    "message": "Traduire ce site"
+  },
+  "targetLangLabel": {
+    "message": "Traduire vers"
+  },
+  "displayLabel": {
+    "message": "Affichage"
+  },
+  "displayBilingual": {
+    "message": "Bilingue"
+  },
+  "displayTransOnly": {
+    "message": "Traduction seule"
+  },
+  "displayOrigOnly": {
+    "message": "Original seul"
+  },
+  "statusNotSupported": {
+    "message": "Non supporté"
+  },
+  "statusDownloading": {
+    "message": "Téléchargement…"
+  },
+  "statusNeedsDownload": {
+    "message": "Télécharger ↓"
+  },
+  "statusNeedsMacOS26": {
+    "message": "macOS 26 requis"
+  },
+  "statusUnavailable": {
+    "message": "Non disponible"
+  },
+  "statusAvailable": {
+    "message": "Disponible"
+  },
+  "statusConnected": {
+    "message": "Connecté"
+  },
+  "statusNotRunning": {
+    "message": "Non actif"
+  },
+  "optionsTitle": {
+    "message": "Paramètres Privado"
+  },
+  "optionsApiConfig": {
+    "message": "Configuration API"
+  },
+  "optionsProvider": {
+    "message": "Fournisseur"
+  },
+  "optionsProviderPlaceholder": {
+    "message": "— Sélectionner —"
+  },
+  "optionsProviderCustom": {
+    "message": "Personnalisé (compatible OpenAI)"
+  },
+  "optionsApiKeyLabel": {
+    "message": "Clé API"
+  },
+  "optionsApiKeyPlaceholder": {
+    "message": "Collez votre clé API"
+  },
+  "optionsApiKeyHint": {
+    "message": "Stockée localement uniquement. Jamais envoyée à un serveur."
+  },
+  "optionsModel": {
+    "message": "Modèle"
+  },
+  "optionsModelPlaceholder": {
+    "message": "Choisir ou entrer le nom du modèle"
+  },
+  "optionsBaseUrl": {
+    "message": "Endpoint (URL de base)"
+  },
+  "optionsCacheLabel": {
+    "message": "Activer le cache local (résultats sur l'appareil, économise le quota API)"
+  },
+  "optionsSave": {
+    "message": "Enregistrer"
+  },
+  "optionsTest": {
+    "message": "Tester la connexion"
+  },
+  "statusSaved": {
+    "message": "Enregistré"
+  },
+  "statusTesting": {
+    "message": "Test en cours…"
+  },
+  "statusFillFirst": {
+    "message": "Remplissez d'abord le fournisseur et la clé API"
+  },
+  "statusConnectedResult": {
+    "message": "✓ Connecté : $RESULT$",
+    "placeholders": {
+      "result": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusFailed": {
+    "message": "✗ Erreur : $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "errUnknownProvider": {
+    "message": "Fournisseur inconnu"
+  },
+  "ctxOcrOnly": {
+    "message": "Reconnaître le texte dans l'image"
+  },
+  "ctxOcrTranslate": {
+    "message": "Reconnaître et traduire l'image"
+  },
+  "toastApiKeyError": {
+    "message": "⚠ Erreur de demande de clé API"
+  },
+  "btnSwitchMachine": {
+    "message": "Passer à Machine"
+  },
+  "btnSwitchOnline": {
+    "message": "Passer à Machine"
+  },
+  "btnCheckSettings": {
+    "message": "Vérifier les paramètres"
+  },
+  "toastPrivacyUnavailable": {
+    "message": "⚠ Traduction locale non disponible"
+  },
+  "btnUseApiKey": {
+    "message": "Utiliser la clé API"
+  },
+  "toastChromeDownloading": {
+    "message": "⏳ Téléchargement Gemini Nano — traduction hors ligne bientôt"
+  },
+  "ocrHeader": {
+    "message": "OCR image"
+  },
+  "btnCopyOriginal": {
+    "message": "Copier original"
+  },
+  "btnCopyTranslation": {
+    "message": "Copier traduction"
+  },
+  "btnCopied": {
+    "message": "Copié ✓"
+  },
+  "btnCopyFlagUrl": {
+    "message": "Copy URL"
+  },
+  "toastOcrError": {
+    "message": "⚠ Erreur OCR"
+  },
+  "ocrErrOffline": {
+    "message": "OCR non disponible"
+  },
+  "ocrErrFetchFailed": {
+    "message": "Échec du chargement de l'image"
+  },
+  "ocrErrOcrFailed": {
+    "message": "Échec de la reconnaissance OCR"
+  },
+  "ocrErrNoText": {
+    "message": "Aucun texte détecté"
+  },
+  "ytStartingHint": {
+    "message": "Préparation des sous-titres bilingues…"
+  },
+  "ctxRewriteSelection": {
+    "message": "Réécrire avec l'IA"
+  },
+  "rewriteWorking": {
+    "message": "Réécriture…"
+  },
+  "rewriteRestoreLabel": {
+    "message": "Original :"
+  },
+  "rewriteRestoreBtn": {
+    "message": "Restaurer"
+  },
+  "rewriteUnavailable": {
+    "message": "⚠ Réécrivain IA non disponible sur cet appareil"
+  },
+  "rewriteFailed": {
+    "message": "Échec de la réécriture"
+  },
+  "optionsShortcuts": {
+    "message": "Raccourcis clavier"
+  },
+  "optionsShortcutRewrite": {
+    "message": "Réécrire avec l'IA"
+  },
+  "optionsShortcutNotSet": {
+    "message": "Non défini"
+  },
+  "optionsShortcutCustomize": {
+    "message": "Personnaliser →"
+  },
+  "optionsAbout": {
+    "message": "À propos"
+  },
+  "optionsPrivacyPolicy": {
+    "message": "Politique de confidentialité"
+  },
+  "ctxReadAloud": {
+    "message": "Lire à voix haute"
+  },
+  "readAloudStop": {
+    "message": "Arrêter"
+  },
+  "readAloudReading": {
+    "message": "Lecture…"
+  },
+  "readAloudUnavailable": {
+    "message": "⚠ Synthèse vocale non disponible"
+  },
+  "optionsShortcutReadAloud": {
+    "message": "Lire à voix haute"
+  },
+  "toastChromeUnavailable": {
+    "message": "⚠ IA locale Chrome non disponible. Nécessite Chrome 138+ et un matériel compatible."
+  },
+  "toastChromeUnavailableSteps": {
+    "message": "Open chrome://flags/#translation-api in a new tab\nSet Translation API to \"Enabled without language pack limit\"\nClick Relaunch to restart Chrome"
+  },
+  "toastChromeNoApi": {
+    "message": "⚠ IA locale Chrome non disponible. Nécessite Chrome 138+ et un matériel compatible."
+  },
+  "toastChromeAfterDownload": {
+    "message": "Première utilisation : Chrome doit télécharger le modèle linguistique de Google (fourni par Google, ~centaines de Mo). Ensuite, la traduction fonctionne hors ligne sans envoyer de données."
+  },
+  "btnDownloadModel": {
+    "message": "Télécharger maintenant"
+  },
+  "btnCancel": {
+    "message": "Annuler"
+  },
+  "toastChromeDownloadProgress": {
+    "message": "Téléchargement du modèle Google… $1%",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastAppleNeedsDownload": {
+    "message": "La traduction locale Apple nécessite un pack de langue. Allez dans Réglages → Général → Langue et région → Langues de traduction pour le télécharger."
+  },
+  "optionsFreeFallbackLabel": {
+    "message": "Autoriser la traduction gratuite Google (utilisée si l'IA locale est indisponible)"
+  }
 }

@@ -173,12 +173,38 @@ async function detectChrome(targetLang) {
   try {
     const r = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
     if (r === 'downloading') { setStatus(el, 'warn', i18n('statusDownloading')); return }
+    if (r === 'after-download' || r === 'downloadable') {
+      setStatus(el, 'warn', i18n('statusNeedsDownload'))
+      el.style.cursor = 'pointer'
+      el.addEventListener('click', () => triggerChromeDownload(el, targetLang), { once: true })
+      return
+    }
     if (r !== 'available')   { setStatus(el, 'err',  i18n('statusUnavailable')); return }
     // availability() 在 popup 上下文不可靠，做一次真实翻译验证
     const t = await Translator.create({ sourceLanguage: 'en', targetLanguage: targetLang })
     const result = await t.translate('hello')
     result ? setStatus(el, 'ok', i18n('statusAvailable')) : setStatus(el, 'err', i18n('statusUnavailable'))
   } catch { setStatus(el, 'err', i18n('statusUnavailable')) }
+}
+
+async function triggerChromeDownload(el, targetLang) {
+  setStatus(el, 'warn', i18n('statusDownloading'))
+  el.style.cursor = ''
+  try {
+    const t = await Translator.create({
+      sourceLanguage: 'en',
+      targetLanguage: targetLang,
+      monitor(m) {
+        m.addEventListener('downloadprogress', (e) => {
+          if (e.total > 0) setStatus(el, 'warn', Math.round(e.loaded / e.total * 100) + '%')
+        })
+      }
+    })
+    const result = await t.translate('hello')
+    result ? setStatus(el, 'ok', i18n('statusAvailable')) : setStatus(el, 'err', i18n('statusUnavailable'))
+  } catch {
+    setStatus(el, 'err', i18n('statusUnavailable'))
+  }
 }
 
 
@@ -194,9 +220,9 @@ async function detectAppleNpu(targetLang) {
         }
       )
     })
-    r?.status === 'available'
-      ? setStatus(el, 'ok', i18n('statusAvailable'))
-      : setStatus(el, 'err', i18n('statusUnavailable'))
+    if (r?.status === 'available')       setStatus(el, 'ok',   i18n('statusAvailable'))
+    else if (r?.status === 'needs-macos-26') setStatus(el, 'warn', i18n('statusNeedsMacOS26'))
+    else                                 setStatus(el, 'err',  i18n('statusUnavailable'))
   } catch {
     setStatus(el, 'err', i18n('statusNotRunning'))
   }

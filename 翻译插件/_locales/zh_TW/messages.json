@@ -1,103 +1,305 @@
 {
-  "extName":        { "message": "Privado · 雙語翻譯" },
-  "extDescription": { "message": "雙語對照翻譯，本地優先，無廣告，無臃腫。" },
-
-  "popupTitle":       { "message": "Privado · 雙語翻譯" },
-  "modeMachine":      { "message": "機翻" },
-  "modeMachineDesc":  { "message": "免費 · 雲端" },
-  "modePrivacy":      { "message": "本地翻譯" },
-  "modePrivacyDesc":  { "message": "本地 · 離線" },
-  "modeApiDesc":      { "message": "自訂模型" },
-  "subLabelChrome":   { "message": "Chrome 本地模型" },
-  "subLabelApple":    { "message": "On-Device（Apple）" },
-  "statusDetecting":  { "message": "偵測中" },
-  "applyBtn":         { "message": "套用並重新整理" },
-  "apiLink":          { "message": "設定 API Key →" },
-  "translateSite":    { "message": "翻譯 $HOSTNAME$", "placeholders": { "hostname": { "content": "$1", "example": "example.com" } } },
-  "translateSiteDefault": { "message": "翻譯此網站" },
-  "targetLangLabel":  { "message": "翻譯為" },
-  "displayLabel":     { "message": "顯示" },
-  "displayBilingual": { "message": "雙語" },
-  "displayTransOnly": { "message": "僅譯文" },
-  "displayOrigOnly":  { "message": "僅原文" },
-
-  "statusNotSupported": { "message": "不支援" },
-  "statusDownloading":  { "message": "下載中" },
-  "statusUnavailable":  { "message": "不可用" },
-  "statusAvailable":    { "message": "可用" },
-  "statusConnected":    { "message": "已連線" },
-  "statusNotRunning":   { "message": "未執行" },
-
-  "optionsTitle":               { "message": "Privado 設定" },
-  "optionsApiConfig":           { "message": "API 設定" },
-  "optionsProvider":            { "message": "提供商" },
-  "optionsProviderPlaceholder": { "message": "— 請選擇 —" },
-  "optionsProviderCustom":      { "message": "自訂（OpenAI 相容）" },
-  "optionsApiKeyLabel":         { "message": "API Key" },
-  "optionsApiKeyPlaceholder":   { "message": "貼上你的 API Key" },
-  "optionsApiKeyHint":          { "message": "僅儲存於本地瀏覽器，不會上傳至任何伺服器。" },
-  "optionsModel":               { "message": "模型" },
-  "optionsModelPlaceholder":    { "message": "選擇或輸入模型名稱" },
-  "optionsBaseUrl":             { "message": "端點（Base URL）" },
-  "optionsCacheLabel":          { "message": "啟用本地快取（結果僅存於本地裝置，節省 API 額度）" },
-  "optionsSave":                { "message": "儲存" },
-  "optionsTest":                { "message": "測試連線" },
-
-  "statusSaved":           { "message": "已儲存" },
-  "statusTesting":         { "message": "測試中…" },
-  "statusFillFirst":       { "message": "請先填寫提供商和 API Key" },
-  "statusConnectedResult": { "message": "✓ 連線成功：$RESULT$", "placeholders": { "result": { "content": "$1" } } },
-  "statusFailed":          { "message": "✗ 失敗：$ERROR$",       "placeholders": { "error":  { "content": "$1" } } },
-  "errUnknownProvider":    { "message": "未知提供商" },
-
-  "ctxOcrOnly":      { "message": "辨識圖片文字" },
-  "ctxOcrTranslate": { "message": "辨識圖片文字並翻譯" },
-
-  "toastApiKeyError":       { "message": "⚠ API Key 請求失敗" },
-  "btnSwitchMachine":       { "message": "切換機翻" },
-  "btnCheckSettings":       { "message": "檢查設定" },
-  "toastPrivacyUnavailable":{ "message": "⚠ 本地翻譯暫不可用" },
-  "btnUseApiKey":           { "message": "用 API Key" },
-  "toastChromeDownloading": { "message": "⏳ Gemini Nano 模型下載中，完成後可離線翻譯" },
-
-  "ocrHeader":          { "message": "圖片 OCR" },
-  "btnCopyOriginal":    { "message": "複製原文" },
-  "btnCopyTranslation": { "message": "複製譯文" },
-  "btnCopied":          { "message": "已複製 ✓" },
-  "toastOcrError":      { "message": "⚠ OCR 發生錯誤" },
-  "ocrErrOffline":      { "message": "OCR 暫不可用" },
-  "ocrErrFetchFailed":  { "message": "圖片載入失敗" },
-  "ocrErrOcrFailed":    { "message": "OCR 辨識失敗" },
-  "ocrErrNoText":       { "message": "未辨識到文字" },
-
-  "ytStartingHint": { "message": "正在準備雙語字幕…" },
-
-  "ctxRewriteSelection": { "message": "AI 改寫" },
-  "rewriteWorking":      { "message": "改寫中…" },
-  "rewriteRestoreLabel": { "message": "原文：" },
-  "rewriteRestoreBtn":   { "message": "還原" },
-  "rewriteUnavailable":  { "message": "⚠ 此裝置不支援 AI 改寫" },
-  "rewriteFailed":       { "message": "改寫失敗" },
-
-  "optionsShortcuts":       { "message": "鍵盤快捷鍵" },
-  "optionsShortcutRewrite": { "message": "AI 改寫" },
-  "optionsShortcutNotSet":  { "message": "未設定" },
-  "optionsShortcutCustomize": { "message": "自訂 →" },
-  "optionsAbout": { "message": "關於" },
-  "optionsPrivacyPolicy": { "message": "隱私政策" },
-
-  "ctxReadAloud":             { "message": "朗讀原文" },
-  "readAloudStop":            { "message": "停止" },
-  "readAloudReading":         { "message": "朗讀中…" },
-  "readAloudUnavailable":     { "message": "⚠ 此裝置不支援文字轉語音" },
-  "optionsShortcutReadAloud": { "message": "朗讀原文" },
-
-  "toastChromeUnavailable":     { "message": "⚠ Chrome 本地 AI 不可用，需要 Chrome 138 以上版本及受支援的硬體。" },
-  "toastChromeAfterDownload":   { "message": "首次使用需下載 Google 語言模型（由 Google 提供，約數百 MB）。下載後翻譯完全離線運作，不向任何伺服器傳送資料。" },
-  "btnDownloadModel":           { "message": "立即下載" },
-  "btnCancel":                  { "message": "取消" },
-  "toastChromeDownloadProgress": { "message": "正在下載 Google 語言模型… $1%", "placeholders": { "1": { "content": "$1" } } },
-  "toastAppleNeedsDownload": { "message": "Apple 本地翻譯需要下載語言包。請前往：系統設定 → 一般 → 語言與地區 → 翻譯語言，下載對應語言。" },
-
-  "optionsFreeFallbackLabel": { "message": "允許 Google 免費翻譯備援（本地 AI 不可用時使用）" }
+  "extName": {
+    "message": "Privado · 雙語翻譯"
+  },
+  "extDescription": {
+    "message": "雙語對照翻譯，本地優先，無廣告，無臃腫。"
+  },
+  "popupTitle": {
+    "message": "Privado · 雙語翻譯"
+  },
+  "modeMachine": {
+    "message": "機翻"
+  },
+  "modeMachineDesc": {
+    "message": "免費 · 雲端"
+  },
+  "modePrivacy": {
+    "message": "本地翻譯"
+  },
+  "modePrivacyDesc": {
+    "message": "本地 · 離線"
+  },
+  "modeApiDesc": {
+    "message": "自訂模型"
+  },
+  "subLabelChrome": {
+    "message": "Chrome 本地模型"
+  },
+  "subLabelApple": {
+    "message": "On-Device（Apple）"
+  },
+  "statusDetecting": {
+    "message": "偵測中"
+  },
+  "applyBtn": {
+    "message": "套用並重新整理"
+  },
+  "apiLink": {
+    "message": "設定 API Key →"
+  },
+  "translateSite": {
+    "message": "翻譯 $HOSTNAME$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "translateSiteDefault": {
+    "message": "翻譯此網站"
+  },
+  "targetLangLabel": {
+    "message": "翻譯為"
+  },
+  "displayLabel": {
+    "message": "顯示"
+  },
+  "displayBilingual": {
+    "message": "雙語"
+  },
+  "displayTransOnly": {
+    "message": "僅譯文"
+  },
+  "displayOrigOnly": {
+    "message": "僅原文"
+  },
+  "statusNotSupported": {
+    "message": "不支援"
+  },
+  "statusDownloading": {
+    "message": "下載中"
+  },
+  "statusNeedsDownload": {
+    "message": "點擊下載"
+  },
+  "statusNeedsMacOS26": {
+    "message": "需要 macOS 26"
+  },
+  "statusUnavailable": {
+    "message": "不可用"
+  },
+  "statusAvailable": {
+    "message": "可用"
+  },
+  "statusConnected": {
+    "message": "已連線"
+  },
+  "statusNotRunning": {
+    "message": "未執行"
+  },
+  "optionsTitle": {
+    "message": "Privado 設定"
+  },
+  "optionsApiConfig": {
+    "message": "API 設定"
+  },
+  "optionsProvider": {
+    "message": "提供商"
+  },
+  "optionsProviderPlaceholder": {
+    "message": "— 請選擇 —"
+  },
+  "optionsProviderCustom": {
+    "message": "自訂（OpenAI 相容）"
+  },
+  "optionsApiKeyLabel": {
+    "message": "API Key"
+  },
+  "optionsApiKeyPlaceholder": {
+    "message": "貼上你的 API Key"
+  },
+  "optionsApiKeyHint": {
+    "message": "僅儲存於本地瀏覽器，不會上傳至任何伺服器。"
+  },
+  "optionsModel": {
+    "message": "模型"
+  },
+  "optionsModelPlaceholder": {
+    "message": "選擇或輸入模型名稱"
+  },
+  "optionsBaseUrl": {
+    "message": "端點（Base URL）"
+  },
+  "optionsCacheLabel": {
+    "message": "啟用本地快取（結果僅存於本地裝置，節省 API 額度）"
+  },
+  "optionsSave": {
+    "message": "儲存"
+  },
+  "optionsTest": {
+    "message": "測試連線"
+  },
+  "statusSaved": {
+    "message": "已儲存"
+  },
+  "statusTesting": {
+    "message": "測試中…"
+  },
+  "statusFillFirst": {
+    "message": "請先填寫提供商和 API Key"
+  },
+  "statusConnectedResult": {
+    "message": "✓ 連線成功：$RESULT$",
+    "placeholders": {
+      "result": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusFailed": {
+    "message": "✗ 失敗：$ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "errUnknownProvider": {
+    "message": "未知提供商"
+  },
+  "ctxOcrOnly": {
+    "message": "辨識圖片文字"
+  },
+  "ctxOcrTranslate": {
+    "message": "辨識圖片文字並翻譯"
+  },
+  "toastApiKeyError": {
+    "message": "⚠ API Key 請求失敗"
+  },
+  "btnSwitchMachine": {
+    "message": "切換機翻"
+  },
+  "btnSwitchOnline": {
+    "message": "切換線上翻譯"
+  },
+  "btnCheckSettings": {
+    "message": "檢查設定"
+  },
+  "toastPrivacyUnavailable": {
+    "message": "⚠ 本地翻譯暫不可用"
+  },
+  "btnUseApiKey": {
+    "message": "用 API Key"
+  },
+  "toastChromeDownloading": {
+    "message": "⏳ Gemini Nano 模型下載中，完成後可離線翻譯"
+  },
+  "ocrHeader": {
+    "message": "圖片 OCR"
+  },
+  "btnCopyOriginal": {
+    "message": "複製原文"
+  },
+  "btnCopyTranslation": {
+    "message": "複製譯文"
+  },
+  "btnCopied": {
+    "message": "已複製 ✓"
+  },
+  "btnCopyFlagUrl": {
+    "message": "複製地址"
+  },
+  "toastOcrError": {
+    "message": "⚠ OCR 發生錯誤"
+  },
+  "ocrErrOffline": {
+    "message": "OCR 暫不可用"
+  },
+  "ocrErrFetchFailed": {
+    "message": "圖片載入失敗"
+  },
+  "ocrErrOcrFailed": {
+    "message": "OCR 辨識失敗"
+  },
+  "ocrErrNoText": {
+    "message": "未辨識到文字"
+  },
+  "ytStartingHint": {
+    "message": "正在準備雙語字幕…"
+  },
+  "ctxRewriteSelection": {
+    "message": "AI 改寫"
+  },
+  "rewriteWorking": {
+    "message": "改寫中…"
+  },
+  "rewriteRestoreLabel": {
+    "message": "原文："
+  },
+  "rewriteRestoreBtn": {
+    "message": "還原"
+  },
+  "rewriteUnavailable": {
+    "message": "⚠ 此裝置不支援 AI 改寫"
+  },
+  "rewriteFailed": {
+    "message": "改寫失敗"
+  },
+  "optionsShortcuts": {
+    "message": "鍵盤快捷鍵"
+  },
+  "optionsShortcutRewrite": {
+    "message": "AI 改寫"
+  },
+  "optionsShortcutNotSet": {
+    "message": "未設定"
+  },
+  "optionsShortcutCustomize": {
+    "message": "自訂 →"
+  },
+  "optionsAbout": {
+    "message": "關於"
+  },
+  "optionsPrivacyPolicy": {
+    "message": "隱私政策"
+  },
+  "ctxReadAloud": {
+    "message": "朗讀原文"
+  },
+  "readAloudStop": {
+    "message": "停止"
+  },
+  "readAloudReading": {
+    "message": "朗讀中…"
+  },
+  "readAloudUnavailable": {
+    "message": "⚠ 此裝置不支援文字轉語音"
+  },
+  "optionsShortcutReadAloud": {
+    "message": "朗讀原文"
+  },
+  "toastChromeUnavailable": {
+    "message": "⚠ Chrome 本地翻譯不可用（Chrome 更新後可能自動關閉）"
+  },
+  "toastChromeUnavailableSteps": {
+    "message": "新標籤輸入 chrome://flags/#translation-api\n將 Translation API 改為 Enabled without language pack limit\n點擊 Relaunch 重啟 Chrome"
+  },
+  "toastChromeNoApi": {
+    "message": "⚠ Chrome 本地 AI 不可用，需要 Chrome 138 以上版本及受支援的硬體。"
+  },
+  "toastChromeAfterDownload": {
+    "message": "首次使用需下載 Google 語言模型（由 Google 提供，約數百 MB）。下載後翻譯完全離線運作，不向任何伺服器傳送資料。"
+  },
+  "btnDownloadModel": {
+    "message": "立即下載"
+  },
+  "btnCancel": {
+    "message": "取消"
+  },
+  "toastChromeDownloadProgress": {
+    "message": "正在下載 Google 語言模型… $1%",
+    "placeholders": {
+      "1": {
+        "content": "$1"
+      }
+    }
+  },
+  "toastAppleNeedsDownload": {
+    "message": "Apple 本地翻譯需要下載語言包。請前往：系統設定 → 一般 → 語言與地區 → 翻譯語言，下載對應語言。"
+  },
+  "optionsFreeFallbackLabel": {
+    "message": "允許 Google 免費翻譯備援（本地 AI 不可用時使用）"
+  }
 }

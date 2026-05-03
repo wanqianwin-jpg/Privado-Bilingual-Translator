@@ -23,6 +23,8 @@
 
   "statusNotSupported": { "message": "Not supported" },
   "statusDownloading":  { "message": "Downloading" },
+  "statusNeedsDownload":{ "message": "Download ↓" },
+  "statusNeedsMacOS26": { "message": "Needs macOS 26" },
   "statusUnavailable":  { "message": "Unavailable" },
   "statusAvailable":    { "message": "Available" },
   "statusConnected":    { "message": "Connected" },
@@ -55,6 +57,7 @@
 
   "toastApiKeyError":       { "message": "⚠ API Key request failed" },
   "btnSwitchMachine":       { "message": "Switch to Machine" },
+  "btnSwitchOnline":        { "message": "Switch to Online" },
   "btnCheckSettings":       { "message": "Check Settings" },
   "toastPrivacyUnavailable":{ "message": "⚠ Private translation unavailable" },
   "btnUseApiKey":           { "message": "Use API Key" },
@@ -64,6 +67,7 @@
   "btnCopyOriginal":    { "message": "Copy Original" },
   "btnCopyTranslation": { "message": "Copy Translation" },
   "btnCopied":          { "message": "Copied ✓" },
+  "btnCopyFlagUrl":     { "message": "Copy URL" },
   "toastOcrError":      { "message": "⚠ OCR error" },
   "ocrErrOffline":      { "message": "OCR unavailable" },
   "ocrErrFetchFailed":  { "message": "Image load failed" },
@@ -90,7 +94,9 @@
   "readAloudUnavailable":     { "message": "⚠ Text-to-speech not available" },
   "optionsShortcutReadAloud": { "message": "Read Aloud" },
 
-  "toastChromeUnavailable":     { "message": "⚠ Chrome Local AI unavailable. Requires Chrome 138+ and supported hardware." },
+  "toastChromeNoApi":           { "message": "⚠ Chrome local translation requires Chrome 138+. Please update your browser and try again." },
+  "toastChromeUnavailable":     { "message": "⚠ Chrome local translation disabled (may reset after Chrome update)" },
+  "toastChromeUnavailableSteps": { "message": "Open chrome://flags/#translation-api in a new tab\nSet Translation API to \"Enabled without language pack limit\"\nClick Relaunch to restart Chrome" },
   "toastChromeAfterDownload":   { "message": "First-time setup: Chrome needs to download Google's language model (provided by Google, ~hundreds of MB). After download, translation works fully offline with no data sent to servers." },
   "btnDownloadModel":           { "message": "Download Now" },
   "btnCancel":                  { "message": "Cancel" },

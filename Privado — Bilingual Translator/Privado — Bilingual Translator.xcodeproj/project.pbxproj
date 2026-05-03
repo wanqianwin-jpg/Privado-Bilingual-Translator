@@ -749,7 +749,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado.extension";
 				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -785,7 +785,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado.extension";
 				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -827,7 +827,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado";
 				PRODUCT_NAME = "Privado — Bilingual Translator";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -868,7 +868,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado";
 				PRODUCT_NAME = "Privado — Bilingual Translator";
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -909,7 +909,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado.extension";
 				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -946,7 +946,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator.Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado.extension";
 				PRODUCT_NAME = "Privado — Bilingual Translator Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -987,7 +987,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado";
 				PRODUCT_NAME = "Privado — Bilingual Translator";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -1029,7 +1029,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.Privado---Bilingual-Translator";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wanqian.privado";
 				PRODUCT_NAME = "Privado — Bilingual Translator";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;

@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
-  "permissions": ["storage", "activeTab", "scripting", "nativeMessaging", "contextMenus", "<all_urls>"],
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
   "background": {
     "page": "background/background.html",
     "persistent": true

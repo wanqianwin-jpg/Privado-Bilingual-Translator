@@ -6,6 +6,7 @@
 //
 
 import WebKit
+import Translation
 
 #if os(iOS)
 import UIKit
@@ -16,7 +17,7 @@ import SafariServices
 typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "com.wanqian.Privado---Bilingual-Translator.Extension"
+let extensionBundleIdentifier = "com.wanqian.privado.extension"
 
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
@@ -60,22 +61,60 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-#if os(macOS)
-        if (message.body as! String != "open-preferences") {
+        // Dict messages (check-translation-status, etc.)
+        if let dict = message.body as? [String: Any],
+           let type = dict["type"] as? String {
+            if type == "check-translation-status" {
+                Task {
+                    let status = await self.checkTranslationStatus()
+                    await MainActor.run {
+                        self.webView.evaluateJavaScript("setTranslationStatus('\(status)')") { _, _ in }
+                    }
+                }
+            }
             return
         }
 
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            guard error == nil else {
-                // Insert code to inform the user that something went wrong.
-                return
-            }
+        // String messages
+        guard let cmd = message.body as? String else { return }
 
-            DispatchQueue.main.async {
-                NSApp.terminate(self)
+#if os(macOS)
+        switch cmd {
+        case "open-preferences":
+            SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
+                guard error == nil else { return }
+                DispatchQueue.main.async { NSApp.terminate(self) }
             }
+        case "open-language-settings":
+            if let url = URL(string: "x-apple.systempreferences:com.apple.preference.LanguageRegion") {
+                NSWorkspace.shared.open(url)
+            }
+        case "open-privacy-policy":
+            // TODO: replace with GitHub Pages URL once live
+            break
+        default:
+            break
         }
 #endif
+    }
+
+    private func checkTranslationStatus() async -> String {
+        guard #available(macOS 26.0, iOS 26.0, *) else {
+            return "needs-macos-26"
+        }
+        if #available(macOS 15.0, iOS 18.0, *) {
+            let availability = LanguageAvailability()
+            let status = await availability.status(
+                from: Locale.Language(identifier: "en"),
+                to: Locale.Language(identifier: "zh-Hans")
+            )
+            switch status {
+            case .installed: return "available"
+            case .supported: return "needs-download"
+            default:         return "unavailable"
+            }
+        }
+        return "unavailable"
     }
 
 }

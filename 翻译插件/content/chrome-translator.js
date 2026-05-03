@@ -15,15 +15,35 @@ async function chromeTranslatorAvailable(fromLang, toLang) {
 
 // Returns 'available' | 'after-download' | 'downloading' | 'unavailable'
 async function chromeTranslatorStatus(fromLang, toLang) {
-  if (!('Translator' in self)) return 'unavailable'
+  if (!('Translator' in self)) return 'no-api'
+
+  let status
   try {
-    const status = await Translator.availability({ sourceLanguage: _src(fromLang), targetLanguage: toLang })
-    if (status === 'available') return 'available'
-    if (status === 'downloading') return 'downloading'
-    if (status === 'after-download') return 'after-download'
-    return 'unavailable'
+    status = await Translator.availability({ sourceLanguage: _src(fromLang), targetLanguage: toLang })
   } catch {
     return 'unavailable'
+  }
+
+  if (status === 'available')   return 'available'
+  if (status === 'downloading') return 'downloading'
+  if (status === 'after-download' || status === 'downloadable') return 'after-download'
+  if (status === 'unavailable') return 'unavailable'
+
+  // Unknown value: future Chrome API change — probe with create() to decide
+  try {
+    const ctrl = new AbortController()
+    const t = await Translator.create({
+      sourceLanguage: _src(fromLang),
+      targetLanguage: toLang,
+      signal: ctrl.signal,
+      monitor(m) {
+        m.addEventListener('downloadprogress', () => ctrl.abort())
+      }
+    })
+    void t  // created successfully, model is ready
+    return 'available'
+  } catch (e) {
+    return e?.name === 'AbortError' ? 'after-download' : 'unavailable'
   }
 }
 

@@ -19,7 +19,9 @@ zip -r "$OUT" \
   content/ \
   popup/ \
   options/ \
+  shared/ \
   _locales/ \
+  privacy.html \
   -x "*.DS_Store" \
   -x "*__MACOSX*"
 
