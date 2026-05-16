@@ -130,3 +130,41 @@
 ### 全套结果
 
 `npx jest` → **9 suites / 48 tests 全绿**（原 8/47 + 新 `detector-footer` 套件 1 test）。回归门禁对重生后的 baseline 通过。临时 delta 脚本已删除（未留残骸）。
+
+（后续 polish 提交 `a524232`：union 两个 `closest()` 为单次祖先遍历——门禁对**未改动**的 baseline 仍绿、`git diff tests/fixtures` 空，自证行为等价；加 1 个 characterization test 钉死 substring 局限。最终 **9 suites / 49 tests 全绿**。）
+
+---
+
+## Task 8 试点结论（2026-05-16）
+
+回答设计文档 §5 的三个验证问题：
+
+### Q1：闭环能否稳定揪出真问题？ —— **能，且强。**
+
+- 两站 profile 被干净区分：Python docs（语义站）109 翻译块仅 **1 JUNK / 0 MISS**；The Verge（React div-soup 重 chrome 站）~103 翻译块 **~94 JUNK / 75 INVISIBLE / 0 MISS**。
+- 缺陷被系统归类（P1/V1-V5），且暴露**根因收敛**：6 个缺陷里 5 个属同一根因家族 R2（结构黑名单依赖语义标记，div-soup 失效）。一处根因修复（`footer` class/id）同时连带解决 P1+V5——证明方法论产出的是**可泛化根因修复**，不是 whack-a-mole 站点补丁。这是闭环最有价值的产出。
+- 核心定性发现：detector 缺陷压倒性是 **JUNK（过度翻译）**而非漏译；语义站近乎完美，div-soup 站灾难性过翻。这是对真实产品有指导意义的结论。
+
+### Q2：回归门禁真能拦回归？ —— **能，硬证据三重。**
+
+1. Task 5 Step 3：`MIN_TEXT_LENGTH=20→999` → 两站门禁双双 FAIL（TRANSLATE 109→0、103→0），revert → PASS。
+2. 审查阶段独立篡改 baseline 单条 → 门禁 FAIL；篡改 detector → FAIL。
+3. Task 7 修复实战走通完整门禁闭环：改 detector → 门禁 FAIL → 独立重算 delta 分类（恰 3 翻转全 intended JUNK→SKIP，0 MISS）→ 重生 baseline → PASS；随后 union 优化由门禁「对未改 baseline 仍绿」自证行为等价。门禁在「该响的响、不该响的不响」两个方向都验证有效。
+
+并发现并堵住门禁自身完整性漏洞：silent-bootstrap footgun（baseline 缺失静默重建变绿）已改为缺失即硬失败（需显式 `UPDATE_BASELINES=1`）。
+
+### Q3：jsdom 盲区实际多大？ —— **如设计预期，且方法论有自我意识。**
+
+- **本试点两站近零影响**：两站 shadow=0、无意义自定义元素 → harness baseline（Python 109 / Verge 103 TRANSLATE）≈ 真实浏览器（109 / 102）。`MISS/JUNK/DUP/MISPLACE` 在 jsdom 里被忠实判定。
+- **方法论自我意识**：MDN 因 shadowCount=140 + 代码在 `<mdn-code-example>` 自定义元素被**主动否决**——选站阶段就识别并规避了 C1+shadow 盲区，而非事后翻车。这本身是方法论稳健性的验证。
+- **R1（可见性）确属真盲区**：Verge 60 块同意弹窗 JUNK+INVISIBLE，harness 仍 TRANSLATE 它们（确定性失真），jsdom 判不了「隐藏弹窗」。但试点的**真实 Chrome 抓取步骤（injected.json）补上了这块**——INVISIBLE/LAYOUT 由真实浏览器 ground truth 判定，正如设计 §3/§3.1 所定。
+
+### 总结论：方法论成立，可铺开
+
+「冻结语料 + jsdom harness + 确定性回归门禁 + 真实 Chrome 抓取补视觉盲区」这套闭环，在 detector 半边对 jsdom-faithful 站点（低/无 shadow）**成立且高效**：能稳定揪出真问题、产出可泛化根因修复、拦得住回归、并对自身盲区有清醒边界。renderer/视觉半边（INVISIBLE/LAYOUT）经实证确需真实 Chrome 复验、非 jsdom——与设计一致，抓取管线即其机制。
+
+**下一步（铺语料前的硬化跟进，按优先级）：**
+1. `[class*="footer" i]` substring → token 锚定匹配（防 BEM `__footer-note` 误伤真内容 MISS），并把 trace reason 拆 `blacklisted-ancestor` vs `chrome-class-ancestor`（保 ledger 按 reason 归类的诊断力）——同一提交内翻转 characterization test，使精度变更可审计。
+2. 加 `翻译插件/.gitattributes`：`tests/fixtures/*.html -text` + `*.baseline.json -text`（防跨 OS 行尾假阳）。
+3. 扩语料：复用 Tasks 1-5 基建，纳入更多代表站点；shadow 重站点（如 MDN）须先解决 jsdom-realm 保真（§3.1）或显式标注为真实-Chrome-only 复验。
+4. R1 可见性过滤：在 detector 加 display/visibility 检查属真实产品改进方向（Verge 类站点收益最大），但其验证须真实 Chrome（jsdom 盲区），不能仅靠 harness。
