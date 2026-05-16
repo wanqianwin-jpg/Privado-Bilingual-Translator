@@ -104,5 +104,13 @@
   "toastChromeDownloadProgress": { "message": "Downloading Google language model… $1%", "placeholders": { "1": { "content": "$1" } } },
   "toastAppleNeedsDownload": { "message": "Apple on-device translation requires a language pack. Go to Settings → General → Language & Region → Translation Languages to download it." },
 
-  "optionsFreeFallbackLabel": { "message": "Allow Google free translation (used when local AI is unavailable)" }
+  "optionsFreeFallbackLabel": { "message": "Allow Google free translation (used when local AI is unavailable)" },
+
+  "optionsOfflineModel":      { "message": "Offline Translation Model" },
+  "optionsModelReady":        { "message": "Model ready — translation runs fully offline on this device." },
+  "optionsModelNeeded":       { "message": "The on-device model is not downloaded yet for this language." },
+  "optionsModelNoneNeeded":   { "message": "Your target language is English — no offline model is needed." },
+  "optionsModelNoApi":        { "message": "This browser build has no on-device AI. Online Google free translation still works as a fallback." },
+  "optionsModelUnsupported":  { "message": "This device or OS does not support on-device translation. Online Google free translation still works as a fallback." },
+  "optionsModelFailed":       { "message": "Download failed — click to retry." }
 }

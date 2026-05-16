@@ -106,5 +106,13 @@
   "toastChromeDownloadProgress": { "message": "正在下载 Google 语言模型… $1%", "placeholders": { "1": { "content": "$1" } } },
   "toastAppleNeedsDownload": { "message": "Apple 本地翻译需要下载语言包。请前往：系统设置 → 通用 → 语言与地区 → 翻译语言，下载对应语言。" },
 
-  "optionsFreeFallbackLabel": { "message": "允许 Google 免费翻译兜底（本地 AI 不可用时使用）" }
+  "optionsFreeFallbackLabel": { "message": "允许 Google 免费翻译兜底（本地 AI 不可用时使用）" },
+
+  "optionsOfflineModel":      { "message": "离线翻译模型" },
+  "optionsModelReady":        { "message": "模型已就绪——翻译完全在本设备离线运行。" },
+  "optionsModelNeeded":       { "message": "当前语言的本地模型尚未下载。" },
+  "optionsModelNoneNeeded":   { "message": "目标语言为英文——无需离线模型。" },
+  "optionsModelNoApi":        { "message": "此浏览器版本不支持本地 AI。仍可使用 Google 在线免费翻译兜底。" },
+  "optionsModelUnsupported":  { "message": "此设备或系统不支持本地翻译。仍可使用 Google 在线免费翻译兜底。" },
+  "optionsModelFailed":       { "message": "下载失败——点击重试。" }
 }

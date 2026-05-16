@@ -52,8 +52,118 @@ function updateProviderFields(provider, savedModel, savedBaseUrl) {
   }
 }
 
+// Pure: clamp a 0..1 download-progress fraction to an integer 0..100 percentage.
+function clampPct(loaded) {
+  return Math.max(0, Math.min(100, Math.round((loaded || 0) * 100)))
+}
+
+// Pure: map a Translator.availability() result (plus environment facts) to the
+// model-section UI state. No DOM, no chrome — unit-testable in isolation.
+// Returns { statusKey, isError, showButton, buttonEnabled }.
+function availabilityToUiState(a, targetLang, hasTranslator) {
+  if (targetLang === 'en') {
+    return { statusKey: 'optionsModelNoneNeeded', isError: false, showButton: false, buttonEnabled: false }
+  }
+  if (!hasTranslator) {
+    return { statusKey: 'optionsModelNoApi', isError: true, showButton: false, buttonEnabled: false }
+  }
+  if (a === 'available') {
+    return { statusKey: 'optionsModelReady', isError: false, showButton: false, buttonEnabled: false }
+  }
+  if (a === 'downloadable' || a === 'after-download') {
+    return { statusKey: 'optionsModelNeeded', isError: false, showButton: true, buttonEnabled: true }
+  }
+  if (a === 'downloading') {
+    return { statusKey: 'statusDownloading', isError: false, showButton: true, buttonEnabled: false }
+  }
+  // 'unavailable' or anything unexpected: device/OS/disk can't do on-device translation.
+  return { statusKey: 'optionsModelUnsupported', isError: true, showButton: false, buttonEnabled: false }
+}
+
+function setModelStatus(text, isError) {
+  const el = document.getElementById('model-status')
+  el.textContent = text
+  el.classList.toggle('error', !!isError)
+}
+
+async function initModelSection() {
+  const hintEl = document.getElementById('model-hint')
+  const statusEl = document.getElementById('model-status')
+  const progressRow = document.getElementById('model-progress-row')
+  const progressEl = document.getElementById('model-progress')
+  const pctEl = document.getElementById('model-pct')
+  const btn = document.getElementById('download-model')
+  if (!statusEl || !btn) return
+
+  hintEl.textContent = i18n('toastChromeAfterDownload')
+
+  const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+  const hasTranslator = 'Translator' in self
+
+  let a = 'unavailable'
+  if (targetLang !== 'en' && hasTranslator) {
+    try {
+      a = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
+    } catch {
+      a = 'unavailable'
+    }
+  }
+
+  const ui = availabilityToUiState(a, targetLang, hasTranslator)
+  setModelStatus(i18n(ui.statusKey), ui.isError)
+  btn.classList.toggle('hidden', !ui.showButton)
+  btn.disabled = !ui.buttonEnabled
+  progressRow.classList.toggle('hidden', a !== 'downloading')
+
+  // If another context is already downloading, attach a monitor so the user
+  // still sees live progress here (create() resolves once the model is ready).
+  if (a === 'downloading') {
+    attachDownload(targetLang, btn, progressRow, progressEl, pctEl, false)
+  }
+
+  btn.addEventListener('click', () => {
+    attachDownload(targetLang, btn, progressRow, progressEl, pctEl, true)
+  })
+}
+
+// This runs in the Options page (a real user-gesture context that also has the
+// Translator API), so a click here provides the activation Chrome requires.
+async function attachDownload(targetLang, btn, progressRow, progressEl, pctEl, fromClick) {
+  if (fromClick) btn.disabled = true
+  progressRow.classList.remove('hidden')
+  progressEl.value = 0
+  pctEl.textContent = '0%'
+  setModelStatus(i18n('statusDownloading'), false)
+  try {
+    const t = await Translator.create({
+      sourceLanguage: 'en',
+      targetLanguage: targetLang,
+      monitor(m) {
+        m.addEventListener('downloadprogress', (e) => {
+          const pct = clampPct(e.loaded)
+          progressEl.value = pct
+          pctEl.textContent = pct + '%'
+        })
+      }
+    })
+    await t.translate('hello')
+    setModelStatus(i18n('optionsModelReady'), false)
+    progressRow.classList.add('hidden')
+    btn.classList.add('hidden')
+  } catch {
+    setModelStatus(i18n('optionsModelFailed'), true)
+    progressRow.classList.add('hidden')
+    progressEl.value = 0
+    pctEl.textContent = '0%'
+    btn.classList.remove('hidden')
+    btn.disabled = false
+  }
+}
+
 async function init() {
   applyI18n()
+
+  await initModelSection()
 
   // Shortcuts section
   const commands = await chrome.commands.getAll()
@@ -168,4 +278,8 @@ async function testApiCall(provider, key, model, baseUrl) {
   throw new Error(i18n('errUnknownProvider'))
 }
 
-init()
+if (typeof module !== 'undefined') {
+  module.exports = { availabilityToUiState, clampPct }
+} else {
+  init()
+}
