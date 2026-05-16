@@ -1,0 +1,57 @@
+{
+  "_note": "真实浏览器注入态参照（Task 6 ground truth）。完整逐元素 compact dump 可由 ledger §0.4 capture 脚本对 url 复现；此处存分类汇总 + 代表样本 + 根因假设。",
+  "url": "https://www.theverge.com/tech/930941/meta-ray-ban-display-virtual-neural-handwriting-apps-developer",
+  "ts": "2026-05-16T12:00:01.215Z",
+  "real_browser": {
+    "translatedCount": 102,
+    "withSibling": 102,
+    "pending": 0,
+    "invisible": 75,
+    "note": "75/102 译文 sibling 零尺寸（不可见）——绝大多数是隐藏的 cookie 同意弹窗 + 屏外导航副本"
+  },
+  "categories": {
+    "GOOD_article_content": {
+      "count_approx": 9,
+      "examples": [
+        "Meta is rolling out new features to its ...(正文首段, vis)",
+        "The feature, which relies on the Meta Ra...(正文, vis)",
+        "Meta is bringing a few other upgrades to...(正文, vis)",
+        "All these smart glasses and nothing to d...(正文 UL, vis)",
+        "You can also now capture a video combini...(正文, vis)"
+      ],
+      "verdict": "detector 在 Verge 上确实抓到了真正的文章正文——核心能力没坏"
+    },
+    "JUNK_consent_modal": {
+      "count_approx": 58,
+      "all_invisible": true,
+      "root": "body>div:nth-of-type(3) 下的 Sourcepoint/TCF 同意管理弹窗（zephr-overlay）。全部 display 隐藏。",
+      "examples": ["Manage Consent Preferences", "Strictly Necessary Cookies 85 partners", "Use limited data to select advertising", "checkbox label label", "Consent Leg.Interest", "We process your data to deliver content"],
+      "candidate_class": "JUNK + INVISIBLE",
+      "root_cause_hypothesis": "detector 对普通元素【没有可见性/display 检查】——隐藏弹窗文本照样翻。BLACKLIST_SELECTOR 也不含 [role=dialog]/consent 容器特征。"
+    },
+    "JUNK_recirculation": {
+      "count_approx": 20,
+      "examples": ["Microsoft starts canceling Claude Code l...", "Leaked images reveal Xbox Elite 3 contro...", "Andrew Liszewski2:43 AM GMT+8CommentsCom...(作者+时间戳)", "Does Trump Mobile know how many stripes ..."],
+      "candidate_class": "JUNK",
+      "root_cause_hypothesis": "相关推荐/信息流模块是 React <div> 堆，无 <nav>/<aside>/role 语义标记 → detector 的语义黑名单漏过。部分 vis 部分隐藏。"
+    },
+    "JUNK_nav_logo": {
+      "count_approx": 4,
+      "examples": ["The homepageThe VergeThe Verge logo.The ...(顶部导航整块, ×2)", "The VergeThe Verge logo.(SVG logo 文本, tag=svg, ×2)"],
+      "candidate_class": "JUNK",
+      "root_cause_hypothesis": "顶部导航是 <div> 堆非 <nav>；SVG 虽在 SKIP_TAGS，但容器向上解析到导航大 <div> 块被整体翻。同 Python footer 的根因家族：语义黑名单失效于 div-soup。"
+    },
+    "JUNK_newsletter_comments_ui": {
+      "count_approx": 4,
+      "examples": ["The Verge DailyA free daily digest of th...(订阅 CTA)", "By submitting your email, you agree to o...", "Comments55Comments (All New)(SPAN UI)", "CommentsComment Icon Bubble8"],
+      "candidate_class": "JUNK"
+    }
+  },
+  "headline_findings": [
+    "Verge 上 ~90% 翻译块是 JUNK；仅 ~9 块是真正文章正文。detector 在重 chrome / React div-soup 站点严重过度翻译。",
+    "75/102 译文不可见（INVISIBLE）——detector 对普通元素无可见性/display 检查，把隐藏的 cookie 同意弹窗整片翻了。",
+    "两大根因家族：(R1) detector 无 visibility/display 过滤 → 翻隐藏弹窗；(R2) 结构黑名单依赖 <nav>/<footer>/role 语义标记，React div-soup（Verge 导航/推荐/Python footer）全部漏过。"
+  ],
+  "contrast_python": "Python docs：109 块全部可见、仅 1 JUNK（div.footer 版权，属 R2 家族）。语义站近乎干净。两站 profile 天差地别 → 闭环确实能稳定区分并揪出真问题。",
+  "task6_plan": "Task 6 用 harness baseline（fixture 跑 detector）vs 本表，逐 path 归类入 ledger 缺陷表。Task 7 选 R2 家族最小可复现（Python footer div.footer，jsdom 可测）演示完整修复闭环。R1（可见性）大部分属 jsdom 盲区，Task 8 据实说明。"
+}

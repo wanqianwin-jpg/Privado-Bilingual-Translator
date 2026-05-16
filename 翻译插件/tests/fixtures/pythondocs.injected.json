@@ -1,0 +1,28 @@
+{
+  "_note": "真实浏览器注入态参照（Task 6 ground truth）。完整逐元素 dump 可由 ledger §0.4 capture 脚本对 url 复现；此处只存 Task-6 必需摘要 + 异常项。",
+  "url": "https://docs.python.org/3/tutorial/classes.html",
+  "ts": "2026-05-16T11:57:19.272Z",
+  "real_browser": {
+    "translatedCount": 109,
+    "withSibling": 109,
+    "pending": 0,
+    "invisible": 0,
+    "layoutBroken": 0,
+    "tags": "P / H2 / H3 主体内容 + 1 个 DIV(See also) + 1 个 DIV(footer)"
+  },
+  "anomalies": [
+    {
+      "path": "body>div:nth-of-type(5)",
+      "tag": "DIV",
+      "text": "© Copyright 2001 Python Software Foundation. ...",
+      "observation": "页脚版权被翻译。class=\"footer\" 的 DIV，非 <footer> 标签，故未被 detector BLACKLIST_SELECTOR（含 footer 标签）拦截。",
+      "candidate_class": "JUNK",
+      "to_verify_in": "Task 6（对比 harness baseline 确认 detector 也翻它，再定根因）"
+    }
+  ],
+  "task6_inputs": {
+    "MISS/JUNK": "对比本表 real_browser 翻译 path 集 vs harness baseline 的 TRANSLATE 集",
+    "INVISIBLE/LAYOUT": "real_browser invisible=0 layoutBroken=0 → Python docs 此两类零缺陷",
+    "GARBLE": "无（全英文源，detector CJK 阈值不触发）"
+  }
+}

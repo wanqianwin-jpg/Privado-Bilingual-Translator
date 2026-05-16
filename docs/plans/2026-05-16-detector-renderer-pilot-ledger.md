@@ -45,8 +45,24 @@
 
 ---
 
+## Task 4 抓取结果（2026-05-16）
+
+| 站点 | fixture | 真实浏览器注入态 |
+|---|---|---|
+| Python docs | `tests/fixtures/pythondocs.html`（106KB, 0 bt 残留, 30 `<pre>` / 103 `<p>`） | 109 翻译块，**全部可见**，0 pending，仅 1 JUNK（页脚 `div.footer` 版权） |
+| The Verge | `tests/fixtures/theverge.html`（202KB, 0 bt 残留, 57 `<p>` / 596 `<div>`） | 102 翻译块，**75 不可见**，~9 真正文，~93 JUNK |
+
+注入态详情见 `tests/fixtures/<site>.injected.json`（分类汇总，完整可由 §0.4 脚本复现）。
+
+### 头条发现（试点核心结论雏形）
+
+- **闭环确实能稳定揪出真问题且区分站点**：Python docs（语义站）近乎干净（1 JUNK）；The Verge（React div-soup 重 chrome 站）~90% 翻译块是 JUNK、75/102 不可见。两站 profile 天差地别。
+- **两大根因家族**：
+  - **R1 — detector 对普通元素无 visibility/display 过滤** → 翻隐藏 cookie 同意弹窗（Verge 上 ~58 块 JUNK+INVISIBLE）。多属 jsdom 盲区（需真实 computed style），Task 8 据实说明。
+  - **R2 — 结构黑名单依赖 `<nav>/<footer>/<aside>/role` 语义标记**，React div-soup 全部漏过 → Verge 导航/推荐/SVG-logo + Python `div.footer` 版权。**jsdom 可测，Task 7 选此家族最小可复现演示修复闭环。**
+
 ## 缺陷表
 
 | id | site | class | text 片段 | 期望 | 实际 | 根因假设 | 状态 |
 |----|------|-------|-----------|------|------|----------|------|
-| _(Task 6 填充)_ | | | | | | | |
+| _(Task 6 用 harness baseline vs injected.json 逐 path 填充)_ | | | | | | | |
