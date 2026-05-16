@@ -36,6 +36,15 @@ test('每条记录形状固定：path/decision/reason/text', () => {
   expect(rec.reason).toBeNull()
 })
 
+test('无可翻译文本时返回真正的空数组', () => {
+  const html = '<html><body>' +
+    '<script>var x = 1</script>' +
+    '<style>.a { color: red }</style>' +
+    '   \n  ' +
+    '</body></html>'
+  expect(dumpDecisions(html)).toEqual([])
+})
+
 test('确定性：同一 HTML 两次调用结果深度相等', () => {
   const html = '<html><body>' +
     '<nav><p>nav text long enough to be considered for translate</p></nav>' +
