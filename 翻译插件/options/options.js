@@ -163,7 +163,11 @@ async function attachDownload(targetLang, btn, progressRow, progressEl, pctEl, f
 async function init() {
   applyI18n()
 
-  await initModelSection()
+  try {
+    await initModelSection()
+  } catch (e) {
+    console.warn('initModelSection failed', e)
+  }
 
   // Shortcuts section
   const commands = await chrome.commands.getAll()
