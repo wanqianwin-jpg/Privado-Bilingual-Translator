@@ -61,8 +61,30 @@
   - **R1 — detector 对普通元素无 visibility/display 过滤** → 翻隐藏 cookie 同意弹窗（Verge 上 ~58 块 JUNK+INVISIBLE）。多属 jsdom 盲区（需真实 computed style），Task 8 据实说明。
   - **R2 — 结构黑名单依赖 `<nav>/<footer>/<aside>/role` 语义标记**，React div-soup 全部漏过 → Verge 导航/推荐/SVG-logo + Python `div.footer` 版权。**jsdom 可测，Task 7 选此家族最小可复现演示修复闭环。**
 
-## 缺陷表
+## Task 5 复审延后项（Minor，pilot 不阻塞，铺语料前处理）
 
-| id | site | class | text 片段 | 期望 | 实际 | 根因假设 | 状态 |
-|----|------|-------|-----------|------|------|----------|------|
-| _(Task 6 用 harness baseline vs injected.json 逐 path 填充)_ | | | | | | | |
+- **M-gitattr**：`翻译插件/.gitattributes` 缺失。`tests/fixtures/*.html` 以原始字符串喂 JSDOM，跨 OS（autocrlf）改行尾会移动 jsdom 解析树 → 回归门禁假阳。铺语料/多人前加 `tests/fixtures/*.html -text` + `*.baseline.json -text`。
+- **M-fmt**：`JSON.stringify(,,2)` 无尾换行，prettier/eof-fixer 会制造 1 行无意义 churn（门禁不受影响，仅噪声）。
+- **M-pathchurn**：深 `nth-of-type` 路径使结构性 detector 改动产生大段低语义 diff、易合并冲突。缓解＝Task 7 的「regenerate baseline 并在 commit 说明每条变化」纪律。
+
+## Task 6 缺陷归类（harness baseline vs injected.json ground truth，2026-05-16）
+
+方法：`jq` 对 `<site>.baseline.json` 的 TRANSLATE 项按 path 前缀分桶，对照 `<site>.injected.json` 真实浏览器分类。
+
+**关键量化：**
+- Python docs：harness 109 TRANSLATE = 真实浏览器 109。**1 JUNK**（footer），108 正确正文。**0 MISS**（两边同集）。
+- The Verge：harness 103 TRANSLATE ≈ 真实浏览器 102。分桶：60 = `div:nth-of-type(3)` 同意弹窗，41 = `div:nth-of-type(1)` 应用壳（其中 ~9 真正文 + 余为导航/推荐/订阅 JUNK），2 = footer。**~94 JUNK / ~9 正文。0 显著 MISS。**
+- **核心结论**：detector 缺陷压倒性是 **JUNK（过度翻译）**，不是漏译。语义站（Python）近乎完美，div-soup 重 chrome 站（Verge）灾难性过翻。
+
+| id | site | class | text 片段 | 期望 | 实际 | 根因假设 | 状态 | jsdom 可测 |
+|----|------|-------|-----------|------|------|----------|------|-----------|
+| P1 | pythondocs | JUNK | `© Copyright 2001 Python Software Foundation` (`body>div:nth-of-type(5)`) | SKIP | TRANSLATE | **R2**：BLACKLIST_SELECTOR 匹配 `<footer>` 标签/`[role]`，不匹配 `<div class="footer">` | open | ✅ 是（最小可复现，Task 7 选它） |
+| V1 | theverge | JUNK+INVISIBLE | 同意弹窗 60 块（`Manage Consent Preferences`/`Strictly Necessary Cookies`/`checkbox label label` …，`body>div:nth-of-type(3)`） | SKIP | TRANSLATE | **R1**：detector 对普通元素无 visibility/display 过滤；弹窗 `display:none` 经 CSS class 非 `[hidden]` 属性 → 漏过 | open | ✘ 多属 jsdom 盲区（需真实 computed style；harness 仍 TRANSLATE 它们=确定性失真） |
+| V2 | theverge | JUNK | 顶部导航整块 + SVG logo 文本（`body>div:nth-of-type(1)` 内 nav 区） | SKIP | TRANSLATE | **R2**：导航是 `<div>` 堆非 `<nav>`；容器上溯到导航大 div | open | ✅ 是 |
+| V3 | theverge | JUNK | 相关推荐/信息流模块 + 作者时间戳 byline（`...main>article>...` 内 recirc div） | SKIP | TRANSLATE | **R2**：recirc 模块无 `<aside>`/role 语义标记 | open | ✅ 是 |
+| V4 | theverge | JUNK | 订阅 CTA `The Verge DailyA free daily digest` + `By submitting your email…` + 评论计数 SPAN | SKIP | TRANSLATE | **R2** 同族：无语义标记的 CTA/UI chrome | open | ✅ 是 |
+| V5 | theverge | JUNK | footer 区 2 块（`body>div:nth-of-type(5)`） | SKIP | TRANSLATE | **R2** 同 P1（div 非 `<footer>`） | open | ✅ 是 |
+
+**根因收敛**：除 V1（R1，可见性，多 jsdom 盲区）外，**P1/V2/V3/V4/V5 全是 R2 同一家族**——detector 结构黑名单依赖 `<nav>/<footer>/<aside>/role` 语义标记，对 React/div-soup 站点全面失效。修 R2 一处根因可同时压制 5 类缺陷里的绝大多数。
+
+**Task 7 选 P1**：R2 家族最小、最干净、jsdom 完全保真的可复现，单条 baseline 翻转，根因明确，修法可泛化到 V2-V5。
