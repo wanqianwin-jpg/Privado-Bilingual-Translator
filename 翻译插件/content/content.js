@@ -6,6 +6,7 @@
   const translateMode = resolveTranslateMode(stored)
 
   if (siteSettings[location.hostname] === 'never') return
+  if (isPageAlreadyInTargetLang(targetLang)) return
 
   injectStyles()
   setDisplayMode(displayMode)
@@ -98,10 +99,11 @@
     initialMode: displayMode
   })
 
-  // On YouTube/Reddit, page translation is handled by site-specific scripts.
-  // Expose the ball so they can drive its state.
-  if (window.BT_IS_YOUTUBE || window.BT_IS_REDDIT) {
-    window.btBall = ball
+  // Expose ball globally so popup's executeScript can sync display mode changes
+  window.btBall = ball
+
+  // On YouTube/Reddit/Gmail, page translation is handled by site-specific scripts.
+  if (window.BT_IS_YOUTUBE || window.BT_IS_REDDIT || window.BT_IS_GMAIL) {
     return
   }
 
@@ -503,5 +505,25 @@ function showOcrErrorToast(error) {
   toast.appendChild(msg)
   document.body.appendChild(toast)
   setTimeout(() => toast.remove(), 4000)
+}
+
+function isPageAlreadyInTargetLang(targetLang) {
+  const tgtBase = targetLang.split('-')[0].toLowerCase()
+  const sample = (document.body?.innerText ?? '').replace(/\s/g, '').slice(0, 3000)
+  if (sample.length < 100) return false
+  if (tgtBase === 'zh') {
+    const cjk = (sample.match(/[㐀-鿿豈-﫿]/g) || []).length
+    return cjk / sample.length > 0.5
+  }
+  if (tgtBase === 'ja') {
+    const jp = (sample.match(/[぀-ヿ㐀-鿿]/g) || []).length
+    return jp / sample.length > 0.4
+  }
+  if (tgtBase === 'ko') {
+    const ko = (sample.match(/[가-힯ᄀ-ᇿ]/g) || []).length
+    return ko / sample.length > 0.4
+  }
+  const htmlLang = (document.documentElement.lang || '').split('-')[0].toLowerCase()
+  return htmlLang !== '' && htmlLang === tgtBase
 }
 

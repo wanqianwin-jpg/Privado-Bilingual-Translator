@@ -42,8 +42,8 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
   ball.id = 'bt-floatball'
 
   const saved = (() => { try { return JSON.parse(localStorage.getItem(POS_KEY)) } catch { return null } })()
-  ball.style.right = (saved?.right ?? 20) + 'px'
-  ball.style.bottom = (saved?.bottom ?? 80) + 'px'
+  ball.style.right = Math.max(4, Math.min(saved?.right ?? 20, window.innerWidth - 42)) + 'px'
+  ball.style.bottom = Math.max(4, Math.min(saved?.bottom ?? 80, window.innerHeight - 42)) + 'px'
 
   let state = manualMode ? 'idle' : 'translating'
   let currentMode = initialMode
@@ -64,15 +64,15 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
       ball.title = '翻译中...'
       ball.dataset.state = 'translating'
     } else {
-      // done: toggle between showing and hiding translations
+      // done: simple on/off toggle — display mode is controlled by popup settings
       if (hidden()) {
         ball.textContent = '译'
         ball.title = '点击显示译文'
-        ball.dataset.state = 'idle'   // blue = hidden
+        ball.dataset.state = 'idle'   // blue = translations hidden
       } else {
-        ball.textContent = '双'
+        ball.textContent = '✓'
         ball.title = '点击隐藏译文'
-        ball.dataset.state = 'done'   // green = showing
+        ball.dataset.state = 'done'   // green = translations visible
       }
     }
   }

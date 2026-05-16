@@ -620,13 +620,13 @@
   {
     "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
     "decision": "SKIP",
-    "reason": "already-handled",
+    "reason": "button-descendant",
     "text": "by  Jay PetersJay PetersSenior ReporterPosts from this author will be added to y"
   },
   {
     "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
-    "decision": "TRANSLATE",
-    "reason": null,
+    "decision": "SKIP",
+    "reason": "already-handled",
     "text": "by  Jay PetersJay PetersSenior ReporterPosts from this author will be added to y"
   },
   {

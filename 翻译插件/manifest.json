@@ -12,8 +12,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "exclude_matches": ["*://www.youtube.com/*", "*://*.reddit.com/*"],
+      "exclude_matches": ["*://www.youtube.com/*", "*://*.reddit.com/*", "*://mail.google.com/*"],
       "js": ["shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/gmail.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {

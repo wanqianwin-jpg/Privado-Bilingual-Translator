@@ -22,8 +22,9 @@
   "displayOrigOnly":  { "message": "Original only" },
 
   "statusNotSupported": { "message": "Not supported" },
-  "statusDownloading":  { "message": "Downloading" },
-  "statusNeedsDownload":{ "message": "Download ↓" },
+  "statusDownloading":    { "message": "Downloading" },
+  "statusNeedsDownload":  { "message": "Download ↓" },
+  "statusDownloadFailed": { "message": "Failed, retry ↓" },
   "statusNeedsMacOS26": { "message": "Needs macOS 26" },
   "statusUnavailable":  { "message": "Unavailable" },
   "statusAvailable":    { "message": "Available" },

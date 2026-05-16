@@ -100,6 +100,20 @@ async function init() {
     opt.addEventListener('click', () => {
       pendingMode = opt.dataset.sub
       renderMode(pendingMode)
+
+      // When user selects chrome-local and model needs downloading, auto-trigger download.
+      // On success, auto-apply the mode so user doesn't need to click Apply separately.
+      if (opt.dataset.sub === 'chrome-local' &&
+          (chromeDetectedStatus === 'after-download' || chromeDetectedStatus === 'downloadable')) {
+        const statusEl = document.getElementById('status-chrome')
+        // Hide Apply during download — it will auto-apply on success
+        applyBtn.classList.remove('visible')
+        triggerChromeDownload(statusEl, targetLang, async () => {
+          await chrome.storage.local.set({ translateMode: 'chrome-local' })
+          chrome.tabs.reload(chromeTab.id)
+          window.close()
+        })
+      }
     })
   })
 
@@ -149,7 +163,7 @@ async function init() {
     await chrome.storage.local.set({ displayMode: mode })
     chrome.scripting.executeScript({
       target: { tabId: chromeTab.id },
-      func: m => setDisplayMode(m),
+      func: m => { setDisplayMode(m); window.btBall?.setMode(m) },
       args: [mode]
     })
   })
@@ -167,27 +181,51 @@ async function runDetection(targetLang) {
 
 const i18n = key => chrome.i18n.getMessage(key)
 
+// Tracks detected Chrome Translator status so sub-option click can act on it
+let chromeDetectedStatus = null
+
 async function detectChrome(targetLang) {
   const el = document.getElementById('status-chrome')
-  if (!('Translator' in self)) { setStatus(el, 'err', i18n('statusNotSupported')); return }
+  if (!('Translator' in self)) {
+    chromeDetectedStatus = 'no-api'
+    setStatus(el, 'err', i18n('statusNotSupported'))
+    return
+  }
   try {
     const r = await Translator.availability({ sourceLanguage: 'en', targetLanguage: targetLang })
+    chromeDetectedStatus = r
     if (r === 'downloading') { setStatus(el, 'warn', i18n('statusDownloading')); return }
     if (r === 'after-download' || r === 'downloadable') {
       setStatus(el, 'warn', i18n('statusNeedsDownload'))
+      // Badge stays clickable as manual trigger; sub-option click also triggers (see below)
       el.style.cursor = 'pointer'
       el.addEventListener('click', () => triggerChromeDownload(el, targetLang), { once: true })
       return
     }
-    if (r !== 'available')   { setStatus(el, 'err',  i18n('statusUnavailable')); return }
+    if (r !== 'available') {
+      chromeDetectedStatus = 'unavailable'
+      setStatus(el, 'err', i18n('statusUnavailable'))
+      return
+    }
     // availability() 在 popup 上下文不可靠，做一次真实翻译验证
     const t = await Translator.create({ sourceLanguage: 'en', targetLanguage: targetLang })
     const result = await t.translate('hello')
-    result ? setStatus(el, 'ok', i18n('statusAvailable')) : setStatus(el, 'err', i18n('statusUnavailable'))
-  } catch { setStatus(el, 'err', i18n('statusUnavailable')) }
+    if (result) {
+      chromeDetectedStatus = 'available'
+      setStatus(el, 'ok', i18n('statusAvailable'))
+    } else {
+      chromeDetectedStatus = 'unavailable'
+      setStatus(el, 'err', i18n('statusUnavailable'))
+    }
+  } catch {
+    chromeDetectedStatus = 'unavailable'
+    setStatus(el, 'err', i18n('statusUnavailable'))
+  }
 }
 
-async function triggerChromeDownload(el, targetLang) {
+// onSuccess: called after download + verify succeeds (used for auto-apply from sub-option click)
+async function triggerChromeDownload(el, targetLang, onSuccess) {
+  chromeDetectedStatus = 'downloading'
   setStatus(el, 'warn', i18n('statusDownloading'))
   el.style.cursor = ''
   try {
@@ -201,9 +239,19 @@ async function triggerChromeDownload(el, targetLang) {
       }
     })
     const result = await t.translate('hello')
-    result ? setStatus(el, 'ok', i18n('statusAvailable')) : setStatus(el, 'err', i18n('statusUnavailable'))
+    if (result) {
+      chromeDetectedStatus = 'available'
+      setStatus(el, 'ok', i18n('statusAvailable'))
+      onSuccess?.()
+    } else {
+      chromeDetectedStatus = 'unavailable'
+      setStatus(el, 'err', i18n('statusUnavailable'))
+    }
   } catch {
-    setStatus(el, 'err', i18n('statusUnavailable'))
+    chromeDetectedStatus = 'after-download'  // allow retry
+    setStatus(el, 'warn', i18n('statusDownloadFailed'))
+    el.style.cursor = 'pointer'
+    el.addEventListener('click', () => triggerChromeDownload(el, targetLang, onSuccess), { once: true })
   }
 }
 

@@ -9,6 +9,7 @@ const SKIP_PATTERNS = [
   /^@\w+$/,
   /^\d{4}[-/]\d{2}[-/]\d{2}$/,
   /^\s*[{[]/,  // starts with JSON/array bracket — embedded data payload
+  /^@?[\w.-]+\/[\w.-]+$/,  // owner/repo or @scope/package identifiers
 ]
 
 function shouldSkipText(text) {
@@ -23,7 +24,8 @@ function isMostlyCJK(text) {
   return cjk / stripped.length > CJK_THRESHOLD
 }
 
-const AD_KEYWORDS = ['ad-', 'ads', 'advert', 'sponsor', 'advertisement', 'promo', 'banner']
+// 'ads' removed — substring match [class*="ads" i] hits Gmail's "adn ads" class on all email containers
+const AD_KEYWORDS = ['ad-', 'advert', 'sponsor', 'advertisement', 'promo', 'banner']
 // Structural-chrome keywords for class/id-based boilerplate regions. The semantic
 // BLACKLIST_SELECTOR only catches <footer>/<nav>/[role] tags; React/div-soup sites
 // mark the same regions with classes/ids (e.g. <div class="footer">) and slip
@@ -37,7 +39,7 @@ const YT_UI_PREFIXES = ['ytp-', 'yt-icon', 'ytd-button', 'yt-button']
 // `aside` is included alongside `[role="complementary"]` because CSS selectors don't see
 // implicit ARIA roles (an <aside> without an explicit role attribute won't match the role
 // selector). Same pattern as `nav` / `[role="navigation"]`.
-const BLACKLIST_SELECTOR = 'nav, header, footer, aside, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container'
+const BLACKLIST_SELECTOR = 'nav, header, footer, aside, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [role="toolbar"], [role="menu"], [role="menubar"], [role="menuitem"], [role="listbox"], [role="option"], [role="tablist"], [role="columnheader"], [role="rowheader"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container, yt-formatted-string#info, tp-yt-paper-tooltip, ytd-video-description-header-renderer'
 // class/id-based structural-chrome selector — same construction as AD_ATTR_SELECTOR.
 const STRUCT_ATTR_SELECTOR = STRUCT_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
 // Union of the two ancestor selectors so hasBlacklistedAncestor walks the tree once
@@ -49,7 +51,8 @@ const AD_ATTR_SELECTOR = AD_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" 
 const SKIP_TAGS = new Set([
   'SCRIPT', 'STYLE', 'NOSCRIPT', 'IFRAME', 'CANVAS', 'SVG',
   'VIDEO', 'AUDIO', 'IMG', 'INPUT', 'TEXTAREA', 'SELECT',
-  'BUTTON', 'CODE', 'PRE', 'KBD', 'SAMP'
+  'BUTTON', 'CODE', 'PRE', 'KBD', 'SAMP',
+  'TH',  // table header cells — labels like "Name", "Date" shouldn't be translated
 ])
 
 // Walk UP past these to find a block container
@@ -63,7 +66,9 @@ const INLINE_TAGS = new Set([
 const STRUCTURAL_BLOCKS = new Set([
   'DIV', 'SECTION', 'ARTICLE', 'ASIDE', 'HEADER', 'FOOTER',
   'MAIN', 'NAV', 'FORM', 'TABLE', 'UL', 'OL', 'DL', 'FIGURE',
-  'BLOCKQUOTE', 'DETAILS', 'SUMMARY'
+  'BLOCKQUOTE', 'DETAILS', 'SUMMARY',
+  // Table structure — TR/THEAD/TBODY prevent whole-row translation
+  'TR', 'THEAD', 'TBODY', 'TFOOT',
 ])
 
 // Cache computed display values for unknown/custom elements
@@ -123,10 +128,22 @@ function hasAdSignal(el) {
   return result
 }
 
+// ARIA roles that are semantically block containers — stop findBlockContainer from walking
+// past them even when CSS sets display:contents (e.g. GitHub's columnheader divs).
+const BLOCK_ARIA_ROLES = new Set([
+  'gridcell', 'cell', 'columnheader', 'rowheader', 'row', 'rowgroup',
+  'listitem', 'article', 'main', 'complementary', 'region', 'dialog',
+])
+
 // Walk up past inline elements to find a meaningful block container
 function findBlockContainer(el) {
   let node = el
   while (node && isInlineEl(node)) {
+    // Stop at elements with block-semantic ARIA roles even if CSS makes them display:contents.
+    // GitHub table rows/cells use role="row" / role="gridcell" with display:contents — without
+    // this check findBlockContainer walks all the way up to the row and collects every column's
+    // text as one blob ("NameLast commit messageLast commit date" → 42 chars → translated).
+    if (node.getAttribute?.('role') && BLOCK_ARIA_ROLES.has(node.getAttribute('role'))) break
     node = node.parentElement
   }
   return node
@@ -140,6 +157,12 @@ function hasBlockChildren(el) {
     if (STRUCTURAL_BLOCKS.has(child.tagName) && child.textContent.trim().length >= MIN_TEXT_LENGTH) return true
   }
   return false
+}
+
+// True if el contains button-like descendants — indicates a UI widget, not content.
+// Prevents translating toolbars, action bars, dropdowns, etc.
+function hasButtonDescendant(el) {
+  return !!el.querySelector('button, [role="button"], [role="tab"]')
 }
 
 // Walk all nodes including shadow roots, collect translatable block containers
@@ -195,6 +218,7 @@ function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LE
       if (isMostlyCJK(text)) { rec('SKIP', 'mostly-cjk', container, text); return }            // already target language
       if (shouldSkipText(text)) { rec('SKIP', 'skip-pattern', container, text); return }       // URL / email / @handle / JSON
       if (hasBlockChildren(container)) { rec('SKIP', 'has-block-children', container, text); return }  // too large — has images/divs/etc
+      if (hasButtonDescendant(container)) { rec('SKIP', 'button-descendant', container, text); return }  // UI widget, not content
       if (hasBlacklistedAncestor(container)) { rec('SKIP', 'blacklisted-ancestor', container, text); return }
       if (container.closest('[hidden]')) { rec('SKIP', 'hidden', container, text); return }
       if (hasAdSignal(container)) { rec('SKIP', 'ad-signal', container, text); return }
@@ -246,6 +270,7 @@ function shouldTranslate(el) {
   if (hasAdSignal(el)) return false
   // Skip if this is clearly a large container (has structural block children)
   if (hasBlockChildren(el)) return false
+  if (hasButtonDescendant(el)) return false
   return true
 }
 

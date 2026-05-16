@@ -299,6 +299,42 @@ content script
 - [ ] macOS OCR（Vision.framework via SafariWebExtensionHandler）
 - [ ] Options UI 增加 apple-npu 模式选项
 
+## 已知问题与根本原因
+
+### 1. Gmail 翻译不显示（已修复）
+
+**问题 A — AD_KEYWORDS 误匹配：** `detector.js` 的 `AD_KEYWORDS` 数组含 `'ads'`，CSS 选择器 `[class*="ads" i]` 是子串匹配。Gmail 所有邮件线程容器 class 为 `"adn ads"`，命中后 `hasAdSignal()` 对邮件内所有元素返回 `true`，`getTranslatableElements()` 返回空数组。**修复：** 删除 `'ads'`，保留 `'ad-'`（需要连字符后缀）。
+
+**问题 B — gmail.js 设计错误：** 最初实现 gmail.js 时错误地"跳过收件箱列表"，只翻译已打开邮件的正文（`.a3s.aiL`），导致用户最需要翻译的 inbox 页面完全没有翻译。
+
+**修复：** `gmail.js` 增加 inbox 扫描逻辑：
+- 目标元素：`tr.zA, tr.yO`（Gmail 收件箱行），只扫描 `.y6` 单元格（主题+摘要），不碰发件人、日期、复选框列
+- `injectTranslation` 对 `<td>` 已有特殊处理（往内部 append），不会破坏列布局
+- `MutationObserver` 监听新行（分页加载/收取新邮件）
+- 导航到邮件详情时停止 inbox observer，返回列表时重启
+
+---
+
+### 2. YouTube 视频简介展开后大段内容不翻译
+
+**根本原因（双重）：**
+
+1. **`data-bt-translated` 未清除：** 简介折叠时，`yt-attributed-string` 元素已被翻译并打上 `data-bt-translated="true"`。用户点击"展开"后，元素文本内容变长（实测：折叠态 192 字符 → 展开态 2623 字符），但 `expand` 点击处理器检查 `if (!el.dataset.btTranslated)` 发现已标记，直接跳过，不重新翻译。
+
+2. **`MAX_TEXT_LENGTH = 1500` 上限：** `getTranslatableElements()` 跳过超过 1500 字符的文本。展开后的长简介（2623 字符）超过阈值，即使清除标记后重走通用扫描也会被跳过。`scanYtDescription` 绕过了此限制，但必须主动调用。
+
+**为什么难以彻底修好：** YouTube 用 `yt-attributed-string` 在折叠/展开时原地修改 `textContent`，没有 DOM 结构变化可供 MutationObserver 的 `childList` 观察——只能用 `characterData` subtree 观察，性能代价高，且展开动画期间会触发多次。最稳定的方案是在展开按钮 click handler 里主动清除 `data-bt-translated` 并调用 `scanYtDescription`，但需要精确选中展开按钮且不误触其他按钮。
+
+---
+
+### 3. YouTube 官方字幕与双语字幕同时显示
+
+**根本原因：** `hideNativeCC()` 只在 `attachTimeUpdate` 首次调用时执行一次，通过 `dispatchEvent(new KeyboardEvent('keydown', { key: 'c' }))` 模拟按键关闭字幕。用户手动点击 YouTube CC 按钮重新开启字幕后，插件没有监听器重新隐藏。
+
+**为什么难以彻底修好：** YouTube 播放器状态（字幕开关）通过内部事件系统管理，无公开 API 可监听。可行方案是对字幕容器（`.ytp-caption-window-container`）或 CC 按钮（`.ytp-subtitles-button`）挂 MutationObserver，检测 `aria-pressed` 属性变化后再次模拟 `c` 键。但模拟键盘事件存在 YouTube 版本依赖风险，YouTube 更新播放器后可能失效。此外，用户主动开启字幕属于明确意图，强制关闭体验不佳，更优方案是检测到官方字幕激活时隐藏我们自己的字幕覆盖层，而非继续压制官方字幕。
+
+---
+
 ## 参考资料
 
 - [Chrome Translator API 文档](https://developer.chrome.com/docs/ai/translator-api)

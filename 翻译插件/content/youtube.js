@@ -33,6 +33,20 @@ async function init() {
   waitForControls()
 }
 
+function clearPageTranslations() {
+  // Remove all injected translation siblings from the previous video
+  document.querySelectorAll('[data-bt-sibling-for]').forEach(el => el.remove())
+  // Clear translated markers so new video content gets re-scanned
+  document.querySelectorAll('[data-bt-translated]').forEach(el => {
+    delete el.dataset.btTranslated
+  })
+  // Reset MO batch state
+  _ytMoPending = []
+  _ytMoNeedsPlayer = false
+  _ytMoNeedsDesc = false
+  _ytMoScheduled = false
+}
+
 function onNavigate() {
   restoreNativeCC()
   subtitles = []
@@ -42,19 +56,30 @@ function onNavigate() {
   if (videoEl) { videoEl.removeEventListener('timeupdate', onTimeUpdate); videoEl = null }
   timeUpdateBound = false
   playerBtn?.remove(); playerBtn = null
+  clearPageTranslations()
   waitForControls()
   setTimeout(scanYtPage, 1500)  // wait for new page content to render
 }
 
 // ── XHR interception handler ─────────────────────────────────────────────────
 
+function getYtVideoId() {
+  // Regular watch page: ?v=VIDEO_ID
+  const v = new URLSearchParams(location.search).get('v')
+  if (v) return v
+  // Shorts: /shorts/VIDEO_ID
+  const m = location.pathname.match(/^\/shorts\/([^/?]+)/)
+  return m ? m[1] : null
+}
+
 function onMainWorldMessage(e) {
   if (e.data?.type !== 'BT_YOUTUBE_TIMEDTEXT') return
-  const videoId = new URLSearchParams(location.search).get('v')
+  const videoId = getYtVideoId()
   if (!videoId) return
 
   const url = new URL(e.data.url)
   const urlVideoId = url.searchParams.get('v')
+  // timedtext URL always has ?v=, even for Shorts — cross-check if present
   if (urlVideoId && urlVideoId !== videoId) return  // different video, skip
 
   // Already loaded subtitles for this video
@@ -103,15 +128,20 @@ async function loadSubtitles(url, videoId) {
 }
 
 // ── Native CC control ─────────────────────────────────────────────────────────
+// Use a persistent <style> rule rather than a one-time inline style — Shorts reinitializes
+// the player DOM on every swipe, creating a fresh #ytp-caption-window-container that
+// wouldn't inherit a previously set inline style.
 
 function hideNativeCC() {
-  const el = document.querySelector('#ytp-caption-window-container')
-  if (el) el.style.visibility = 'hidden'
+  if (document.getElementById('bt-hide-cc')) return
+  const s = document.createElement('style')
+  s.id = 'bt-hide-cc'
+  s.textContent = '#ytp-caption-window-container { visibility: hidden !important; }'
+  document.head.appendChild(s)
 }
 
 function restoreNativeCC() {
-  const el = document.querySelector('#ytp-caption-window-container')
-  if (el) el.style.visibility = ''
+  document.getElementById('bt-hide-cc')?.remove()
 }
 
 function applyMode() {
@@ -375,16 +405,26 @@ function scanYtComments(root = document) {
   })
 }
 
-// Video description area — ytd-text-inline-expander is often blocked by hasAdSignal (ytd- prefix)
-// so we scan it directly like comments.
+// Video description area — target the clean description text element directly.
+// ytd-video-secondary-info-renderer is too broad (includes transcript, social links, recommendations).
+// ytd-text-inline-expander contains "...more" / "Show less" buttons so its full textContent is dirty.
+// #attributed-snippet-text / yt-attributed-string inside the expander hold just the description text.
 function scanYtDescription(root = document) {
-  root.querySelectorAll('ytd-text-inline-expander, ytd-video-secondary-info-renderer').forEach(el => {
-    // Only translate if it has meaningful text content (not just links/buttons)
-    const text = el.textContent?.trim() || ''
-    if (text.length < 20) return
-    if (isMostlyCJK(text)) return
-    if (!el.dataset.btTranslated) translateYtElTracked(el)
-  })
+  const selectors = [
+    '#attributed-snippet-text',                        // standard watch page
+    '#description-inline-expander yt-attributed-string', // fallback
+    '#description yt-attributed-string',               // older layout
+  ]
+  for (const sel of selectors) {
+    const els = (root === document ? document : root).querySelectorAll(sel)
+    els.forEach(el => {
+      const text = el.textContent?.trim() || ''
+      if (text.length < 20) return
+      if (isMostlyCJK(text)) return
+      if (!el.dataset.btTranslated) translateYtElTracked(el)
+    })
+    if (els.length) break  // found with this selector, don't double-translate
+  }
 }
 
 // Titles inside #movie_player and role="complementary" are blocked by the generic walker.
@@ -471,6 +511,25 @@ function initPageTranslation() {
     }
   })
   mo.observe(document.body, { childList: true, subtree: true })
+
+  // YouTube lazy-loads the full description text only after the user clicks "...more".
+  // The MutationObserver above only watches childList — it misses text-content changes inside
+  // the already-present yt-attributed-string. Catch expand clicks via delegation instead.
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('#expand, tp-yt-paper-button#expand')
+    if (!btn) return
+    const expander = btn.closest('ytd-text-inline-expander')
+    if (!expander) return
+    // Clear stale translated markers inside the expander — the collapsed element was already
+    // marked data-bt-translated but its text was short; after expand, text is much longer and
+    // needs a fresh translation pass.
+    expander.querySelectorAll('[data-bt-translated]').forEach(el => {
+      el.nextElementSibling?.dataset.btSiblingFor && el.nextElementSibling.remove()
+      delete el.dataset.btTranslated
+    })
+    // Give YouTube ~400 ms to populate the expanded yt-attributed-string before scanning.
+    setTimeout(() => scanYtDescription(expander), 400)
+  }, true)
 }
 
 function showYtStartingHint() {

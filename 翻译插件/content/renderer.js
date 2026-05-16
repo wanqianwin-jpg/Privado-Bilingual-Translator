@@ -9,15 +9,39 @@ function injectTranslation(el, translatedText) {
   const div = document.createElement('div')
   div.dataset.btSiblingFor = 'true'
   div.textContent = translatedText
-  // Slotted elements (slot="...") live inside a parent's shadow DOM — a sibling div won't be
-  // projected into the same slot and will be invisible. Inject inside instead so it stays in context.
-  if (el.hasAttribute('slot')) {
+  // Table cells and slotted elements need the translation appended INSIDE rather than as a
+  // sibling: table cells because a sibling would land in the row and destroy column layout;
+  // slotted elements because a sibling div outside the slot won't be projected.
+  const cellRole = el.getAttribute?.('role') ?? ''
+  const isTableCell = el.tagName === 'TD' || el.tagName === 'TH' ||
+    cellRole === 'gridcell' || cellRole === 'cell' ||
+    cellRole === 'columnheader' || cellRole === 'rowheader'
+  if (el.hasAttribute('slot') || isTableCell) {
     el.appendChild(div)
   } else {
     // Inline styles are only needed when the div lands inside a shadow root where
     // document.head <style> rules don't reach.
     if (el.getRootNode() instanceof ShadowRoot) {
       div.style.cssText = 'opacity:0.85;font-size:max(0.9em,13px);margin-top:2px;line-height:1.5;color:inherit'
+    }
+    // If the parent is a ROW flex/grid container AND it allows wrapping, the injected div
+    // becomes an unwanted flex item. Force it to span the full width so it wraps to its
+    // own row instead of squeezing into the existing row.
+    // Only apply when flex-wrap is wrap/wrap-reverse — in a nowrap row, flex-basis:100%
+    // still forces the item into the row but starves all sibling columns of space, causing
+    // text to render vertically (GitHub file table is a classic example of this).
+    if (el.parentElement) {
+      const parentStyle = getComputedStyle(el.parentElement)
+      const parentDisplay = parentStyle.display
+      if (parentDisplay.includes('flex') || parentDisplay.includes('grid')) {
+        const isRow = !parentStyle.flexDirection.includes('column')
+        const isWrap = parentStyle.flexWrap === 'wrap' || parentStyle.flexWrap === 'wrap-reverse'
+        if (isRow && isWrap) {
+          div.style.flexBasis = '100%'
+          div.style.width = '100%'
+          div.style.minWidth = '0'
+        }
+      }
     }
     el.after(div)
   }
@@ -28,7 +52,12 @@ function injectTranslation(el, translatedText) {
 const injectTranslationSibling = injectTranslation
 
 function removeTranslation(el) {
-  const probe = el.hasAttribute('slot') ? el.lastElementChild : el.nextElementSibling
+  // Translation may have been injected inside (slot / table-cell) or as next sibling
+  const cellRole = el.getAttribute?.('role') ?? ''
+  const isTableCell = el.tagName === 'TD' || el.tagName === 'TH' ||
+    cellRole === 'gridcell' || cellRole === 'cell' ||
+    cellRole === 'columnheader' || cellRole === 'rowheader'
+  const probe = (el.hasAttribute('slot') || isTableCell) ? el.lastElementChild : el.nextElementSibling
   if (probe?.dataset.btSiblingFor) probe.remove()
   delete el.dataset.btTranslated
 }
