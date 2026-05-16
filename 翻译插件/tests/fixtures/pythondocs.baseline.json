@@ -1,0 +1,2912 @@
+[
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "Greek | ΕλληνικάEnglishSpanish | españolFrench | françaisItalian | italianoJapan"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Table of Contents"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9. Classes\n9.1. A Word About Names and Objects\n9.2. Python Scopes and Namespaces"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.1. A Word About Names and Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.10. Generator Expressions"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.2. Python Scopes and Namespaces\n9.2.1. Scopes and Namespaces Example"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.2.1. Scopes and Namespaces Example"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.3. A First Look at Classes\n9.3.1. Class Definition Syntax\n9.3.2. Class Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.1. Class Definition Syntax"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.2. Class Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.3. Instance Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.4. Method Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.5. Class and Instance Variables"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.4. Random Remarks"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.5. Inheritance\n9.5.1. Multiple Inheritance"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.5.1. Multiple Inheritance"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.6. Private Variables"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.7. Odds and Ends"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.8. Iterators"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.9. Generators"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(3)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Previous topic"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "8. Errors and Exceptions"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "8. Errors and Exceptions"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(4)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Next topic"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(4)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "10. Brief tour of the standard library"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(4)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "10. Brief tour of the standard library"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(5)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "This page"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Report a bug"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Improve this page"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Show source"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Navigation"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "index"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "The Python Tutorial »"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The Python Tutorial »"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(11)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9. Classes"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(11)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9. Classes"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(12)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "|"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Theme\n    \n        Auto\n        Light\n        Dark\n    \n |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Theme\n    \n        Auto\n        Light\n        Dark\n    \n |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "modules |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "modules |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "next |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "next |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "previous |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "previous |"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Python »"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Python »"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "3.14.5 Documentation »"
+  },
+  {
+    "path": "body>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "3.14.5 Documentation »"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>h1:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9. Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>h1:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9. Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>h1:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9. Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Classes provide a means of bundling data and functionality together.  Creating\na"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Classes provide a means of bundling data and functionality together.  Creating\na"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Classes provide a means of bundling data and functionality together.  Creating\na"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Classes provide a means of bundling data and functionality together.  Creating\na"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Classes provide a means of bundling data and functionality together.  Creating\na"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Compared with other programming languages, Python’s class mechanism adds classes"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In C++ terminology, normally class members (including the data members) are\npubl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "(Lacking universally accepted terminology to talk about classes, I will make\nocc"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.1. A Word About Names and Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.1. A Word About Names and Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.1. A Word About Names and Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Objects have individuality, and multiple names (in multiple scopes) can be bound"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "skip-pattern",
+    "text": "[1]\nExcept for one thing.  Module objects have a secret read-only attribute call"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "[1]\nExcept for one thing.  Module objects have a secret read-only attribute call"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "[1]\nExcept for one thing.  Module objects have a secret read-only attribute call"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Except for one thing.  Module objects have a secret read-only attribute called\n_"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Except for one thing.  Module objects have a secret read-only attribute called\n_"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>aside:nth-of-type(1)>aside:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Except for one thing.  Module objects have a secret read-only attribute called\n_"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.10. Generator Expressions¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.10. Generator Expressions¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.10. Generator Expressions¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Some simple generators can be coded succinctly as expressions using a syntax\nsim"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Examples:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(10)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Footnotes"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.2. Python Scopes and Namespaces¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.2. Python Scopes and Namespaces¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.2. Python Scopes and Namespaces¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Before introducing classes, I first have to tell you something about Python’s\nsc"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If a name is declared global, then all references and assignments go directly to"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If a name is declared global, then all references and assignments go directly to"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If a name is declared global, then all references and assignments go directly to"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(10)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "If a name is declared global, then all references and assignments go directly to"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(11)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Usually, the local scope references the local names of the (textually) current\nf"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(12)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "It is important to realize that scopes are determined textually: the global\nscop"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(13)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "A special quirk of Python is that – if no global or nonlocal\nstatement is in eff"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(14)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The global statement can be used to indicate that particular\nvariables live in t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(14)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The global statement can be used to indicate that particular\nvariables live in t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(14)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The global statement can be used to indicate that particular\nvariables live in t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Let’s begin with some definitions."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A namespace is a mapping from names to objects.  Most namespaces are currently\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A namespace is a mapping from names to objects.  Most namespaces are currently\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A namespace is a mapping from names to objects.  Most namespaces are currently\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A namespace is a mapping from names to objects.  Most namespaces are currently\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "A namespace is a mapping from names to objects.  Most namespaces are currently\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "By the way, I use the word attribute for any name following a dot — for\nexample,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Attributes may be read-only or writable.  In the latter case, assignment to\nattr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Namespaces are created at different moments and have different lifetimes.  The\nn"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Namespaces are created at different moments and have different lifetimes.  The\nn"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Namespaces are created at different moments and have different lifetimes.  The\nn"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(7)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The local namespace for a function is created when the function is called, and\nd"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A scope is a textual region of a Python program where a namespace is directly\nac"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A scope is a textual region of a Python program where a namespace is directly\nac"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "A scope is a textual region of a Python program where a namespace is directly\nac"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>p:nth-of-type(9)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Although scopes are determined statically, they are used dynamically. At any\ntim"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.2.1. Scopes and Namespaces Example¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.2.1. Scopes and Namespaces Example¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.2.1. Scopes and Namespaces Example¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This is an example demonstrating how to reference the different scopes and\nnames"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This is an example demonstrating how to reference the different scopes and\nnames"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "This is an example demonstrating how to reference the different scopes and\nnames"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The output of the example code is:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Note how the local assignment (which is default) didn’t change scope_test's\nbind"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "You can also see that there was no previous binding for spam before the\nglobal a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "You can also see that there was no previous binding for spam before the\nglobal a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "You can also see that there was no previous binding for spam before the\nglobal a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "You can also see that there was no previous binding for spam before the\nglobal a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "the innermost scope, which is searched first, contains the local names"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "the scopes of any enclosing functions, which are searched starting with the\nnear"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "the next-to-last scope contains the current module’s global names"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(4)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "the outermost scope (searched last) is the namespace containing built-in names"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3. A First Look at Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3. A First Look at Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3. A First Look at Classes¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Classes introduce a little bit of new syntax, three new object types, and some\nn"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.1. Class Definition Syntax¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.1. Class Definition Syntax¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3.1. Class Definition Syntax¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The simplest form of class definition looks like this:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Class definitions, like function definitions (def statements) must be\nexecuted b"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Class definitions, like function definitions (def statements) must be\nexecuted b"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Class definitions, like function definitions (def statements) must be\nexecuted b"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In practice, the statements inside a class definition will usually be function\nd"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "When a class definition is entered, a new namespace is created, and used as the\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "When a class definition is left normally (via the end), a class object is\ncreate"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "When a class definition is left normally (via the end), a class object is\ncreate"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "When a class definition is left normally (via the end), a class object is\ncreate"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(1)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "When a class definition is left normally (via the end), a class object is\ncreate"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.2. Class Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.2. Class Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3.2. Class Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Class objects support two kinds of operations: attribute references and\ninstanti"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attribute references use the standard syntax used for all attribute references\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Attribute references use the standard syntax used for all attribute references\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Attribute references use the standard syntax used for all attribute references\ni"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "then MyClass.i and MyClass.f are valid attribute references, returning\nan intege"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Class instantiation uses function notation.  Just pretend that the class\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Class instantiation uses function notation.  Just pretend that the class\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Class instantiation uses function notation.  Just pretend that the class\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "creates a new instance of the class and assigns this object to the local\nvariabl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "creates a new instance of the class and assigns this object to the local\nvariabl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "creates a new instance of the class and assigns this object to the local\nvariabl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "creates a new instance of the class and assigns this object to the local\nvariabl"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The instantiation operation (“calling” a class object) creates an empty object.\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The instantiation operation (“calling” a class object) creates an empty object.\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "When a class defines an __init__() method, class instantiation\nautomatically inv"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "When a class defines an __init__() method, class instantiation\nautomatically inv"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(7)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "When a class defines an __init__() method, class instantiation\nautomatically inv"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Of course, the __init__() method may have arguments for greater\nflexibility.  In"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Of course, the __init__() method may have arguments for greater\nflexibility.  In"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(2)>p:nth-of-type(8)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Of course, the __init__() method may have arguments for greater\nflexibility.  In"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.3. Instance Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.3. Instance Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3.3. Instance Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Now what can we do with instance objects?  The only operations understood by\nins"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Data attributes correspond to “instance variables” in Smalltalk, and to “data\nme"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Data attributes correspond to “instance variables” in Smalltalk, and to “data\nme"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Data attributes correspond to “instance variables” in Smalltalk, and to “data\nme"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Data attributes correspond to “instance variables” in Smalltalk, and to “data\nme"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Data attributes correspond to “instance variables” in Smalltalk, and to “data\nme"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The other kind of instance attribute reference is a method. A method is a\nfuncti"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The other kind of instance attribute reference is a method. A method is a\nfuncti"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The other kind of instance attribute reference is a method. A method is a\nfuncti"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(3)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Valid method names of an instance object depend on its class.  By definition,\nal"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.4. Method Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.4. Method Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3.4. Method Objects¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Usually, a method is called right after it is bound:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If x = MyClass(), as above, this will return the string 'hello world'.\nHowever, "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If x = MyClass(), as above, this will return the string 'hello world'.\nHowever, "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "If x = MyClass(), as above, this will return the string 'hello world'.\nHowever, "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "If x = MyClass(), as above, this will return the string 'hello world'.\nHowever, "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "will continue to print hello world until the end of time."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "will continue to print hello world until the end of time."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "What exactly happens when a method is called?  You may have noticed that\nx.f() w"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "What exactly happens when a method is called?  You may have noticed that\nx.f() w"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "What exactly happens when a method is called?  You may have noticed that\nx.f() w"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Actually, you may have guessed the answer: the special thing about methods is\nth"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Actually, you may have guessed the answer: the special thing about methods is\nth"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Actually, you may have guessed the answer: the special thing about methods is\nth"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Actually, you may have guessed the answer: the special thing about methods is\nth"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Actually, you may have guessed the answer: the special thing about methods is\nth"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(4)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In general, methods work as follows.  When a non-data attribute\nof an instance i"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.5. Class and Instance Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.3.5. Class and Instance Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.3.5. Class and Instance Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Generally speaking, instance variables are for data unique to each instance\nand "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "As discussed in A Word About Names and Objects, shared data can have possibly su"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(3)>section:nth-of-type(5)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Correct design of the class should use an instance variable instead:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.4. Random Remarks¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.4. Random Remarks¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.4. Random Remarks¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "If the same attribute name occurs in both an instance and in a class,\nthen attri"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(10)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Each value is an object, and therefore has a class (also called its type).\nIt is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Data attributes may be referenced by methods as well as by ordinary users\n(“clie"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Clients should use data attributes with care — clients may mess up invariants\nma"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "There is no shorthand for referencing data attributes (or other methods!) from\nw"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Often, the first argument of a method is called self.  This is nothing more\nthan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Often, the first argument of a method is called self.  This is nothing more\nthan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Often, the first argument of a method is called self.  This is nothing more\nthan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Often, the first argument of a method is called self.  This is nothing more\nthan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Often, the first argument of a method is called self.  This is nothing more\nthan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Any function object that is a class attribute defines a method for instances of\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(7)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Now f, g and h are all attributes of class C that refer to\nfunction objects, and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Methods may call other methods by using method attributes of the self\nargument:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(8)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Methods may call other methods by using method attributes of the self\nargument:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(4)>p:nth-of-type(9)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Methods may reference global names in the same way as ordinary functions.  The\ng"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.5. Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.5. Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.5. Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Of course, a language feature would not be worthy of the name “class” without\nsu"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The name BaseClassName must be defined in a\nnamespace accessible from the scope "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The name BaseClassName must be defined in a\nnamespace accessible from the scope "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Execution of a derived class definition proceeds the same as for a base class.\nW"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "There’s nothing special about instantiation of derived classes:\nDerivedClassName"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "There’s nothing special about instantiation of derived classes:\nDerivedClassName"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Derived classes may override methods of their base classes.  Because methods\nhav"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Derived classes may override methods of their base classes.  Because methods\nhav"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "An overriding method in a derived class may in fact want to extend rather than\ns"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "An overriding method in a derived class may in fact want to extend rather than\ns"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "An overriding method in a derived class may in fact want to extend rather than\ns"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>p:nth-of-type(7)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Python has two built-in functions that work with inheritance:"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.5.1. Multiple Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.5.1. Multiple Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.5.1. Multiple Inheritance¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Python supports a form of multiple inheritance as well.  A class definition with"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "For most purposes, in the simplest cases, you can think of the search for\nattrib"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "For most purposes, in the simplest cases, you can think of the search for\nattrib"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "For most purposes, in the simplest cases, you can think of the search for\nattrib"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "For most purposes, in the simplest cases, you can think of the search for\nattrib"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "For most purposes, in the simplest cases, you can think of the search for\nattrib"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In fact, it is slightly more complex than that; the method resolution order\nchan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In fact, it is slightly more complex than that; the method resolution order\nchan"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>section:nth-of-type(1)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use isinstance() to check an instance’s type: isinstance(obj, int)\nwill be True "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use issubclass() to check class inheritance: issubclass(bool, int)\nis True since"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See also"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The private name mangling specifications\nfor details and special cases."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The private name mangling specifications\nfor details and special cases."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The private name mangling specifications\nfor details and special cases."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.6. Private Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.6. Private Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>h2:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "9.6. Private Variables¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "“Private” instance variables that cannot be accessed except from inside an\nobjec"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "“Private” instance variables that cannot be accessed except from inside an\nobjec"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Since there is a valid use-case for class-private members (namely to avoid name\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Name mangling is helpful for letting subclasses override methods without\nbreakin"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The above example would work even if MappingSubclass were to introduce a\n__updat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Note that the mangling rules are designed mostly to avoid accidents; it still is"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(6)>p:nth-of-type(6)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Notice that code passed to exec() or eval() does not consider the\nclassname of t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.7. Odds and Ends¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.7. Odds and Ends¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.7. Odds and Ends¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Sometimes it is useful to have a data type similar to the Pascal “record” or C\n“"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Sometimes it is useful to have a data type similar to the Pascal “record” or C\n“"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A piece of Python code that expects a particular abstract data type can often be"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "A piece of Python code that expects a particular abstract data type can often be"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "A piece of Python code that expects a particular abstract data type can often be"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(7)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Instance method objects have attributes, too:\nm.__self__ is the instance\nobject "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.8. Iterators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.8. Iterators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.8. Iterators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By now you have probably noticed that most container objects can be looped over\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "By now you have probably noticed that most container objects can be looped over\n"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "This style of access is clear, concise, and convenient.  The use of iterators\npe"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(8)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Having seen the mechanics behind the iterator protocol, it is easy to add\niterat"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.9. Generators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.9. Generators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9.9. Generators¶"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Generators are a simple and powerful tool for creating iterators.  They\nare writ"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Generators are a simple and powerful tool for creating iterators.  They\nare writ"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Generators are a simple and powerful tool for creating iterators.  They\nare writ"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Generators are a simple and powerful tool for creating iterators.  They\nare writ"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Anything that can be done with generators can also be done with class-based\niter"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Anything that can be done with generators can also be done with class-based\niter"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Anything that can be done with generators can also be done with class-based\niter"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Another key feature is that the local variables and execution state are\nautomati"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Another key feature is that the local variables and execution state are\nautomati"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Another key feature is that the local variables and execution state are\nautomati"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "In addition to automatic method creation and saving program state, when\ngenerato"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(9)>p:nth-of-type(4)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In addition to automatic method creation and saving program state, when\ngenerato"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Table of Contents"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9. Classes\n9.1. A Word About Names and Objects\n9.2. Python Scopes and Namespaces"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.1. A Word About Names and Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.10. Generator Expressions"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.2. Python Scopes and Namespaces\n9.2.1. Scopes and Namespaces Example"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.2.1. Scopes and Namespaces Example"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.3. A First Look at Classes\n9.3.1. Class Definition Syntax\n9.3.2. Class Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.1. Class Definition Syntax"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.2. Class Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.3. Instance Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.4. Method Objects"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.3.5. Class and Instance Variables"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.4. Random Remarks"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "9.5. Inheritance\n9.5.1. Multiple Inheritance"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.5.1. Multiple Inheritance"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "9.6. Private Variables"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.7. Odds and Ends"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.8. Iterators"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9.9. Generators"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Previous topic"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "8. Errors and Exceptions"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "8. Errors and Exceptions"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Next topic"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "10. Brief tour of the standard library"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "10. Brief tour of the standard library"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(4)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "This page"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Report a bug"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Improve this page"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Show source"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "«"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Navigation"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "index"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "The Python Tutorial »"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(10)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The Python Tutorial »"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(11)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "9. Classes"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(11)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "9. Classes"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(12)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "|"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Theme\n    \n        Auto\n        Light\n        Dark\n    \n |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(13)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Theme\n    \n        Auto\n        Light\n        Dark\n    \n |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "modules |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "modules |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "next |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "next |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "previous |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "previous |"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Python »"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Python »"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "3.14.5 Documentation »"
+  },
+  {
+    "path": "body>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(9)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "3.14.5 Documentation »"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  },
+  {
+    "path": "body>div:nth-of-type(5)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
+  }
+]

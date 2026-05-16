@@ -1,0 +1,2234 @@
+[
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-long",
+    "text": "Skip to main contentThe homepageSubscribeSign InTechReviewsScienceEntertainmentA"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "The homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "SubscribeSign In"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "SubscribeSign In"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Science"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Entertainment"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "AI"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Policy"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "The homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Subscribe"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Navigation Drawer"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Login / Sign Up"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Login / Sign Up"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "/"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>form:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Search"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Amazon"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Apple"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Facebook"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Google"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Microsoft"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Samsung"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Business"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Disney"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "HBO"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Netflix"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "YouTube"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Creators"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(10)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all streaming"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(11)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Electric Cars"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(11)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Autonomous Cars"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(11)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Ride-sharing"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(11)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Scooters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(11)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "See all transportation"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(12)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Features"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(13)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "TikTok"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(13)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "YouTube"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(13)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Instagram"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(14)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Decoder"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(14)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "The Vergecast"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(14)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Version History"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(15)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Newsletters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(16)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Archives"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(17)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Store"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(18)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Verge Product Updates"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Smart Home Reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Phone Reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Tablet Reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Headphone Reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all reviews"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Space"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Energy"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Environment"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Health"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all science"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "TV Shows"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Movies"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Audio"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "See all entertainment"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "OpenAI"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Anthropic"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all AI"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Antitrust"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Politics"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Law"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Security"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all policy"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Laptops"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Phones"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "TVs"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Headphones"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Speakers"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Wearables"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Buying Guides"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Deals"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Gift Guides"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(8)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all shopping"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Xbox"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "PlayStation"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Nintendo"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(9)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See all gaming"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Subscribe"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Comments Drawer"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Comments"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>h1:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Meta brings virtual writing to everyone with Meta Ray-Ban Display glasses"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "You can also now capture a video combining what you see on the lens display, wha"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "You can also now capture a video combining what you see on the lens display, wha"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "by  Jay PetersJay PetersSenior ReporterPosts from this author will be added to y"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "by  Jay PetersJay PetersSenior ReporterPosts from this author will be added to y"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "by  Jay PetersJay PetersSenior ReporterPosts from this author will be added to y"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Senior Reporter"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this author will be added to your daily email digest and your homepag"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>span:nth-of-type(2)>span:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "55Comments (All New)"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>span:nth-of-type(2)>span:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>span:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "55"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>span:nth-of-type(2)>span:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>span:nth-of-type(1)>span:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "55"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Photo by Amelia Holowaty Krales / The Verge"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "Jay PetersJay PetersPosts from this author will be added to your daily email dig"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Jay PetersJay PetersPosts from this author will be added to your daily email dig"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this author will be added to your daily email digest and your homepag"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-long",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Meta is rolling out new features to its Meta Ray-Ban Display smart glasses, incl"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The feature, which relies on the Meta Ray-Ban Display’s included neural wristban"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The feature, which relies on the Meta Ray-Ban Display’s included neural wristban"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The feature, which relies on the Meta Ray-Ban Display’s included neural wristban"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The feature, which relies on the Meta Ray-Ban Display’s included neural wristban"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The feature, which relies on the Meta Ray-Ban Display’s included neural wristban"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Meta is bringing a few other upgrades to the Meta Ray-Ban Display as well. With "
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Related"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "All these smart glasses and nothing to do"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The company has also opened up the ability to make apps for the Meta Ray-Ban Dis"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "The company has also opened up the ability to make apps for the Meta Ray-Ban Dis"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The company has also opened up the ability to make apps for the Meta Ray-Ban Dis"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "Follow topics and authors from this story to see more like this in your personal"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Follow topics and authors from this story to see more like this in your personal"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "has-block-children",
+    "text": "Jay PetersJay PetersSenior ReporterPosts from this author will be added to your "
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Senior Reporter"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this author will be added to your daily email digest and your homepag"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All by Jay Peters"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(2)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Gadgets"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(3)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Meta"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(4)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Wearable"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Posts from this topic will be added to your daily email digest and your homepage"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "See All Wearable"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(7)>ul:nth-of-type(1)>li:nth-of-type(5)>div:nth-of-type(1)>aside:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "See All Wearable"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Subscribe to The Verge\n        to continue reading."
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Subscribe to The Verge\n        to continue reading."
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Most Popular"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Most Popular"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ol:nth-of-type(1)>li:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Microsoft starts canceling Claude Code licenses"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ol:nth-of-type(1)>li:nth-of-type(2)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Xbox is now XBOX"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ol:nth-of-type(1)>li:nth-of-type(3)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Leaked images reveal Xbox Elite 3 controller with mysterious new buttons"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ol:nth-of-type(1)>li:nth-of-type(4)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Does Trump Mobile know how many stripes are on the American flag?"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ol:nth-of-type(1)>li:nth-of-type(5)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use this map to find the data centers in your backyard"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "The Verge Daily"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "A free daily digest of the news that matters most."
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "By submitting your email, you agree to our Terms and Privacy Notice. This site i"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>form:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>fieldset:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Email (required)"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "ad-signal",
+    "text": "Advertiser Content FromThis is the title for the native ad"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>article:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "ad-signal",
+    "text": "This is the title for the native ad"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "More in Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "More in Tech"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The Analogue 3D is finally getting save states"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "AI radio hosts demonstrate why AI can’t be trusted alone"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Does Trump Mobile know how many stripes are on the American flag?"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Google updates its spam rules to include attempts to ‘manipulate’ AI"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "OpenAI now wants ChatGPT to access your bank accounts"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The promises and pitfalls of personalized health"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The Analogue 3D is finally getting save states"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Andrew Liszewski2:43 AM GMT+83"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Andrew Liszewski2:43 AM GMT+83"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Andrew Liszewski2:43 AM GMT+83"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "AI radio hosts demonstrate why AI can’t be trusted alone"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Terrence O'Brien1:09 AM GMT+86"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Terrence O'Brien1:09 AM GMT+86"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Terrence O'Brien1:09 AM GMT+86"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Does Trump Mobile know how many stripes are on the American flag?"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dominic Preston12:47 AM GMT+829"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Dominic Preston12:47 AM GMT+829"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Dominic Preston12:47 AM GMT+829"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Google updates its spam rules to include attempts to ‘manipulate’ AI"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Stevie Bonifield12:42 AM GMT+82"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Stevie Bonifield12:42 AM GMT+82"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Stevie Bonifield12:42 AM GMT+82"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "OpenAI now wants ChatGPT to access your bank accounts"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Jess Weatherbed12:00 AM GMT+823"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Jess Weatherbed12:00 AM GMT+823"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Jess Weatherbed12:00 AM GMT+823"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The promises and pitfalls of personalized health"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Victoria SongMay 158"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Victoria SongMay 158"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Victoria SongMay 158"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "ad-signal",
+    "text": "Advertiser Content From"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "ad-signal",
+    "text": "This is the title for the native ad"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Top Stories"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "May 15"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "AI-generated research papers are getting better, and it’s a big problem for scie"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "May 15"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The funniest thing about the Trump arcade game is how good it is"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "May 15"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The promises and pitfalls of personalized health"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "12:47 AM GMT+8"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Does Trump Mobile know how many stripes are on the American flag?"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "May 15"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "X is fighting Andrew Tate’s attempt to unmask his critics"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "7:10 AM GMT+8"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(4)>main:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(6)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Xbox is now XBOX"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Contact"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Tip Us"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Community Guidelines"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Archives"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "About"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Ethics Statement"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "How We Rate and Review Products"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Terms of Use"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Privacy Notice"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(4)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Cookie Policy"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(5)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Licensing FAQ"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(6)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Accessibility"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(2)>li:nth-of-type(7)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Platform Status"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "© 2026 Vox Media, LLC. All Rights Reserved"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© 2026 Vox Media, LLC. All Rights Reserved"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© 2026 Vox Media, LLC. All Rights Reserved"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>footer:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "© 2026 Vox Media, LLC. All Rights Reserved"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "blacklisted-ancestor",
+    "text": "Meta brings virtual writing to everyone with Meta Ray-Ban Display glasses"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(2)>nav:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>span:nth-of-type(1)>a:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "5"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(3)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "hidden",
+    "text": "Notifications Drawer"
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(3)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "hidden",
+    "text": "Sign in to see your notifications or create an account to join the conversation."
+  },
+  {
+    "path": "body>div:nth-of-type(1)>div:nth-of-type(3)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "hidden",
+    "text": "Sign in to see your notifications or create an account to join the conversation."
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "We process your data to deliver content or advertisements and measure the delive"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "We process your data to deliver content or advertisements and measure the delive"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>h2:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Privacy Center"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Strictly Necessary Cookies 85 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Strictly Necessary Cookies 85 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Switch Label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Ensure security, prevent and detect fraud, and fix errors 85 partners can use th"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Ensure security, prevent and detect fraud, and fix errors 85 partners can use th"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Your data can be used to monitor for and prevent unusual and possibly fraudulent"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "These cookies are necessary for the website to function and cannot be switched o"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(10)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(10)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Save and communicate privacy choices 76 partners can use this special purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(10)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Save and communicate privacy choices 76 partners can use this special purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(10)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "The choices you make regarding the purposes and entities listed in this notice a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Functional Cookies"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Functional Cookies 123 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Functional Cookies 123 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use limited data to select advertising 92 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use limited data to select advertising 92 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Advertising presented to you on this service can be based on limited data, such "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use limited data to select content 22 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use limited data to select content 22 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Content presented to you on this service can be based on limited data, such as t"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use profiles to select personalised content 24 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use profiles to select personalised content 24 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Content presented to you on this service can be based on your content personalis"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Create profiles for personalised advertising 70 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Create profiles for personalised advertising 70 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(4)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information about your activity on this service (such as forms you submit, conte"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Deliver and present advertising and content 83 partners can use this special pur"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Deliver and present advertising and content 83 partners can use this special pur"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(5)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Certain information (like an IP address or device capabilities) is used to ensur"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(6)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(6)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Identify devices based on information transmitted automatically 70 partners can "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(6)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Identify devices based on information transmitted automatically 70 partners can "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>div:nth-of-type(6)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Your device might be distinguished from other devices based on information it au"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "These cookies enable the website to provide enhanced functionality and personali"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Performance Cookies"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Performance Cookies 39 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Performance Cookies 39 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Link different devices 39 partners can use this feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Link different devices 39 partners can use this feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "In support of the purposes explained in this notice, your device might be consid"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(3)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "These cookies allow us to count visits and traffic sources so we can measure and"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Social Media & Embedded Content"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Social Media & Embedded Content"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(4)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Content embedded on our sites (e.g. social media posts, video clips, polls and g"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Targeting Cookies"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Targeting Cookies 75 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Targeting Cookies 75 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Actively scan device characteristics for identification 18 partners can use this"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Actively scan device characteristics for identification 18 partners can use this"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "With your acceptance, certain characteristics specific to your device might be r"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use precise geolocation data 38 partners can use this special feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use precise geolocation data 38 partners can use this special feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "With your acceptance, your precise location (within a radius of less than 500 me"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Essential"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Match and combine data from other data sources 56 partners can use this feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Match and combine data from other data sources 56 partners can use this feature"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information about your activity on this service may be matched and combined with"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(5)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "These cookies may be set through our site by our advertising partners. They may "
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Measure content performance"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Measure content performance 42 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Measure content performance 42 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(6)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information regarding which content is presented to you and how you interact wit"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use profiles to select personalised advertising"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Use profiles to select personalised advertising 66 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Use profiles to select personalised advertising 66 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Create profiles to personalise content 27 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Create profiles to personalise content 27 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(2)>div:nth-of-type(1)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information about your activity on this service (for instance, forms you submit,"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(7)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Advertising presented to you on this service can be based on your advertising pr"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Understand audiences through statistics or combinations of data from different s"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Understand audiences through statistics or combinations of data from different s"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Understand audiences through statistics or combinations of data from different s"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Develop and improve services 92 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Develop and improve services 92 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information about your activity on this service, such as your interaction with a"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Switch Label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Measure advertising performance 118 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>h5:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Measure advertising performance 118 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>div:nth-of-type(3)>ul:nth-of-type(1)>li:nth-of-type(1)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Information regarding which advertising is presented to you and how you interact"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(8)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Reports can be generated based on the combination of data sets (like user profil"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(9)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Store and/or access information on a device"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(9)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Store and/or access information on a device 103 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(9)>div:nth-of-type(1)>h4:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Store and/or access information on a device 103 partners can use this purpose"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(9)>div:nth-of-type(2)>p:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Cookies, device or similar online identifiers (e.g. login-based identifiers, ran"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Manage Consent Preferences"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>h3:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "too-short",
+    "text": "Cookie List"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>ul:nth-of-type(1)>li:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Consent Leg.Interest"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Consent Leg.Interest"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(3)>div:nth-of-type(2)>div:nth-of-type(1)>section:nth-of-type(1)>section:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(3)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "checkbox label label"
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Continue reading with a Verge subscription\n         Unlock unlimited access to T"
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(1)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Continue reading with a Verge subscription\n         Unlock unlimited access to T"
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Already a subscriber?\n            Sign in\n           \n          \n          \n    "
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Already a subscriber?\n            Sign in\n           \n          \n          \n    "
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "SKIP",
+    "reason": "already-handled",
+    "text": "Already a subscriber?\n            Sign in\n           \n          \n          \n    "
+  },
+  {
+    "path": "body>div:nth-of-type(5)>div:nth-of-type(1)>div:nth-of-type(1)>div:nth-of-type(2)>div:nth-of-type(2)",
+    "decision": "TRANSLATE",
+    "reason": null,
+    "text": "Already a subscriber?\n            Sign in\n           \n          \n          \n    "
+  }
+]
