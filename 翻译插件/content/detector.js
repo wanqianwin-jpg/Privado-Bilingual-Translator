@@ -177,6 +177,7 @@ function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LE
         return
       }
       const text = container.textContent.trim()
+      // reason = 第一个失败的过滤器；顺序敏感——这是 trace/ledger 的诊断契约，勿随意调换
       if (text.length < minLength) { rec('SKIP', 'too-short', container, text); return }
       if (text.length > MAX_TEXT_LENGTH) { rec('SKIP', 'too-long', container, text); return }  // JSON payloads / embedded data
       if (isMostlyCJK(text)) { rec('SKIP', 'mostly-cjk', container, text); return }            // already target language
