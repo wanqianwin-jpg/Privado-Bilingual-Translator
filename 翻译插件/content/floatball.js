@@ -1,4 +1,4 @@
-function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' }) {
+function createFloatBall({ manualMode, onTranslate, onNeedModel, initialMode = 'bilingual' }) {
   const POS_KEY = 'bt-ball-pos'
 
   // Inject styles
@@ -34,6 +34,7 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
       #bt-floatball:hover { opacity: 0.82 !important; }
       #bt-floatball[data-state="done"] { background: rgba(52, 168, 83, 0.88) !important; }
       #bt-floatball[data-state="translating"] { background: rgba(66, 133, 244, 0.6) !important; }
+      #bt-floatball[data-state="needs-model"] { background: rgba(245, 158, 11, 0.92) !important; }
     `
     document.head.appendChild(style)
   }
@@ -63,6 +64,10 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
       ball.textContent = '···'
       ball.title = '翻译中...'
       ball.dataset.state = 'translating'
+    } else if (state === 'needs-model') {
+      ball.textContent = '⬇'
+      ball.title = '点击下载离线翻译模型'
+      ball.dataset.state = 'needs-model'
     } else {
       // done: simple on/off toggle — display mode is controlled by popup settings
       if (hidden()) {
@@ -119,6 +124,8 @@ function createFloatBall({ manualMode, onTranslate, initialMode = 'bilingual' })
     if (pointerMoved) return
     if (state === 'idle') {
       onTranslate?.()
+    } else if (state === 'needs-model') {
+      onNeedModel?.()
     } else if (state === 'done') {
       // Toggle: show translations ↔ hide translations (original-only)
       if (hidden()) {

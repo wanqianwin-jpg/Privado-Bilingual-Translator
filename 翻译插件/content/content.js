@@ -34,7 +34,7 @@
         return
       }
       if (status === 'after-download') {
-        ball.setState('idle')
+        ball.setState('needs-model')
         translationStarted = false
         showChromeDownloadConfirmToast(async () => {
           const progressToast = showChromeDownloadProgressToast()
@@ -96,6 +96,7 @@
   const ball = createFloatBall({
     manualMode: translateMode === 'api',
     onTranslate: startTranslation,
+    onNeedModel: () => { try { chrome.runtime.sendMessage({ type: 'OPEN_OPTIONS' }) } catch {} },
     initialMode: displayMode
   })
 
