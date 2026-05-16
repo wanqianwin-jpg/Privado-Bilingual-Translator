@@ -278,6 +278,34 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   return true
 })
 
+// chrome-local: long-lived Port for model download + streamed progress.
+// Separate from the onMessage CHROME_TRANSLATE handlers so a download can
+// push 'downloadprogress' events back to the page in real time.
+chrome.runtime.onConnect.addListener((port) => {
+  if (port.name !== 'bt-chrome-dl') return
+
+  let alive = true
+  port.onDisconnect.addListener(() => { alive = false })
+  const post = (m) => { if (alive) { try { port.postMessage(m) } catch {} } }
+
+  port.onMessage.addListener(({ fromLang, toLang }) => {
+    if (!('Translator' in self)) { post({ error: 'no-api' }); return }
+    const src = fromLang === 'auto' ? 'en' : fromLang
+    Translator.create({
+      sourceLanguage: src,
+      targetLanguage: toLang,
+      monitor(m) {
+        m.addEventListener('downloadprogress', e => {
+          post({ pct: Math.max(0, Math.min(100, Math.round((e.loaded || 0) * 100))) })
+        })
+      }
+    })
+      .then(t => t.translate('hello'))
+      .then(() => post({ done: true }))
+      .catch(e => post({ error: e?.message || 'download failed' }))
+  })
+})
+
 chrome.commands.onCommand.addListener(async (command, tab) => {
   if (command === 'rewrite-selection') {
     if (!tab?.id) return
