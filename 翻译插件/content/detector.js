@@ -131,9 +131,17 @@ function hasBlockChildren(el) {
 }
 
 // Walk all nodes including shadow roots, collect translatable block containers
-function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LENGTH } = {}) {
+function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LENGTH, trace = null } = {}) {
   const seen = new Set()
   const results = []
+
+  // Debug-only decision tracing. When `trace` is null this is a no-op — the production
+  // hot path never passes `trace`, so there is zero overhead and zero behavior change.
+  function rec(decision, reason, container, text) {
+    if (!trace) return
+    const t = text != null ? text : ((container && container.textContent) || '').trim()
+    trace.push({ decision, reason, text: t.slice(0, 80), el: container })
+  }
 
   function walk(node) {
     if (!node) return
@@ -143,25 +151,41 @@ function getTranslatableElements(root = document.body, { minLength = MIN_TEXT_LE
       // If the text's inline parent (e.g. <a slot="title">) is already marked as translated,
       // skip immediately — findBlockContainer would walk past it to an unmarked ancestor,
       // causing a duplicate injection into the wrong shadow DOM slot.
-      if (node.parentElement?.closest('[data-bt-translated]')) return
+      if (node.parentElement?.closest('[data-bt-translated]')) {
+        rec('SKIP', 'already-handled', node.parentElement)
+        return
+      }
       const container = findBlockContainer(node.parentElement)
-      if (!container || seen.has(container)) return
+      if (!container || seen.has(container)) {
+        if (container) rec('SKIP', 'already-handled', container)
+        return
+      }
       seen.add(container)
-      if (container.dataset?.btSiblingFor) return           // skip our own injected translation divs
-      if (container.closest('[data-bt-translated]')) return  // inside already-translated element
+      if (container.dataset?.btSiblingFor) {                  // skip our own injected translation divs
+        rec('SKIP', 'already-handled', container)
+        return
+      }
+      if (container.closest('[data-bt-translated]')) {        // inside already-translated element
+        rec('SKIP', 'already-handled', container)
+        return
+      }
       // Skip shadow hosts whose shadow root has its own text — found by walking shadowRoot separately.
       // If shadowRoot is empty/slot-only, the text lives in light DOM children — don't skip.
       if (container.shadowRoot && container.getRootNode() === document &&
-          container.shadowRoot.textContent.trim()) return
+          container.shadowRoot.textContent.trim()) {
+        rec('SKIP', 'already-handled', container)
+        return
+      }
       const text = container.textContent.trim()
-      if (text.length < minLength) return
-      if (text.length > MAX_TEXT_LENGTH) return  // JSON payloads / embedded data
-      if (isMostlyCJK(text)) return              // already target language
-      if (shouldSkipText(text)) return           // URL / email / @handle / JSON
-      if (hasBlockChildren(container)) return   // too large — has images/divs/etc
-      if (hasBlacklistedAncestor(container)) return
-      if (container.closest('[hidden]')) return
-      if (hasAdSignal(container)) return
+      if (text.length < minLength) { rec('SKIP', 'too-short', container, text); return }
+      if (text.length > MAX_TEXT_LENGTH) { rec('SKIP', 'too-long', container, text); return }  // JSON payloads / embedded data
+      if (isMostlyCJK(text)) { rec('SKIP', 'mostly-cjk', container, text); return }            // already target language
+      if (shouldSkipText(text)) { rec('SKIP', 'skip-pattern', container, text); return }       // URL / email / @handle / JSON
+      if (hasBlockChildren(container)) { rec('SKIP', 'has-block-children', container, text); return }  // too large — has images/divs/etc
+      if (hasBlacklistedAncestor(container)) { rec('SKIP', 'blacklisted-ancestor', container, text); return }
+      if (container.closest('[hidden]')) { rec('SKIP', 'hidden', container, text); return }
+      if (hasAdSignal(container)) { rec('SKIP', 'ad-signal', container, text); return }
+      rec('TRANSLATE', null, container, text)
       results.push(container)
       return
     }
