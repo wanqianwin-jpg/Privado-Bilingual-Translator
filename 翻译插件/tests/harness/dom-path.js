@@ -14,6 +14,7 @@ function nthOfType(el) {
 }
 
 function domPath(el) {
+  if (!el || !el.tagName) throw new Error('domPath: expected an Element, got ' + el)
   const segments = []
   let node = el
   while (node) {
@@ -24,6 +25,9 @@ function domPath(el) {
     }
     segments.unshift(tag + ':nth-of-type(' + nthOfType(node) + ')')
     node = node.parentElement
+  }
+  if (segments[0] !== 'body') {
+    throw new Error('domPath: element is not under <body> (got "' + segments.join('>') + '")')
   }
   return segments.join('>')
 }

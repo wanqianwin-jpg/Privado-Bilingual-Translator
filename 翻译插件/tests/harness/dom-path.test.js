@@ -1,8 +1,3 @@
-// jsdom's whatwg-url needs TextEncoder/TextDecoder; the jsdom test env
-// doesn't expose them as globals, so polyfill from Node util before requiring jsdom.
-const { TextEncoder, TextDecoder } = require('util')
-if (typeof global.TextEncoder === 'undefined') global.TextEncoder = TextEncoder
-if (typeof global.TextDecoder === 'undefined') global.TextDecoder = TextDecoder
 const { JSDOM } = require('jsdom')
 const { domPath } = require('./dom-path')
 
@@ -18,7 +13,7 @@ test('body 直接子元素', () => {
   expect(domPath(el)).toBe('body>p:nth-of-type(2)')
 })
 
-test('nth-of-type 只数同标签兄弟', () => {
+test('混合标签兄弟下 nth-of-type 按各自标签独立计数', () => {
   const doc = new JSDOM('<body><div><span>s</span><p>p1</p><p id="t">p2</p></div></body>').window.document
   const el = doc.getElementById('t')
   const span = doc.querySelector('span')
@@ -28,8 +23,9 @@ test('nth-of-type 只数同标签兄弟', () => {
   expect(domPath(span)).toBe('body>div:nth-of-type(1)>span:nth-of-type(1)')
 })
 
-test('同一元素两次调用结果一致', () => {
-  const doc = new JSDOM('<body><div><p>a</p><p id="t">target text</p></div></body>').window.document
-  const el = doc.getElementById('t')
-  expect(domPath(el)).toBe(domPath(el))
+test('不在 <body> 下的元素抛错', () => {
+  const doc = new JSDOM('<body></body>').window.document
+  const detached = doc.createElement('div')
+  expect(() => domPath(detached)).toThrow(/not under <body>/)
+  expect(() => domPath(null)).toThrow()
 })
