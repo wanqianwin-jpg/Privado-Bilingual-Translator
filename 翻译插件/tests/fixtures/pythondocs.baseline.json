@@ -2816,7 +2816,7 @@
   {
     "path": "body>div:nth-of-type(5)",
     "decision": "SKIP",
-    "reason": "already-handled",
+    "reason": "blacklisted-ancestor",
     "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
   },
   {
@@ -2905,8 +2905,8 @@
   },
   {
     "path": "body>div:nth-of-type(5)",
-    "decision": "TRANSLATE",
-    "reason": null,
+    "decision": "SKIP",
+    "reason": "already-handled",
     "text": "© Copyright 2001 Python Software Foundation.\n    \n    This page is licensed unde"
   }
 ]

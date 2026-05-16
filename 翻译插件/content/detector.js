@@ -24,6 +24,13 @@ function isMostlyCJK(text) {
 }
 
 const AD_KEYWORDS = ['ad-', 'ads', 'advert', 'sponsor', 'advertisement', 'promo', 'banner']
+// Structural-chrome keywords for class/id-based boilerplate regions. The semantic
+// BLACKLIST_SELECTOR only catches <footer>/<nav>/[role] tags; React/div-soup sites
+// mark the same regions with classes/ids (e.g. <div class="footer">) and slip
+// through. Same mechanism as AD_KEYWORDS → AD_ATTR_SELECTOR. Kept deliberately
+// narrow (footer only) — broader keywords like "header" risk SKIPping real content
+// such as <div class="article-header"> (YAGNI; widen only with regression evidence).
+const STRUCT_KEYWORDS = ['footer']
 const YT_UI_PREFIXES = ['ytp-', 'yt-icon', 'ytd-button', 'yt-button']
 
 // Pre-compiled selectors for closest() — built once, reused on every call.
@@ -31,6 +38,8 @@ const YT_UI_PREFIXES = ['ytp-', 'yt-icon', 'ytd-button', 'yt-button']
 // implicit ARIA roles (an <aside> without an explicit role attribute won't match the role
 // selector). Same pattern as `nav` / `[role="navigation"]`.
 const BLACKLIST_SELECTOR = 'nav, header, footer, aside, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container'
+// class/id-based structural-chrome selector — same construction as AD_ATTR_SELECTOR.
+const STRUCT_ATTR_SELECTOR = STRUCT_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
 const AD_ATTR_SELECTOR = AD_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
 
 // Never enter these — no translatable text inside
@@ -75,7 +84,7 @@ function isInlineEl(el) {
 }
 
 function hasBlacklistedAncestor(el) {
-  return !!el.closest(BLACKLIST_SELECTOR)
+  return !!(el.closest(BLACKLIST_SELECTOR) || el.closest(STRUCT_ATTR_SELECTOR))
 }
 
 // Pre-built selector for class-based YT prefix matching. CSS attribute selectors handle
