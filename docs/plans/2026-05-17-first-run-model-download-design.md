@@ -38,9 +38,25 @@
 - Chrome 扩展运行时（真实模型下载、SW Port、openOptionsPage）**无法在此无人值守真机验证** → 诚实标注"需用户真机冒烟测试"，不谎称已浏览器验证。
 - 每任务 subagent 实现 + 规格审 + 质量审。
 
-## 开放问题（用户醒后定）
+## 交付状态（2026-05-17，全部完成）
 
-1. 是否也要在 popup 里加同样的 `<progress>` 条（目前 popup 只用文字 %）——本设计先只修 bug，不扩 popup UI（YAGNI）。
-2. i18n 是否需要补齐全部语言（de/fr/es/it/zh_TW）——本设计先 en+zh_CN（与既往 messages.json 改动一致），其余留 TODO。
-3. 是否推送 main（本设计只本地提交，等用户审）。
-4. 悬浮球"⬇"状态与现有 idle/translating/done 状态机的交互细节，醒后可调 UX。
+| 任务 | commit | 状态 |
+|---|---|---|
+| 设计文档 | `b2a8174` | — |
+| A popup 进度 bug | `c010b62` | ✅ 规格+质量审 APPROVED |
+| B SW Port 流回进度 | `cceb7b6` | ✅ 规格+质量审 APPROVED（含单测 6） |
+| C Options 下载器（键石） | `2b3c3b5` + 加固 `bacf202` | ✅ 规格+质量审 APPROVED（含单测 10） |
+| D 悬浮球跳转 Options | `a3e9c2b` | ✅ 规格+质量审 APPROVED（含单测 4） |
+
+全套测试 **12 套件 / 69 测试全绿**，含试点回归门禁（`fixtures-regression`/`detector*`）——`detector.js` 与 baseline **零改动**，试点门禁完整。整体最终审查：**SHIP-SAFE，无 Critical/Important**。仅本地提交、**未推送**（推送是用户决定，开放问题 3）。
+
+**唯一残留运行时风险**：Path-1（toast 确认 → SW 触发下载）若 Chrome 要求用户手势可能被拒——但**会干净报错不卡死**，且 Path-2（琥珀球 → Options 直下，真实手势+API）架构保证可用。最坏：toast 下载失败 → 点球去 Options 完成。**建议推送前真机冒烟一次**验证 Path-1；失败也不阻塞（Options 即保底，未来可让 toast 也直接走 Options）。
+
+## 跟踪项 / 开放问题（用户醒后定）
+
+1. 是否在 popup 也加 `<progress>` 条（现仅文字 %）——YAGNI 暂缓。
+2. i18n 其余语言（de/fr/es/it/zh_TW）——现 en+zh_CN，其余自动回落 en（manifest `default_locale`），非崩溃；待补。
+3. **是否推送 main**——本功能 6 个 commit 已在本地 main，未推送，等你审 + 拍板。
+4. 悬浮球"⬇"状态 UX（审查 M2）：用户显式取消确认 toast 后，`content.js:55` 仍 `setState('idle')`，琥珀入口丢失；是否改为保留 `needs-model`、并去重「toast+球」双入口（未来可直接砍掉 after-download 自动 toast，全走更可靠的球→Options）。
+5. （审查 M1）两条下载路径可并发；Chrome API 服务端去重同一模型下载，实践无害，仅可能并存两个进度 UI。
+6. （审查 M3）SW 触发下载的用户手势风险，见上"残留运行时风险"，真机冒烟验证。
