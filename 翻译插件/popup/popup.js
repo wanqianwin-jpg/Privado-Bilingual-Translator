@@ -234,7 +234,8 @@ async function triggerChromeDownload(el, targetLang, onSuccess) {
       targetLanguage: targetLang,
       monitor(m) {
         m.addEventListener('downloadprogress', (e) => {
-          if (e.total > 0) setStatus(el, 'warn', Math.round(e.loaded / e.total * 100) + '%')
+          const pct = Math.max(0, Math.min(100, Math.round((e.loaded || 0) * 100)))
+          setStatus(el, 'warn', pct + '%')
         })
       }
     })
