@@ -33,4 +33,26 @@ describe('detector: class/id-based footer 样板应 SKIP（R2 根因）', () => 
     expect(result.length).toBe(1)
     expect(result[0].textContent).toContain('CONTENTENTRY')
   })
+
+  // 特征化测试（pin 当前行为）：[class*="footer" i] 子串匹配存在已知误伤——
+  // BEM/复合内容类名只要包含 token "footer"（如 article__footer-note）就会被
+  // 当作页脚样板 SKIP，即便它其实是正文。这是试点阶段已接受的局限（回归门
+  // 是安全网，扩规模时再收紧），见 detector.js 中 STRUCT_KEYWORDS 附近的说明。
+  // 此处钉住当前 SKIP，使将来把 STRUCT 匹配收紧为 token 锚定时，本期望应在
+  // 同一 commit 内翻转为 TRANSLATE，成为可审计的、有意为之的基线变更而非静默漂移。
+  test('BEM 复合类名含 "footer" 子串的正文当前被误判 SKIP（已知子串匹配局限）', () => {
+    const dom = new JSDOM(`<!DOCTYPE html><html><body>
+      <p class="article__footer-note">
+        BEMFOOTERENTRY This is a real article footnote paragraph in English, long enough to translate normally and not actually page chrome.
+      </p>
+    </body></html>`)
+    const doc = dom.window.document
+
+    const trace = []
+    getTranslatableElements(doc.body, { trace })
+
+    const bemEntry = trace.find(e => e.text && e.text.includes('BEMFOOTERENTRY'))
+    expect(bemEntry).toBeDefined()
+    expect(bemEntry.decision).toBe('SKIP')
+  })
 })

@@ -40,6 +40,9 @@ const YT_UI_PREFIXES = ['ytp-', 'yt-icon', 'ytd-button', 'yt-button']
 const BLACKLIST_SELECTOR = 'nav, header, footer, aside, #movie_player, [role="navigation"], [role="banner"], [role="complementary"], [role="form"], [role="search"], [role="alert"], [role="status"], [aria-live="assertive"], .sr-only, .visually-hidden, [aria-hidden="true"], .js-flash-container'
 // class/id-based structural-chrome selector — same construction as AD_ATTR_SELECTOR.
 const STRUCT_ATTR_SELECTOR = STRUCT_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
+// Union of the two ancestor selectors so hasBlacklistedAncestor walks the tree once
+// instead of twice (boolean OR of "matches A" / "matches B" == "matches A,B").
+const BLACKLIST_OR_STRUCT_SELECTOR = BLACKLIST_SELECTOR + ',' + STRUCT_ATTR_SELECTOR
 const AD_ATTR_SELECTOR = AD_KEYWORDS.map(kw => `[class*="${kw}" i],[id*="${kw}" i]`).join(',')
 
 // Never enter these — no translatable text inside
@@ -84,7 +87,7 @@ function isInlineEl(el) {
 }
 
 function hasBlacklistedAncestor(el) {
-  return !!(el.closest(BLACKLIST_SELECTOR) || el.closest(STRUCT_ATTR_SELECTOR))
+  return !!el.closest(BLACKLIST_OR_STRUCT_SELECTOR)
 }
 
 // Pre-built selector for class-based YT prefix matching. CSS attribute selectors handle
