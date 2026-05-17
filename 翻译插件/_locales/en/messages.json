@@ -112,5 +112,6 @@
   "optionsModelNoneNeeded":   { "message": "Your target language is English — no offline model is needed." },
   "optionsModelNoApi":        { "message": "This browser build has no on-device AI. Online Google free translation still works as a fallback." },
   "optionsModelUnsupported":  { "message": "This device or OS does not support on-device translation. Online Google free translation still works as a fallback." },
-  "optionsModelFailed":       { "message": "Download failed — click to retry." }
+  "optionsModelFailed":       { "message": "Download failed — click to retry." },
+  "popupUiLangLabel":         { "message": "Interface language" }
 }

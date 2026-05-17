@@ -114,5 +114,6 @@
   "optionsModelNoneNeeded":   { "message": "目标语言为英文——无需离线模型。" },
   "optionsModelNoApi":        { "message": "此浏览器版本不支持本地 AI。仍可使用 Google 在线免费翻译兜底。" },
   "optionsModelUnsupported":  { "message": "此设备或系统不支持本地翻译。仍可使用 Google 在线免费翻译兜底。" },
-  "optionsModelFailed":       { "message": "下载失败——点击重试。" }
+  "optionsModelFailed":       { "message": "下载失败——点击重试。" },
+  "popupUiLangLabel":         { "message": "界面语言" }
 }

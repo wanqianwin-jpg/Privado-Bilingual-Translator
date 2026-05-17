@@ -163,6 +163,15 @@ async function init() {
     chrome.tabs.reload(chromeTab.id)
   })
 
+  // ── 界面语言 ──────────────────────────────────────────────────────────────────
+
+  const uiLangSel = document.getElementById('ui-lang')
+  uiLangSel.value = __loc
+  uiLangSel.addEventListener('change', async e => {
+    await chrome.storage.local.set({ uiLang: e.target.value })
+    chrome.tabs.reload(chromeTab.id)
+  })
+
   // ── 显示模式 ──────────────────────────────────────────────────────────────────
 
   const modeSel = document.getElementById('display-mode')
