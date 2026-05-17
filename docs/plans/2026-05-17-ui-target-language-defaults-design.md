@@ -58,3 +58,32 @@ chrome.i18n 锁浏览器语言，需自建共享 `btI18n(key, subs)`：
 
 1. **② i18n 加载机制有技术不确定性** → writing-plans 第一任务即验证 `fetch _locales` 是否在 SW/options/content 各上下文可行；不行则走 `shared/locale-data.js` 回退。
 2. **④ 翻译 5 套 locale + 阿语 RTL 是真工作量**，非纯代码。
+
+---
+
+## 交付状态（2026-05-17，全部完成）
+
+8 个计划任务 + 1 个最终审查修正，**每个均 实现→规格审→质量审 APPROVED**；整体最终审查 = **SHIP，零 Critical/Important 阻塞**。仅本地提交、**未推送**（推送是用户决定）。
+
+| 任务 | commit | 说明 |
+|---|---|---|
+| 设计/计划 | `9526206`/`ef93225` | — |
+| T1 lang-map 纯映射 | `bba874a`+`7cb3412` | 含 zh 港澳台/新加坡地区变体修正 |
+| T2 targetLang 浏览器默认 | `9d1107b` | **修掉原始 bug（硬编码 zh）**；存量/中文用户零行为变化；英文浏览器干净 no-op |
+| T3 btI18n 解析器+loader | `c769bb4` | chrome.i18n 替换语义 17/17 精确；三级回退永不空白 |
+| T4 uiLang 推导 + popup/options | `028a2b0` | — |
+| T5 其余上下文 + SW 填缓存 | `499c669` | SW onChanged 承重逻辑字节级零改动 |
+| T6 popup 界面语言下拉 | `0da27b2` | 用户修正旋钮 |
+| T7 5 locale + 阿语 RTL | `e17c75d` | ja/ko/ru/ar/pt_BR 各 101 键全等 en、占位符逐字保留 |
+| M1 回填 popupUiLangLabel | `572b09b` | 补 zh_TW/de/es/fr/it（本功能引入的一致性缺口）|
+
+全套 **17 套件 / 128 测试全绿**；`detector.js` 与试点 baseline **零改动**，试点回归门禁完整。两旋钮严格解耦。
+
+## 跟踪项（非阻塞，发布前处理）
+
+1. **5 个新 locale（ja/ko/ru/ar/pt_BR）系 LLM 翻译**，建议发布前请母语者校关键串（按钮/状态/隐私）。最坏退化＝回落英文，绝不空白/损坏。
+2. **真机冒烟未做**（无人值守无法）：SW `_locales` 特权 fetch 是否在真实 Chrome 通；阿语 RTL 渲染目测。架构三级回退保证 fetch 即便被拦也只退化成"界面跟浏览器语言"，不破坏。
+3. **既有 5 locale（zh_TW/de/es/fr/it）仍缺 8 个上个功能的 model-download 键**（`optionsModel*`/`statusDownloadFailed`，早于本功能、本功能未扩范围处理）→ 同样一行回填可一并清掉，列为独立后续。
+4. `config.js` 末级 bare-identifier 回退（`: mapToTargetLang`）当前不可达的文档 nit（M2），低优先。
+
+剩余唯一决定（用户）：**是否 push 到云端 main**（本功能 9 个 commit 在本地 main，未推送）。
