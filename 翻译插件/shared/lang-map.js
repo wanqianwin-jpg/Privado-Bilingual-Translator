@@ -14,8 +14,10 @@ const SUPPORTED_BASE = ['en', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'ar', 'it']
 // Returns one of: 'zh', 'zh-TW', 'pt', a SUPPORTED_BASE code, or 'en' (fallback).
 function classify(browserLang) {
   const lang = String(browserLang || '').toLowerCase()
-  if (lang === 'zh-hant' || lang === 'zh-tw') return 'zh-TW'
-  if (lang === 'zh' || lang === 'zh-hans' || lang === 'zh-cn') return 'zh'
+  if (lang === 'zh' || lang.indexOf('zh-') === 0) {
+    if (lang.indexOf('hant') !== -1 || lang.indexOf('tw') !== -1 || lang.indexOf('hk') !== -1 || lang.indexOf('mo') !== -1) return 'zh-TW'
+    return 'zh'
+  }
   if (lang === 'pt' || lang.indexOf('pt-') === 0) return 'pt'
   const primary = lang.split('-')[0]
   if (SUPPORTED_BASE.indexOf(primary) !== -1) return primary
