@@ -2,10 +2,14 @@
   const stored = await chrome.storage.local.get([
     'siteSettings', 'displayMode', 'targetLang', ...TRANSLATE_MODE_KEYS
   ])
-  const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
+  const { siteSettings = {}, displayMode = 'bilingual' } = stored
+  const targetLang = resolveTargetLang(stored)
+  if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
   const translateMode = resolveTranslateMode(stored)
 
   if (siteSettings[location.hostname] === 'never') return
+  // en→en has nothing to translate; never inject, error, or pop download UI.
+  if (targetLang === 'en') return
   if (isPageAlreadyInTargetLang(targetLang)) return
 
   injectStyles()

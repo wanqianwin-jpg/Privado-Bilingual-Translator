@@ -211,9 +211,10 @@ function initPageTranslation() {
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
 
 chrome.storage.local.get(['siteSettings', 'targetLang', ...TRANSLATE_MODE_KEYS], (data) => {
-  const { siteSettings = {}, targetLang: lang = 'zh' } = data
+  const { siteSettings = {} } = data
   if (siteSettings[location.hostname] === 'never') return
-  targetLang = lang
+  targetLang = resolveTargetLang(data)
+  if (!('targetLang' in data)) chrome.storage.local.set({ targetLang })
   translateMode = resolveTranslateMode(data)
   initPageTranslation()
 })

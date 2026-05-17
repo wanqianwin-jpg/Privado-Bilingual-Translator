@@ -24,7 +24,8 @@ let ytMode = 'bilingual'
 
 async function init() {
   const data = await chrome.storage.local.get(['targetLang', ...TRANSLATE_MODE_KEYS])
-  targetLang = data.targetLang || 'zh'
+  targetLang = resolveTargetLang(data)
+  if (!('targetLang' in data)) chrome.storage.local.set({ targetLang })
   translateMode = resolveTranslateMode(data)
 
   window.addEventListener('message', onMainWorldMessage)

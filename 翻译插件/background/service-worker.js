@@ -1,7 +1,7 @@
 // importScripts is only available in service worker context;
 // in MV2 background.html these scripts are already loaded via <script> tags.
 if (typeof importScripts === 'function') {
-  importScripts('../shared/debug-translator.js', '../shared/config.js',
+  importScripts('../shared/debug-translator.js', '../shared/lang-map.js', '../shared/config.js',
     'batch-queue.js', 'cache.js',
     'translators/google-translator.js',
     'translators/user-api-translator.js', 'translators/index.js')
@@ -64,7 +64,9 @@ if (IS_SAFARI) {
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === 'rewrite-selection') {
     if (!tab?.id) return
-    const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+    const stored = await chrome.storage.local.get('targetLang')
+    const targetLang = resolveTargetLang(stored)
+    if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
     chrome.tabs.sendMessage(tab.id, {
       type: 'REWRITE_SELECTION',
       text: info.selectionText || null,
@@ -98,7 +100,9 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 
   // OCR via native app
   try {
-    const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+    const stored = await chrome.storage.local.get('targetLang')
+    const targetLang = resolveTargetLang(stored)
+    if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
     const r = await sendNativeMsg(
       needTranslate
         ? { type: 'OCR_TRANSLATE', image: dataUri, toLang: targetLang }
@@ -315,7 +319,9 @@ chrome.runtime.onConnect.addListener((port) => {
 chrome.commands.onCommand.addListener(async (command, tab) => {
   if (command === 'rewrite-selection') {
     if (!tab?.id) return
-    const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+    const stored = await chrome.storage.local.get('targetLang')
+    const targetLang = resolveTargetLang(stored)
+    if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
     chrome.tabs.sendMessage(tab.id, {
       type: 'REWRITE_SELECTION',
       text: null,

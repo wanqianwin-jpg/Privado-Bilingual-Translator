@@ -97,7 +97,9 @@ async function initModelSection() {
 
   hintEl.textContent = i18n('toastChromeAfterDownload')
 
-  const { targetLang = 'zh' } = await chrome.storage.local.get('targetLang')
+  const stored = await chrome.storage.local.get('targetLang')
+  const targetLang = resolveTargetLang(stored)
+  if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
   const hasTranslator = 'Translator' in self
 
   let a = 'unavailable'

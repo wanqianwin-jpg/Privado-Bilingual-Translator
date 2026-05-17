@@ -20,7 +20,9 @@ async function init() {
   const stored = await chrome.storage.local.get([
     'siteSettings', 'displayMode', 'targetLang', ...TRANSLATE_MODE_KEYS
   ])
-  const { siteSettings = {}, displayMode = 'bilingual', targetLang = 'zh' } = stored
+  const { siteSettings = {}, displayMode = 'bilingual' } = stored
+  const targetLang = resolveTargetLang(stored)
+  if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
   let savedMode = resolveTranslateMode(stored)
 
   // Sanitize: if saved mode is not available in this browser, fall back to machine
