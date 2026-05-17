@@ -34,11 +34,30 @@ function resolveTargetLang(stored, browserLang) {
   return map(lang)
 }
 
+// Resolves the effective extension UI locale-dir.
+//   - if the user made an explicit choice (truthy stored.uiLang) → keep it
+//   - otherwise derive from the browser language via mapToUiLang
+// browserLang is passed explicitly in tests; in production it defaults to the
+// browser UI language. lang-map is resolved the dual way config.js must handle
+// shared deps: require() under jest, global (self.mapToUiLang) in SW/page.
+function resolveUiLang(stored, browserLang) {
+  if (stored && stored.uiLang) return stored.uiLang
+  const map = (typeof module !== 'undefined' && typeof require === 'function')
+    ? require('./lang-map').mapToUiLang
+    : (typeof self !== 'undefined' ? self.mapToUiLang : mapToUiLang)
+  let lang = browserLang
+  if (lang === undefined && typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getUILanguage) {
+    lang = chrome.i18n.getUILanguage()
+  }
+  return map(lang)
+}
+
 if (typeof self !== 'undefined' && typeof module === 'undefined') {
   self.resolveTranslateMode = resolveTranslateMode
   self.resolveTargetLang = resolveTargetLang
+  self.resolveUiLang = resolveUiLang
   self.TRANSLATE_MODE_KEYS = TRANSLATE_MODE_KEYS
 }
 if (typeof module !== 'undefined') {
-  module.exports = { resolveTranslateMode, resolveTargetLang, TRANSLATE_MODE_KEYS }
+  module.exports = { resolveTranslateMode, resolveTargetLang, resolveUiLang, TRANSLATE_MODE_KEYS }
 }

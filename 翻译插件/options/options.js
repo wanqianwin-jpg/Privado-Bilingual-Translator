@@ -6,7 +6,7 @@ const MODEL_PRESETS = {
 const DEFAULT_MODELS = { openai: 'gpt-4o-mini', gemini: 'gemini-2.0-flash' }
 const DEFAULT_BASE_URLS = { openai: 'https://api.openai.com/v1' }
 
-const i18n = key => chrome.i18n.getMessage(key)
+const i18n = key => btI18n(key)
 
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -164,6 +164,12 @@ async function attachDownload(targetLang, btn, progressRow, progressEl, pctEl, f
 
 async function init() {
   await maybeInstallFakeTranslator().catch(() => {})
+
+  const __s = await chrome.storage.local.get('uiLang')
+  const __loc = resolveUiLang(__s)
+  await btI18nInit(__loc).catch(() => {})
+  if (!('uiLang' in __s)) chrome.storage.local.set({ uiLang: __loc })
+
   applyI18n()
 
   try {

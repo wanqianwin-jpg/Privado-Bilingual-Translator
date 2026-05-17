@@ -4,13 +4,19 @@ const PRIVACY_MODES = IS_SAFARI ? new Set(['apple-npu']) : new Set(['chrome-loca
 
 function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const msg = chrome.i18n.getMessage(el.dataset.i18n)
+    const msg = btI18n(el.dataset.i18n)
     if (msg) el.textContent = msg
   })
 }
 
 async function init() {
   await maybeInstallFakeTranslator().catch(() => {})
+
+  const __s = await chrome.storage.local.get('uiLang')
+  const __loc = resolveUiLang(__s)
+  await btI18nInit(__loc).catch(() => {})
+  if (!('uiLang' in __s)) chrome.storage.local.set({ uiLang: __loc })
+
   applyI18n()
 
   const [chromeTab] = await chrome.tabs.query({ active: true, currentWindow: true })
@@ -51,8 +57,8 @@ async function init() {
 
   document.getElementById('site').textContent = host
   siteLabel.textContent = host
-    ? chrome.i18n.getMessage('translateSite', [host])
-    : chrome.i18n.getMessage('translateSiteDefault')
+    ? btI18n('translateSite', [host])
+    : btI18n('translateSiteDefault')
 
   // ── 渲染模式选中状态 ──────────────────────────────────────────────────────────
 
@@ -182,7 +188,7 @@ async function runDetection(targetLang) {
   if (IS_SAFARI)  detectAppleNpu(targetLang)
 }
 
-const i18n = key => chrome.i18n.getMessage(key)
+const i18n = key => btI18n(key)
 
 // Tracks detected Chrome Translator status so sub-option click can act on it
 let chromeDetectedStatus = null
