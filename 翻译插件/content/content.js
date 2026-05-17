@@ -1,7 +1,11 @@
 ;(async function () {
   const stored = await chrome.storage.local.get([
-    'siteSettings', 'displayMode', 'targetLang', ...TRANSLATE_MODE_KEYS
+    'siteSettings', 'displayMode', 'targetLang', 'uiLang', ...TRANSLATE_MODE_KEYS
   ])
+  // Content scripts are non-privileged: btI18nInit only READS the locale cache
+  // the SW populated. If absent, btI18n falls back to chrome.i18n. No lazy
+  // uiLang persist here (SW/popup/options own that write) — content only reads.
+  await btI18nInit(resolveUiLang(stored)).catch(() => {})
   const { siteSettings = {}, displayMode = 'bilingual' } = stored
   const targetLang = resolveTargetLang(stored)
   if (!('targetLang' in stored)) chrome.storage.local.set({ targetLang })
@@ -242,7 +246,7 @@ function sortByViewport(els) {
 
 // ── Toasts ────────────────────────────────────────────────────────────────────
 
-const i18n = (key, subs) => chrome.i18n.getMessage(key, subs)
+const i18n = (key, subs) => btI18n(key, subs)
 
 let apiErrorToastShown = false
 function showApiErrorToast() {

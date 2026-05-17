@@ -547,7 +547,7 @@ function showYtStartingHint() {
     'pointer-events:none', 'white-space:nowrap',
     'opacity:0', 'transition:opacity 0.25s'
   ].join(';')
-  hint.textContent = chrome.i18n.getMessage('ytStartingHint')
+  hint.textContent = btI18n('ytStartingHint')
   document.body.appendChild(hint)
 
   // Fade in

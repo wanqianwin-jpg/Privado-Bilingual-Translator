@@ -2,6 +2,7 @@
 // in MV2 background.html these scripts are already loaded via <script> tags.
 if (typeof importScripts === 'function') {
   importScripts('../shared/debug-translator.js', '../shared/lang-map.js', '../shared/config.js',
+    '../shared/i18n.js',
     'batch-queue.js', 'cache.js',
     'translators/google-translator.js',
     'translators/user-api-translator.js', 'translators/index.js')
@@ -20,11 +21,31 @@ chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
 // DEV-ONLY: install/restore the fake Translator if the debug key is set.
 // Guarded so a harness failure can never break config handling. No-op when OFF.
 maybeInstallFakeTranslator().catch(() => {})
+
+// SW is a privileged context → btI18nInit fetches+caches _locales/<loc> + en
+// into chrome.storage.local so non-privileged content scripts can read them.
+// Never throws; lazy-persists the resolved uiLang if absent.
+async function btSwI18nInit() {
+  const s = await chrome.storage.local.get('uiLang')
+  const loc = resolveUiLang(s)
+  await btI18nInit(loc).catch(() => {})
+  if (!('uiLang' in s)) chrome.storage.local.set({ uiLang: loc })
+  return loc
+}
+// Kick off cache population at SW startup (independent of menu registration).
+btSwI18nInit().catch(() => {})
+
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return
   // Re-evaluate the debug harness on any local change so toggling the key
   // live re-installs/restores without restarting the SW. Guarded no-op.
   maybeInstallFakeTranslator().catch(() => {})
+  // uiLang changed → re-populate the locale-string cache (privileged refetch)
+  // so content scripts pick up the new language. Guarded, additive only.
+  if (changes.uiLang) {
+    const newLoc = resolveUiLang({ uiLang: changes.uiLang.newValue })
+    btI18nInit(newLoc).catch(() => {})
+  }
   let configChanged = false
   for (const [key, { newValue }] of Object.entries(changes)) {
     if (key in config) {
@@ -42,13 +63,16 @@ chrome.storage.onChanged.addListener((changes, area) => {
 
 // ── Context menus (Apple NPU image OCR) ──────────────────────────────────────
 
-function registerContextMenus() {
+async function registerContextMenus() {
+  // Ensure locale strings are loaded before titles are computed so menus
+  // follow the chosen uiLang (btI18n still has a chrome.i18n fallback).
+  await btSwI18nInit().catch(() => {})
   chrome.contextMenus.removeAll(() => {
-    chrome.contextMenus.create({ id: 'ocr-only',      title: chrome.i18n.getMessage('ctxOcrOnly'),      contexts: ['image'] })
-    chrome.contextMenus.create({ id: 'ocr-translate', title: chrome.i18n.getMessage('ctxOcrTranslate'), contexts: ['image'] })
+    chrome.contextMenus.create({ id: 'ocr-only',      title: btI18n('ctxOcrOnly'),      contexts: ['image'] })
+    chrome.contextMenus.create({ id: 'ocr-translate', title: btI18n('ctxOcrTranslate'), contexts: ['image'] })
     if (!IS_SAFARI) {
-      chrome.contextMenus.create({ id: 'rewrite-selection', title: chrome.i18n.getMessage('ctxRewriteSelection'), contexts: ['selection'] })
-      chrome.contextMenus.create({ id: 'read-aloud', title: chrome.i18n.getMessage('ctxReadAloud'), contexts: ['selection'] })
+      chrome.contextMenus.create({ id: 'rewrite-selection', title: btI18n('ctxRewriteSelection'), contexts: ['selection'] })
+      chrome.contextMenus.create({ id: 'read-aloud', title: btI18n('ctxReadAloud'), contexts: ['selection'] })
     }
   })
 }

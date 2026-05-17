@@ -13,17 +13,17 @@
     {
       "matches": ["<all_urls>"],
       "exclude_matches": ["*://www.youtube.com/*", "*://*.reddit.com/*", "*://mail.google.com/*"],
-      "js": ["shared/lang-map.js", "shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
+      "js": ["shared/lang-map.js", "shared/config.js", "shared/i18n.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {
       "matches": ["*://mail.google.com/*"],
-      "js": ["shared/lang-map.js", "shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/gmail.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
+      "js": ["shared/lang-map.js", "shared/config.js", "shared/i18n.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/gmail.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {
       "matches": ["*://*.reddit.com/*"],
-      "js": ["shared/lang-map.js", "shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/reddit.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
+      "js": ["shared/lang-map.js", "shared/config.js", "shared/i18n.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/reddit.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
       "run_at": "document_idle"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "matches": ["*://www.youtube.com/*"],
-      "js": ["shared/lang-map.js", "shared/config.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/youtube.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
+      "js": ["shared/lang-map.js", "shared/config.js", "shared/i18n.js", "content/detector.js", "content/renderer.js", "content/chrome-translator.js", "content/safari-translator.js", "content/floatball.js", "content/youtube.js", "content/rewriter.js", "content/reader.js", "content/content.js"],
       "run_at": "document_idle"
     }
   ],

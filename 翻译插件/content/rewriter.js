@@ -1,5 +1,5 @@
 ;(function () {
-  const i18n = (key) => chrome.i18n.getMessage(key)
+  const i18n = (key) => btI18n(key)
 
   chrome.runtime.onMessage.addListener((msg) => {
     if (msg.type !== 'REWRITE_SELECTION') return
