@@ -161,7 +161,7 @@ async function attachDownload(targetLang, btn, progressRow, progressEl, pctEl, f
 }
 
 async function init() {
-  await maybeInstallFakeTranslator()
+  await maybeInstallFakeTranslator().catch(() => {})
   applyI18n()
 
   try {
