@@ -301,5 +301,8 @@
   },
   "optionsFreeFallbackLabel": {
     "message": "允許 Google 免費翻譯備援（本地 AI 不可用時使用）"
+  },
+  "popupUiLangLabel": {
+    "message": "介面語言"
   }
 }

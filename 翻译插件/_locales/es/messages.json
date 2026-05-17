@@ -301,5 +301,8 @@
   },
   "optionsFreeFallbackLabel": {
     "message": "Permitir traducción gratuita de Google (cuando la IA local no está disponible)"
+  },
+  "popupUiLangLabel": {
+    "message": "Idioma de la interfaz"
   }
 }
