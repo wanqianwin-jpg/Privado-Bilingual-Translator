@@ -15,6 +15,7 @@ async function init() {
   const __s = await chrome.storage.local.get('uiLang')
   const __loc = resolveUiLang(__s)
   await btI18nInit(__loc).catch(() => {})
+  if (__loc === 'ar') document.documentElement.setAttribute('dir', 'rtl')
   if (!('uiLang' in __s)) chrome.storage.local.set({ uiLang: __loc })
 
   applyI18n()
