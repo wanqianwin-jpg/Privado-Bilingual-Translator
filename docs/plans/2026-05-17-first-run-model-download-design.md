@@ -60,3 +60,78 @@
 4. 悬浮球"⬇"状态 UX（审查 M2）：用户显式取消确认 toast 后，`content.js:55` 仍 `setState('idle')`，琥珀入口丢失；是否改为保留 `needs-model`、并去重「toast+球」双入口（未来可直接砍掉 after-download 自动 toast，全走更可靠的球→Options）。
 5. （审查 M1）两条下载路径可并发；Chrome API 服务端去重同一模型下载，实践无害，仅可能并存两个进度 UI。
 6. （审查 M3）SW 触发下载的用户手势风险，见上"残留运行时风险"，真机冒烟验证。
+
+## 思路2 调试开关用法
+
+维护者的机器 `Translator.availability()` 恒返回 `available`，无法走"首次下载"分支。
+`shared/debug-translator.js` 提供一个 **默认关闭、由 storage 键开关** 的假 `Translator`，
+用来确定性地复现每条下载分支。**键缺失即零影响**（生产/正常使用下纯 no-op，
+不触碰全局 `Translator`，无任何行为变化）——该文件仅供开发调试。
+
+### storage 键结构
+
+键名 `__btDebugTranslator`（`chrome.storage.local`），值形状：
+
+```
+{
+  enabled: true,                 // 必须严格 === true，否则视为关闭
+  availability: 'downloadable',  // 'available' | 'downloadable' | 'downloading' | 'unavailable' | 'no-api'
+  failCreate: false,             // 可选；true 时 create() 抛错（演示失败/重试 UI）
+  downloadMs: 4000               // 可选；下载总时长 ms，缺省 4000，钳制到 500..20000
+}
+```
+
+- `enabled !== true` 或键不存在 → 完全不安装假对象，恢复真实 `Translator`。
+- `availability:'no-api'` → 删除 `self.Translator`，使 `'Translator' in self` 为 false（命中"无 API"分支）。
+- `availability:'available'` → `create()` 立即 resolve、无进度事件（与真实 available 一致）。
+- 其余下载态 → `create()` 异步发约 12 个单调不减的 `downloadprogress` 事件，
+  `loaded` 从 0 步进到 1（最后一次恰为 1，无 `total`，匹配当前真实 API），随后 resolve。
+- 假翻译器实例的 `translate(text)` 返回 `'【FAKE译】' + text`，便于校验调用链。
+
+### 生效方式
+
+1. 在任意扩展页（popup / options / SW）的 DevTools Console 粘贴下方对应片段设置键。
+2. **popup / options**：设置后 **重新加载该页面**（`init()` 启动时读键）。
+3. **service worker（content.js / 悬浮球走 SW）**：**无需重启**，SW 通过
+   `chrome.storage.onChanged` 实时重新安装/恢复。
+
+### 复制即用的 Console 片段
+
+强制「可下载 + 进度」（downloadable → downloading → success）：
+
+```js
+chrome.storage.local.set({ __btDebugTranslator: { enabled: true, availability: 'downloadable' } })
+```
+
+强制慢速下载（拉长进度条便于观察，30 秒）：
+
+```js
+chrome.storage.local.set({ __btDebugTranslator: { enabled: true, availability: 'downloadable', downloadMs: 20000 } })
+```
+
+强制下载失败（演示 catch / 重试 UI）：
+
+```js
+chrome.storage.local.set({ __btDebugTranslator: { enabled: true, availability: 'downloadable', failCreate: true } })
+```
+
+强制不可用（unavailable）：
+
+```js
+chrome.storage.local.set({ __btDebugTranslator: { enabled: true, availability: 'unavailable' } })
+```
+
+强制无 API（no-api，`'Translator' in self` 为 false → 在线回退提示）：
+
+```js
+chrome.storage.local.set({ __btDebugTranslator: { enabled: true, availability: 'no-api' } })
+```
+
+关闭开关（恢复真实 `Translator`，回到正常行为）：
+
+```js
+chrome.storage.local.remove('__btDebugTranslator')
+```
+
+> 该键 **仅供开发调试**；正常使用时键不存在 ⇒ 对生产代码 **零影响**（不写 `self.Translator`，纯 no-op）。
+> 改键后：popup/options 需重新加载页面；SW 经 `storage.onChanged` 实时生效。

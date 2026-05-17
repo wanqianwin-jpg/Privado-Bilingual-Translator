@@ -1,7 +1,7 @@
 // importScripts is only available in service worker context;
 // in MV2 background.html these scripts are already loaded via <script> tags.
 if (typeof importScripts === 'function') {
-  importScripts('../shared/config.js',
+  importScripts('../shared/debug-translator.js', '../shared/config.js',
     'batch-queue.js', 'cache.js',
     'translators/google-translator.js',
     'translators/user-api-translator.js', 'translators/index.js')
@@ -17,8 +17,14 @@ chrome.storage.local.get([...Object.keys(config), 'apiEnabled'], (stored) => {
   Object.assign(config, stored)
   config.translateMode = resolveTranslateMode(stored)
 })
+// DEV-ONLY: install/restore the fake Translator if the debug key is set.
+// Guarded so a harness failure can never break config handling. No-op when OFF.
+maybeInstallFakeTranslator().catch(() => {})
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== 'local') return
+  // Re-evaluate the debug harness on any local change so toggling the key
+  // live re-installs/restores without restarting the SW. Guarded no-op.
+  maybeInstallFakeTranslator().catch(() => {})
   let configChanged = false
   for (const [key, { newValue }] of Object.entries(changes)) {
     if (key in config) {

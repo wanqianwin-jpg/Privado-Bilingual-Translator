@@ -10,6 +10,7 @@ function applyI18n() {
 }
 
 async function init() {
+  await maybeInstallFakeTranslator()
   applyI18n()
 
   const [chromeTab] = await chrome.tabs.query({ active: true, currentWindow: true })
